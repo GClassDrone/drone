@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+* {
+	margin:0px;
+	padding: 0px;
+	text-decoration:none;
+}
+.container{
+	width:80%;
+	border: 1px solid #c0c0c0;
+	margin: auto;
+}
+.box_style {
+	float:left;
+	width:300px;
+	margin:1em;
+	padding: 1em;
+}
+.clear_style {
+	clear: left;
+}
+a:link {color: black;}
+a:visited {color: black;}
+a:hover {color: blue;}
