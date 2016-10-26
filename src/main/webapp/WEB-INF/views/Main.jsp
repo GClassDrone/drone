@@ -19,26 +19,26 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="images/carousel/carousel01.png" alt="carousel02 Photo">
+                <img src="/resources/images/carousel/carousel01.png" alt="carousel02 Photo">
                 <div class="carousel-caption">
                     <h3>Headline</h3>
                     <p>We strive to be your pet's medical experts from youth through the senior years. We build preventative health care plans for each and every one of our patients, based on breed, age, and sex, so that your pet receives the most appropriate care at crucial milestones. We want to give your pet a long and healthy life.</p>
                 </div>
             </div>
             <div class="item">
-                <img src="images/carousel/carousel02.png" alt="carousel01 Photo">
+                <img src="/resources/images/carousel/carousel02.png" alt="carousel01 Photo">
             </div>
             <div class="item">
-                <img src="images/carousel/carousel03.png" alt="carousel03 Photo">
+                <img src="/resources/images/carousel/carousel03.png" alt="carousel03 Photo">
             </div>
             <div class="item">
-                <img src="images/carousel/carousel04.png" alt="carousel04 Photo">
+                <img src="/resources/images/carousel/carousel04.png" alt="carousel04 Photo">
             </div>
             <div class="item">
-                <img src="images/carousel/carousel05.png" alt="carousel05 Photo">
+                <img src="/resources/images/carousel/carousel05.png" alt="carousel05 Photo">
             </div>
             <div class="item">
-                <img src="images/carousel/carousel06.png" alt="carousel06 Photo">
+                <img src="/resources/images/carousel/carousel06.png" alt="carousel06 Photo">
             </div>
         </div>
         <a class="left carousel-control" href="#carousel" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a>

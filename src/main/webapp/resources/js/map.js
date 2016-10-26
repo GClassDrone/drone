@@ -40,6 +40,7 @@ function initializeMaps() {
     		  map.setCenter(this.getPosition());
     	  }
       });
+      var markerCluster = new MarkerClusterer(map, mar);
     });
   });
 
