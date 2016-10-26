@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class TestController {
 
 	@RequestMapping(value="/test", method=RequestMethod.GET)
-	public void test(){
-		
+	public String test(){
+		return "test";
 	}
 }
