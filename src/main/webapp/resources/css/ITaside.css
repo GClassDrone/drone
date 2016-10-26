@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+#aside {
+	height: 730px;
+	width : 150px;
+	border: 1px solid red;
+	display: inline-block;
+	float: left;
+	background-color : black;
+	color: white;
+}
+#prj{
+	border: 1px solid red;	
+}
+#content table,tr, td{
+	background-color : black;
+	border: 1px solid red;
+	color: white;
+}
+#content th {
+ background-color: gray;
+ color: white;	
+}
+#content{
+	height: 730px;
+	width: 675px;
+	display: inline-block;
+	border: 1px dashed purple;
+	position: relative;
+	float: right;
+	background-color: black;
+	color: white;
+}
+#content li{
+	color: white;
+}
