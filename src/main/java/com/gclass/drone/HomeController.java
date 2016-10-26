@@ -39,9 +39,14 @@ public class HomeController {
 	public void map(){
 		
 	}
+	
 	@RequestMapping("/CGlist")
 	public void cglist(){
 		
 	}
 	
+	@RequestMapping("/Main")
+	public void Main(){
+		
+	}
 }
