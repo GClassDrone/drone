@@ -4,13 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/resources/css/CGlist.css">
-<title>Insert title here</title>
-</head>
-<body>
-	<div style="margin: auto;">
-		<h1>헤더넣을자리</h1>
-	</div>
+<meta charset="utf-8">
+<%@ include file="header.jsp" %>
 	<div class="container">
 		<div class="row">
 			<ul class="nav nav-tabs pull-right">
