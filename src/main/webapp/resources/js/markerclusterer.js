@@ -1046,10 +1046,11 @@ ClusterIcon.prototype.triggerClusterClick = function(event) {
 
   // Trigger the clusterclick event.
   google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_, event);
-
-  if (markerClusterer.isZoomOnClick()) {
-    // Zoom into the cluster.
-    this.map_.fitBounds(this.cluster_.getBounds());
+  if(this.cluster_.getSize()>3 && this.map_.getZoom()<11){
+	  if (markerClusterer.isZoomOnClick()) {
+		  // Zoom into the cluster.
+		  this.map_.fitBounds(this.cluster_.getBounds());
+	  }
   }
 };
 
