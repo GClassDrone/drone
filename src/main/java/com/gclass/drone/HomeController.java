@@ -17,8 +17,8 @@ public class HomeController {
 	public void cglist(){
 		
 	}
-	@RequestMapping("/itboardlist")
-	public void itboardlist(){
+	@RequestMapping("/itlist")
+	public void itlist(){
 		
 	}
 }

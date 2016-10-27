@@ -14,9 +14,11 @@
 	width: 100%;
 	z-index: 9999;
 }
+
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<div class="clearfix"></div>
     <footer class="section section-primary">
         <div class="container">
             <div class="row">
