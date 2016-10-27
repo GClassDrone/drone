@@ -17,4 +17,8 @@ public class HomeController {
 	public void cglist(){
 		
 	}
+	@RequestMapping("/itlist")
+	public void itlist(){
+		
+	}
 }
