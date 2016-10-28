@@ -2,12 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Bootstrap</title>
+    <link href="css/intro.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    .navbar-default {
+        width: 100%;
+        z-index: 9999;
+    }
+    
+    .bgimage {
+        background-image: url('./images/infoboard_bg.jpg');
+        background-position: center center;
+        background-size: cover;
+        height: 320px;
+    }
+    
+    a {
+        color: white;
+    }
+    
+    .more {
+        text-align: center;
+    }
+    
+    .breadcrumb {
+        background: rgba(23, 21, 21, 0);
+        border: 0px solid rgba(245, 245, 245, 1);
+        border-radius: 0px;
+        display: block;
+    }
+    
+    .breadcrumb li {
+        font-size: 14px;
+    }
+    
+    .breadcrumb a {
+        color: rgba(66, 139, 202, 1);
+    }
+    
+    .breadcrumb a:hover {
+        color: rgba(42, 100, 150, 1);
+    }
+    
+    .breadcrumb>.active {
+        color: rgba(153, 153, 153, 1);
+    }
+    
+    .breadcrumb>li+li:before {
+        color: rgba(204, 204, 204, 1);
+        content: "\002F\00a0";
+    }
+    </style>
 </head>
 
 <body>
@@ -17,7 +65,7 @@
                 <div class="container">
                     <!-- navbar-default /  navbar-fixed-top  -->
                     <div class="navbar-header">
-                        <a href="#" class="navbar-brand">GClass-Drone</a>
+                        <a href="#" class="navbar-brand">GClass</a>
                     </div>
                     <p class="navbar-text">Sharing People's Drone Life</p>
                     <ul class="nav navbar-nav">
@@ -44,14 +92,13 @@
         </div>
     </header>
     <div class="container">
-        <!--     <div class="row">
-	<ol class="breadcrumb">
-	<li><a href="#">게시판</a></li>
-	<li><a href="#">지자기수치</a></li>
-	<li><a href="https://goo.gl/H8t5d7">기상정보</a></li>
-	</ol>
-</div> -->
         <div class="row">
+            <br />
+            <ol class="breadcrumb">
+                <li><a href="#">home</a></li>
+                <li class="active">드론시장동향</li>
+                <!-- <li><a href="#">grooming</a></li> -->
+            </ol>
             <ul class="nav nav-tabs pull-right">
                 <li class="active"><a href="P_info.html">시장동향</a></li>
                 <li><a href="P_board.html">게시판</a></li>
@@ -65,53 +112,166 @@
     <div class="container">
         <div class="row">
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <img src="images/drone1.jpeg" class="img-thumbnail img-responsive center-block" alt="Dr Winthrop Photo">
-                <h3><a href="#">제목</a></h3>
-                <p>Dr. Winthrop is the guardian of Missy, a three-year old Llaso mix, who he adopted at the shelter. Dr. Winthrop is passionate about spay and neuter and pet adoption, and works tireless hours outside the clinic
-                    <a href="#">read more</a></p>
-                <div class="clearfix visible-sm-block"></div>
+                <div class="thumbnail">
+                    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
+                    <div class="caption">
+                        <h3>
+                                Thumbnail label
+                            </h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Go</a>
+                        </p>
+                    </div>
+                </div>
             </section>
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <img src="images/drone1.jpeg" class="img-thumbnail img-responsive center-block" alt="Dr Winthrop Photo">
-                <h3><a href="#">제목</a></h3>
-                <p>Dr. Chase spends much of her free time helping the local rescue organization find homes for animals, such as Kibbles - a Maine Coon Cat who is part of the large Chase household, including two dogs, three cats, and a turtle. <a href="#">read more</a></p>
+                <div class="thumbnail">
+                    <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg">
+                    <div class="caption">
+                        <h3>
+                                Thumbnail label
+                            </h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Go</a>
+                        </p>
+                    </div>
+                </div>
             </section>
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <img src="images/drone1.jpeg" class="img-thumbnail img-responsive center-block" alt="Dr Winthrop Photo">
-                <h3><a href="#">제목</a></h3>
-                <p>Leroy walked into Dr. Sanders front door when he was moving into a new house. After searching for weeks for Leroy's guardians, he decided to make Leroy a part of his pet family, and now has three cats. <a href="#">read more</a></p>
+                <div class="thumbnail">
+                    <img alt="Bootstrap Thumbnail Third" src="http://lorempixel.com/output/sports-q-c-600-200-1.jpg">
+                    <div class="caption">
+                        <h3>
+                                Thumbnail label
+                            </h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Go</a>
+                    </div>
+                </div>
             </section>
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <img src="images/drone1.jpeg" class="img-thumbnail img-responsive center-block" alt="Dr Winthrop Photo">
-                <h3><a href="#">제목</a></h3>
-                <p>Leroy walked into Dr. Sanders front door when he was moving into a new house. After searching for weeks for Leroy's guardians, he decided to make Leroy a part of his pet family, and now has three cats. <a href="#">read more</a></p>
+                <div class="thumbnail">
+                    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
+                    <div class="caption">
+                        <h3>
+                                Thumbnail label
+                            </h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Go</a>
+                        </p>
+                    </div>
+                </div>
             </section>
         </div>
-        <div class="row">
+         <div class="row">
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <img src="images/drone1.jpeg" class="img-thumbnail img-responsive center-block" alt="Dr Winthrop Photo">
-                <h3><a href="#">제목</a></h3>
-                <p>Dr. Winthrop is the guardian of Missy, a three-year old Llaso mix, who he adopted at the shelter. Dr. Winthrop is passionate about spay and neuter and pet adoption, and works tireless hours outside the clinic<a href="#">read more</a></p>
+                <div class="thumbnail">
+                    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
+                    <div class="caption">
+                        <h3>
+                                Thumbnail label
+                            </h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Go</a>
+                        </p>
+                    </div>
+                </div>
             </section>
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <img src="images/drone1.jpeg" class="img-thumbnail img-responsive center-block" alt="Dr Winthrop Photo">
-                <h3><a href="#">제목</a></h3>
-                <p>Dr. Chase spends much of her free time helping the local rescue organization find homes for animals, such as Kibbles - a Maine Coon Cat who is part of the large Chase household, including two dogs, three cats, and a turtle. <a href="#">read more</a></p>
+                <div class="thumbnail">
+                    <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg">
+                    <div class="caption">
+                        <h3>
+                                Thumbnail label
+                            </h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Go</a>
+                        </p>
+                    </div>
+                </div>
             </section>
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <img src="images/drone1.jpeg" class="img-thumbnail img-responsive center-block" alt="Dr Winthrop Photo">
-                <h3><a href="#">제목</a></h3>
-                <p>Leroy walked into Dr. Sanders front door when he was moving into a new house. After searching for weeks for Leroy's guardians, he decided to make Leroy a part of his pet family, and now has three cats. <a href="#">read more</a></p>
+                <div class="thumbnail">
+                    <img alt="Bootstrap Thumbnail Third" src="http://lorempixel.com/output/sports-q-c-600-200-1.jpg">
+                    <div class="caption">
+                        <h3>
+                                Thumbnail label
+                            </h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Go</a>
+                    </div>
+                </div>
             </section>
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <img src="images/drone1.jpeg" class="img-thumbnail img-responsive center-block" alt="Dr Winthrop Photo">
-                <h3><a href="#">제목</a></h3>
-                <p>Leroy walked into Dr. Sanders front door when he was moving into a new house. After searching for weeks for Leroy's guardians, he decided to make Leroy a part of his pet family, and now has three cats. <a href="#">read more</a></p>
+                <div class="thumbnail">
+                    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
+                    <div class="caption">
+                        <h3>
+                                Thumbnail label
+                            </h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="#">Go</a>
+                        </p>
+                    </div>
+                </div>
             </section>
         </div>
+        <br />
         <!-- row -->
+        <p class="more">
+            <button type="button" class="btn btn-default btn-sm center">
+                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
+            </button>
+        </p>
     </div>
-    <!-- content container -->
+    <footer class="section section-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>GClass</h1>
+                    <p>Copyright ⓒ &nbsp;2016 by GClass, All rights reserved. Contact Us
+                        <br>XSharing.lab@gmail.com.</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-info text-right">
+                        <br>
+                        <br>
+                    </p>
+                    <div class="row">
+                        <div class="col-md-12 hidden-xs text-right">
+                            <a href="https://www.facebook.com/ktwibro" target="_blank"><i class="fa fa-facebook-square" style="font-size:36px; color:white"></i></a> &nbsp;
+                            <a href="https://plus.google.com/u/0/+YoungKimkt" target="_blank"><i class="fa fa-google-plus-official" style="font-size:36px; color:white"></i></a> &nbsp;
+                            <a href="https://twitter.com/ktm2mt" target="_blank"><i class="fa fa-twitter-square" style="font-size:36px; color:white"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
