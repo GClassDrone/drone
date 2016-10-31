@@ -2,7 +2,7 @@ $(function() {
 	function initMap() {
 		var map = new google.maps.Map(document.getElementById('map'), {
 			zoom : 7,
-			maxZoom : 12,
+			maxZoom : 13,
 			minZoom : 7,
 			center : {
 				lat : 36.024,
@@ -22,15 +22,31 @@ $(function() {
 		});
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(
 				cluster) {
-			alert("aa");
+			alert("리스트");
 		});
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
-				alert("aa");
+				dialog.dialog( "open" );
 			});
 		}
 		map.set("disableDoubleClickZoom", true);
 	}
+	
+	var form;
+	var dialog;
+	
+	dialog = $("#dialog-form").dialog({
+		autoOpen : false,
+		height : 900,
+		width : 900,
+		modal : true,
+		close: function(){
+			form[0].reset();
+		}
+	});
+	form = dialog.find("form").on("submit",function(event){
+		event.preventDefault();
+	});
 	var locations = [ {
 		lat : 36.563910,
 		lng : 128.154312

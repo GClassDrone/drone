@@ -20,5 +20,6 @@
 		<input type="radio" name="mapview" value="2">
 	</div>
 	<div id="map"></div>
+	<jsp:include page="test.jsp"></jsp:include>
 </body>
 </html>
