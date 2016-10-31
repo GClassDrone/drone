@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/ProfileDetail.css" rel="stylesheet" type="text/css">
         <script src="/resources/js/jquery-2.1.4.min.js"></script>
     <script src="/resources/js/bootstrap.min.js"></script>
     <script src="/resources/js/script.js"></script>
@@ -113,6 +114,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li><a href="#">home</a></li>
+                <li><a href="#">파일럿</a></li>
                 <li class="active">파일럿 상세보기</li>
                 <!-- <li><a href="#">grooming</a></li> -->
             </ol>
@@ -127,26 +129,39 @@
             <br />
             <div class="row">
                 <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">Young Kim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
+                    <h6 class="text-center">닉네임 <p>파일럿 랭킹(랭킹점수)<br>지역</p></h6> </div>
+                <div class="col-md-6">
+                    <div class="propro">
                         <ul>
                             <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
+                                <li>사이트</li>
+                                <li>메일주소</li>
+                                <li>비번(수정시보일것)</li>
+                                <li>보유드론</li>
+                                <li>라이센스</li>
+                                <li>랭킹점수 상세보기(즐찾+조회수)</li>
                             </p>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+        
+<!-- 밑으로 페이지 내리는 부분 -->
         <p class="more">
             <button type="button" class="btn btn-default btn-sm center">
                 <span class="fa fa-2x fa-fw fa-angle-double-down"></span>
             </button>
         </p>
     </div>
+    
+    
+    
+<!--     푸터부분 -->
+    
+    
+    
+    
     <footer class="section section-info">
         <div class="container">
             <div class="row">
