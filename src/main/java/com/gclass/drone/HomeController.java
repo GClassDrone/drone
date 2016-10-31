@@ -22,7 +22,11 @@ public class HomeController {
 		
 	}
 	@RequestMapping("/test")
-	public void test(){
+	public void test(){	
+	}
+	
+	@RequestMapping("/test1")
+	public void test1(){
 		
 	}
 }

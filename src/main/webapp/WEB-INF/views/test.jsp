@@ -8,7 +8,7 @@
 <!-- 페이스북 -->
 <link rel="stylesheet" href="//esquireuk.cdnds.net/esquireuk/20161013132019/css/main.css" />
 <script src="/resources/js/jquery-1.10.2.min.js"></script>
-<script src="/resourcesjs/jquery-ui.min.js"></script>
+<script src="/resources/js/jquery-ui.min.js"></script>
 
 <script type="text/javascript">
 $(function(){
