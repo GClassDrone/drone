@@ -21,4 +21,8 @@ public class HomeController {
 	public void itlist(){
 		
 	}
+	@RequestMapping("/test")
+	public void test(){
+		
+	}
 }
