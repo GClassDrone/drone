@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+.propro {
+	font-size: 20px;
+	list-style:none;
+}
+
+.img-profile {
+  border-radius: 20%;
+  max-width: 60%;
+}
