@@ -2,10 +2,28 @@
 
 .propro {
 	font-size: 20px;
-	list-style:none;
+	list-style: none;
 }
 
 .img-profile {
-  border-radius: 20%;
-  max-width: 60%;
+	border-radius: 20%;
+	max-width: 60%;
+}
+
+.memo {
+	position: relative;
+	min-height: 1px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: 2px solid white;
+	background-color: black;
+	height: 200px;
+}
+
+@media ( min-width : 992px) {
+	.memo {
+		float: left;
+		width: 73.5%;
+		font-size: 20px;
+	}
 }
