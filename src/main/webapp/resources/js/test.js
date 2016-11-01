@@ -21,4 +21,6 @@ $(function(){
 	  
 	  slides[slideIndex-1].style.display = "block"; 
 	}
+	
+    $('#youtube1').mediaelementplayer();
 });
