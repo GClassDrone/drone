@@ -1,11 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/intro.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
     <style type="text/css">
     .navbar-default {
         width: 100%;
@@ -13,7 +17,7 @@
     }
     
     .bgimage {
-        background-image: url('./images/infoboard_bg.jpg');
+        background-image: url('/resources/images/infoboard_bg.jpg');
         background-position: center center;
         background-size: cover;
         height: 320px;
@@ -55,7 +59,8 @@
 
 <body>
     <header class="bgimage hidden-xs">
-        <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
+     <jsp:include page="./header.jsp"></jsp:include>
+ <!--        <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -99,7 +104,7 @@
                     <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
                 </div>
             </div>
-        </nav>
+        </nav> -->
     </header>
     <div class="section">
         <div class="container">
@@ -294,7 +299,7 @@
             </button>
         </p>
     </div>
-    <footer class="section section-info">
+<!--     <footer class="section section-info">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
@@ -317,10 +322,11 @@
                 </div>
             </div>
         </div>
-    </footer>
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+    </footer> -->
+    <script src="/resources/js/jquery-2.1.4.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+    <script src="/resources/js/script.js"></script>
+            <jsp:include page="./footer.jsp"></jsp:include>
 </body>
 
 </html>
