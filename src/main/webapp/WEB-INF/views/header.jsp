@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<style type="text/css">
+    .navbar-default {
+        width: 100%;
+        z-index: 9999;
+    }
+    </style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
+    <script src="/resources/js/jquery-2.1.4.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+    <script src="/resources/js/script.js"></script>
     <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
         <div class="container">
             <div class="navbar-header">
