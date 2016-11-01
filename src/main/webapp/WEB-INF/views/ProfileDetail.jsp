@@ -10,14 +10,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
 <link href="/resources/css/ProfileDetail.css" rel="stylesheet"
 	type="text/css">
 <script src="/resources/js/jquery-2.1.4.min.js"></script>
 <script src="/resources/js/jquery-ui.min.js"></script>
-<script src="/resources/js/bootstrap.min.js"></script>
-<script src="/resources/js/script.js"></script>
 <link rel="stylesheet" href="/resources/css/jquery-ui.css">
 <style type="text/css">
 .navbar-default {
@@ -83,8 +80,9 @@
 			<ul class="nav navbar-nav">
 				<li><a href="#">드론영상</a></li>
 				<li><a href="#">카테고리</a></li>
-				<li class="active">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
+				<li class="active"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">정보 <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">시장동향</a></li>
 						<li><a href="#">게시판</a></li>
@@ -108,12 +106,10 @@
 				<li><a href="#">home</a></li>
 				<li><a href="#">파일럿</a></li>
 				<li class="active">파일럿 상세보기</li>
-				<!-- <li><a href="#">grooming</a></li> -->
 			</ol>
 			<div class="row">
 				<div class="col-md-12">
 					<h1 class="text-center">파일럿 닉네임이 들어가는 곳</h1>
-					<p class="text-center">파일럿의 개인 소개가 들어가는 곳</p>
 				</div>
 			</div>
 		</div>
@@ -124,13 +120,17 @@
 					<img
 						src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
 						class="img-profile">
-					<h6 class="text-center">
-						닉네임
-						<p>
-							파일럿 랭킹(랭킹점수)<br>지역
-						</p>
-					</h6>
+					<p>
+						닉네임<br>
+						파일럿 랭킹(랭킹점수)<br>
+						지역
+					</p>
 				</div>
+				<div class="memo">
+					<p>파일럿 개인 정보 설명하는 곳</p>
+				</div>
+
+
 
 			</div>
 			<div id="tabs">
@@ -141,16 +141,16 @@
 					<li><a href="#tabs-4">경력</a>
 				</ul>
 				<div id="tabs-1">
-							<ul class="propro">
-								<p>
-								<li>사이트</li>
-								<li>메일주소</li>
-								<li>비번(수정시보일것)</li>
-								<li>보유드론</li>
-								<li>라이센스</li>
-								<li>랭킹점수 상세보기(즐찾+조회수)</li>
-								</p>
-							</ul>
+					<ul class="propro">
+						<p>
+						<li>사이트</li>
+						<li>메일주소</li>
+						<li>비번(수정시보일것)</li>
+						<li>보유드론</li>
+						<li>라이센스</li>
+						<li>랭킹점수 상세보기(즐찾+조회수)</li>
+						</p>
+					</ul>
 				</div>
 
 				<div id="tabs-2">
@@ -167,44 +167,56 @@
 			</div>
 		</div>
 		<div class="container">
-		<div class="section">
-			<div class="col-xs-12 col-sm-6 col-md-3">
-	                <div class="embed-responsive embed-responsive-16by9">
-	                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-	                </div>
-	                <h3>Grooming</h3>
-	                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-	            </div>
-	            <div class="col-xs-12 col-sm-6 col-md-3">
-	                <div class="embed-responsive embed-responsive-16by9">
-	                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-	                </div>
-	                <h3>Grooming</h3>
-	                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-	            </div>
-	            <div class="col-xs-12 col-sm-6 col-md-3">
-	                <div class="embed-responsive embed-responsive-16by9">
-	                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-	                </div>
-	                <h3>General Health</h3>
-	                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
-	            </div>
-	         	<div class="col-xs-12 col-sm-6 col-md-3">
-	                <div class="embed-responsive embed-responsive-16by9">
-	                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-	                </div>
-	                <h3>General Health</h3>
-	                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
-	            </div>
-	         </div>
-          </div>
-			<!-- 밑으로 페이지 내리는 부분 -->
-			<p class="more">
-				<button type="button" class="btn btn-default btn-sm center">
-					<span class="fa fa-2x fa-fw fa-angle-double-down"></span>
-				</button>
-			</p>
+			<div class="section">
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item"
+							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
+							allowfullscreen=""></iframe>
+					</div>
+					<h3>Grooming</h3>
+					<p>Our therapeutic grooming treatments help battle fleas,
+						allergic dermatitis, and other challenging skin conditions.</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item"
+							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
+							allowfullscreen=""></iframe>
+					</div>
+					<h3>Grooming</h3>
+					<p>Our therapeutic grooming treatments help battle fleas,
+						allergic dermatitis, and other challenging skin conditions.</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item"
+							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
+							allowfullscreen=""></iframe>
+					</div>
+					<h3>General Health</h3>
+					<p>Wellness and senior exams, ultrasound, x-ray, and dental
+						cleanings are just a few of our general health services.</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item"
+							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
+							allowfullscreen=""></iframe>
+					</div>
+					<h3>General Health</h3>
+					<p>Wellness and senior exams, ultrasound, x-ray, and dental
+						cleanings are just a few of our general health services.</p>
+				</div>
+			</div>
 		</div>
+		<!-- 밑으로 페이지 내리는 부분 -->
+		<p class="more">
+			<button type="button" class="btn btn-default btn-sm center">
+				<span class="fa fa-2x fa-fw fa-angle-double-down"></span>
+			</button>
+		</p>
+	</div>
 
 
 
