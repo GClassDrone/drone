@@ -25,13 +25,6 @@
 	z-index: 9999;
 }
 
-.bgimage {
-	background-image: url('./images/infoboard_bg.jpg');
-	background-position: center center;
-	background-size: cover;
-	height: 320px;
-}
-
 .more {
 	text-align: center;
 }
@@ -74,7 +67,7 @@
 
 <body>
 	<header class="bgimage hidden-xs"> <nav
-		class="navbar navbar-default" data-spy="affix" data-offset="700px">
+		class="navbar navbar-default" data-spy="affix">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -90,9 +83,8 @@
 			<ul class="nav navbar-nav">
 				<li><a href="#">드론영상</a></li>
 				<li><a href="#">카테고리</a></li>
-				<li class="active"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">정보 <span class="caret"></span></a>
+				<li class="active">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">시장동향</a></li>
 						<li><a href="#">게시판</a></li>
