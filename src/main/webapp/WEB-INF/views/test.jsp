@@ -1,156 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <link rel="stylesheet" href="/resources/css/main.css" />
 <script src="/resources/js/jquery-2.1.4.min.js"></script>
 <script src="/resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/resources/js/test.js"></script>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-<title>동영상 상세보기</title>
-
-<!-- 페이스북 -->
-<link rel="stylesheet" href="//esquireuk.cdnds.net/esquireuk/20161013132019/css/main.css" />
-<script src="/resources/js/jquery-1.10.2.min.js"></script>
-<script src="/resources/js/jquery-ui.min.js"></script>
-
-<script type="text/javascript">
-$(function(){
-	var slideIndex = 1;
-	showSlides(slideIndex);
-
-	function plusSlides(n) {
-	  showSlides(slideIndex += n);
-	}
-	function currentSlide(n) {
-		  showSlides(slideIndex = n);
-	}
-	
-
-	function showSlides(n) {
-	  var i;
-	  var slides = document.getElementsByClassName("mySlides");
-	  if (n > slides.length) {slideIndex = 1} 
-	  if (n < 1) {slideIndex = slides.length}
-	  for (i = 0; i < slides.length; i++) {
-	      slides[i].style.display = "none"; 
-	  }
-	  
-	  slides[slideIndex-1].style.display = "block"; 
-	}
-});
-
-</script>
-
-<style type="text/css">
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Next & previous buttons */
- .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  z-index:10;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
- .active, .dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-</style>
-<script>
-$(function(){
-	var form;
-	var dialog;
-	
-	dialog = $("#dialog-form").dialog({
-		autoOpen : false,
-		height : 900,
-		width : 900,
-		modal : true,
-		close: function(){
-			form[0].reset();
-		}
-	});
-	form = dialog.find("form").on("submit",function(event){
-		event.preventDefault();
-	});
-	$( "#create-video" ).button().on( "click", function() {
-		dialog.dialog( "open" );
-	});
-});
-</script>
-</head>
-
-<body>
-	<div>
-		<input type ="button" id="create-video" value="검색">
-	</div>
-	
->>>>>>> 226d147dab96d8204a8bb84abe840186dfc24078
 	<div id="dialog-form" title="영상">
 	<div id="site-wrapper" >
 	<form>
@@ -199,7 +52,7 @@ $(function(){
 										      'facebook-share-dialog', 
 										      'width=626,height=436'); 
 										    return false;" title="페이스북 쉐어 버튼">
-										<img src="/resources/images/facebook.jpg" width="40" height="40" alt="페이스북 쉐어 버튼" title="페이스북 쉐어 버튼">
+										<img src="/resources/images/icon/facebook.jpg" width="40" height="40" alt="페이스북 쉐어 버튼" title="페이스북 쉐어 버튼">
 										</a>
 										
 										<!-- 트위터  -->
@@ -209,7 +62,7 @@ $(function(){
 										      'twitter-share-dialog', 
 										      'width=626,height=436'); 
 										    return false;" title="트위터 쉐어 버튼">
-										<img src="/resources/images/twitter.jpg" width="40" height="40" alt="트위터 쉐어 버튼" title="트위터 쉐어 버튼">
+										<img src="/resources/images/icon/twitter.jpg" width="40" height="40" alt="트위터 쉐어 버튼" title="트위터 쉐어 버튼">
 										</a>
 										
 										<!-- 구글+ -->
@@ -219,7 +72,7 @@ $(function(){
 										      'twitter-share-dialog', 
 										      'width=600,height=600'); 
 										    return false;" title="구글+ 쉐어 버튼">
-										<img src="/resources/images/google-plus.jpg" width="40" height="40" alt="구글+ 쉐어 버튼" title="구글+ 쉐어 버튼">
+										<img src="/resources/images/icon/google-plus.jpg" width="40" height="40" alt="구글+ 쉐어 버튼" title="구글+ 쉐어 버튼">
 										</a>
 										
 										<!-- 카카오 스토리  -->
@@ -229,7 +82,7 @@ $(function(){
 										      'twitter-share-dialog', 
 										      'width=600,height=600'); 
 										    return false;" title="구글+ 쉐어 버튼">
-										<img src="/resources/images/kakao.jpg" width="40" height="40" alt="구글+ 쉐어 버튼" title="구글+ 쉐어 버튼">
+										<img src="/resources/images/icon/kakao.jpg" width="40" height="40" alt="구글+ 쉐어 버튼" title="구글+ 쉐어 버튼">
 										</a>
 										
 										<!-- 밴드  -->
@@ -239,7 +92,7 @@ $(function(){
 										      'twitter-share-dialog', 
 										      'width=600,height=600'); 
 										    return false;" title="구글+ 쉐어 버튼">
-										<img src="/resources/images/band.jpg" width="40" height="40" alt="구글+ 쉐어 버튼" title="구글+ 쉐어 버튼">
+										<img src="/resources/images/icon/band.jpg" width="40" height="40" alt="구글+ 쉐어 버튼" title="구글+ 쉐어 버튼">
 										</a>
 								</div>
 							</div>
