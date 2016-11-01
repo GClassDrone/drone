@@ -37,4 +37,8 @@ public class HomeController {
 	public void ProfileDetail(){
 		
 	}
+	@RequestMapping("/intro")
+	public void intro(){
+		
+	}
 }
