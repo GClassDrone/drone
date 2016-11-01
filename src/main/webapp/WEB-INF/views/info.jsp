@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="css/intro.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
     <style type="text/css">
     .navbar-default {
         width: 100%;
@@ -14,7 +15,7 @@
     }
     
     .bgimage {
-        background-image: url('./images/infoboard_bg.jpg');
+        background-image: url('/resources/images/infoboard_bg.jpg');
         background-position: center center;
         background-size: cover;
         height: 320px;
@@ -60,10 +61,11 @@
 
 <body>
     <header class="bgimage hidden-xs">
-        <div class="row">
+    <jsp:include page="./header.jsp"></jsp:include>
+        <!-- <div class="row">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="container">
-                    <!-- navbar-default /  navbar-fixed-top  -->
+                    navbar-default /  navbar-fixed-top 
                     <div class="navbar-header">
                         <a href="#" class="navbar-brand">GClass</a>
                     </div>
@@ -89,7 +91,7 @@
                     <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
                 </div>
             </nav>
-        </div>
+        </div> -->
     </header>
     <div class="container">
         <div class="row">
@@ -248,33 +250,11 @@
             </button>
         </p>
     </div>
-    <footer class="section section-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h1>GClass</h1>
-                    <p>Copyright ⓒ &nbsp;2016 by GClass, All rights reserved. Contact Us
-                        <br>XSharing.lab@gmail.com.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p class="text-info text-right">
-                        <br>
-                        <br>
-                    </p>
-                    <div class="row">
-                        <div class="col-md-12 hidden-xs text-right">
-                            <a href="https://www.facebook.com/ktwibro" target="_blank"><i class="fa fa-facebook-square" style="font-size:36px; color:white"></i></a> &nbsp;
-                            <a href="https://plus.google.com/u/0/+YoungKimkt" target="_blank"><i class="fa fa-google-plus-official" style="font-size:36px; color:white"></i></a> &nbsp;
-                            <a href="https://twitter.com/ktm2mt" target="_blank"><i class="fa fa-twitter-square" style="font-size:36px; color:white"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+
+    <script src="/resources/js/jquery-2.1.4.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+    <script src="/resources/js/script.js"></script>
+        <jsp:include page="./footer.jsp"></jsp:include>
 </body>
 
 </html>

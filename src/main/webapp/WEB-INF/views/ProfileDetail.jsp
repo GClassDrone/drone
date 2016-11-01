@@ -67,7 +67,7 @@
 
 <body>
 	<header class="bgimage hidden-xs"> <nav
-		class="navbar navbar-default" data-spy="affix" data-offset="700px">
+		class="navbar navbar-default" data-spy="affix">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
