@@ -174,14 +174,45 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- 밑으로 페이지 내리는 부분 -->
-		<p class="more">
-			<button type="button" class="btn btn-default btn-sm center">
-				<span class="fa fa-2x fa-fw fa-angle-double-down"></span>
-			</button>
-		</p>
-	</div>
+		<div class="container">
+		<div class="section">
+			<div class="col-xs-12 col-sm-6 col-md-3">
+	                <div class="embed-responsive embed-responsive-16by9">
+	                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+	                </div>
+	                <h3>Grooming</h3>
+	                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
+	            </div>
+	            <div class="col-xs-12 col-sm-6 col-md-3">
+	                <div class="embed-responsive embed-responsive-16by9">
+	                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+	                </div>
+	                <h3>Grooming</h3>
+	                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
+	            </div>
+	            <div class="col-xs-12 col-sm-6 col-md-3">
+	                <div class="embed-responsive embed-responsive-16by9">
+	                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+	                </div>
+	                <h3>General Health</h3>
+	                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
+	            </div>
+	         	<div class="col-xs-12 col-sm-6 col-md-3">
+	                <div class="embed-responsive embed-responsive-16by9">
+	                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+	                </div>
+	                <h3>General Health</h3>
+	                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
+	            </div>
+	         </div>
+          </div>
+			<!-- 밑으로 페이지 내리는 부분 -->
+			<p class="more">
+				<button type="button" class="btn btn-default btn-sm center">
+					<span class="fa fa-2x fa-fw fa-angle-double-down"></span>
+				</button>
+			</p>
+		</div>
 
 
 
