@@ -10,54 +10,6 @@
 
 <body>
 <jsp:include page="./header.jsp"></jsp:include>
-
-<!--     <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><span>GClass</span></a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                <p class="navbar-text">Sharing People's Drone Life</p>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">드론영상</a>
-                    </li>
-                    <li>
-                        <a href="#">카테고리</a>
-                    </li>
-                    <li class="active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">시장동향</a>
-                            </li>
-                            <li>
-                                <a href="#">게시판</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">파일럿</a>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="">
-                    </div>
-                    <button type="submit" class="btn btn-default">go</button>
-                </form>
-                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
-            </div>
-        </div>
-    </nav> -->
-    
-    
     <div id="carousel" data-interval="false" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -101,66 +53,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="section">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>Grooming</h3>
-                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>Grooming</h3>
-                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>General Health</h3>
-                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>General Health</h3>
-                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
-            </div>
-        </div>
-        <div class="section">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>Grooming</h3>
-                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>Grooming</h3>
-                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>General Health</h3>
-                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>General Health</h3>
-                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
-            </div>
-        </div>
+    <!-- 핫클립 영상  -->
+	<jsp:include page="videoList.jsp"></jsp:include>
     </div>
     <div class="section">
         <div class="container">
@@ -171,117 +65,10 @@
                 </div>
             </div>
             <br />
-            <div class="row">
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">Young Kim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">MatthewKim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">John Doe <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix">
-                <div class="row">
-                    <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                        <h6 class="text-center">Young Kim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                    <div class="col-md-3">
-                        <div class="panel panel-success">
-                            <ul>
-                                <p class="text-left text-info">
-                                    <li>지역</li>
-                                    <li>경력</li>
-                                    <li>보유장비</li>
-                                </p>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                        <h6 class="text-center">MatthewKim<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                    <div class="col-md-3">
-                        <div class="panel panel-success">
-                            <ul>
-                                <p class="text-left text-info">
-                                    <li>지역</li>
-                                    <li>경력</li>
-                                    <li>보유장비</li>
-                                </p>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                        <h6 class="text-center">John Doe <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
-                    <div class="col-md-3">
-                        <div class="panel panel-success">
-                            <ul>
-                                <p class="text-left text-info">
-                                    <li>지역</li>
-                                    <li>경력</li>
-                                    <li>보유장비</li>
-                                </p>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	<!-- 파일럿 리스트 -->
+			<jsp:include page="pilotList1.jsp"></jsp:include>
         </div>
     </div>
- <!--    <footer class="section section-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h1>GClass</h1>
-                    <p>Copyright ⓒ &nbsp;2016 by GClass, All rights reserved. Contact Us
-                        <br>XSharing.lab@gmail.com.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p class="text-info text-right">
-                        <br>
-                        <br>
-                    </p>
-                    <div class="row">
-                        <div class="col-md-12 hidden-xs text-right">
-                            <a href="https://www.facebook.com/ktwibro" target="_blank"><i class="fa fa-facebook-square" style="font-size:36px; color:white"></i></a> &nbsp;
-                            <a href="https://plus.google.com/u/0/+YoungKimkt" target="_blank"><i class="fa fa-google-plus-official" style="font-size:36px; color:white"></i></a> &nbsp;
-                            <a href="https://twitter.com/ktm2mt" target="_blank"><i class="fa fa-twitter-square" style="font-size:36px; color:white"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> -->
-    
 </body>
 
 </html>
