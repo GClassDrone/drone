@@ -4,7 +4,7 @@
 <configuration>
 	
 	<typeAliases>
-		<package name="com.gclass.drone"/>
+		<package name="com.gclass.drone.profile.dto"/>
 	</typeAliases>
 	
 </configuration>

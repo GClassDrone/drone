@@ -1,11 +1,11 @@
-package com.gclass.profile.dao;
+package com.gclass.drone.profile.dao;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.gclass.profile.dto.MemDto;
+import com.gclass.drone.profile.dto.MemDto;
 
 @Repository
 public class MemDaoImpl implements MemDao{
@@ -13,7 +13,7 @@ public class MemDaoImpl implements MemDao{
 	@Inject
 	private SqlSession session;
 
-	private static String namespace = "com.gclass.mapper.MemMapper";
+	private static String namespace = "com.gclass.drone.mapper.MemMapper";
 
 	@Override
 	public void create(MemDto dto) throws Exception {

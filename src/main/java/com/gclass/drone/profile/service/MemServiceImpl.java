@@ -1,12 +1,12 @@
-package com.gclass.profile.service;
+package com.gclass.drone.profile.service;
 
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.gclass.profile.dao.MemDao;
-import com.gclass.profile.dto.MemDto;
+import com.gclass.drone.profile.dao.MemDao;
+import com.gclass.drone.profile.dto.MemDto;
 
 
 @Service
