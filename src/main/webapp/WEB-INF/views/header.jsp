@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="/resources/js/jquery-2.1.4.min.js"></script>
     <script src="/resources/js/bootstrap.min.js"></script>
     <script src="/resources/js/script.js"></script>
@@ -53,6 +54,8 @@
                     </div>
                     <button type="submit" class="btn btn-default">go</button>
                 </form>
+                <a href="#">
+                <i class="material-icons" style="padding: 8 0 0 203; font-size: 34px; color: #8BC34A">tag_faces</i></a>
                 <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
             </div>
         </div>
