@@ -9,14 +9,12 @@ $(function() {
 				lng : 128.887
 			}
 		});
-
 		var markers = locations.map(function(location, i) {
 			return new google.maps.Marker({
 				position : location
-//				label : labels[i % labels.length]
+//				icon: image
 			});
 		});
-
 		var markerCluster = new MarkerClusterer(map, markers, {
 			imagePath : '/resources/images/map/m'
 		});
@@ -24,17 +22,26 @@ $(function() {
 				cluster) {
 			alert("리스트");
 		});
+		google.maps.event.addListener(map, 'click', function(event) {
+			var lat1 = event.latLng.lat();
+			var lng1 = event.latLng.lng();
+			alert( "Latitude: "+lat1+" "+", longitude: "+lng1 );
+			$(location).attr('href', "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat1+","+lng1+"&key=AIzaSyA19l1lXb7Knj6sgwTXGwnKSqfakx3laYE");
+		});
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
 				dialog.dialog( "open" );
 			});
 		}
 		map.set("disableDoubleClickZoom", true);
+		google.maps.event.addDomListener(window, "resize", function() {
+			var center = map.getCenter();
+			google.maps.event.trigger(map, "resize");
+			map.setCenter(center); 
+		});
 	}
-	
 	var form;
 	var dialog;
-	
 	dialog = $("#dialog-form").dialog({
 		autoOpen : false,
 		height : 900,

@@ -6,10 +6,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<jsp:include page="./common/include.jsp"></jsp:include>
 </head>
-
 <body>
-<jsp:include page="./header.jsp"></jsp:include>
+<jsp:include page="common/header.jsp"></jsp:include>
     <div id="carousel" data-interval="false" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -54,7 +54,7 @@
     </div>
     <div class="container">
     <!-- 핫클립 영상  -->
-	<jsp:include page="videoList.jsp"></jsp:include>
+	<jsp:include page="common/videoList.jsp"></jsp:include>
     </div>
     <div class="section">
         <div class="container">
@@ -66,9 +66,10 @@
             </div>
             <br />
 	<!-- 파일럿 리스트 -->
-			<jsp:include page="pilotList1.jsp"></jsp:include>
+			<jsp:include page="common/pilotList.jsp"></jsp:include>
         </div>
     </div>
+    <jsp:include page="common/footer.jsp"></jsp:include>
 </body>
 
 </html>

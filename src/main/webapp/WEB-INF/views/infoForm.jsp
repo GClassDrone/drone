@@ -1,23 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <html>
-<!-- <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-</head> -->
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
     <style type="text/css">
     .navbar-default {
         width: 100%;
@@ -52,10 +40,11 @@
         content: "\002F\00a0";
     }
     </style>
+    <jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 <body>
-    <jsp:include page="./header.jsp"></jsp:include>
+    <jsp:include page="common/header.jsp"></jsp:include>
  <!--    <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
         <div class="container">
             <div class="navbar-header">
@@ -178,9 +167,7 @@
                 </form>
             </section>
         </div>
-        <script src="/resources/js/jquery-2.1.4.min.js"></script>
-        <script src="/resources/js/bootstrap.min.js"></script>
-        <script src="/resources/js/script.js"></script>
+        <jsp:include page="common/footer.jsp"></jsp:include>
 </body>
 
 </html>
