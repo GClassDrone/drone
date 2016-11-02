@@ -55,7 +55,7 @@
                     <button type="submit" class="btn btn-default">go</button>
                 </form>
                 <a href="#">
-                <i class="material-icons" style="padding: 8 0 0 203; font-size: 34px; color: #8BC34A">tag_faces</i></a>
+                <i class="material-icons" style="padding-top:8px; padding-left:203px; font-size:34px; color:#8BC34A">tag_faces</i></a>
                 <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
             </div>
         </div>
