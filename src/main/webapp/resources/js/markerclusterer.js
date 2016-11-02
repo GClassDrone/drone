@@ -1035,11 +1035,11 @@ function ClusterIcon(cluster, styles, opt_padding) {
  */
 ClusterIcon.prototype.triggerClusterClick = function(event) {
 	var markerClusterer = this.cluster_.getMarkerClusterer();
-	if(this.map_.getZoom() == 12){
+	if(this.map_.getZoom() == 13){
 		google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_,
 				event);
 		return;
-	}else if (this.map_.getZoom() < 13 || this.cluster_.getSize() > 4) {
+	}else if (this.map_.getZoom() < 14 || this.cluster_.getSize() > 4) {
 
 	// Trigger the clusterclick event.
 		if (markerClusterer.isZoomOnClick()) {

@@ -37,4 +37,31 @@ public class HomeController {
 	public void ProfileDetail(){
 		
 	}
+	@RequestMapping("/intro")
+	public void intro(){
+		
+	}
+	@RequestMapping("/info")
+	public void info(){
+		
+	}
+	@RequestMapping("/pilotList")
+	public void pilotList(){
+		
+	}
+	@RequestMapping("/infoDetail")
+	public void infoDetail(){
+		
+	}
+	
+	@RequestMapping("/infoForm")
+	public void infoForm(){
+		
+	}
+	
+	@RequestMapping("/board")
+	public void board(){
+		
+	}
+	
 }

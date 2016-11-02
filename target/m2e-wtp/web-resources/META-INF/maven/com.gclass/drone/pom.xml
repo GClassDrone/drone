@@ -141,6 +141,7 @@
 			<version>1.2.2</version>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
 			<groupId>org.springframework.social</groupId>
 			<artifactId>spring-social-facebook</artifactId>
 			<version>1.1.1.RELEASE</version>
@@ -159,6 +160,16 @@
 			<groupId>org.springframework.social</groupId>
 			<artifactId>spring-social-facebook-web</artifactId>
 			<version>1.1.1.RELEASE</version>
+=======
+			<groupId>com.hynnet</groupId>
+			<artifactId>oracle-driver-ojdbc6</artifactId>
+			<version>12.1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+			<version>1.16</version>
+>>>>>>> dbb66369f89134cfb59a07244122d5847de5b135
 		</dependency>
 	</dependencies>
     <build>
