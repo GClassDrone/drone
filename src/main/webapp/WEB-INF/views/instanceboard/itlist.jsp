@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="common/header.jsp"%>
+	<%@include file="../common/header.jsp"%>
 	<div class="container">
 		<div class="section">
 		<div class="row">
@@ -35,11 +35,11 @@
 		<div id="content" style="float: left; border: 1px solid white; max-width: 100%;">
 			<table>
 				<tr>
-					<th style="width: 50px">글번호</th>
-					<th style="width: 250px">글제목</th>
-					<th style="width: 250px">작성자</th>
-					<th style="width: 250px">등록일</th>
-					<th style="width: 250px">조회수</th>
+					<th style="width: 50px;">글번호</th>
+					<th style="width: 600px;">글제목[댓글수]</th>
+					<th style="width: 200px;">작성자</th>
+					<th style="width: 200px;">등록일</th>
+					<th style="width: 200px;">조회수</th>
 				</tr>
 				<tr>
 					<td style="width: 200px">1</td>
@@ -48,13 +48,16 @@
 					<td style="width: 200px">255</td>
 					<td style="width: 200px">3444</td>
 				</tr>
+				
+<!-- el 가져올때 예시-----------------------------------------------------  -->
 				<tr>
-					<td style="width: 200px">2</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
+					<td style="width: 200px">${boardDto.bno }</td>
+					<td style="width: 200px">${boardDto.ttl }</td>
+					<td style="width: 200px">${boardDto.mno }</td>
+					<td style="width: 200px">${boardDto.regdt }</td>
+					<td style="width: 200px">${boardDto.readcnt }</td>
 				</tr>
+				
 				<tr>
 					<td style="width: 200px">3</td>
 					<td style="width: 200px">오빤강남스타일</td>
@@ -184,6 +187,6 @@
 			</table>
 		</div>
 	</div>
-	<%@ include file="common/footer.jsp"%>
+	<%@ include file="../common/footer.jsp"%>
 </body>
 </html>

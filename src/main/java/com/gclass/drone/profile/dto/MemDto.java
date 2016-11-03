@@ -6,6 +6,7 @@ public class MemDto {
 	private int mno;
 	private String niknm;
 	private int siteno;
+	private String siteid; 
 	private String email;
 	private String pic;
 	private String license;
@@ -13,12 +14,11 @@ public class MemDto {
 	private String prmsg;
 	private int regcnt;
 	private int datcnt;
-	private int choocnt;
+	private int joacnt;
 	private int favcnt;
 	private Date indt;
 	private int levno;
 	private int locno;
-	
 	public int getMno() {
 		return mno;
 	}
@@ -36,6 +36,12 @@ public class MemDto {
 	}
 	public void setSiteno(int siteno) {
 		this.siteno = siteno;
+	}
+	public String getSiteid() {
+		return siteid;
+	}
+	public void setSiteid(String siteid) {
+		this.siteid = siteid;
 	}
 	public String getEmail() {
 		return email;
@@ -79,11 +85,11 @@ public class MemDto {
 	public void setDatcnt(int datcnt) {
 		this.datcnt = datcnt;
 	}
-	public int getChoocnt() {
-		return choocnt;
+	public int getJoacnt() {
+		return joacnt;
 	}
-	public void setChoocnt(int choocnt) {
-		this.choocnt = choocnt;
+	public void setJoacnt(int joacnt) {
+		this.joacnt = joacnt;
 	}
 	public int getFavcnt() {
 		return favcnt;
@@ -112,9 +118,10 @@ public class MemDto {
 	
 	@Override
 	public String toString() {
-		return "MemDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", email=" + email + ", pic=" + pic
-				+ ", license=" + license + ", msgrcyn=" + msgrcyn + ", prmsg=" + prmsg + ", regcnt=" + regcnt
-				+ ", datcnt=" + datcnt + ", choocnt=" + choocnt + ", favcnt=" + favcnt + ", indt=" + indt + ", levno="
-				+ levno + ", locno=" + locno + "]";
+		return "MemDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", siteid=" + siteid + ", email="
+				+ email + ", pic=" + pic + ", license=" + license + ", msgrcyn=" + msgrcyn + ", prmsg=" + prmsg
+				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt + ", indt="
+				+ indt + ", levno=" + levno + ", locno=" + locno + "]";
 	}
+
 }

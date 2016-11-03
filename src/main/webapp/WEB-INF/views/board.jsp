@@ -15,7 +15,7 @@
     }
     
     .bgimage {
-        background-image: url('/resources/images/infoboard_bg.jpg');
+        background-image: url('/resources//resoureces/images/infoboard_bg.jpg');
         background-position: center center;
         background-size: cover;
         height: 320px;
@@ -122,7 +122,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2  col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -131,7 +131,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -140,7 +140,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -149,7 +149,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -158,7 +158,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -167,7 +167,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">

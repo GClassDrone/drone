@@ -17,10 +17,7 @@ public class HomeController {
 	public void cglist(){
 		
 	}
-	@RequestMapping("/itlist")
-	public void itlist(){
-		
-	}
+
 	@RequestMapping("/test")
 	public void test(){	
 	}
@@ -29,11 +26,11 @@ public class HomeController {
 	public void test1(){
 		
 	}
-	@RequestMapping("/ProfileList")
+	@RequestMapping("/profile/ProfileList")
 	public void ProfileList(){
 		
 	}
-	@RequestMapping("/ProfileDetail")
+	@RequestMapping("/profile/ProfileDetail")
 	public void ProfileDetail(){
 		
 	}
