@@ -7,10 +7,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.kedu.board.dao.BoardDao;
-import com.kedu.board.dao.ReplyDao;
-import com.kedu.board.dto.Criteria;
-import com.kedu.board.dto.ReplyDto;
+import com.gclass.drone.dat.dao.ReplyDao;
+import com.gclass.drone.dat.dto.ReplyDto;
 
 @Service
 public class ReplyServiceImpl implements ReplyService {
@@ -18,15 +16,11 @@ public class ReplyServiceImpl implements ReplyService {
 	@Inject
 	private ReplyDao replydao;
 	
-	@Inject
-	private BoardDao boardDao;
-	
 	@Transactional
 	@Override
 	public void addReply(ReplyDto dto) throws Exception {
 
 		replydao.create(dto);
-		boardDao.updateReplyCnt(dto.getBno(), 1);
 	}
 
 	
@@ -47,12 +41,6 @@ public class ReplyServiceImpl implements ReplyService {
 	public void removeReply(Integer rno) throws Exception {
 		int bno = replydao.getBno(rno);
 		replydao.delete(rno);
-		boardDao.updateReplyCnt(bno, -1);
-	}
-
-	@Override
-	public List<ReplyDto> listReplyPage(Integer bno, Criteria cri) throws Exception {
-		return replydao.listPage(bno, cri);
 	}
 
 	@Override
