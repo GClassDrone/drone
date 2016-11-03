@@ -2,6 +2,9 @@ package com.gclass.drone.dat.dao;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.gclass.drone.dat.dto.bdatDto;
@@ -9,6 +12,12 @@ import com.gclass.drone.dat.dto.bdatDto;
 @Repository
 public class bdatDaoImpl implements bdatDao {
 
+
+	@Inject
+	private SqlSession session;
+
+	private static String namespace = "com.gclass.drone.mapper.BdatMapper";
+	
 	@Override
 	public List<bdatDto> list(Integer bno) throws Exception {
 		// TODO Auto-generated method stub
