@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <html>
+<<<<<<< HEAD
 
 <head>
     <meta charset="utf-8">
@@ -11,6 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
+=======
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+>>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
     <style type="text/css">
     .navbar-default {
         width: 100%;
@@ -45,11 +51,61 @@
         content: "\002F\00a0";
     }
     </style>
+    <jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 <body>
+<<<<<<< HEAD
     <jsp:include page="./header.jsp"></jsp:include>
  
+=======
+    <jsp:include page="common/header.jsp"></jsp:include>
+ <!--    <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>GClass</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                <p class="navbar-text">Sharing People's Drone Life</p>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">드론영상</a>
+                    </li>
+                    <li>
+                        <a href="#">카테고리</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">시장동향</a>
+                            </li>
+                            <li>
+                                <a href="#">게시판</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">파일럿</a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="">
+                    </div>
+                    <button type="submit" class="btn btn-default">go</button>
+                </form>
+                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
+            </div>
+        </div>
+    </nav> -->
+>>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
     <br />
     <div class="container">
         <div class="section">
@@ -128,10 +184,14 @@
             </section>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </div>
+<<<<<<< HEAD
         <script src="/resources/js/jquery-2.1.4.min.js"></script>
         <script src="/resources/js/bootstrap.min.js"></script>
         <script src="/resources/js/script.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+=======
+        <jsp:include page="common/footer.jsp"></jsp:include>
+>>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
 </body>
 
 </html>

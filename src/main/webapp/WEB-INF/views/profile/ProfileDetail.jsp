@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -154,15 +154,15 @@
 				</div>
 
 				<div id="tabs-2">
-					<p>경력사항 입력 폼</p>
+					<p>가입된 게시판 목록</p>
 				</div>
 
 				<div id="tabs-3">
-					<p>학력사항 입력 폼</p>
+					<p>즐겨찾기된 콘텐츠 목록 (20~30개 제한)</p>
 				</div>
 
 				<div id="tabs-4">
-					<p>자격증 입력 폼</p>
+					<p>경력에 관한 내용</p>
 				</div>
 			</div>
 		</div>

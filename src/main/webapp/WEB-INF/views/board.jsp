@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     }
     
     .bgimage {
-        background-image: url('/resources/images/infoboard_bg.jpg');
+        background-image: url('/resources//resoureces/images/infoboard_bg.jpg');
         background-position: center center;
         background-size: cover;
         height: 320px;
@@ -69,8 +69,43 @@
 </head>
 
 <body>
+<<<<<<< HEAD
      <jsp:include page="./header.jsp"></jsp:include>
     <header class="bgimage">
+=======
+    <header class="bgimage">
+     <jsp:include page="common/header.jsp"></jsp:include>
+ <!--        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    navbar-default /  navbar-fixed-top 
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand">GClass</a>
+                    </div>
+                    <p class="navbar-text">Sharing People's Drone Life</p>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">드론영상</a></li>
+                        <li><a href="#">카테고리</a></li>
+                        <li class="active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">시장동향</a></li>
+                                <li><a href="#">게시판</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">파일럿</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search" name="">
+                        </div>
+                        <button type="submit" class="btn btn-default">go</button>
+                    </form>
+                    <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
+                </div>
+            </nav>
+        </div> -->
+>>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
     </header>
     <div class="container"> <br />
 <!--         <ol class="breadcrumb">
@@ -92,7 +127,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2  col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -101,7 +136,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -110,7 +145,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -119,7 +154,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -128,7 +163,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -137,7 +172,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resoureces/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -180,7 +215,7 @@
     <script src="/resources/js/jquery-2.1.4.min.js"></script>
     <script src="/resources/js/bootstrap.min.js"></script>
     <script src="/resources/js/script.js"></script>
-    <jsp:include page="./footer.jsp"></jsp:include>
+    <jsp:include page="common/footer.jsp"></jsp:include>
 </body>
 
 </html>

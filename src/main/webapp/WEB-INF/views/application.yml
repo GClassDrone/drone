@@ -1,0 +1,8 @@
+spring:
+    view:
+        prefix: /WEB-INF/jsp/
+        suffix: .jsp
+    social:
+        facebook:
+            appId: {319535861760649}
+            appSecret: {04530385275207ba94bbdd9845a332cc}

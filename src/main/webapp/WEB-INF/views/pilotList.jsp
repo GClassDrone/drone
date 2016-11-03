@@ -50,11 +50,17 @@
         content: "\002F\00a0";
     }
     </style>
+     <jsp:include page="common/include.jsp"></jsp:include>
 </head>
 <body>
     <jsp:include page="./header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
+<<<<<<< HEAD
      </header>
+=======
+     <jsp:include page="common/header.jsp"></jsp:include>
+    </header>
+>>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
     <div class="section">
         <div class="container">
            <!--  <ol class="breadcrumb">
@@ -70,176 +76,7 @@
         </div>
         <div class="container">
             <br />
-            <div class="row">
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">Young Kim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">MatthewKim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">John Doe <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="clearfix"></div>
-            <div class="row">
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">Young Kim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">MatthewKim<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">John Doe <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="clearfix"></div>
-            <div class="row">
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">Young Kim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">MatthewKim<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">John Doe <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="clearfix"></div>
-            <div class="row">
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">Young Kim <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">MatthewKim<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-1"> <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-                    <h6 class="text-center">John Doe <p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
-                <div class="col-md-3">
-                    <div class="panel panel-success">
-                        <ul>
-                            <p class="text-left text-info">
-                                <li>지역</li>
-                                <li>경력</li>
-                                <li>보유장비</li>
-                            </p>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <jsp:include page="common/pilotList.jsp"></jsp:include>
         </div>
         <p class="more">
             <button type="button" class="btn btn-default btn-sm center">
@@ -247,6 +84,6 @@
             </button>
         </p>
     </div>
-	<jsp:include page="./footer.jsp"></jsp:include>
+	<jsp:include page="common/footer.jsp"></jsp:include>
 </body>
 </html>
