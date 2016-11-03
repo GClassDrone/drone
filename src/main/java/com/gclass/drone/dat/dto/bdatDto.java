@@ -9,6 +9,7 @@ public class bdatDto {
 	private int mno;
 	private String ctt;
 	private Timestamp regdt;
+	
 	public int getSubjno() {
 		return subjno;
 	}

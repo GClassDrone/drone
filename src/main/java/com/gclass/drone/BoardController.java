@@ -3,15 +3,15 @@ package com.gclass.drone;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/instanceboard/")
+@RequestMapping("/instanceboard")
 @Controller
 public class BoardController {
 
-	@RequestMapping("itlist")
+	@RequestMapping("/itlist")
 	public void itlist(){
 		
 	}
-	@RequestMapping("itdetail")
+	@RequestMapping("/itdetail")
 	public void itdetail(){
 		
 	}
