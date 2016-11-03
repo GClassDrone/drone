@@ -36,12 +36,12 @@
                         <a href="#">파일럿</a>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-right" role="search">
+<!--                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search" name="">
                     </div>
                     <button type="submit" class="btn btn-default">go</button>
-                </form>
+                </form> -->
                 <a href="#">
                 <i class="material-icons" style="padding-top:8px; padding-left:203px; font-size:34px; color:#8BC34A">tag_faces</i></a>
                 <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
