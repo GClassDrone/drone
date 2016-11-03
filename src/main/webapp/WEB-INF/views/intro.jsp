@@ -1,13 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
 
+<html>
 <head>
-    <meta charset="utf-8">
+<!--     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<jsp:include page="./common/include.jsp"></jsp:include>
+<style type="text/css">
+    .navbar-default {
+        width: 100%;
+        z-index: 9999; 
+}  
+</style>
+-->
+
 </head>
+
 <body>
 <jsp:include page="common/header.jsp"></jsp:include>
     <div id="carousel" data-interval="false" class="carousel slide" data-ride="carousel">
