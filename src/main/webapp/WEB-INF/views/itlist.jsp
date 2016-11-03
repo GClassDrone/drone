@@ -7,45 +7,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.aside {
-	width: 200px;
-	border: 1px solid red;
-	float: left;
-	color: white;
-}
-</style>
 </head>
 <body>
 	<%@include file="common/header.jsp"%>
 	<div class="container">
-		<div class="section"></div>
 		<div class="section">
-			<div>
-				<h1>헤더 들어갈 부분</h1>
+			<div style="float: left;">
+				<p>카테고리</p>
 			</div>
-			<div class="aside">
-				<table>
-					<th>게시판명</th>
-					<tr>
-						<td>게시판3</td>
-					</tr>
-					<tr>
-						<td>게시판3</td>
-					</tr>
-					<tr>
-						<td>게시판3</td>
-					</tr>
-					<tr>
-						<td>게시판3</td>
-					</tr>
-					<tr>
-						<td>게시판3</td>
-					</tr>
-				</table>
+			<div style="float: left;">
+				<h1>전체 게시판 제목</h1>
+			</div>
+			<div style="float: right;">
+				<h3>게시판 관리자</h3>
 			</div>
 		</div>
-		<div>
+		<div style="float: left;">
 			<table>
 				<tr>
 					<th style="width: 50px">글번호</th>

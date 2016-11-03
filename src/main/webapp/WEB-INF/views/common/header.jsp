@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="include.jsp" %>
     <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
         <div class="container">
             <div class="navbar-header">
