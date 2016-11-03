@@ -52,15 +52,15 @@
     </style>
 </head>
 <body>
+    <jsp:include page="./header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
-     <jsp:include page="./header.jsp"></jsp:include>
-    </header>
+     </header>
     <div class="section">
         <div class="container">
-            <ol class="breadcrumb">
+           <!--  <ol class="breadcrumb">
                 <li><a href="#">home</a></li>
                 <li class="active">파일럿</li>
-            </ol>
+            </ol> -->
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="text-center">Pilot</h1>

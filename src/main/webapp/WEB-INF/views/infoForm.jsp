@@ -3,18 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-<!-- <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-</head> -->
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="772358182499-5r2d2l2ue8oob79q68dfdbr1c0lplmss.apps.googleusercontent.com.apps.googleusercontent.com.apps.googleusercontent.com.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
@@ -56,60 +49,16 @@
 
 <body>
     <jsp:include page="./header.jsp"></jsp:include>
- <!--    <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><span>GClass</span></a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                <p class="navbar-text">Sharing People's Drone Life</p>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">드론영상</a>
-                    </li>
-                    <li>
-                        <a href="#">카테고리</a>
-                    </li>
-                    <li class="active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">시장동향</a>
-                            </li>
-                            <li>
-                                <a href="#">게시판</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">파일럿</a>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="">
-                    </div>
-                    <button type="submit" class="btn btn-default">go</button>
-                </form>
-                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
-            </div>
-        </div>
-    </nav> -->
+ 
     <br />
     <div class="container">
         <div class="section">
-            <ol class="breadcrumb">
+<!--             <ol class="breadcrumb">
                 <li><a href="#">홈</a></li>
                 <li><a href="#">드론시장동향</a></li>
                 <li class="active">작성양식</li>
-            </ol>
-            </section>
+            </ol> -->
+         </div>
             <!--  second form ================================================== -->
             <section class="col-xs-12">
                 <form class="form-horizontal">
@@ -177,10 +126,12 @@
                     </fieldset>
                 </form>
             </section>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </div>
         <script src="/resources/js/jquery-2.1.4.min.js"></script>
         <script src="/resources/js/bootstrap.min.js"></script>
         <script src="/resources/js/script.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 
 </html>

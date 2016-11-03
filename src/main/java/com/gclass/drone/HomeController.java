@@ -63,5 +63,10 @@ public class HomeController {
 	public void board(){
 		
 	}
+
+	@RequestMapping("/googleOauth")
+	public void googleOauth(){
+		
+	}
 	
 }

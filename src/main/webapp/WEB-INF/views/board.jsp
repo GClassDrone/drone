@@ -69,45 +69,15 @@
 </head>
 
 <body>
-    <header class="bgimage">
      <jsp:include page="./header.jsp"></jsp:include>
- <!--        <div class="row">
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    navbar-default /  navbar-fixed-top 
-                    <div class="navbar-header">
-                        <a href="#" class="navbar-brand">GClass</a>
-                    </div>
-                    <p class="navbar-text">Sharing People's Drone Life</p>
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">드론영상</a></li>
-                        <li><a href="#">카테고리</a></li>
-                        <li class="active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">시장동향</a></li>
-                                <li><a href="#">게시판</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">파일럿</a></li>
-                    </ul>
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" name="">
-                        </div>
-                        <button type="submit" class="btn btn-default">go</button>
-                    </form>
-                    <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
-                </div>
-            </nav>
-        </div> -->
+    <header class="bgimage">
     </header>
     <div class="container"> <br />
-        <ol class="breadcrumb">
+<!--         <ol class="breadcrumb">
             <li><a href="#">home</a></li>
             <li class="active">자유게시판</li>
-            <!-- <li><a href="#">grooming</a></li> -->
-        </ol>
+            <li><a href="#">grooming</a></li>
+        </ol> -->
         <div class="row">
             <ul class="nav nav-tabs pull-right">
                 <li><a href="P_info.html">시장동향</a></li>
