@@ -60,10 +60,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <jsp:include page="./header.jsp"></jsp:include>
-    <header class="bgimage hidden-xs">
-=======
     <header class="bgimage hidden-xs">
     <jsp:include page="common/header.jsp"></jsp:include>
         <!-- <div class="row">
@@ -260,11 +256,7 @@
     <script src="/resources/js/jquery-2.1.4.min.js"></script>
     <script src="/resources/js/bootstrap.min.js"></script>
     <script src="/resources/js/script.js"></script>
-<<<<<<< HEAD
-    <jsp:include page="./footer.jsp"></jsp:include>
-=======
         <jsp:include page="common/footer.jsp"></jsp:include>
->>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
 </body>
 
 </html>
