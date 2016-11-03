@@ -3,20 +3,14 @@
 <!DOCTYPE html>
 
 <html>
-<<<<<<< HEAD
-
 <head>
-    <meta charset="utf-8">
+ <!--   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-signin-client_id" content="772358182499-5r2d2l2ue8oob79q68dfdbr1c0lplmss.apps.googleusercontent.com.apps.googleusercontent.com.apps.googleusercontent.com.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
-=======
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
->>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
+
     <style type="text/css">
     .navbar-default {
         width: 100%;
@@ -51,14 +45,11 @@
         content: "\002F\00a0";
     }
     </style>
-    <jsp:include page="common/include.jsp"></jsp:include>
+ --> 
 </head>
 
 <body>
-<<<<<<< HEAD
-    <jsp:include page="./header.jsp"></jsp:include>
- 
-=======
+
     <jsp:include page="common/header.jsp"></jsp:include>
  <!--    <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
         <div class="container">
@@ -105,7 +96,7 @@
             </div>
         </div>
     </nav> -->
->>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
+
     <br />
     <div class="container">
         <div class="section">
@@ -182,16 +173,13 @@
                     </fieldset>
                 </form>
             </section>
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
         </div>
-<<<<<<< HEAD
-        <script src="/resources/js/jquery-2.1.4.min.js"></script>
-        <script src="/resources/js/bootstrap.min.js"></script>
-        <script src="/resources/js/script.js"></script>
+
         <script src="https://apis.google.com/js/platform.js" async defer></script>
-=======
+
         <jsp:include page="common/footer.jsp"></jsp:include>
->>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
+
 </body>
 
 </html>

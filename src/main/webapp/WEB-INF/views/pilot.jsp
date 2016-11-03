@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-    .navbar-default {
-        width: 100%;
-        z-index: 9999;
-    }
+  <!--   <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+ 
+<style type="text/css">
     
     .bgimage {
         background-image: url('/resources/images/infoboard_bg.jpg');
@@ -50,17 +48,14 @@
         content: "\002F\00a0";
     }
     </style>
-     <jsp:include page="common/include.jsp"></jsp:include>
 </head>
+
+
 <body>
-    <jsp:include page="./header.jsp"></jsp:include>
+ <jsp:include page="common/header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
-<<<<<<< HEAD
-     </header>
-=======
-     <jsp:include page="common/header.jsp"></jsp:include>
     </header>
->>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
+
     <div class="section">
         <div class="container">
            <!--  <ol class="breadcrumb">
@@ -86,4 +81,5 @@
     </div>
 	<jsp:include page="common/footer.jsp"></jsp:include>
 </body>
+
 </html>

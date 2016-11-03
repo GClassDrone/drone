@@ -3,103 +3,23 @@
 <!DOCTYPE html>
 
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-    .navbar-default {
-        width: 100%;
-        z-index: 9999;
-    }
-    
-    .breadcrumb {
-        background: rgba(23, 21, 21, 0);
-        border: 0px solid rgba(245, 245, 245, 1);
-        border-radius: 0px;
-        display: block;
-    }
-    
-    .breadcrumb li {
-        font-size: 14px;
-    }
-    
-    .breadcrumb a {
-        color: rgba(66, 139, 202, 1);
-    }
-    
-    .breadcrumb a:hover {
-        color: rgba(42, 100, 150, 1);
-    }
-    
-    .breadcrumb>.active {
-        color: rgba(153, 153, 153, 1);
-    }
-    
-    .breadcrumb>li+li:before {
-        color: rgba(204, 204, 204, 1);
-        content: "\002F\00a0";
-    }
-    .thumbnail img {
-        height: 600px
-    }
-    </style>
+<style type="text/css">
+.center {
+	marging : auto;
+	padding : auto;
+	text-align : center;
+	vertical-align : center;
+}
+</style>
 </head>
 
 <body>
-<<<<<<< HEAD
-    <jsp:include page="./header.jsp"></jsp:include>
-=======
+
     <jsp:include page="common/header.jsp"></jsp:include>
-<!--     <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><span>GClass</span></a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
-                <p class="navbar-text">Sharing People's Drone Life</p>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">드론영상</a>
-                    </li>
-                    <li>
-                        <a href="#">카테고리</a>
-                    </li>
-                    <li class="active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">시장동향</a>
-                            </li>
-                            <li>
-                                <a href="#">게시판</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">파일럿</a>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="">
-                    </div>
-                    <button type="submit" class="btn btn-default">go</button>
-                </form>
-                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
-            </div>
-        </div>
-    </nav> -->
->>>>>>> 5f7d49fe82b5c8342d6ccc33f4b2779c966ab96a
+
     <div class="section">
         <div class="container">
-           <br />
     <!--          <ol class="breadcrumb">
                 <li><a href="#">홈</a></li>
                 <li><a href="#">드론시장동향</a></li>
@@ -166,7 +86,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+            	<div class="col-md-1 center">
+            	<i class="material-icons" style="font-size: 48px; color: #8BC34A">tag_faces</i></a>
+            	<h5 class="media-heading"><span>matthewkim</span></h5>
+            	</div>
+                <div class="col-md-11">
                     <form role="form">
                         <div class="form-group">
                                     <label for="inputComments">Write reply</label>

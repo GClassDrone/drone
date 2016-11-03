@@ -43,8 +43,8 @@ public class HomeController {
 	public void info(){
 		
 	}
-	@RequestMapping("/pilotList")
-	public void pilotList(){
+	@RequestMapping("/pilot")
+	public void pilot(){
 		
 	}
 	@RequestMapping("/infoDetail")
