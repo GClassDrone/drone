@@ -25,8 +25,7 @@ $(function() {
 		google.maps.event.addListener(map, 'click', function(event) {
 			var lat1 = event.latLng.lat();
 			var lng1 = event.latLng.lng();
-			alert( "Latitude: "+lat1+" "+", longitude: "+lng1 );
-			$(location).attr('href', "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat1+","+lng1+"&key=AIzaSyA19l1lXb7Knj6sgwTXGwnKSqfakx3laYE");
+			googleapisView(lat1, lng1);
 		});
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
@@ -39,7 +38,69 @@ $(function() {
 			google.maps.event.trigger(map, "resize");
 			map.setCenter(center); 
 		});
+		var searchMenuDiv = document.createElement('div');
+		searchMenuDiv.setAttribute('class','dropdown');
+		var searchMenu = new SearchMenu(searchMenuDiv, map);
+
+		searchMenuDiv.index = 1;
+		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchMenuDiv);
 	}
+	function googleapisView(lat, lng) {
+		var geocode = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyA19l1lXb7Knj6sgwTXGwnKSqfakx3laYE";
+		$.ajax({
+			url: geocode,
+			type: 'POST',
+			success: function(myJSONResult){
+				if(myJSONResult.status == 'OK') {
+					alert("주소 : " +myJSONResult.results[0].formatted_address);
+					alert("위도 : " +myJSONResult.results[0].geometry.location.lat);
+					alert("경도 : " +myJSONResult.results[0].geometry.location.lng);
+				} else if(myJSONResult.status == 'ZERO_RESULTS') {
+					alert("지오코딩이 성공했지만 반환된 결과가 없음을 나타냅니다.\n\n이는 지오코딩이 존재하지 않는 address 또는 원격 지역의 latlng을 전달받는 경우 발생할 수 있습니다.")
+				} else if(myJSONResult.status == 'OVER_QUERY_LIMIT') {
+					alert("할당량이 초과되었습니다.");
+				} else if(myJSONResult.status == 'REQUEST_DENIED') {
+					alert("요청이 거부되었습니다.\n\n대부분의 경우 sensor 매개변수가 없기 때문입니다.");
+				} else if(myJSONResult.status == 'INVALID_REQUEST') {
+					alert("일반적으로 쿼리(address 또는 latlng)가 누락되었음을 나타냅니다.");
+				}
+			}
+		});
+	}
+	
+	function SearchMenu(buttonDiv, map) {
+
+		// 조건버튼
+		var buttonUI = document.createElement('button');
+		var buttonTextNode = document.createTextNode("조건");
+		buttonUI.setAttribute('class','dropbtn');
+		buttonUI.appendChild(buttonTextNode);
+		buttonDiv.appendChild(buttonUI);
+		
+		// 하위 메뉴 DIV
+		var dropMenu = document.createElement('div');
+		dropMenu.setAttribute('class','dropdown-content');
+		buttonDiv.appendChild(dropMenu);
+		
+		// 하위 메뉴
+		var videoMenu = document.createElement('a');
+		videoMenu.href = '#';
+		var videoMenuTextNode = document.createTextNode("영상");
+		videoMenu.appendChild(videoMenuTextNode);
+		dropMenu.appendChild(videoMenu);
+		
+		var pilotMenu = document.createElement('a');
+		pilotMenu.href = '#';
+		var pilotMenuTextNode = document.createTextNode("파일럿");
+		pilotMenu.appendChild(pilotMenuTextNode);
+		dropMenu.appendChild(pilotMenu);
+
+		// 조건 버튼 이벤트 등록
+		dropMenu.addEventListener('mouseover', function() {
+			
+		});
+	}
+	
 	var form;
 	var dialog;
 	dialog = $("#dialog-form").dialog({
@@ -57,72 +118,6 @@ $(function() {
 	var locations = [ {
 		lat : 36.563910,
 		lng : 128.154312
-	}, {
-		lat : 36.718234,
-		lng : 128.363181
-	}, {
-		lat : 36.727111,
-		lng : 128.371124
-	}, {
-		lat : 36.848588,
-		lng : 128.209834
-	}, {
-		lat : 36.851702,
-		lng : 128.216968
-	}, {
-		lat : 36.671264,
-		lng : 128.863657
-	}, {
-		lat : 36.304724,
-		lng : 128.662905
-	}, {
-		lat : 36.817685,
-		lng : 128.699196
-	}, {
-		lat : 36.828611,
-		lng : 128.790222
-	}, {
-		lat : 36.750000,
-		lng : 128.116667
-	}, {
-		lat : 36.759859,
-		lng : 128.128708
-	}, {
-		lat : 36.765015,
-		lng : 128.133858
-	}, {
-		lat : 36.770104,
-		lng : 128.143299
-	}, {
-		lat : 36.773700,
-		lng : 128.145187
-	}, {
-		lat : 36.774785,
-		lng : 128.137978
-	}, {
-		lat : 36.819616,
-		lng : 128.968119
-	}, {
-		lat : 36.330766,
-		lng : 128.695692
-	}, {
-		lat : 36.927193,
-		lng : 128.053218
-	}, {
-		lat : 36.330162,
-		lng : 128.865694
-	}, {
-		lat : 36.734358,
-		lng : 128.439506
-	}, {
-		lat : 36.734358,
-		lng : 128.501315
-	}, {
-		lat : 36.735258,
-		lng : 128.438000
-	}, {
-		lat : 36.999792,
-		lng : 128.463352
-	} ];
+	}];
 	initMap();
 })
