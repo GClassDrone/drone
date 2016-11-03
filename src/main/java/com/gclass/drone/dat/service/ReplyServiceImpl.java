@@ -7,14 +7,14 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gclass.drone.dat.dao.ReplyDao;
+import com.gclass.drone.dat.dao.bdatDao;
 import com.gclass.drone.dat.dto.ReplyDto;
 
 @Service
 public class ReplyServiceImpl implements ReplyService {
 
 	@Inject
-	private ReplyDao replydao;
+	private bdatDao replydao;
 	
 	@Transactional
 	@Override
