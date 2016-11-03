@@ -9,8 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.kedu.board.dto.Criteria;
-import com.kedu.board.dto.ReplyDto;
+import com.gclass.drone.dat.dto.ReplyDto;
 
 @Repository
 public class ReplyDaoImpl implements ReplyDao {
@@ -42,17 +41,6 @@ public class ReplyDaoImpl implements ReplyDao {
 	public void delete(Integer rno) throws Exception {
 
 		session.delete(namespace + ".delete",rno);
-	}
-
-	@Override
-	public List<ReplyDto> listPage(Integer bno, Criteria cri) throws Exception {
-		
-		Map<String, Object> paramMap = new HashMap<>();
-		
-		paramMap.put("bno", bno);
-		paramMap.put("cri", cri);
-		
-		return session.selectList(namespace+".listPage",paramMap);
 	}
 
 	@Override
