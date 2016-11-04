@@ -4,7 +4,7 @@
 
 <html>
 <head>
-  <!--   <meta charset="utf-8">  
+<!--   <meta charset="utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1"> -->
  
 <style type="text/css">
@@ -48,6 +48,8 @@
         content: "\002F\00a0";
     }
     </style>
+    
+    <jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 

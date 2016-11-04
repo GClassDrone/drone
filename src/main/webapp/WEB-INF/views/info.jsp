@@ -92,7 +92,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                     </div>
                 </div>
             </section>
@@ -139,7 +139,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                     </div>
                 </div>
             </section>
@@ -204,7 +204,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
