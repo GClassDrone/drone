@@ -6,7 +6,7 @@ import com.gclass.drone.dat.dto.bdatDto;
 
 public interface bdatDao {
 	
-	public List<bdatDto> list(Integer bno) throws Exception;
+	public List<bdatDto> list(Integer bdatno) throws Exception;
 
 	public void create(bdatDto dto) throws Exception;
 

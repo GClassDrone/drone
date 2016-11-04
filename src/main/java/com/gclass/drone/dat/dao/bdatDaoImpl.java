@@ -19,33 +19,28 @@ public class bdatDaoImpl implements bdatDao {
 	private static String namespace = "com.gclass.drone.mapper.BdatMapper";
 	
 	@Override
-	public List<bdatDto> list(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<bdatDto> list(Integer bdatno) throws Exception {
+		return session.selectList(namespace + ".list", bdatno);
 	}
 
 	@Override
 	public void create(bdatDto dto) throws Exception {
-		// TODO Auto-generated method stub
-
+		session.insert(namespace + ".create", dto);
 	}
 
 	@Override
 	public void update(bdatDto dto) throws Exception {
-		// TODO Auto-generated method stub
-
+		session.update(namespace + ".update" , dto);
 	}
 
 	@Override
 	public void delete(Integer bdatno) throws Exception {
-		// TODO Auto-generated method stub
-
+		session.delete(namespace + ".delete",bdatno);
 	}
 
 	@Override
 	public int count(Integer bdatno) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.selectOne(namespace +".count", bdatno);
 	}
 
 }
