@@ -63,5 +63,9 @@ public class HomeController {
 	public void board(){
 		
 	}
+	@RequestMapping("/test2")
+	public void test2(){
+		
+	}
 	
 }
