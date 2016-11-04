@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 <script src="/resources/js/jquery-2.1.4.min.js"></script>
 <script src="/resources/js/jquery-ui.min.js"></script>
@@ -18,39 +18,33 @@
 </head>
 <body>
 <div id ="dialog-login">
-<form >
-<table align="center" ></table>
+<form>
 <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 <!-- 구글 버튼 -->
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<div align="center">
+	<div class="g-signin2" data-onsuccess="onSignIn" >
+	<img src="/resources/imgages/login/google-sign-in.png">
+	</div>
 <br>
-<br>
+</div>
 <!-- 카카오톡 -->
-<a style="" id="kakao-login-btn"></a><br>
-<br>
-<!-- 네이버 -->
-<a id="naver_id_login"></a>
-<script type="text/javascript">
-	var naver_id_login = new naver_id_login("CWr_84d1XvIQlD9amjdB", "http://192.168.0.23:8080/test1");
-	var state = naver_id_login.getUniqState();
-	naver_id_login.setButton("green", 3, 48);
-	naver_id_login.setDomain(".service.com");
-	naver_id_login.setState(state);
-	naver_id_login.setPopup();
-	naver_id_login.init_naver_id_login();
-	
-	function naverSignCallback(){
-		alert(naver_id_login.getProfileDate('email'));
-		alert(naver_id_login.getProfileDate('nickname'));
-		alert(naver_id_login.getProfileDate('age'));
-	}
-	naver_id_login.get_naver_userprofile("naverSignCallback()");
-</script>
-<!-- 페이스북 -->
-<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
-</form>
+<div align="center">
+	<a id="kakao-login-btn"></a><br>
+	<br>
 </div>
 
+<!-- 네이버 -->
+<div align="center">
+	<a id="naver_id_login"></a>
+	<script src="/resources/js/login/naverLogin.js"></script><br>
+	<br>
+</div>
+<!-- 페이스북 -->
+<div align="center">
+	<div class="fb-login-button" data-max-rows="10" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+</div>
+</form>
+</div>
 <input type ="button" id ="login-user" value = "로그인">
 </body>
 </html>
