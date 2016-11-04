@@ -30,7 +30,7 @@ body {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><span>GClass</span></a>
+                <a class="navbar-brand" href="/intro"><span>GClass</span></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-ex-collapse">
              <!--     <p class="navbar-text">Sharing People's Drone Life</p> -->
@@ -55,27 +55,31 @@ body {
                         <a href="info" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                         정보<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">시장동향</a></li>
-                            <li><a href="#">게시판</a></li>
+                            <li><a href="/info">시장동향</a></li>
+                            <li><a href="/board">게시판</a></li>
                         </ul>
                     </li>                    
                     <li>
-                        <a href="pilot">파일럿</a>
+                        <a href="/pilot">파일럿</a>
                     </li>
                 </ul>
-<!--                 <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="">
-                    </div>
-                    <button type="submit" class="btn btn-default">go</button>
-                </form> -->
                 <div class="pull-right">
-	                 <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span>
-	                 <a href="#">
-	                 <i class="material-icons pull-right" style="padding-top: 7px; font-size: 34px; color: #8BC34A">tag_faces</i></a>
-	                 &nbsp;
-	                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>  
+<!-- 	                 <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span> -->
+	                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
+		         	<a href="#">
+	                	<i class="material-icons pull-right" style="padding-top: 7px; font-size: 34px; color: #8BC34A">tag_faces</i></a>
                 </div>
+            
+             <div class="col-sm-3 col-md-3 pull-right">
+			        <form class="navbar-form" role="search">
+				        <div class="input-group">
+				            <input type="text" class="form-control" placeholder="Search" name="q">
+				            <div class="input-group-btn">
+				                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+				            </div>
+				        </div>
+			        </form>
+			  </div>
             </div>
         </div>
     </nav>
