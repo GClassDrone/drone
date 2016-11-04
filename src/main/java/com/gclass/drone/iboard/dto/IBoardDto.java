@@ -1,10 +1,9 @@
-package com.gclass.drone.board.dto;
+package com.gclass.drone.iboard.dto;
 
 import java.sql.Clob;
 import java.sql.Timestamp;
-import java.util.Date;
 
-public class BoardDto {
+public class IBoardDto {
 
 	private int subjno;
 	private int bno;
@@ -13,6 +12,7 @@ public class BoardDto {
 	private Clob ctt;
 	private int readcnt;
 	private Timestamp regdt;
+	
 	public int getSubjno() {
 		return subjno;
 	}

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/instanceboard")
 @Controller
-public class BoardController {
+public class IBoardController {
 
 	@RequestMapping("/itlist")
 	public void itlist(){

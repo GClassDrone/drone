@@ -1,23 +1,23 @@
-package com.gclass.drone.board.dao;
+package com.gclass.drone.iboard.dao;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.gclass.drone.board.dto.BoardDto;
+import com.gclass.drone.iboard.dto.IBoardDto;
 
 
 @Repository
-public class BoardDaoImpl implements BoardDao{
+public class IBoardDaoImpl implements IBoardDao{
 
 	@Inject
 	private SqlSession session;
 
-	private static String namespace = "com.gclass.drone.mapper.BoardMapper";
+	private static String namespace = "com.gclass.drone.mapper.IBoardMapper";
 
 	@Override
-	public void create(BoardDto dto) throws Exception {
+	public void create(IBoardDto dto) throws Exception {
 		session.insert(namespace + ".create", dto);
 	}
 
@@ -27,12 +27,12 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-	public BoardDto read(Integer mno) throws Exception {
+	public IBoardDto read(Integer mno) throws Exception {
 		return session.selectOne(namespace + ".read", mno);
 	}
 
 	@Override
-	public void update(BoardDto dto) throws Exception {
+	public void update(IBoardDto dto) throws Exception {
 		session.update(namespace + ".update", dto);
 	}
 }
