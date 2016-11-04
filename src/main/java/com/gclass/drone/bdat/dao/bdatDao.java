@@ -1,12 +1,12 @@
-package com.gclass.drone.dat.dao;
+package com.gclass.drone.bdat.dao;
 
 import java.util.List;
 
-import com.gclass.drone.dat.dto.bdatDto;
+import com.gclass.drone.bdat.dto.bdatDto;
 
 public interface bdatDao {
 	
-	public List<bdatDto> list(Integer bdatno) throws Exception;
+	public List<bdatDto> list(Integer bno) throws Exception;
 
 	public void create(bdatDto dto) throws Exception;
 
