@@ -4,8 +4,13 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
+ <!--   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="772358182499-5r2d2l2ue8oob79q68dfdbr1c0lplmss.apps.googleusercontent.com.apps.googleusercontent.com.apps.googleusercontent.com.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
+
     <style type="text/css">
     .navbar-default {
         width: 100%;
@@ -40,10 +45,11 @@
         content: "\002F\00a0";
     }
     </style>
-    <jsp:include page="common/include.jsp"></jsp:include>
+ --> 
 </head>
 
 <body>
+
     <jsp:include page="common/header.jsp"></jsp:include>
  <!--    <nav class="navbar navbar-default" data-spy="affix" data-offset="700px">
         <div class="container">
@@ -90,15 +96,16 @@
             </div>
         </div>
     </nav> -->
+
     <br />
     <div class="container">
         <div class="section">
-            <ol class="breadcrumb">
+<!--             <ol class="breadcrumb">
                 <li><a href="#">홈</a></li>
                 <li><a href="#">드론시장동향</a></li>
                 <li class="active">작성양식</li>
-            </ol>
-            </section>
+            </ol> -->
+         </div>
             <!--  second form ================================================== -->
             <section class="col-xs-12">
                 <form class="form-horizontal">
@@ -166,8 +173,13 @@
                     </fieldset>
                 </form>
             </section>
+
         </div>
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
         <jsp:include page="common/footer.jsp"></jsp:include>
+
 </body>
 
 </html>

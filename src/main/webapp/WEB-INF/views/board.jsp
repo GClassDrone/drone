@@ -2,18 +2,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
+
     <style type="text/css">
-    .navbar-default {
-        width: 100%;
-        z-index: 9999;
-    }
-    
+ 
     .bgimage {
         background-image: url('/resources/images/infoboard_bg.jpg');
         background-position: center center;
@@ -69,45 +62,16 @@
 </head>
 
 <body>
+
+<jsp:include page="common/header.jsp"></jsp:include>
     <header class="bgimage">
-     <jsp:include page="common/header.jsp"></jsp:include>
- <!--        <div class="row">
-            <nav class="navbar navbar-default">
-                <div class="container">
-                    navbar-default /  navbar-fixed-top 
-                    <div class="navbar-header">
-                        <a href="#" class="navbar-brand">GClass</a>
-                    </div>
-                    <p class="navbar-text">Sharing People's Drone Life</p>
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">드론영상</a></li>
-                        <li><a href="#">카테고리</a></li>
-                        <li class="active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">정보 <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">시장동향</a></li>
-                                <li><a href="#">게시판</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">파일럿</a></li>
-                    </ul>
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" name="">
-                        </div>
-                        <button type="submit" class="btn btn-default">go</button>
-                    </form>
-                    <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
-                </div>
-            </nav>
-        </div> -->
-    </header>
+     </header>
     <div class="container"> <br />
-        <ol class="breadcrumb">
+<!--         <ol class="breadcrumb">
             <li><a href="#">home</a></li>
             <li class="active">자유게시판</li>
-            <!-- <li><a href="#">grooming</a></li> -->
-        </ol>
+            <li><a href="#">grooming</a></li>
+        </ol> -->
         <div class="row">
             <ul class="nav nav-tabs pull-right">
                 <li><a href="P_info.html">시장동향</a></li>
@@ -122,7 +86,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2  col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resources/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -131,7 +95,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resources/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -140,7 +104,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resources/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -149,7 +113,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resources/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -158,7 +122,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resources/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -167,7 +131,7 @@
                 </blockquote>
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <img class="icon img-circle" src="images/profile.jpg" alt="Icon">
+                <img class="icon img-circle" src="/resources/images/profile.jpg" alt="Icon">
                 <h5><a class="nickname" href="#">APRIL</a></h5>
             </div>
             <div class="col-md-8">
@@ -183,33 +147,7 @@
         </p>
     </div>
     <!-- content container -->
-<!--     <footer class="section section-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h1>GClass</h1>
-                    <p>Copyright ⓒ &nbsp;2016 by GClass, All rights reserved. Contact Us
-                        <br>XSharing.lab@gmail.com.</p>
-                </div>
-                <div class="col-sm-6">
-                    <p class="text-info text-right">
-                        <br>
-                        <br>
-                    </p>
-                    <div class="row">
-                        <div class="col-md-12 hidden-xs text-right">
-                            <a href="https://www.facebook.com/ktwibro" target="_blank"><i class="fa fa-facebook-square" style="font-size:36px; color:white"></i></a> &nbsp;
-                            <a href="https://plus.google.com/u/0/+YoungKimkt" target="_blank"><i class="fa fa-google-plus-official" style="font-size:36px; color:white"></i></a> &nbsp;
-                            <a href="https://twitter.com/ktm2mt" target="_blank"><i class="fa fa-twitter-square" style="font-size:36px; color:white"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> -->
-    <script src="/resources/js/jquery-2.1.4.min.js"></script>
-    <script src="/resources/js/bootstrap.min.js"></script>
-    <script src="/resources/js/script.js"></script>
+
     <jsp:include page="common/footer.jsp"></jsp:include>
 </body>
 

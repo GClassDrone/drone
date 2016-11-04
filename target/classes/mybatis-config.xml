@@ -5,6 +5,7 @@
 	
 	<typeAliases>
 		<package name="com.gclass.drone.profile.dto"/>
+		<package name="com.gclass.drone.iboard.dto"/>
 	</typeAliases>
 	
 </configuration>
