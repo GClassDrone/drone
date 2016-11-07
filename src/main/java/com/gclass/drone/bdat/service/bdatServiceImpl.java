@@ -43,7 +43,7 @@ public class bdatServiceImpl implements bdatService {
 	
 	@Transactional
 	@Override
-	public void removebdat(Integer rno) throws Exception {
+	public void removebdat(Integer bdatno) throws Exception {
 
 	}
 

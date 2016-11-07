@@ -2,6 +2,7 @@ package com.gclass.drone;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RequestMapping
 @Controller
@@ -67,4 +68,8 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping(value="/bdat/bdat", method =RequestMethod.GET)
+	public void bdat() {
+		
+	}
 }
