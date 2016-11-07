@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.navbar-default {
+	width: 100%;
+	z-index: 9999;
+}
+
+body {
+	padding-top: 50px;
+}

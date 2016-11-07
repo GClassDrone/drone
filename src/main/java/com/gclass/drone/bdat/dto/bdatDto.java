@@ -1,4 +1,4 @@
-package com.gclass.drone.dat.dto;
+package com.gclass.drone.bdat.dto;
 
 import java.sql.Timestamp;
 

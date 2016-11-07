@@ -14,6 +14,7 @@
 </style>
 -->
 
+<jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 <body>

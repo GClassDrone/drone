@@ -16,6 +16,7 @@
 <jsp:include page="../common/header.jsp"></jsp:include>
 	<div id="map"></div>
 	<div id="list_wrap">
+		<jsp:include page="../common/videoList.jsp"></jsp:include>
 	</div>
 	<jsp:include page="videoModal.jsp"></jsp:include>
 <jsp:include page="../common/footer.jsp"></jsp:include>

@@ -1,7 +1,5 @@
 package com.gclass.drone.profile.service;
 
-import java.util.List;
-
 import com.gclass.drone.profile.dto.MemDto;
 
 public interface MemService {

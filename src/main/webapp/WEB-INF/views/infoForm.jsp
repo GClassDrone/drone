@@ -46,6 +46,7 @@
     }
     </style>
  --> 
+ <jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 <body>
@@ -97,7 +98,6 @@
         </div>
     </nav> -->
 
-    <br />
     <div class="container">
         <div class="section">
 <!--             <ol class="breadcrumb">

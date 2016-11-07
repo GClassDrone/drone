@@ -11,8 +11,14 @@ public class IBoardController {
 	public void itlist(){
 		
 	}
+	
 	@RequestMapping("/itdetail")
 	public void itdetail(){
+		
+	}
+	
+	@RequestMapping("/itupdate")
+	public void itupdate(){
 		
 	}
 }
