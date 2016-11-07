@@ -2,6 +2,7 @@ package com.gclass.drone;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RequestMapping
 @Controller
@@ -61,12 +62,15 @@ public class HomeController {
 	public void board(){
 		
 	}
-
+	@RequestMapping("/test2")
+	public void test2(){
+	}
 	@RequestMapping("/googleOauth")
 	public void googleOauth(){
 		
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping("/boardGroupList")
 	public void boardGroupList(){
 		
@@ -77,4 +81,10 @@ public class HomeController {
 		
 	}
 	
+=======
+	@RequestMapping(value="/bdat/bdat", method =RequestMethod.GET)
+	public void bdat() {
+		
+	}
+>>>>>>> master
 }
