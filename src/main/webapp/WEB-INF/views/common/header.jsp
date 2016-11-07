@@ -38,11 +38,17 @@ body {
                     <li>
                         <a href="/map/map">드론영상</a>
                     </li>
-                    <li class="active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        카테고리 <span class="caret"></span></a>
-                        <ul class="dropdown-menu transparent">
-                            <li><a href="#">도시전망</a></li>
+                    <li class="dropdonw-split-left">
+                        <a href="/intro">카테고리</a>
+                    </li>
+                    <li class="dropdown dropdown-split-right hidden-xs">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    		<i class="fa fa-caret-down" aria-hidden="true" title="Toggle dropdown menu"></i>
+                    		<span class="sr-only">Toggle dropdown menu</span>
+                    		<span class="toggle drop down"></span>
+                    	</a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="/#">도시전망</a></li>
                             <li><a href="#">자연경관</a></li>
                             <li><a href="#">시설조망</a></li>
                             <li><a href="#">레져</a></li>
@@ -51,14 +57,34 @@ body {
                             <li><a href="#">레이싱</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="dropdonw-split-left active">
+                        <a href="/info">정보</a>
+                    </li>
+                    <li class="dropdown dropdown-split-right hidden-xs active">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    		<i class="fa fa-caret-down" aria-hidden="true" title="Toggle dropdown menu"></i>
+                    		<span class="sr-only">Toggle dropdown menu</span>
+                    		<span class="toggle drop down"></span>
+                    	</a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="/info">시장동향</a></li>
+                            <li><a href="/boardGroupList">주제별 게시판</a></li>
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>
+                            <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
+                        </ul>
+                    </li>
+            <!--          <li>
                         <a href="info" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                         정보<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/info">시장동향</a></li>
-                            <li><a href="/board">게시판</a></li>
+                            <li><a href="/boardGroupList">주제별 게시판</a></li>
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>
+                            <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
                         </ul>
-                    </li>                    
+                    </li>   -->                 
                     <li>
                         <a href="/pilot">파일럿</a>
                     </li>

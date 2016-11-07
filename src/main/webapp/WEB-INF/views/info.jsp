@@ -71,12 +71,13 @@
                 <li><a href="#">grooming</a></li>
             </ol> -->
             <ul class="nav nav-tabs pull-right">
-                <li class="active"><a href="P_info.html">시장동향</a></li>
-                <li><a href="P_board.html">게시판</a></li>
+                <li class="active"><a href="/info">시장동향</a></li>
+                <li><a href="/boardGroupList">주제별 게시판</a></li>
+                <li><a href="#">공지사항</a></li>
                 <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>
                 <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
             </ul>
-        </div>
+        </div><br />
         <h1 style="text-align: center;"><strong>드론 시장동향</strong></h1>
         <p style="text-align: center;">공지사항 텍스트 요약 ~~~~~~~~</p>
     </div>

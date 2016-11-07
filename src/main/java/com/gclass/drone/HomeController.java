@@ -67,4 +67,14 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping("/boardGroupList")
+	public void boardGroupList(){
+		
+	}
+	
+	@RequestMapping("/boardSubList")
+	public void boardSubList(){
+		
+	}
+	
 }

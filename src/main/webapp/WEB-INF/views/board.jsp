@@ -68,15 +68,11 @@
     <header class="bgimage">
      </header>
     <div class="container"> <br />
-<!--         <ol class="breadcrumb">
-            <li><a href="#">home</a></li>
-            <li class="active">자유게시판</li>
-            <li><a href="#">grooming</a></li>
-        </ol> -->
         <div class="row">
             <ul class="nav nav-tabs pull-right">
-                <li><a href="P_info.html">시장동향</a></li>
-                <li class="active"><a href="P_board.html">게시판</a></li>
+                <li><a href="/info">시장동향</a></li>
+                <li  class="active"><a href="/boardGroupList">주제별 게시판</a></li>
+                <li><a href="#">공지사항</a></li>
                 <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>
                 <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
             </ul>
