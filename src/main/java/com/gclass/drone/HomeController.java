@@ -61,14 +61,11 @@ public class HomeController {
 	public void board(){
 		
 	}
-<<<<<<< HEAD
 	@RequestMapping("/test2")
 	public void test2(){
-=======
-
+	}
 	@RequestMapping("/googleOauth")
 	public void googleOauth(){
->>>>>>> 3c491eab255f87926ad611b18660c0a843a4cc91
 		
 	}
 	
