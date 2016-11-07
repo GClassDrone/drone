@@ -13,7 +13,7 @@ public interface bdatService {
 	
 	public void modifybdat(bdatDto dto) throws Exception;
 	
-	public void removebdat(Integer rno) throws Exception;
+	public void removebdat(Integer bdatno) throws Exception;
 	
 	public int count(Integer bno) throws Exception;
 	
