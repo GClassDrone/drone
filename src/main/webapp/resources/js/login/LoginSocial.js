@@ -30,7 +30,10 @@ $(function(){
         	url: '/v1/user/me',
         	success: function(res){
         		alert(res.properties.nickname+'님 환영합니다.');
-        		location.href="./result?name="+res.properties.nickname;
+        		alert(res.id+'aaa');
+        		alert(res.properties.profile_image+'aaa');
+        		location.href="http://192.168.0.23:8080/intro";
+        		//location.href="./result?name="+res.properties.id;
         	},
         	fail: function(error){
         		alert(JSON.stringify(error));
@@ -44,7 +47,7 @@ $(function(){
    function ktout(){
 	   Kakao.Auth.logout(function(){
 		   setTimeout(function(){
-			   location.href="http://192.168.0.23:8080/test1"
+			   location.href="http://192.168.0.23:8080/intro"
 		   },1000);
 		   });
    }
