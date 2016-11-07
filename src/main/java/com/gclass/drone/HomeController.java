@@ -70,7 +70,7 @@ public class HomeController {
 		
 	}
 	
-<<<<<<< HEAD
+
 	@RequestMapping("/boardGroupList")
 	public void boardGroupList(){
 		
@@ -81,10 +81,10 @@ public class HomeController {
 		
 	}
 	
-=======
+
 	@RequestMapping(value="/bdat/bdat", method =RequestMethod.GET)
 	public void bdat() {
 		
 	}
->>>>>>> master
+
 }
