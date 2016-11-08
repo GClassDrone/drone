@@ -63,8 +63,21 @@ public class HomeController {
 		
 	}
 	
+
+	@RequestMapping("/boardGroupList")
+	public void boardGroupList(){
+		
+	}
+	
+	@RequestMapping("/boardSubList")
+	public void boardSubList(){
+		
+	}
+	
+
 	@RequestMapping(value="/bdat/bdat", method =RequestMethod.GET)
 	public void bdat() {
 		
 	}
+
 }
