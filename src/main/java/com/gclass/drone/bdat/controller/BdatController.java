@@ -1,4 +1,4 @@
-package com.gclass.drone;
+package com.gclass.drone.bdat.controller;
 
 import java.util.List;
 

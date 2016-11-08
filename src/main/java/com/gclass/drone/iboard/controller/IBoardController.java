@@ -1,9 +1,8 @@
-package com.gclass.drone;
+package com.gclass.drone.iboard.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/instanceboard")
 @Controller
 public class IBoardController {
 
