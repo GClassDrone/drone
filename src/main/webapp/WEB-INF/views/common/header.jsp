@@ -39,7 +39,7 @@ body {
                         <a href="/map/map">드론영상</a>
                     </li>
                     <li class="dropdonw-split-left">
-                        <a href="/intro">카테고리</a>
+                        <a href="/intro">분류</a>
                     </li>
                     <li class="dropdown dropdown-split-right hidden-xs">
                     	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -90,13 +90,12 @@ body {
                     </li>
                 </ul>
                 <div class="pull-right">
-<!-- 	                 <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span> -->
+           <!--  <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span> -->
 	                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
 		         	<a href="#">
 	                	<i class="material-icons pull-right" style="padding-top: 7px; font-size: 34px; color: #8BC34A">tag_faces</i></a>
                 </div>
-            
-             <div class="col-sm-3 col-md-3 pull-right">
+             <div class="col-xs-2 col-sm-3 pull-right">
 			        <form class="navbar-form" role="search">
 				        <div class="input-group">
 				            <input type="text" class="form-control" placeholder="Search" name="q">

@@ -80,6 +80,11 @@ public class HomeController {
 	public void boardSubList(){
 		
 	}
+
+	@RequestMapping("/teamMember")
+	public void teamMember(){
+		
+	}
 	
 
 	@RequestMapping(value="/bdat/bdat", method =RequestMethod.GET)

@@ -28,7 +28,7 @@
 	    		<img class="media-object" src="http://placekitten.com/121/121">
 	  		</a>
 	  		<div class="media-body" style="color: #424242">
-	    		<h4 class="media-heading">게시판 제목</h4>
+	    		<a href="#"><h4 class="media-heading"><strong>게시판 제목</strong></h4></a>
 	          <p class="text-right">By Paul Young</p>
 	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
 	Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis </p>
@@ -47,7 +47,7 @@
 	       		<li>|</li>
 	       		<li>
 				       <i class="fa fa-cog fa-spin fa-2x fa-fw" style="color: green" aria-hidden="false"></i>
-				       Active
+				       <span class="label label-warning arrowed-in">Active</span>
 				<!--  <i class="fa fa-spinner fa-spin fa-2x fa-fw" style="color: red" aria-hidden="true"></i>  -->
 				</li>
 	        <!--    <li>
@@ -66,7 +66,7 @@
 	    		<img class="media-object" src="http://placekitten.com/120/120">
 	  		</a>
 	  		<div class="media-body" style="color: #424242">
-	    		<h4 class="media-heading">게시판 제목</h4>
+	    		<a href="#"><h4 class="media-heading"><strong>게시판 제목</strong></h4></a>
 	          <p class="text-right">By Gclass</p>
 	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
 	Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
@@ -86,7 +86,7 @@
 	            <li>|</li>
 	            <li>
 	            <i class="fa fa-cog fa-spin fa-2x fa-fw" style="color: green" aria-hidden="false"></i>
-				       Active
+				<span class="label label-warning arrowed-in">Active</span>
 				</li>
 		</ul>
 	     </div>
@@ -99,7 +99,7 @@
 	    		<img class="media-object" src="http://placekitten.com/120/120">
 	  		</a>
 	  		<div class="media-body" style="color: #424242">
-	    		<h4 class="media-heading">게시판 제목</h4>
+	    	  <a href="#"><h4 class="media-heading"><strong>게시판 제목</strong></h4></a>
 	          <p class="text-right">By Gclass</p>
 	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
 	Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
@@ -119,7 +119,7 @@
 	            <li>|</li>
 	            <li>
 	            <i class="fa fa-cog fa-spin fa-2x fa-fw" style="color: green" aria-hidden="false"></i>
-				       Active
+				<span class="label label-warning arrowed-in">Active</span>
 				</li>
 		</ul>
 	     </div>
