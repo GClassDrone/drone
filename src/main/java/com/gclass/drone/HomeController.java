@@ -28,14 +28,7 @@ public class HomeController {
 	public void test1(){
 		
 	}
-	@RequestMapping("/profile/ProfileList")
-	public void ProfileList(){
-		
-	}
-	@RequestMapping("/profile/ProfileDetail")
-	public void ProfileDetail(){
-		
-	}
+
 	@RequestMapping("/intro")
 	public void intro(){
 		
