@@ -1,5 +1,7 @@
 package com.gclass.drone.iboard.dao;
 
+import java.util.List;
+
 import com.gclass.drone.iboard.dto.IBoardDto;
 
 public interface IBoardDao {
@@ -11,4 +13,6 @@ public interface IBoardDao {
 	public void update(IBoardDto dto) throws Exception;
 	
 	public void delete(Integer mno) throws Exception;
+	
+	public List<IBoardDto> listAll() throws Exception;
 }
