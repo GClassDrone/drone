@@ -1,4 +1,4 @@
-package com.gclass.drone.map.controller;
+package com.gclass.drone.main.controller;
 
 import java.util.List;
 
@@ -21,18 +21,65 @@ import com.gclass.drone.map.dto.LocDto;
 import com.gclass.drone.map.service.MapService;
 
 @Controller
-@RequestMapping("/map")
-public class MapController {
+public class MainController {
 	@Inject
 	private MapService service;
 	
-	private static final Logger logger = LoggerFactory.getLogger(MapController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+
 	
-	@RequestMapping(value="/map", method=RequestMethod.GET)
-	public void mapGet(){
+	@RequestMapping("/intro")
+	public void intro() {
+		
 	}
 	
-	@ResponseBody
+	@RequestMapping("/board")
+	public void board() {
+		
+	}
+	
+	@RequestMapping("/boardGroupList")
+	public void boardGroupList() {
+		
+	}
+	
+	@RequestMapping("/boardSubList")
+	public void boardSubList() {
+		
+	}
+	
+	@RequestMapping("/info")
+	public void info() {
+		
+	}
+	
+	@RequestMapping("/infoDetail")
+	public void infoDetail() {
+		
+	}
+	
+	@RequestMapping("/infoForm")
+	public void infoForm() {
+		
+	}
+	
+	@RequestMapping("/pilot")
+	public void pilot() {
+		
+	}
+	
+	@RequestMapping("/teamMember")
+	public void teamMember() {
+		
+	}
+	
+	
+/*	@RequestMapping(value="/map", method=RequestMethod.GET)
+	public void mapGet(){
+	}*/
+	
+	
+/*	@ResponseBody
 	@RequestMapping(value="/map", method=RequestMethod.POST)
 	public ResponseEntity<List<CtsDto>> mapPost(){
 		ResponseEntity<List<CtsDto>> entity = null;
@@ -42,7 +89,7 @@ public class MapController {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
-	}
+	}*/
 // 주소 좌표 등록	
 //	@ResponseBody
 //	@RequestMapping(value="/addrlist", method=RequestMethod.POST)

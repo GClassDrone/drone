@@ -1,13 +1,12 @@
 package com.gclass.drone.map.dto;
 
-import java.sql.Clob;
 import java.sql.Timestamp;
 
 public class CtsDto {
 	private int ctscateno;
 	private int ctsno;
 	private String ttl;
-	private Clob ctt;
+	private String ctt;
 	private Timestamp regdt;
 	private String filelk;
 	private String pt;
@@ -37,10 +36,10 @@ public class CtsDto {
 	public void setTtl(String ttl) {
 		this.ttl = ttl;
 	}
-	public Clob getCtt() {
+	public String getCtt() {
 		return ctt;
 	}
-	public void setCtt(Clob ctt) {
+	public void setCtt(String ctt) {
 		this.ctt = ctt;
 	}
 	public Timestamp getRegdt() {

@@ -21,7 +21,15 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
+<<<<<<< HEAD
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+=======
+<<<<<<< HEAD
+			<param-value>/WEB-INF/spring/appServlet/main-context.xml</param-value>
+=======
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+>>>>>>> 4707e23a190947be67232090f4e6931b1b670ab7
+>>>>>>> a5c3f39f7adfa26f0a45580e5d4830ced2f0e8bf
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -29,7 +37,6 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
 	<filter>
 		<filter-name>encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
