@@ -13,7 +13,6 @@ import com.gclass.drone.iboard.dao.IBoardDao;
 import com.gclass.drone.iboard.dto.IBoardDto;
 import com.gclass.drone.iboard.service.IBoardService;
 
-@RequestMapping("/instanceboard")
 @Controller
 public class IBoardController {
 
@@ -40,7 +39,7 @@ public class IBoardController {
 		return "/board/success";
 	}
 	
-	@RequestMapping("/itlist")
+	@RequestMapping(value="/itlist", method=RequestMethod.GET)
 	public void itlist(){
 		
 	}
