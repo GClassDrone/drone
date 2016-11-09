@@ -82,7 +82,9 @@
 				</div>
 				<div class="form-group">		
 					<p>
-						닉네임<br>
+						<label for="niknm">닉네임</label>
+						<input type="text" name='niknm' class="form-control" value="${memDto.niknm }">
+						
 						파일럿 랭킹(랭킹점수)<br>
 						지역
 					</p>

@@ -26,10 +26,8 @@
 
 <!-- 프로필 수정할때 수정가능한 값들 -->
 	<update id="update"> <!-- 수정해야됨 -->
-		update mem set mno = #{mno}, niknm=#{niknm}, email=#{email}, pic=#{pic}, license=#{license}, msgrcyn=#{license}, prmsg=#{prmsg},
-				regcnt=#{regcnt}, datcnt=#{datcnt}, joacnt=#{joacnt}, favcnt=#{favcnt}, readcnt=#{readcn}, indt=#{indt},
-				levno=#{levno}, levpoint=#{levpoint}, locno=#{locno}, ppose=#{ppose}, levnm=#{levnm}, levnic=#{levnic}, 
-				locnm=#{locnm}, mdrnm=#{mdrnm}, actnm=#{actnm}
+		update vm_mem set email=#{email}, pic=#{pic}, license=#{license}, msgrcyn=#{license}, prmsg=#{prmsg},
+				locno=#{locno}, locnm=#{locnm}, mdrnm=#{mdrnm}, actnm=#{actnm}
 		where mno = #{mno}
 	</update>
 
