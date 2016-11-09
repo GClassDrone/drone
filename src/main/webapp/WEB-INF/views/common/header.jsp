@@ -36,7 +36,7 @@ body {
              <!--     <p class="navbar-text">Sharing People's Drone Life</p> -->
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/map/map">드론영상</a>
+                        <a href="/map">드론영상</a>
                     </li>
                     <li class="dropdonw-split-left">
                         <a href="/intro">분류</a>

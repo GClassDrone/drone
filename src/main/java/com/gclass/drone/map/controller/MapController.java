@@ -43,30 +43,30 @@ public class MapController {
 		return entity;
 	}
 // 주소 좌표 등록	
-	@ResponseBody
-	@RequestMapping(value="/addrlist", method=RequestMethod.POST)
-	public ResponseEntity<List<LocDto>> addrlist(){
-		ResponseEntity<List<LocDto>> entity = null;
-		try{
-			entity = new ResponseEntity<List<LocDto>>(service.addrlist(), HttpStatus.OK);
-		}catch(Exception e){
-			e.printStackTrace();
-			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/addrupdate", method=RequestMethod.POST)
-	public ResponseEntity<String> addrupdate(@RequestBody LocDto lDto){
-		ResponseEntity<String> entity = null;
-		try{
-			logger.info(lDto.toString());
-			service.addrupdate(lDto);
-			entity = new ResponseEntity<>(HttpStatus.OK);
-		}catch(Exception e){
-			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
+//	@ResponseBody
+//	@RequestMapping(value="/addrlist", method=RequestMethod.POST)
+//	public ResponseEntity<List<LocDto>> addrlist(){
+//		ResponseEntity<List<LocDto>> entity = null;
+//		try{
+//			entity = new ResponseEntity<List<LocDto>>(service.addrlist(), HttpStatus.OK);
+//		}catch(Exception e){
+//			e.printStackTrace();
+//			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//		}
+//		return entity;
+//	}
+//	
+//	@ResponseBody
+//	@RequestMapping(value="/addrupdate", method=RequestMethod.POST)
+//	public ResponseEntity<String> addrupdate(@RequestBody LocDto lDto){
+//		ResponseEntity<String> entity = null;
+//		try{
+//			logger.info(lDto.toString());
+//			service.addrupdate(lDto);
+//			entity = new ResponseEntity<>(HttpStatus.OK);
+//		}catch(Exception e){
+//			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//		}
+//		return entity;
+//	}
 }

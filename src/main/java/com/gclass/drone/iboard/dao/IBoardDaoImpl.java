@@ -40,10 +40,6 @@ public class IBoardDaoImpl implements IBoardDao{
 
 	@Override
 	public List<IBoardDto> listAll() throws Exception {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-=======
->>>>>>> 0a6f75030203a2995b879121badf3c7b79eee3fa
 		return null;
 	}
 }
