@@ -21,6 +21,7 @@ import com.gclass.drone.map.dto.LocDto;
 import com.gclass.drone.map.service.MapService;
 
 @Controller
+@RequestMapping("/map")
 public class MapController {
 	@Inject
 	private MapService service;

@@ -45,10 +45,9 @@
     		<img class="media-object" src="http://placekitten.com/121/121">
   		</a>
   		<div class="media-body" style="color: #424242">
-    		<a href="#"><h4 class="media-heading"><strong>게시판 제목</strong></h4></a>
-          <p class="text-right">By Paul Young</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-			Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis </p>
+    		<a href="#"><h4 class="media-heading"><strong>아이디</strong></h4></a>
+          <p class="text-right">게시자</p>
+          <p>프로필 상세 이름</p>
           <ul class="list-inline list-unstyled">
   			<li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
   			<li>|</li>

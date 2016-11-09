@@ -1,23 +1,12 @@
 package com.gclass.drone.main.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gclass.drone.map.dto.CtsDto;
-import com.gclass.drone.map.dto.LocArrayDto;
-import com.gclass.drone.map.dto.LocDto;
 import com.gclass.drone.map.service.MapService;
 
 @Controller
@@ -27,12 +16,6 @@ public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
-	
-	@RequestMapping("/intro")
-	public void intro() {
-		
-	}
-	
 	@RequestMapping("/board")
 	public void board() {
 		
