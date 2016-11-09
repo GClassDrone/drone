@@ -28,21 +28,25 @@ $(function() {
 				cluster) {
 			alert("리스트");
 		});
+		
 		google.maps.event.addListener(map, 'click', function(event) {
 //			googleapisView(event.latLng.lat(), event.latLng.lng());
 		});
+// 마크마다 각자의 동영상 링크 저장
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
 				m_filelk=this.filelk;
 				dialog.dialog( "open" );
 			});
 		}
+// 더블클릭 줌인 잠금
 		map.set("disableDoubleClickZoom", true);
-		google.maps.event.addDomListener(window, "resize", function() {
-			var center = map.getCenter();
-			google.maps.event.trigger(map, "resize");
-			map.setCenter(center); 
-		});
+// 리사이즈 이벤트
+//		google.maps.event.addDomListener(window, "resize", function() {
+//			var center = map.getCenter();
+//			google.maps.event.trigger(map, "resize");
+//			map.setCenter(center); 
+//		});
 // 우측 상단 버튼
 		var searchMenuDiv = document.createElement('div');
 		searchMenuDiv.setAttribute('class','dropdown');
