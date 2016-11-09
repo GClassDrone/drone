@@ -27,6 +27,7 @@ public class MemDto {
 	private String locnm;
 	private String mdrnm;
 	private String actnm;
+	
 	public int getMno() {
 		return mno;
 	}

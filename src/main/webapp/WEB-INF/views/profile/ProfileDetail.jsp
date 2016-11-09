@@ -10,49 +10,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="/resources/css/ProfileDetail.css" rel="stylesheet"
 	type="text/css">
-<style type="text/css">
-.navbar-default {
-	width: 100%;
-	z-index: 9999;
-}
-
-.more {
-	text-align: center;
-}
-
-.breadcrumb {
-	background: rgba(23, 21, 21, 0);
-	border: 0px solid rgba(245, 245, 245, 1);
-	border-radius: 0px;
-	display: block;
-}
-
-.breadcrumb li {
-	font-size: 14px;
-}
-
-.breadcrumb a {
-	color: rgba(66, 139, 202, 1);
-}
-
-.breadcrumb a:hover {
-	color: rgba(42, 100, 150, 1);
-}
-
-.breadcrumb>.active {
-	color: rgba(153, 153, 153, 1);
-}
-
-.breadcrumb>li+li:before {
-	color: rgba(204, 204, 204, 1);
-	content: "\002F\00a0";
-}
-</style>
-
 <script>
 	$(function() {
 		$("#tabs").tabs();
 	});
+	$(document).ready(function(){
+		var formObj = $("form[role='form']");
+		
+		console.log(formObj);
+		
+		$(".btn-warning").on("click", function(){
+			formObj.attr("action","/board/modify");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+
+		$(".btn-danger").on("click", function(){
+			formObj.attr("action","/board/remove");
+			formObj.submit();
+		});
+
+		$(".btn-primary").on("click", function(){
+			self.location = "/board/listAll";
+		});
+	});
+
 </script>
 </head>
 
@@ -68,7 +50,12 @@
 			</ol>
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center">파일럿 닉네임이 들어가는 곳</h1>
+					<div class="form-group">
+						<h1 class="text-center">
+							<label for="niknm">닉네임</label>
+							<input type="text" name='niknm' class="form-control" value="${memDto.niknm}">
+						</h1>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -82,13 +69,20 @@
 				</div>
 				<div class="form-group">		
 					<p>
-						닉네임<br>
-						파일럿 랭킹(랭킹점수)<br>
-						지역
+						<label for="niknm">닉네임</label>
+						<input type="text" name='niknm' class="form-control" value="${memDto.niknm}">
+						
+						<label for="levnpoint">파일럿랭킹(랭킹점수)</label>
+						<input type="text" name='lev' class="form-control" value="${memDto.levnm}">
+						<p>(<input type="text" name='lev' class="form-control" value="${memDto.levpoint}">)</p>
+						
+						<label for="locnm">지역</label>
+						<input type="text" name='locnm' class="form-control" value="${memDto.locnm}">
 					</p>
 				</div>
 				<div class="memo">
-					<p>파일럿 개인 정보 설명하는 곳</p>
+					<label for="prmsg">상태메세지</label>
+					<input type="text" name='prmsg' class="form-control" value="${memDto.prmsg}">
 				</div>
 
 
@@ -102,16 +96,18 @@
 					<li><a href="#tabs-4">경력</a>
 				</ul>
 				<div id="tabs-1">
-					<ul class="propro">
-						<p>
-						<li>사이트</li>
-						<li>메일주소</li>
-						<li>비번(수정시보일것)</li>
-						<li>보유드론</li>
-						<li>라이센스</li>
-						<li>랭킹점수 상세보기(즐찾+조회수)</li>
-						</p>
-					</ul>
+					<div class="form-group">
+						<label for="pic">사진</label>
+						<input type="text" name='pic' class="form-control" value="${memDto.pic}">
+						<label for="email">이메일</label>
+						<input type="text" name='email' class="form-control" value="${memDto.email}">
+						<label for="license">라이센스</label>
+						<input type="text" name='license' class="form-control" value="${memDto.license}">
+						<label for="msgrcyn">메세지 수신여부</label>
+						<input type="text" name='msgrcyn' class="form-control" value="${memDto.msgrcyn}">
+						<label for="locnm">지역</label>
+						<input type="text" name='locnm' class="form-control" value="${memDto.locnm}">
+					</div>
 				</div>
 
 				<div id="tabs-2">
@@ -123,7 +119,8 @@
 				</div>
 
 				<div id="tabs-4">
-					<p>경력에 관한 내용</p>
+						<label for="actnm">경력</label>
+						<input type="text" name='actnm' class="form-control" value="${memDto.actnm}">
 				</div>
 			</div>
 		</div>

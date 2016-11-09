@@ -13,6 +13,7 @@ import com.gclass.drone.iboard.dao.IBoardDao;
 import com.gclass.drone.iboard.dto.IBoardDto;
 import com.gclass.drone.iboard.service.IBoardService;
 
+@RequestMapping("/instanceboard")
 @Controller
 public class IBoardController {
 
