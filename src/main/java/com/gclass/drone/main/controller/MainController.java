@@ -28,10 +28,10 @@ public class MainController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	
-	@RequestMapping("/intro")
+/*	@RequestMapping("/intro")
 	public void intro() {
 		
-	}
+	}*/
 	
 	@RequestMapping("/board")
 	public void board() {
