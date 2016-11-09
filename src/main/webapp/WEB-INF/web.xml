@@ -57,6 +57,7 @@
 		<url-pattern>/profile/*</url-pattern>
 	</servlet-mapping>
 	
+	
 	<filter>
 		<filter-name>encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
