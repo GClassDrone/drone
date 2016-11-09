@@ -1,6 +1,6 @@
-package com.gclass.drone.profile.dao;
+package com.gclass.drone.mem.dao;
 
-import com.gclass.drone.profile.dto.MemDto;
+import com.gclass.drone.mem.dto.MemDto;
 
 public interface MemDao {
 	

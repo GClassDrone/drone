@@ -79,14 +79,23 @@
 					<img
 						src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
 						class="img-profile">
+				</div>
+				<div class="form-group">		
 					<p>
-						닉네임<br>
-						파일럿 랭킹(랭킹점수)<br>
-						지역
+						<label for="niknm">닉네임</label>
+						<input type="text" name='niknm' class="form-control" value="${memDto.niknm}">
+						
+						<label for="levnpoint">파일럿랭킹(랭킹점수)</label>
+						<input type="text" name='lev' class="form-control" value="${memDto.levnm}">
+						<p>(<input type="text" name='lev' class="form-control" value="${memDto.levpoint}">)</p>
+						
+						<label for="locnm">지역</label>
+						<input type="text" name='locnm' class="form-control" value="${memDto.locnm}">
 					</p>
 				</div>
 				<div class="memo">
-					<p>파일럿 개인 정보 설명하는 곳</p>
+					<label for="prmsg">상태메세지</label>
+					<input type="text" name='prmsg' class="form-control" value="${memDto.prmsg}">
 				</div>
 
 
@@ -100,16 +109,18 @@
 					<li><a href="#tabs-4">경력</a>
 				</ul>
 				<div id="tabs-1">
-					<ul class="propro">
-						<p>
-						<li>사이트</li>
-						<li>메일주소</li>
-						<li>비번(수정시보일것)</li>
-						<li>보유드론</li>
-						<li>라이센스</li>
-						<li>랭킹점수 상세보기(즐찾+조회수)</li>
-						</p>
-					</ul>
+					<div class="form-group">
+						<label for="pic">사진</label>
+						<input type="text" name='pic' class="form-control" value="${memDto.pic}">
+						<label for="email">이메일</label>
+						<input type="text" name='email' class="form-control" value="${memDto.email}">
+						<label for="license">라이센스</label>
+						<input type="text" name='license' class="form-control" value="${memDto.license}">
+						<label for="msgrcyn">메세지 수신여부</label>
+						<input type="text" name='msgrcyn' class="form-control" value="${memDto.msgrcyn}">
+						<label for="locnm">지역</label>
+						<input type="text" name='locnm' class="form-control" value="${memDto.locnm}">
+					</div>
 				</div>
 
 				<div id="tabs-2">

@@ -1,6 +1,6 @@
-package com.gclass.drone.profile.service;
+package com.gclass.drone.mem.service;
 
-import com.gclass.drone.profile.dto.MemDto;
+import com.gclass.drone.mem.dto.MemDto;
 
 public interface MemService {
 	
