@@ -20,6 +20,8 @@ $(function(){
 
 //카카오톡
 $(function(){
+	var id;
+	var siteid = 2;
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('3e0f3c6fb1266462e7580703c7107575');
     // 카카오 로그인 버튼을 생성합니다.
@@ -29,8 +31,8 @@ $(function(){
         Kakao.API.request({
         	url: '/v1/user/me',
         	success: function(res){
-        		alert(res.properties.nickname+'님 환영합니다.');
-        		location.href="./result?name="+res.properties.nickname;
+        		id = res.id;
+        		location.href="http://192.168.0.23:8080/intro?id="+id+"&siteid="+siteid;
         	},
         	fail: function(error){
         		alert(JSON.stringify(error));
@@ -44,7 +46,7 @@ $(function(){
    function ktout(){
 	   Kakao.Auth.logout(function(){
 		   setTimeout(function(){
-			   location.href="http://192.168.0.23:8080/test1"
+			   location.href="http://192.168.0.23:8080/intro"
 		   },1000);
 		   });
    }

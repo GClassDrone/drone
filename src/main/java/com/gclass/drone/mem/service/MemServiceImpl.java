@@ -1,6 +1,8 @@
 package com.gclass.drone.mem.service;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -33,6 +35,11 @@ public class MemServiceImpl implements MemService {
 	@Override
 	public void remove(Integer mno) throws Exception {
 		dao.delete(mno);
+	}
+
+	@Override
+	public List<MemDto> listAll() throws Exception {
+		return dao.listAll();
 	}
 
 }

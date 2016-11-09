@@ -1,5 +1,7 @@
 package com.gclass.drone.mem.dao;
 
+import java.util.List;
+
 import com.gclass.drone.mem.dto.MemDto;
 
 public interface MemDao {
@@ -11,4 +13,6 @@ public interface MemDao {
 	public void update(MemDto dto) throws Exception;
 	
 	public void delete(Integer mno) throws Exception;
+	
+	public List<MemDto> listAll()throws Exception;
 }
