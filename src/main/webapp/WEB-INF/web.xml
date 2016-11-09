@@ -27,8 +27,39 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>mapServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/map</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 프로필 콘텍스트 -->
+	<servlet>
+		<servlet-name>profileServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/profile-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>profileServlet</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 인스턴스 게시판 콘텍스트 -->
+	<servlet>
+		<servlet-name>iboardServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/iboard-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>iboardServlet</servlet-name>
+		<url-pattern>/iboard</url-pattern>
+	</servlet-mapping>
+	
 	<filter>
 		<filter-name>encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

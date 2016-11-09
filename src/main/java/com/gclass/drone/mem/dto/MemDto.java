@@ -1,4 +1,4 @@
-package com.gclass.drone.profile.dto;
+package com.gclass.drone.mem.dto;
 
 import java.util.Date;
 

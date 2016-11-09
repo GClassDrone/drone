@@ -4,7 +4,7 @@
 <configuration>
 	
 	<typeAliases>
-		<package name="com.gclass.drone.profile.dto"/>
+		<package name="com.gclass.drone.mem.dto"/>
 		<package name="com.gclass.drone.iboard.dto"/>
 		<package name="com.gclass.drone.map.dto"/>
 		<package name="com.gclass.drone.bdat.dto"/>
