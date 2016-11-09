@@ -1,11 +1,11 @@
-package com.gclass.drone.profile.dao;
+package com.gclass.drone.mem.dao;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.gclass.drone.profile.dto.MemDto;
+import com.gclass.drone.mem.dto.MemDto;
 
 @Repository
 public class MemDaoImpl implements MemDao{

@@ -79,6 +79,8 @@
 					<img
 						src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
 						class="img-profile">
+				</div>
+				<div class="form-group">		
 					<p>
 						닉네임<br>
 						파일럿 랭킹(랭킹점수)<br>
