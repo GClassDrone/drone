@@ -10,49 +10,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="/resources/css/ProfileDetail.css" rel="stylesheet"
 	type="text/css">
-<style type="text/css">
-.navbar-default {
-	width: 100%;
-	z-index: 9999;
-}
-
-.more {
-	text-align: center;
-}
-
-.breadcrumb {
-	background: rgba(23, 21, 21, 0);
-	border: 0px solid rgba(245, 245, 245, 1);
-	border-radius: 0px;
-	display: block;
-}
-
-.breadcrumb li {
-	font-size: 14px;
-}
-
-.breadcrumb a {
-	color: rgba(66, 139, 202, 1);
-}
-
-.breadcrumb a:hover {
-	color: rgba(42, 100, 150, 1);
-}
-
-.breadcrumb>.active {
-	color: rgba(153, 153, 153, 1);
-}
-
-.breadcrumb>li+li:before {
-	color: rgba(204, 204, 204, 1);
-	content: "\002F\00a0";
-}
-</style>
-
 <script>
 	$(function() {
 		$("#tabs").tabs();
 	});
+	$(document).ready(function(){
+		var formObj = $("form[role='form']");
+		
+		console.log(formObj);
+		
+		$(".btn-warning").on("click", function(){
+			formObj.attr("action","/board/modify");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+
+		$(".btn-danger").on("click", function(){
+			formObj.attr("action","/board/remove");
+			formObj.submit();
+		});
+
+		$(".btn-primary").on("click", function(){
+			self.location = "/board/listAll";
+		});
+	});
+
 </script>
 </head>
 
@@ -68,7 +50,12 @@
 			</ol>
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center">파일럿 닉네임이 들어가는 곳</h1>
+					<div class="form-group">
+						<h1 class="text-center">
+							<label for="niknm">닉네임</label>
+							<input type="text" name='niknm' class="form-control" value="${memDto.niknm}">
+						</h1>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -132,7 +119,8 @@
 				</div>
 
 				<div id="tabs-4">
-					<p>경력에 관한 내용</p>
+						<label for="actnm">경력</label>
+						<input type="text" name='actnm' class="form-control" value="${memDto.actnm}">
 				</div>
 			</div>
 		</div>
