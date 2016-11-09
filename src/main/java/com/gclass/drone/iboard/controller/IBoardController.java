@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.gclass.drone.iboard.dao.IBoardDao;
+import com.gclass.drone.iboard.dto.IBoardDto;
 import com.gclass.drone.iboard.service.IBoardService;
 
 @RequestMapping("/instanceboard")
@@ -28,14 +29,13 @@ public class IBoardController {
 	}
 	
 	@RequestMapping(value="/register", method= RequestMethod.POST)
-	public String registerPOST(IBoardDao board, Model model) throws Exception {
+	public String registerPOST(IBoardDto board, Model model) throws Exception {
 		
 		logger.info("인스턴스게시판 글등록 포스트.....");
 		logger.info(board.toString());
 		
-		service.regist(board);
-		
-		model.addAllAttributes("result", "success");
+		service.regist(board);		
+		model.addAttribute("result","success");
 		
 		return "/board/success";
 	}
