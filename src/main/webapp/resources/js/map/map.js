@@ -1,6 +1,8 @@
 $(function() {
 	var locations = new Array;//ajax 통해 불러온 위경도값 저장배열
 	var filelks = new Array;//ajax 통해 불러온 링크값 저장배열
+	var ttls = new Array;
+	var ctts = new Array;
 	var m_filelk = "";//모달에 전달될 링크저장변수
 	
 	function initMap() {
@@ -17,7 +19,9 @@ $(function() {
 		var markers = locations.map(function(location, i) {
 			return new google.maps.Marker({
 				position : location,
-				filelk : filelks[i]
+				filelk : filelks[i],
+				ttl : ttls[i],
+				ctt : ctts[i],
 //				icon: image
 			});
 		});
@@ -26,7 +30,20 @@ $(function() {
 		});
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(
 				cluster) {
-			alert("리스트");
+			var str = "";
+			$(cluster.getMarkers()).each(function(i){
+				alert(i);
+				alert(this.filelk);
+				str += "<div class='section'>";
+				str += "<div class='col-xs-12 col-sm-6 col-md-3'>";
+				str += "<div class='embed-responsive embed-responsive-16by9'>";
+				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
+				str += "<span class='fa fa-2x fa-fw fa-play-circle'></span>";
+				str += "</div>";
+				str += "<h3>"+this.ttl+"</h3>";
+				str += "<p>"+this.ctt+"</p>";
+			});
+			$("#list_wrap").html(str);
 		});
 		
 		google.maps.event.addListener(map, 'click', function(event) {
@@ -114,7 +131,27 @@ $(function() {
 // 맵 마커 생성용 좌표값을 받아오기 위한 아직스
 	function mapList(){
 		$.ajax({
-			url: "/map",
+			url: "/map/map",
+			type: "POST",
+			headers: {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST"
+			},
+			dataType: "json",
+			async: false,
+			success: function(result){
+				$(result).each(function(){
+					locations.push({lat:this.lat,lng:this.lng});
+					filelks.push(this.filelk);
+					ttls.push(this.ttl);
+					ctts.push(this.ctt);
+				});
+			}
+		});
+	}
+	function addList(){
+		$.ajax({
+			url: "/map/map",
 			type: "POST",
 			headers: {
 				"Content-Type" : "application/json",
