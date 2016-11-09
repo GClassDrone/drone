@@ -83,14 +83,19 @@
 				<div class="form-group">		
 					<p>
 						<label for="niknm">닉네임</label>
-						<input type="text" name='niknm' class="form-control" value="${memDto.niknm }">
+						<input type="text" name='niknm' class="form-control" value="${memDto.niknm}">
 						
-						파일럿 랭킹(랭킹점수)<br>
-						지역
+						<label for="levnpoint">파일럿랭킹(랭킹점수)</label>
+						<input type="text" name='lev' class="form-control" value="${memDto.levnm}">
+						<input type="text" name='lev' class="form-control" value="${memDto.levpoint}">
+						
+						<label for="locnm">지역</label>
+						<input type="text" name='locnm' class="form-control" value="${memDto.locnm}">
 					</p>
 				</div>
 				<div class="memo">
-					<p>파일럿 개인 정보 설명하는 곳</p>
+					<label for="prmsg">상태메세지</label>
+						<input type="text" name='prmsg' class="form-control" value="${memDto.prmsg}">
 				</div>
 
 
