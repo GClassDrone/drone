@@ -1,5 +1,7 @@
 package com.gclass.drone.iboard.service;
 
+import java.util.List;
+
 import com.gclass.drone.iboard.dto.IBoardDto;
 
 
@@ -13,4 +15,5 @@ public interface IBoardService {
 
 	  public void remove(Integer bno) throws Exception;
 
+	  public List<IBoardDto> listAll() throws Exception;
 	}

@@ -1,5 +1,7 @@
 package com.gclass.drone.iboard.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -15,26 +17,27 @@ public class IBoardServiceImpl implements IBoardService {
 
 	@Override
 	public void regist(IBoardDto board) throws Exception {
-		// TODO Auto-generated method stub
-		
+		dao.create(board);
 	}
 
 	@Override
 	public IBoardDto read(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.read(bno);
 	}
 
 	@Override
 	public void modify(IBoardDto board) throws Exception {
-		// TODO Auto-generated method stub
-		
+		dao.update(board);
 	}
 
 	@Override
 	public void remove(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		
+		dao.delete(bno);
+	}
+
+	@Override
+	public List<IBoardDto> listAll() throws Exception {
+		return listAll();
 	}
 
 
