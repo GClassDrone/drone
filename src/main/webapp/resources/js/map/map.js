@@ -31,21 +31,24 @@ $(function() {
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(
 				cluster) {
 			var str = "";
+			var len = cluster.getMarkers().length;
 			$(cluster.getMarkers()).each(function(i){
-				alert(i);
-				alert(this.filelk);
-				str += "<div class='section'>";
 				str += "<div class='col-xs-12 col-sm-6 col-md-3'>";
-				str += "<div class='embed-responsive embed-responsive-16by9'>";
+				str += "<div class='video-btn embed-responsive embed-responsive-4by3'>";
 				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
 				str += "<span class='fa fa-2x fa-fw fa-play-circle'></span>";
+				str += "<input type='hidden' value='"+this.filelk+"'>";
 				str += "</div>";
 				str += "<h3>"+this.ttl+"</h3>";
-				str += "<p>"+this.ctt+"</p>";
+				if(this.ctt.length > 50){
+					str += "<p>"+this.ctt.substring(0,50)+"...</p>";
+				}else{
+					str += "<p>"+this.ctt+"</p>";
+				}
+				str += "</div>";
 			});
 			$("#list_wrap").html(str);
 		});
-		
 		google.maps.event.addListener(map, 'click', function(event) {
 //			googleapisView(event.latLng.lat(), event.latLng.lng());
 		});
@@ -72,6 +75,11 @@ $(function() {
 		searchMenuDiv.index = 1;
 		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchMenuDiv);
 	}
+	
+	$(document).on("click",".video-btn",function(){
+		m_filelk=$(this).find("input").val();
+		dialog.dialog( "open" );
+	});
 // 역지오코딩
 	function googleapisView(lat, lng) {
 		var geocode = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyA19l1lXb7Knj6sgwTXGwnKSqfakx3laYE";
