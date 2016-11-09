@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gclass.drone.map.mapper">
+	<!-- <select id="addrlist" resultType="LocDto">
+		select sido, sigungu
+		  from loc
+	</select>
+	<update id="addrupdate">
+		update loc set lat = #{lat}, lng = #{lng} where sido = #{sido} and sigungu = #{sigungu}
+	</update> -->
+		
+	<select id="ctsSelectAll" resultType="CtsDto">
+		select *
+		  from cts
+	</select>
+	
+</mapper>

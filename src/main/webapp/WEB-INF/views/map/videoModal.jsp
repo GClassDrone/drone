@@ -7,7 +7,7 @@
 <div id="dialog-form" title="영상">
 	<div id="youtube-wrap">
 		<video id="youtube1">
-			<source src="http://www.youtube.com/watch?v=nOEw9iiopwI" type="video/youtube">
+			<source src="" type="video/youtube">
 		</video>
 	</div>
 	<div class="social-byline--share">

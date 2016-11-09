@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
+	<!-- <div><input type="button" id="latlngbtn" value="등록"></div> -->
 	<div id="map"></div>
 	<div id="list_wrap">
 		<jsp:include page="../common/videoList.jsp"></jsp:include>

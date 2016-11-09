@@ -6,10 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 @Controller
 public class HomeController {
-	@RequestMapping("/map/map")
-	public void map(){
-		
-	}
 	@RequestMapping("/Main")
 	public void main(){
 		
