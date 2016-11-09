@@ -16,9 +16,17 @@ public class MemDto {
 	private int datcnt;
 	private int joacnt;
 	private int favcnt;
+	private int readcnt;
 	private Date indt;
 	private int levno;
+	private int levpoint;
 	private int locno;
+	private char ppose;
+	private String levnm;
+	private String levnic;
+	private String locnm;
+	private String mdrnm;
+	private String actnm;
 	public int getMno() {
 		return mno;
 	}
@@ -97,6 +105,12 @@ public class MemDto {
 	public void setFavcnt(int favcnt) {
 		this.favcnt = favcnt;
 	}
+	public int getReadcnt() {
+		return readcnt;
+	}
+	public void setReadcnt(int readcnt) {
+		this.readcnt = readcnt;
+	}
 	public Date getIndt() {
 		return indt;
 	}
@@ -109,19 +123,62 @@ public class MemDto {
 	public void setLevno(int levno) {
 		this.levno = levno;
 	}
+	public int getLevpoint() {
+		return levpoint;
+	}
+	public void setLevpoint(int levpoint) {
+		this.levpoint = levpoint;
+	}
 	public int getLocno() {
 		return locno;
 	}
 	public void setLocno(int locno) {
 		this.locno = locno;
 	}
+	public char getPpose() {
+		return ppose;
+	}
+	public void setPpose(char ppose) {
+		this.ppose = ppose;
+	}
+	public String getLevnm() {
+		return levnm;
+	}
+	public void setLevnm(String levnm) {
+		this.levnm = levnm;
+	}
+	public String getLevnic() {
+		return levnic;
+	}
+	public void setLevnic(String levnic) {
+		this.levnic = levnic;
+	}
+	public String getLocnm() {
+		return locnm;
+	}
+	public void setLocnm(String locnm) {
+		this.locnm = locnm;
+	}
+	public String getMdrnm() {
+		return mdrnm;
+	}
+	public void setMdrnm(String mdrnm) {
+		this.mdrnm = mdrnm;
+	}
+	public String getActnm() {
+		return actnm;
+	}
+	public void setActnm(String actnm) {
+		this.actnm = actnm;
+	}
 	
 	@Override
 	public String toString() {
 		return "MemDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", siteid=" + siteid + ", email="
 				+ email + ", pic=" + pic + ", license=" + license + ", msgrcyn=" + msgrcyn + ", prmsg=" + prmsg
-				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt + ", indt="
-				+ indt + ", levno=" + levno + ", locno=" + locno + "]";
+				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt
+				+ ", readcnt=" + readcnt + ", indt=" + indt + ", levno=" + levno + ", levpoint=" + levpoint + ", locno="
+				+ locno + ", ppose=" + ppose + ", levnm=" + levnm + ", levnic=" + levnic + ", locnm=" + locnm
+				+ ", mdrnm=" + mdrnm + ", actnm=" + actnm + "]";
 	}
-
 }
