@@ -35,4 +35,15 @@
 	<delete id="delete">
 		delete from mem where mno = #{mno}
 	</delete>
+	
+	<!-- 프로필 리스트 불러오기 -->
+	
+	<select id="listAll" resultType="com.gclass.drone.mem.dto.MemDto">
+		<![CDATA[
+			select mno, niknm, pic, prmsg, levno, levpoint, levnm, levnic, locnm, mdrnm, actnm
+			from vm_mem
+			where mno > 0
+			order by mno desc
+		]]>
+	</select>
 </mapper>
