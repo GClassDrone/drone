@@ -1,10 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+
+<style>
+a {
+	color: white;
+}
+</style>
+
     <footer class="section section-info">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <h1>GClass</h1>
+                    <a href="/teamMember"><h1>GClass</h1></a>
                     <p>Copyright ⓒ &nbsp;2016 by GClass, All rights reserved. Contact Us
                         <br>XSharing.lab@gmail.com.</p>
                 </div>

@@ -1,5 +1,7 @@
 package com.gclass.drone.iboard.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -34,5 +36,11 @@ public class IBoardDaoImpl implements IBoardDao{
 	@Override
 	public void update(IBoardDto dto) throws Exception {
 		session.update(namespace + ".update", dto);
+	}
+
+	@Override
+	public List<IBoardDto> listAll() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

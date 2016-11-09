@@ -2,6 +2,7 @@ package com.gclass.drone;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RequestMapping
 @Controller
@@ -23,14 +24,7 @@ public class HomeController {
 	public void test1(){
 		
 	}
-	@RequestMapping("/profile/ProfileList")
-	public void ProfileList(){
-		
-	}
-	@RequestMapping("/profile/ProfileDetail")
-	public void ProfileDetail(){
-		
-	}
+
 	@RequestMapping("/intro")
 	public void intro(){
 		
@@ -57,10 +51,34 @@ public class HomeController {
 	public void board(){
 		
 	}
-
+	@RequestMapping("/test2")
+	public void test2(){
+	}
 	@RequestMapping("/googleOauth")
 	public void googleOauth(){
 		
 	}
 	
+
+	@RequestMapping("/boardGroupList")
+	public void boardGroupList(){
+		
+	}
+	
+	@RequestMapping("/boardSubList")
+	public void boardSubList(){
+		
+	}
+
+	@RequestMapping("/teamMember")
+	public void teamMember(){
+		
+	}
+	
+
+	@RequestMapping(value="/bdat/bdat", method =RequestMethod.GET)
+	public void bdat() {
+		
+	}
+
 }

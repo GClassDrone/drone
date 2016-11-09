@@ -54,6 +54,7 @@
         content: "\002F\00a0";
     }
     </style>
+    <jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 <body>
@@ -70,12 +71,13 @@
                 <li><a href="#">grooming</a></li>
             </ol> -->
             <ul class="nav nav-tabs pull-right">
-                <li class="active"><a href="P_info.html">시장동향</a></li>
-                <li><a href="P_board.html">게시판</a></li>
+                <li class="active"><a href="/info">시장동향</a></li>
+                <li><a href="/boardGroupList">주제별 게시판</a></li>
+                <li><a href="#">공지사항</a></li>
                 <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>
                 <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
             </ul>
-        </div>
+        </div><br />
         <h1 style="text-align: center;"><strong>드론 시장동향</strong></h1>
         <p style="text-align: center;">공지사항 텍스트 요약 ~~~~~~~~</p>
     </div>
@@ -92,7 +94,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -108,7 +110,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -124,7 +126,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                     </div>
                 </div>
             </section>
@@ -139,7 +141,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -157,7 +159,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -173,7 +175,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
@@ -189,7 +191,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                     </div>
                 </div>
             </section>
@@ -204,7 +206,7 @@
                             Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
                         </p>
                         <p>
-                            <a class="btn btn-primary" href="#">Go</a>
+                            <a class="btn btn-primary" href="/infoDetail">Go</a>
                         </p>
                     </div>
                 </div>
