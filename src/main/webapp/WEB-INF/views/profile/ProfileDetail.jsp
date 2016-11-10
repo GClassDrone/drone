@@ -41,11 +41,14 @@
 <body>
 <%@include file="../common/include.jsp" %>
 <%@include file="../common/header.jsp" %>
+<form role="form" method="post">
+	<input type='hidden' name='mno' value="1">
+</form>
 	<div class="section">
 		<div class="container">
 			<ol class="breadcrumb">
-				<li><a href="#">home</a></li>
-				<li><a href="#">파일럿</a></li>
+				<li><a href="/intro">home</a></li>
+				<li><a href="/profile/ProfileList">파일럿</a></li>
 				<li class="active">파일럿 상세보기</li>
 			</ol>
 			<div class="row">

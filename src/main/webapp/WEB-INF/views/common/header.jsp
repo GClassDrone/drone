@@ -86,7 +86,7 @@ body {
                         </ul>
                     </li>   -->                 
                     <li>
-                        <a href="/pilot">파일럿</a>
+                        <a href="/profile/ProfileList">파일럿</a>
                     </li>
                 </ul>
                 <div class="pull-right">

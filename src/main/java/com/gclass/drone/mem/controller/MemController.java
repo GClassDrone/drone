@@ -1,6 +1,5 @@
 package com.gclass.drone.mem.controller;
 
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.gclass.drone.mem.dto.MemDto;
 import com.gclass.drone.mem.service.MemService;
 
 
@@ -34,8 +32,6 @@ public class MemController {
 	@RequestMapping(value="/ProfileList", method= RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		
-		List<MemDto> list = service.listAll();
-		
-		model.addAttribute("pilotlist", list);
+		model.addAttribute("listAll", service.listAll());
 	}
 }

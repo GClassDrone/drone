@@ -19,14 +19,14 @@
 				regcnt, datcnt, joacnt, favcnt, readcnt, indt,
 				levno, levpoint, locno, ppose, levnm, levnic, 
 				locnm, mdrnm, actnm
-		from vm_mem
+		from vw_mem
 		where mno= #{mno}
 	</select>
 
 
 <!-- 프로필 수정할때 수정가능한 값들 -->
 	<update id="update">
-		update vm_mem set email=#{email}, pic=#{pic}, license=#{license}, msgrcyn=#{license}, prmsg=#{prmsg},
+		update vw_mem set email=#{email}, pic=#{pic}, license=#{license}, msgrcyn=#{license}, prmsg=#{prmsg},
 				locno=#{locno}, locnm=#{locnm}, mdrnm=#{mdrnm}, actnm=#{actnm}
 		where mno = #{mno}
 	</update>
