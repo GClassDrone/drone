@@ -4,7 +4,11 @@
 <link rel="stylesheet" href="/resources/css/map/videoModal.css" />
 <script type="text/javascript" src="/resources/js/map/videoModal.js"></script>
 <script type="text/javascript" src="/resources/js/map/MediaElement.js"></script>
-<div id="dialog-form" title="영상">
+<div id="dialog-video">
+	<div>
+		<h3 id="modal-ttl"></h3>
+		<input type="button" id="modal-close" value="닫기">
+	</div>
 	<div id="youtube-wrap">
 		<video id="youtube1">
 			<source src="" type="video/youtube">
@@ -34,5 +38,11 @@
 				<img src="/resources/images/icon/band.jpg" width="40" height="40" alt="구글+ 쉐어 버튼" title="구글+ 쉐어 버튼">
 			</a>
 		</div>
+		<div>
+			조회수<p id="modal-readcnt"></p>
+		</div>
+	</div>
+	<div>
+		<p id="modal-ctt"></p>
 	</div>
 </div>

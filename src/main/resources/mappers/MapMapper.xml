@@ -16,4 +16,24 @@
 		  from cts
 	</select>
 	
+	<select id="ctsSelectOne" resultType="CtsDto">
+		select *
+		  from cts
+		 where ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</select>
+	
+	<select id="memSelectAll" resultType="MemListDto">
+		select *
+		  from mem m
+		  join loc l
+		    on m.locno = l.locno
+	</select>
+	
+	<update id="ctsUpdateReadcnt">
+		update cts
+		   set readcnt = readcnt + 1
+		 where ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</update>
 </mapper>

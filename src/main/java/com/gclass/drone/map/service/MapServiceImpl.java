@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.gclass.drone.map.dao.MapDao;
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.LocDto;
+import com.gclass.drone.map.dto.MemListDto;
 
 @Service
 public class MapServiceImpl implements MapService {
@@ -33,5 +34,16 @@ public class MapServiceImpl implements MapService {
 	@Override
 	public List<CtsDto> ctsSelectAll() {
 		return mDao.ctsSelectAll();
+	}
+
+	@Override
+	public CtsDto ctsSelectOne(CtsDto cDto) {
+		mDao.ctsUpdateReadcnt(cDto);
+		return mDao.ctsSelectOne(cDto);
+	}
+
+	@Override
+	public List<MemListDto> memSelectAll() {
+		return mDao.memSelectAll();
 	}
 }
