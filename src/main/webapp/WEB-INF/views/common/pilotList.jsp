@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:forEach items="${list}" var="dto">
-	<c:if test="${dto.num ne 1 && dto.num%3 eq 1}">
-		<div class="clearfix">
+
+<c:forEach items="${pilotlist}" var="Memdto">
+	<c:if test="${Memdto.rnum ne 1 && Memdto.rnum%3 eq 1}">
+		<div class="well">
 	</c:if>
-	<c:if test="${dto.num%3 eq 1}">
-		<div class="row">
+	<c:if test="${Memdto.rnum%3 eq 1}">
+		<div class="media">
 	</c:if>
 	<div class="well">
 		<div class="media">
@@ -38,10 +39,10 @@
 			</div>
 		</div>
 	</div>
-	<c:if test="${dto.num%3 eq 0 || dto.num eq count}">
+	<c:if test="${Memdto.rnum%3 eq 0 || Memdto.rnum eq count}">
 		</div>
 	</c:if>
-	<c:if test="${dto.num ne 3 && dto.num%3 eq 0 || dto.num eq count}">
+	<c:if test="${Memdto.rnum ne 3 && Memdto.rnum%3 eq 0 || Memdto.rnum eq count}">
 		</div>
 	</c:if>
 </c:forEach>
