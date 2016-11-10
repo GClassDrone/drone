@@ -25,7 +25,7 @@
 
 
 <!-- 프로필 수정할때 수정가능한 값들 -->
-	<update id="update"> <!-- 수정해야됨 -->
+	<update id="update">
 		update vm_mem set email=#{email}, pic=#{pic}, license=#{license}, msgrcyn=#{license}, prmsg=#{prmsg},
 				locno=#{locno}, locnm=#{locnm}, mdrnm=#{mdrnm}, actnm=#{actnm}
 		where mno = #{mno}
@@ -35,4 +35,29 @@
 	<delete id="delete">
 		delete from mem where mno = #{mno}
 	</delete>
+	
+	<!-- 프로필 리스트 불러오기 -->
+	
+<!-- 	<select id="listAll" resultType="MemDto">
+		select *
+		  from (
+				select rownum as rnum, a.* 
+				  from (
+						select /*+ index_desc(mem mem_mno_pk) */ *
+						  from mem
+					   ) a 
+		<![CDATA[
+				 where rownum <= #{endRowNum}
+			   ) b
+		 where rnum >= #{startRowNum}
+		]]>
+	</select> -->
+	
+	<select id="listAll" resultType="MemDto">
+		select *
+		  from mem
+		  where mno>0
+		  order by mno desc
+	</select>
+	
 </mapper>

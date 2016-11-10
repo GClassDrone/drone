@@ -1089,4 +1089,9 @@ div.mejs-speed-button {
 	max-height: 480px;
 	width: 100%;
 	height: 100%;
+	margin: auto;
+}
+#dialog-form{
+	background-color: white;
+	padding-top: 20px;
 }

@@ -1,5 +1,7 @@
 package com.gclass.drone.mem.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -33,5 +35,10 @@ public class MemDaoImpl implements MemDao{
 	@Override
 	public void update(MemDto dto) throws Exception {
 		session.update(namespace + ".update", dto);
+	}
+
+	@Override
+	public List<MemDto> listAll() throws Exception {
+		return session.selectList(namespace+".listAll");
 	}
 }

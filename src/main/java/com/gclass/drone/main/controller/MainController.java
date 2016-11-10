@@ -16,12 +16,19 @@ public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
+<<<<<<< HEAD
 
 	@RequestMapping("/imsi")
 	public void imsi() {
 		
 	}
 	
+=======
+/*	@RequestMapping("/intro")
+	public void intro() {
+		
+	}*/
+>>>>>>> 5ddbd42dfcff41eae81a7e86987041712c2e2337
 	@RequestMapping("/board")
 	public void board() {
 		

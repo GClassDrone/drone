@@ -27,7 +27,14 @@ public class MemDto {
 	private String locnm;
 	private String mdrnm;
 	private String actnm;
+	private int rnum;
 	
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
 	public int getMno() {
 		return mno;
 	}
@@ -180,6 +187,7 @@ public class MemDto {
 				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt
 				+ ", readcnt=" + readcnt + ", indt=" + indt + ", levno=" + levno + ", levpoint=" + levpoint + ", locno="
 				+ locno + ", ppose=" + ppose + ", levnm=" + levnm + ", levnic=" + levnic + ", locnm=" + locnm
-				+ ", mdrnm=" + mdrnm + ", actnm=" + actnm + "]";
+				+ ", mdrnm=" + mdrnm + ", actnm=" + actnm + ", rnum=" + rnum + "]";
 	}
+
 }
