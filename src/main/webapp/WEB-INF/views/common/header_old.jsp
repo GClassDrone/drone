@@ -1,8 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="include.jsp"></jsp:include>
-    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="/resources/js/jquery-2.1.4.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+.navbar-default {
+  width: 100%;
+  z-index: 9999;
+}
+body {
+	padding-top: 50px;
+}
+</style>
+
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -20,17 +37,11 @@
                     <li>
                         <a href="/map/map">드론영상</a>
                     </li>
-                    <li class="dropdonw-split-left">
-                        <a href="/intro">분류</a>
-                    </li>
-                    <li class="dropdown dropdown-split-right hidden-xs">
-                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    		<i class="fa fa-caret-down" aria-hidden="true" title="Toggle dropdown menu"></i>
-                    		<span class="sr-only">Toggle dropdown menu</span>
-                    		<span class="toggle drop down"></span>
-                    	</a>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="/#">도시전망</a></li>
+                    <li class="active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        카테고리 <span class="caret"></span></a>
+                        <ul class="dropdown-menu transparent">
+                            <li><a href="#">도시전망</a></li>
                             <li><a href="#">자연경관</a></li>
                             <li><a href="#">시설조망</a></li>
                             <li><a href="#">레져</a></li>
@@ -39,25 +50,19 @@
                             <li><a href="#">레이싱</a></li>
                         </ul>
                     </li>
-                    <li class="dropdonw-split-left active">
-                        <a href="/info">정보</a>
-                    </li>
-                    <li class="dropdown dropdown-split-right hidden-xs active">
-                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    		<i class="fa fa-caret-down" aria-hidden="true" title="Toggle dropdown menu"></i>
-                    		<span class="sr-only">Toggle dropdown menu</span>
-                    		<span class="toggle drop down"></span>
-                    	</a>
-                        <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="info" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        정보<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
                             <li><a href="/info">시장동향</a></li>
                             <li><a href="/boardGroupList">주제별 게시판</a></li>
                             <li><a href="#">공지사항</a></li>
                             <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>
                             <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
                         </ul>
-                    </li>
+                    </li>                    
                     <li>
-                        <a href="/profile/ProfileList">파일럿</a>
+                        <a href="/pilot">파일럿</a>
                     </li>
                 </ul>
                 <div class="pull-right">
