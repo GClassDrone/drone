@@ -39,60 +39,60 @@
 <br />
 <!-- row -->
 
+ <br />
+<c:forEach items="${listAll}" var="MemDto"> 
+     <div class="row">
+         <div class="col-md-1">
+         <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
+         <img src="../resources/images/castleMo2.png" class="center-block img-circle">
+             <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
+         </a>
+         <div class="col-md-3">
+             <div class="panel panel-success">
+                 <ul>
+                     <p class="text-left text-info">
+                         <li>지역: ${MemDto.locnm}</li>
+                         <li>경력: ${MemDto.actnm}</li>
+                         <li>보유장비: ${MemDto.mdrnm}</li>
+                     </p>
+                 </ul>
+             </div>
+         </div>
+         <div class="col-md-1">
+        <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
+         <img src="../resources/images/dcLee.png" class="center-block img-circle">
+             <h6 class="text-center">${MemDto.niknm }<p>(${MemDto.levnm})</p></h6> </div>
+         </a>
+         <div class="col-md-3">
+             <div class="panel panel-success">
+                 <ul>
+                     <p class="text-left text-info">
+                         <li>지역: ${MemDto.locnm}</li>
+                         <li>경력: ${MemDto.actnm}</li>
+                         <li>보유장비: ${MemDto.mdrnm}</li>
+                     </p>
+                 </ul>
+             </div>
+         </div>
+         <div class="col-md-1">
+         <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
+         <img src="../resources/images/g9Kim.png" class="img-circle img-responsive">
+             <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
+         </a>
+         <div class="col-md-3">
+             <div class="panel panel-success">
+                 <ul>
+                     <p class="text-left text-info">
+                         <li>지역: ${MemDto.locnm}</li>
+                         <li>경력: ${MemDto.actnm}</li>
+                         <li>보유장비: ${MemDto.mdrnm}</li>
+                     </p>
+                 </ul>
+             </div>
+         </div>
+     </div>
      <br />
-      <c:forEach items="${listAll}" var="MemDto"> 
-	      <div class="row">
-	          <div class="col-md-1">
-	          <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
-	          <img src="../resources/images/castleMo.png" class="center-block img-circle">
-	              <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-	          </a>
-	          <div class="col-md-3">
-	              <div class="panel panel-success">
-	                  <ul>
-	                      <p class="text-left text-info">
-	                          <li>지역: </li>
-	                          <li>경력: </li>
-	                          <li>보유장비: </li>
-	                      </p>
-	                  </ul>
-	              </div>
-	          </div>
-	          <div class="col-md-1">
-	         <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
-	          <img src="../resources/images/dcLee.png" class="center-block img-circle">
-	              <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
-	          </a>
-	          <div class="col-md-3">
-	              <div class="panel panel-success">
-	                  <ul>
-	                      <p class="text-left text-info">
-	                          <li>지역: </li>
-	                          <li>경력: </li>
-	                          <li>보유장비: </li>
-	                      </p>
-	                  </ul>
-	              </div>
-	          </div>
-	          <div class="col-md-1">
-	          <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
-	          <img src="../resources/images/g9Kim.png" class="img-circle img-responsive">
-	              <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
-	          </a>
-	          <div class="col-md-3">
-	              <div class="panel panel-success">
-	                  <ul>
-	                      <p class="text-left text-info">
-	                          <li>지역: </li>
-	                          <li>경력: </li>
-	                          <li>보유장비: </li>
-	                      </p>
-	                  </ul>
-	              </div>
-	          </div>
-	      </div>
-	      <br />
-	      <div class="clearfix"></div>
+     <div class="clearfix"></div>
 </c:forEach>
 
 
