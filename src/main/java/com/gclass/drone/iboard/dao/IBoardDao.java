@@ -15,4 +15,5 @@ public interface IBoardDao {
 	public void delete(Integer mno) throws Exception;
 	
 	public List<IBoardDto> listAll() throws Exception;
+	
 }

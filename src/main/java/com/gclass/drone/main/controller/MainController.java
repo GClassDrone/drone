@@ -16,10 +16,13 @@ public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
-/*	@RequestMapping("/intro")
-	public void intro() {
+
+	@RequestMapping("/imsi")
+	public void imsi() {
 		
-	}*/
+	}
+	
+
 	@RequestMapping("/board")
 	public void board() {
 		

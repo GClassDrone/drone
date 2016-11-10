@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gclass.drone.iboard.dao.IBoardDao;
 import com.gclass.drone.iboard.dto.IBoardDto;
@@ -29,15 +30,15 @@ public class IBoardController {
 	}
 	
 	@RequestMapping(value="/register", method= RequestMethod.POST)
-	public String registerPOST(IBoardDto board, Model model) throws Exception {
+	public String registerPOST(IBoardDto board, RedirectAttributes rttr) throws Exception {
 		
 		logger.info("인스턴스게시판 글등록 포스트.....");
 		logger.info(board.toString());
 		
 		service.regist(board);		
-		model.addAttribute("result","success");
-		
-		return "/board/success";
+		rttr.addFlashAttribute("msg", "SUCCESS");
+	    
+	    return "redirect:/instanceboard/itlist";
 	}
 	
 	@RequestMapping(value="/itlist", method=RequestMethod.GET)

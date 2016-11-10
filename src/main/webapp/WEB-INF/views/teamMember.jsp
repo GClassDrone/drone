@@ -40,7 +40,7 @@ small {
     color: #ffb74d;
 }
 </style>
-<jsp:include page="common/include.jsp"></jsp:include>
+<%-- <jsp:include page="common/include.jsp"></jsp:include> --%>
 </head>
 
 <body>
@@ -63,7 +63,7 @@ small {
         </div>
         <div class="row"><br />
             <div class="col-md-2  col-md-offset-1">
-                <img src="/resources/images/castleMo.png" class="center-block img-circle">
+                <img src="/resources/images/castleMo2.png" class="center-block img-circle">
                 <h3 class="text-center">Castle Mo.
                     <br/>
                     <small class="text-warning">CAO<br />
