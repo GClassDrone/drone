@@ -3,11 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link href="/resources/css/ProfileDetail.css" rel="stylesheet"
 	type="text/css">
 <script>
@@ -36,19 +38,19 @@
 	});
 
 </script>
-</head>
-
-<body>
-<%@include file="../common/include.jsp" %>
 <%@include file="../common/header.jsp" %>
+</head>
+<body>
+
 <form role="form" method="post">
-	<input type='hidden' name='mno' value="1">
+	<input type='hidden' name='mno' value="${MemDto.mno}">
 </form>
+
 	<div class="section">
 		<div class="container">
 			<ol class="breadcrumb">
 				<li><a href="/intro">home</a></li>
-				<li><a href="/profile/ProfileList">파일럿</a></li>
+				<li><a href="/profile/profileList">파일럿</a></li>
 				<li class="active">파일럿 상세보기</li>
 			</ol>
 			<div class="row">
@@ -56,7 +58,7 @@
 					<div class="form-group">
 						<h1 class="text-center">
 							<label for="niknm">닉네임</label>
-							<input type="text" name='niknm' class="form-control" value="${memDto.niknm}">
+							<input type="text" name='niknm' class="form-control" value="${memDto.niknm}" readonly="readonly">
 						</h1>
 					</div>
 				</div>
@@ -73,19 +75,19 @@
 				<div class="form-group">		
 					<p>
 						<label for="niknm">닉네임</label>
-						<input type="text" name='niknm' class="form-control" value="${memDto.niknm}">
+						<input type="text" name='niknm' class="form-control" value="${memDto.niknm}" readonly="readonly">
 						
 						<label for="levnpoint">파일럿랭킹(랭킹점수)</label>
 						<input type="text" name='lev' class="form-control" value="${memDto.levnm}">
-						<p>(<input type="text" name='lev' class="form-control" value="${memDto.levpoint}">)</p>
+						<p>(<input type="text" name='lev' class="form-control" value="${memDto.levpoint}" readonly="readonly">)</p>
 						
 						<label for="locnm">지역</label>
-						<input type="text" name='locnm' class="form-control" value="${memDto.locnm}">
+						<input type="text" name='locnm' class="form-control" value="${memDto.locnm}" readonly="readonly">
 					</p>
 				</div>
 				<div class="memo">
 					<label for="prmsg">상태메세지</label>
-					<input type="text" name='prmsg' class="form-control" value="${memDto.prmsg}">
+					<input type="text" name='prmsg' class="form-control" value="${memDto.prmsg}" readonly="readonly">
 				</div>
 
 
@@ -123,7 +125,7 @@
 
 				<div id="tabs-4">
 						<label for="actnm">경력</label>
-						<input type="text" name='actnm' class="form-control" value="${memDto.actnm}">
+						<input type="text" name='actnm' class="form-control" value="${memDto.actnm}" readonly="readonly">
 				</div>
 			</div>
 		</div>
@@ -171,6 +173,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<!-- 밑으로 페이지 내리는 부분 -->
 		<p class="more">
 			<button type="button" class="btn btn-default btn-sm center">
