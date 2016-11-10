@@ -5,11 +5,28 @@
 
 <html>
 <head>
-<jsp:include page="../common/include.jsp"></jsp:include>
+	<style type="text/css">
+	   .bgimage {
+	       background-image: url('/resources/images/infoboard_bg.jpg');
+	       background-position: center center;
+	       background-size: cover;
+	       height: 320px;
+	   }
+	   .more {
+	       text-align: center;
+	   }
+	   img {
+	   	max-width: 100%;
+	   	height: auto;
+	   }
+	</style>
+<%-- <jsp:include page="../common/include.jsp"></jsp:include> --%>
 <jsp:include page="../common/header.jsp"></jsp:include>
 </head>
 
 <body>
+    <header class="bgimage hidden-xs">
+    </header>
 
 <div class="container"> <br /><br />
   <div class="row">
@@ -21,7 +38,65 @@
 
 <br />
 <!-- row -->
-<c:forEach items="${listAll}" var="MemDto">
+
+     <br />
+ <%--      <c:forEach items="${listAll}" var="MemDto"> --%>
+	      <div class="row">
+	          <div class="col-md-1">
+	          <a href="#">
+	          <img src="../resources/images/castleMo.png" class="center-block img-circle">
+	              <h6 class="text-center">Castle Mo<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
+	          </a>
+	          <div class="col-md-3">
+	              <div class="panel panel-success">
+	                  <ul>
+	                      <p class="text-left text-info">
+	                          <li>지역: </li>
+	                          <li>경력: </li>
+	                          <li>보유장비: </li>
+	                      </p>
+	                  </ul>
+	              </div>
+	          </div>
+	          <div class="col-md-1">
+	          <a href="#">
+	          <img src="../resources/images/dcLee.png" class="center-block img-circle">
+	              <h6 class="text-center">DC Lee<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
+	          </a>
+	          <div class="col-md-3">
+	              <div class="panel panel-success">
+	                  <ul>
+	                      <p class="text-left text-info">
+	                          <li>지역: </li>
+	                          <li>경력: </li>
+	                          <li>보유장비: </li>
+	                      </p>
+	                  </ul>
+	              </div>
+	          </div>
+	          <div class="col-md-1">
+	          <a href="#">
+	          <img src="../resources/images/g9Kim.png" class="img-circle img-responsive">
+	              <h6 class="text-center">G9 Kim<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
+	          </a>
+	          <div class="col-md-3">
+	              <div class="panel panel-success">
+	                  <ul>
+	                      <p class="text-left text-info">
+	                          <li>지역: </li>
+	                          <li>경력: </li>
+	                          <li>보유장비: </li>
+	                      </p>
+	                  </ul>
+	              </div>
+	          </div>
+	      </div>
+	      <br />
+	      <div class="clearfix"></div>
+  <%--     </c:forEach> --%>
+
+
+<%-- <c:forEach items="${listAll}" var="MemDto">
 	<div class="well">
 		<div class="media">
 			<a class="pull-left" href="/profile/ProfileDetail?mno=${MemDto.mno }">
@@ -52,8 +127,11 @@
 			</div>
 		</div>
 	</div>
-</c:forEach>
+</c:forEach> --%>
+
+</div>
 
 <jsp:include page="../common/footer.jsp"></jsp:include>
+
 </body>
 </html>
