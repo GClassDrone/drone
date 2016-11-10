@@ -40,12 +40,12 @@
 <!-- row -->
 
      <br />
- <%--      <c:forEach items="${listAll}" var="MemDto"> --%>
+      <c:forEach items="${listAll}" var="MemDto"> 
 	      <div class="row">
 	          <div class="col-md-1">
-	          <a href="#">
+	          <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
 	          <img src="../resources/images/castleMo.png" class="center-block img-circle">
-	              <h6 class="text-center">Castle Mo<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
+	              <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
 	          </a>
 	          <div class="col-md-3">
 	              <div class="panel panel-success">
@@ -59,9 +59,9 @@
 	              </div>
 	          </div>
 	          <div class="col-md-1">
-	          <a href="#">
+	         <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
 	          <img src="../resources/images/dcLee.png" class="center-block img-circle">
-	              <h6 class="text-center">DC Lee<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
+	              <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
 	          </a>
 	          <div class="col-md-3">
 	              <div class="panel panel-success">
@@ -75,9 +75,9 @@
 	              </div>
 	          </div>
 	          <div class="col-md-1">
-	          <a href="#">
+	          <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
 	          <img src="../resources/images/g9Kim.png" class="img-circle img-responsive">
-	              <h6 class="text-center">G9 Kim<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
+	              <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
 	          </a>
 	          <div class="col-md-3">
 	              <div class="panel panel-success">
@@ -93,7 +93,7 @@
 	      </div>
 	      <br />
 	      <div class="clearfix"></div>
-  <%--     </c:forEach> --%>
+</c:forEach>
 
 
 <%-- <c:forEach items="${listAll}" var="MemDto">
