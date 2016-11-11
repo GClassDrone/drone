@@ -1,8 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<meta charset="utf-8">
+<meta name="google-signin-client_id" content="454362485000-mvso1bhsstao8khbfvet4a5t3ibl7bfj.apps.googleusercontent.com">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 
-<jsp:include page="include.jsp"></jsp:include>
-    
+<div id ="dialog-login">
+	<form>
+	<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+		<!-- 구글 버튼 -->
+		<div align="center">
+			<div class="g-signin2" data-onsuccess="onSignIn" >
+			<img src="/resources/images/login/google-sign-in.png">
+			</div>
+		<br>
+		</div>
+		<!-- 카카오톡 -->
+		<div align="center">
+			<a id="kakao-login-btn"></a><br>
+			<br>
+		</div>
+		
+		<!-- 네이버 -->
+		<div align="center">
+			<a id="naver_id_login"></a>
+			<script src="/resources/js/login/naverLogin.js"></script><br>
+			<br>
+		</div>
+		<!-- 페이스북 -->
+		<div align="center">
+			<div class="fb-login-button" data-max-rows="10" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+		</div>
+	</form>
+</div>    
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -21,7 +51,7 @@
                         <a href="/map/map">드론영상</a>
                     </li>
                     <li class="dropdonw-split-left">
-                        <a href="/intro">분류</a>
+                        <a href="/intro">카테고리</a>
                     </li>
                     <li class="dropdown dropdown-split-right hidden-xs">
                     	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -62,7 +92,7 @@
                 </ul>
                 <div class="pull-right">
 <!-- 	                 <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span> -->
-	                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
+	                <button type="button" id="login-user" class="btn btn-default navbar-btn pull-right">sign-in</button>
 		         	<a href="#">
 	                	<i class="material-icons pull-right" style="padding-top: 7px; font-size: 34px; color: #8BC34A">tag_faces</i></a>
                 </div>

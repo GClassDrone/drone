@@ -1,5 +1,7 @@
 package com.gclass.drone.login.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,5 +25,9 @@ public class LoginDaoImpl implements LoginDao {
 	@Override
 	public MemDto login(LoginDto dto) throws Exception {
 		return session.selectOne(namespace +".login", dto);
+	}
+	@Override
+	public List<LoginDto> sido() throws Exception {
+		return null;
 	}
 }

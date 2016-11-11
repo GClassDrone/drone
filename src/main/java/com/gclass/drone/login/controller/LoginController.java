@@ -12,5 +12,7 @@ public class LoginController {
 	}
 	@RequestMapping("/registrieren")
 	public void registrieren() {
+		
 	}
+	
 }

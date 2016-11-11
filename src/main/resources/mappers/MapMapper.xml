@@ -16,4 +16,22 @@
 		  from cts
 	</select>
 	
+	<select id="ctsSelectOne" resultType="CtsDto">
+		select *
+		  from cts
+		 where ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</select>
+	
+	<select id="memSelectAll" resultType="MemViewDto">
+		select *
+		  from vw_mem
+	</select>
+	
+	<update id="ctsUpdateReadcnt">
+		update cts
+		   set readcnt = readcnt + 1
+		 where ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</update>
 </mapper>

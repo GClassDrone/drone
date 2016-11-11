@@ -65,7 +65,7 @@ small {
         </div>
         <div class="row"><br />
             <div class="col-md-2  col-md-offset-1">
-                <img src="/resources/images/castleMo.png" class="center-block img-circle">
+                <img src="/resources/images/castleMo2.png" class="center-block img-circle">
                 <h3 class="text-center">Castle Mo.
                     <br/>
                     <small class="text-warning">CAO<br />

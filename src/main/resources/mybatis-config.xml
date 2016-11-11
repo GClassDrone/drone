@@ -8,6 +8,7 @@
 		<package name="com.gclass.drone.iboard.dto"/>
 		<package name="com.gclass.drone.map.dto"/>
 		<package name="com.gclass.drone.bdat.dto"/>
+		<package name="com.gclass.drone.board.dto" />
 	</typeAliases>
 	
 </configuration>
