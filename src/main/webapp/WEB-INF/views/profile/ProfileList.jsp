@@ -20,11 +20,12 @@
 	   	height: auto;
 	   }
 	</style>
-<%-- <jsp:include page="../common/include.jsp"></jsp:include> --%>
-<jsp:include page="../common/header.jsp"></jsp:include>
+<jsp:include page="../common/include.jsp"></jsp:include>
+
 </head>
 
 <body>
+<jsp:include page="../common/header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
     </header>
 

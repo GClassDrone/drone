@@ -22,7 +22,8 @@ $(document).ready(function() {
     ); 
  });
 </script> 
- 
+
+<jsp:include page="../common/include.jsp"></jsp:include> 
 </head>
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
