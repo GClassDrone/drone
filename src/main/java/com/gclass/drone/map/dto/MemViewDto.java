@@ -2,7 +2,7 @@ package com.gclass.drone.map.dto;
 
 import java.sql.Timestamp;
 
-public class MemListDto {
+public class MemViewDto {
 	private int mno;
 	private String niknm;
 	private int siteno;
@@ -26,6 +26,7 @@ public class MemListDto {
 	private String sigungu;
 	private double lat;
 	private double lng;
+	
 	public int getMno() {
 		return mno;
 	}
@@ -164,9 +165,10 @@ public class MemListDto {
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
+	
 	@Override
 	public String toString() {
-		return "MemListDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", siteid=" + siteid + ", email="
+		return "MemViewDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", siteid=" + siteid + ", email="
 				+ email + ", pic=" + pic + ", license=" + license + ", msgrcyn=" + msgrcyn + ", prmsg=" + prmsg
 				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt
 				+ ", readcnt=" + readcnt + ", indt=" + indt + ", levno=" + levno + ", levpoint=" + levpoint + ", locno="

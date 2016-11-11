@@ -23,8 +23,16 @@ $(function() {
 		searchMenuDiv.index = 1;
 		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchMenuDiv);
 		
-		$("#map-videobtn").click();
+		if(markerCluster != null){
+			markerCluster.clearMarkers();
+			markers=[];
+		}
+// 마커 생성
+		markers = videoList();
+// 마커 크러스터 생성
+		videoCluster(map, markers);
 	}
+// 동영상 리스튼
 	function videoCluster(map, markers){
 		markerCluster = new MarkerClusterer(map, markers, {
 			imagePath : '/resources/images/map/m'
@@ -47,6 +55,7 @@ $(function() {
 				}
 				str += "</div>";
 			});
+			$("#list_wrap").empty();
 			$("#list_wrap").html(str);
 		});
 // 맵 클릭이벤트
@@ -62,11 +71,12 @@ $(function() {
 			});
 		}
 	}
+// 파일럿 리스트
 	function pilotCluster(map, markers){
 		markerCluster = new MarkerClusterer(map, markers, {
 			imagePath : '/resources/images/map/m'
 		});
-// 특정 줌레벨 이후 2이상 마커 크러스터 클릭 이벤트
+// 맥스 줌인 이후 아이템 숫자가 2이상인 마커 크러스터 클릭 이벤트
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
 			var str = "";
 			var len = cluster.getMarkers().length;
@@ -74,21 +84,28 @@ $(function() {
 				if(i%3 == 0){
 					str+="<div class='row'>";
 				}
-				str += "<div class='well'>";
-				str += "<div class='media'>";
-				str += "<a class='pull-left' href=''>";
-				str += "<img class='media-object' src='http://placekitten.com/121/121'>";
+				str += "<div class='col-md-1'>";
+				str += "<a href='/profile/ProfileDetail?mno="+this.mno+"'>";
+				str += "<img src='../resources/images/castleMo2.png' class='center-block img-circle'>";
+				str += "<h6 class='text-center'>"+this.niknm+"<p>(<span class='glyphicon glyphicon-star'></span>)</p></h6>";
 				str += "</a>";
-				str += "<div class='media-body' style='color: #424242'>";
-				str += "<a href=''";
-				str += "<h3>"+this.ttl+"</h3>";
-				str += "<p>"+this.ctt.substring(0,50)+"...</p>";
-				str += "<p>"+this.ctt+"</p>";
 				str += "</div>";
-				if(i%3 == 2){
+				str += "<div class='col-md-3'>";
+				str += "<div class='panel panel-success'>";
+				str += "<ul>";
+				str += "<p class='text-left text-info'>";
+				str += "<li>지역 : "+this.locnm+"</li>";
+				str += "<li>경력 : "+this.actnm+"</li>";
+				str += "<li>보유장비 : "+this.mdrnm+"</li>";
+				str += "</p>";
+				str += "</ul>";
+				str += "</div>";
+				str += "</div>";
+				if(i%3 == 2 || i == len){
 					str+="</div>";
 				}
 			});
+			$("#list_wrap").empty();
 			$("#list_wrap").html(str);
 		});
 // 맵 클릭이벤트
@@ -98,9 +115,7 @@ $(function() {
 // 마커 모달오픈 이벤트 등록
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
-				$("#dialog-video").data("ctscateno",this.ctscateno);
-				$("#dialog-video").data("ctsno", this.ctsno);
-				dialog.dialog( "open" );
+				$(location).attr("href","/profile/ProfileDetail?mno="+this.mno);
 			});
 		}
 	}
@@ -230,6 +245,11 @@ $(function() {
 		});
 	}
 // 파일럿 정보 마커 생성 ajax
+	var mnos = [];
+	var niknms = [];
+	var locnms = [];
+	var actnms = [];
+	var mdrnms = [];
 	function pilotList(){
 		locations = [];
 		
@@ -245,13 +265,22 @@ $(function() {
 			success: function(result){
 				$(result).each(function(){
 					locations.push({lat:this.lat,lng:this.lng});
+					mnos.push(this.mno);
+					niknms.push(this.niknm);
+					locnms.push(this.locnm);
+					actnms.push(this.actnm);
+					mdrnms.push(this.mdrnm);
 				});
 			}
 		});
 		return locations.map(function(location, i) {
 			return new google.maps.Marker({
 				position : location,
-				
+				mno: mnos[i],
+				niknm : niknms[i],
+				locnm : locnms[i],
+				actnm : actnms[i],
+				mdrnm : mdrnms[i]
 			});
 		});
 	}

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.LocDto;
-import com.gclass.drone.map.dto.MemListDto;
+import com.gclass.drone.map.dto.MemViewDto;
 
 public interface MapService {
 	public List<LocDto> addrlist();
@@ -13,5 +13,5 @@ public interface MapService {
 	public List<CtsDto> ctsSelectAll();
 	public CtsDto ctsSelectOne(CtsDto cDto);
 	
-	public List<MemListDto> memSelectAll();
+	public List<MemViewDto> memSelectAll();
 }

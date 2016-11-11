@@ -23,11 +23,9 @@
 		   and ctsno=#{ctsno}
 	</select>
 	
-	<select id="memSelectAll" resultType="MemListDto">
+	<select id="memSelectAll" resultType="MemViewDto">
 		select *
-		  from mem m
-		  join loc l
-		    on m.locno = l.locno
+		  from vw_mem
 	</select>
 	
 	<update id="ctsUpdateReadcnt">
