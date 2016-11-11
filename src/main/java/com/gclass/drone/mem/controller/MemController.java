@@ -1,8 +1,11 @@
 package com.gclass.drone.mem.controller;
 
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,17 +24,25 @@ public class MemController {
 	
 	@Inject
 	private MemService service;
+<<<<<<< HEAD
 	@Inject
 	private LocService servic;
 			
+=======
+
+	private static final Logger logger= LoggerFactory.getLogger(MemController.class);
+	
+>>>>>>> a40c64397b6407e130caa86a32f2a251d214efb8
 	@RequestMapping(value="/ProfileDetail", method=RequestMethod.GET)
 	public void read(@RequestParam("mno") int mno, Model model) throws Exception {
 		
 		model.addAttribute(service.read(mno));
 	}
 
-	@RequestMapping("/ProfileList")
-	public void main() {
+	@RequestMapping(value="/ProfileList", method= RequestMethod.GET)
+	public void listAll(Model model) throws Exception {
+		
+		model.addAttribute("listAll", service.listAll());
 	}
 	
 	@RequestMapping(value="/registrieren", method = RequestMethod.GET)

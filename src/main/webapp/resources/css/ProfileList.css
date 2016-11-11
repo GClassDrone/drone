@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.media-heading {
+	color : #3e2723;
+}
+.more {
+    text-align: center;
+}
+.mainBody {
+    padding-top: 50px;
+}
+.progress {
+    background-color: #000000;
+    border: 1px solid #7aff66;
+}
+.progress-bar {
+    background-color: #c4ffbc;
+}
+.progress-bar span {
+    color: #000000;
+}

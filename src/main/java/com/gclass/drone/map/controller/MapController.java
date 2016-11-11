@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.LocArrayDto;
 import com.gclass.drone.map.dto.LocDto;
+import com.gclass.drone.map.dto.MemViewDto;
 import com.gclass.drone.map.service.MapService;
 
 @Controller
@@ -33,11 +34,35 @@ public class MapController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/map", method=RequestMethod.POST)
+	@RequestMapping(value="/videoList", method=RequestMethod.POST)
 	public ResponseEntity<List<CtsDto>> mapPost(){
 		ResponseEntity<List<CtsDto>> entity = null;
 		try{
 			entity = new ResponseEntity<List<CtsDto>>(service.ctsSelectAll(),HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/videoDetail", method=RequestMethod.POST)
+	public ResponseEntity<CtsDto> videoDetail(@RequestBody CtsDto cDto){
+		ResponseEntity<CtsDto> entity = null;
+		try{
+			entity = new ResponseEntity<CtsDto>(service.ctsSelectOne(cDto), HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/pilotList", method=RequestMethod.POST)
+	public ResponseEntity<List<MemViewDto>> pilotList(){
+		ResponseEntity<List<MemViewDto>> entity = null;
+		try{
+			entity = new ResponseEntity<List<MemViewDto>>(service.memSelectAll(),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

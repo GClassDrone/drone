@@ -1089,4 +1089,11 @@ div.mejs-speed-button {
 	max-height: 480px;
 	width: 100%;
 	height: 100%;
+	margin: auto;
+}
+#dialog-video{
+	background-color: white;
+	padding-top: 50px;
+	margin: auto;
+	color: black;
 }

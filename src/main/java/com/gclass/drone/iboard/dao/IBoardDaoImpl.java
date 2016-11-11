@@ -40,6 +40,6 @@ public class IBoardDaoImpl implements IBoardDao{
 
 	@Override
 	public List<IBoardDto> listAll() throws Exception {
-		return null;
+		return session.selectList(namespace+".listAll");
 	}
 }

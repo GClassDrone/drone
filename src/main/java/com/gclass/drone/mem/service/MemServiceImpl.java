@@ -1,6 +1,8 @@
 package com.gclass.drone.mem.service;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -43,6 +45,11 @@ public class MemServiceImpl implements MemService {
 	public MemDto login(String siteid , String siteno) throws Exception {
 	
 		return dao.login(siteid, siteno);
+	}
+
+	@Override
+	public List<MemDto> listAll() throws Exception {
+		return dao.listAll();
 	}
 
 }

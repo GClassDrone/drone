@@ -1,40 +1,32 @@
-package com.gclass.drone.mem.dto;
+package com.gclass.drone.map.dto;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
-public class MemDto {
+public class MemViewDto {
 	private int mno;
 	private String niknm;
 	private int siteno;
-	private String siteid; 
+	private String siteid;
 	private String email;
 	private String pic;
 	private String license;
-	private String msgrcyn;
+	private char msgrcyn;
 	private String prmsg;
 	private int regcnt;
 	private int datcnt;
 	private int joacnt;
 	private int favcnt;
 	private int readcnt;
-	private Date indt;
+	private Timestamp indt;
 	private int levno;
 	private int levpoint;
 	private int locno;
 	private char ppose;
-	private String levnm;
-	private String levnic;
-	private String locnm;
-	private String mdrnm;
-	private String actnm;
-	private int rnum;
+	private String sido;
+	private String sigungu;
+	private double lat;
+	private double lng;
 	
-	public int getRnum() {
-		return rnum;
-	}
-	public void setRnum(int rnum) {
-		this.rnum = rnum;
-	}
 	public int getMno() {
 		return mno;
 	}
@@ -77,10 +69,10 @@ public class MemDto {
 	public void setLicense(String license) {
 		this.license = license;
 	}
-	public String getMsgrcyn() {
+	public char getMsgrcyn() {
 		return msgrcyn;
 	}
-	public void setMsgrcyn(String msgrcyn) {
+	public void setMsgrcyn(char msgrcyn) {
 		this.msgrcyn = msgrcyn;
 	}
 	public String getPrmsg() {
@@ -119,10 +111,10 @@ public class MemDto {
 	public void setReadcnt(int readcnt) {
 		this.readcnt = readcnt;
 	}
-	public Date getIndt() {
+	public Timestamp getIndt() {
 		return indt;
 	}
-	public void setIndt(Date indt) {
+	public void setIndt(Timestamp indt) {
 		this.indt = indt;
 	}
 	public int getLevno() {
@@ -149,45 +141,38 @@ public class MemDto {
 	public void setPpose(char ppose) {
 		this.ppose = ppose;
 	}
-	public String getLevnm() {
-		return levnm;
+	public String getSido() {
+		return sido;
 	}
-	public void setLevnm(String levnm) {
-		this.levnm = levnm;
+	public void setSido(String sido) {
+		this.sido = sido;
 	}
-	public String getLevnic() {
-		return levnic;
+	public String getSigungu() {
+		return sigungu;
 	}
-	public void setLevnic(String levnic) {
-		this.levnic = levnic;
+	public void setSigungu(String sigungu) {
+		this.sigungu = sigungu;
 	}
-	public String getLocnm() {
-		return locnm;
+	public double getLat() {
+		return lat;
 	}
-	public void setLocnm(String locnm) {
-		this.locnm = locnm;
+	public void setLat(double lat) {
+		this.lat = lat;
 	}
-	public String getMdrnm() {
-		return mdrnm;
+	public double getLng() {
+		return lng;
 	}
-	public void setMdrnm(String mdrnm) {
-		this.mdrnm = mdrnm;
-	}
-	public String getActnm() {
-		return actnm;
-	}
-	public void setActnm(String actnm) {
-		this.actnm = actnm;
+	public void setLng(double lng) {
+		this.lng = lng;
 	}
 	
 	@Override
 	public String toString() {
-		return "MemDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", siteid=" + siteid + ", email="
+		return "MemViewDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", siteid=" + siteid + ", email="
 				+ email + ", pic=" + pic + ", license=" + license + ", msgrcyn=" + msgrcyn + ", prmsg=" + prmsg
 				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt
 				+ ", readcnt=" + readcnt + ", indt=" + indt + ", levno=" + levno + ", levpoint=" + levpoint + ", locno="
-				+ locno + ", ppose=" + ppose + ", levnm=" + levnm + ", levnic=" + levnic + ", locnm=" + locnm
-				+ ", mdrnm=" + mdrnm + ", actnm=" + actnm + ", rnum=" + rnum + "]";
+				+ locno + ", ppose=" + ppose + ", sido=" + sido + ", sigungu=" + sigungu + ", lat=" + lat + ", lng="
+				+ lng + "]";
 	}
-
 }

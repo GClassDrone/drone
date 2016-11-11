@@ -1,7 +1,11 @@
 package com.gclass.drone.mem.dao;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
+=======
+import java.util.List;
+>>>>>>> a40c64397b6407e130caa86a32f2a251d214efb8
 
 import javax.inject.Inject;
 
@@ -37,6 +41,7 @@ public class MemDaoImpl implements MemDao{
 	public void update(MemDto dto) throws Exception {
 		session.update(namespace + ".update", dto);
 	}
+<<<<<<< HEAD
 	//로그인확인
 	@Override
 	public MemDto login(String siteid, String siteno) throws Exception {
@@ -46,5 +51,11 @@ public class MemDaoImpl implements MemDao{
 		paramMap.put("siteid", siteid);
 		
 		return session.selectOne(namespace +".login", paramMap);
+=======
+
+	@Override
+	public List<MemDto> listAll() throws Exception {
+		return session.selectList(namespace+".listAll");
+>>>>>>> a40c64397b6407e130caa86a32f2a251d214efb8
 	}
 }

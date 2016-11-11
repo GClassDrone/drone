@@ -39,14 +39,14 @@
 				regcnt, datcnt, joacnt, favcnt, readcnt, indt,
 				levno, levpoint, locno, ppose, levnm, levnic, 
 				locnm, mdrnm, actnm
-		from vm_mem
+		from vw_mem
 		where mno= #{mno}
 	</select>
 
 
 <!-- 프로필 수정할때 수정가능한 값들 -->
-	<update id="update"> <!-- 수정해야됨 -->
-		update vm_mem set email=#{email}, pic=#{pic}, license=#{license}, msgrcyn=#{license}, prmsg=#{prmsg},
+	<update id="update">
+		update vw_mem set email=#{email}, pic=#{pic}, license=#{license}, msgrcyn=#{license}, prmsg=#{prmsg},
 				locno=#{locno}, locnm=#{locnm}, mdrnm=#{mdrnm}, actnm=#{actnm}
 		where mno = #{mno}
 	</update>
@@ -55,4 +55,29 @@
 	<delete id="delete">
 		delete from mem where mno = #{mno}
 	</delete>
+	
+	<!-- 프로필 리스트 불러오기 -->
+	
+<!-- 	<select id="listAll" resultType="MemDto">
+		select *
+		  from (
+				select rownum as rnum, a.* 
+				  from (
+						select /*+ index_desc(mem mem_mno_pk) */ *
+						  from mem
+					   ) a 
+		<![CDATA[
+				 where rownum <= #{endRowNum}
+			   ) b
+		 where rnum >= #{startRowNum}
+		]]>
+	</select> -->
+	
+	<select id="listAll" resultType="MemDto">
+		select *
+		  from mem
+		  where mno>0
+		  order by mno desc
+	</select>
+	
 </mapper>

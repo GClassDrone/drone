@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<<<<<<< HEAD
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,6 +47,9 @@
 </div>    
     
     
+=======
+<jsp:include page="include.jsp"></jsp:include>
+>>>>>>> a40c64397b6407e130caa86a32f2a251d214efb8
     
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -101,11 +105,12 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/pilot">파일럿</a>
+                        <a href="/profile/ProfileList">파일럿</a>
                     </li>
                 </ul>
                 <div class="pull-right">
-	                <input type="button" class="btn btn-default navbar-btn pull-right" id ="login-user" value="sign-in">
+<!-- 	                 <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span> -->
+	                <button type="button" class="btn btn-default navbar-btn pull-right">sign-in</button>
 		         	<a href="#">
 	                	<i class="material-icons pull-right" style="padding-top: 7px; font-size: 34px; color: #8BC34A">tag_faces</i></a>
                 </div>
