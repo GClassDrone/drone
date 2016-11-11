@@ -21,6 +21,10 @@ $(document).ready(function() {
             $(this).find('.caption').slideUp(250); //.fadeOut(205)
         }
     ); 
+    
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
  });
 </script> 
  
@@ -29,6 +33,11 @@ $(document).ready(function() {
 <jsp:include page="../common/header.jsp"></jsp:include>
  <header class="bgimage hidden-xs">
  </header>
+
+<form role="form" method="post">
+	<input type='hidden' name='mno' value="${MemDto.mno}">
+</form>
+
 <div class="container">
    <div class="row">
        <br />
@@ -37,7 +46,8 @@ $(document).ready(function() {
    </div><br />
    <h1 style="text-align: center;"><strong>파일럿 정보</strong></h1>
    <!-- <p style="text-align: center;">회원님의 상세한 소개를 위한~~~~~~~</p> -->
-
+   
+<div class="form">
 	<div class="col-sm-10 col-sm-offset-1">
 	    <div class="card hovercard">
 	        <div class="card-background">
@@ -47,11 +57,11 @@ $(document).ready(function() {
 	        <div class="useravatar">
 	            <img alt="" src="/resources/images/castleMo.png">
 	        </div>
-	        <div class="card-info"> <span class="card-title">Castle Mo </span>
+	        <div class="card-info"> <span class="card-title">${memDto.niknm}요기는 닉네임 나오는부분</span>
 	        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb"></i></a>&nbsp; 
 	        <a href="#"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
 	        <section class="col-sm-8 col-sm-offset-2">
-	        <div><p style="text-align: center;">저는 안양에 사는 모인성이고 ~~~~Doloremque quam porro ab ratione facilis, magni quo, velit impedit facere, error, rem obcaecati asperiores 
+	        <div><p style="color: black; cotext-align: center;">${memDto.prmsg}저는 안양에 사는 모인성이고 ~~~~Doloremque quam porro ab ratione facilis, magni quo, velit impedit facere, error, rem obcaecati asperiores 
 					      글자수 제한...</p></div>
 	        </div>
 	        </section>
@@ -241,12 +251,9 @@ $(document).ready(function() {
 		        </div>
 		      </div>
 	    </div>
-    
     </div>
-            
+  </div>          
 </div>
-
-
 
 <div class="container">
         <div class="col-md-12">
