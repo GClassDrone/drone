@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gclass.drone.board.dto.AttachDto;
 import com.gclass.drone.board.dto.BoardDto;
+import com.gclass.drone.board.dto.BsubjDto;
 import com.gclass.drone.board.dto.InitSearchPage;
 
 public interface BoardService {
@@ -12,7 +13,7 @@ public interface BoardService {
 	public void delete(Integer bno)  throws Exception;
 	public BoardDto read(Integer bno)  throws Exception;
 	public List<BoardDto> listAll(InitSearchPage isp)  throws Exception;
-	public List<BoardDto> sublistAll(InitSearchPage isp)  throws Exception;
+	public List<BsubjDto> sublistAll()  throws Exception;
 	public int totalRow(InitSearchPage isp) throws Exception;
 	
 	public List<String> getAttach(Integer bno) throws Exception;

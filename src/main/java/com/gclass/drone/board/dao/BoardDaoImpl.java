@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gclass.drone.board.dto.AttachDto;
 import com.gclass.drone.board.dto.BoardDto;
+import com.gclass.drone.board.dto.BsubjDto;
 import com.gclass.drone.board.dto.InitSearchPage;
 
 @Repository
@@ -95,8 +96,8 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BoardDto> sublistAll(InitSearchPage isp) throws Exception {
-		return session.selectList(namespace+".sublistAll", isp);
+	public List<BsubjDto> sublistAll() throws Exception {
+		return session.selectList(namespace+".sublistAll");
 	}
 	
 	

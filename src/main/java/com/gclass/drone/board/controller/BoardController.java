@@ -120,7 +120,8 @@ public class BoardController {
 	public void sublist(@ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
 		logger.info("sublist ....");
 		logger.info("받은 후 : "+isp.toString());
-		model.addAttribute("sublist", service.sublistAll(isp));
+		System.out.println("서브리스트 올 : "+ service.sublistAll());
+		model.addAttribute("sublist", service.sublistAll());
 		PageMake pm = new PageMake();
 		pm.setInitPage(isp);
 		pm.setTotalCount(service.totalRow(isp));

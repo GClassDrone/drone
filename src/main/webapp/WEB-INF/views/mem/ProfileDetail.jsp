@@ -7,6 +7,7 @@
  
 <link href="/resources/css/profile/profile.css" rel="stylesheet" type="text/css">
 <script src="/resources/js/profile/profile.js"></script>
+<jsp:include page="../common/include.jsp"></jsp:include>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -285,86 +286,7 @@ $(document).ready(function() {
         </div>
     </div>
 
-<<<<<<< HEAD
-        <p class="more"><br />
-            <button type="button" class="btn btn-default btn-sm center">
-                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
-            </button>
-        </p>
-<jsp:include page="../common/footer.jsp"></jsp:include>
-=======
-				<div id="tabs-2">
-					<p>가입된 게시판 목록</p>
-				</div>
-
-				<div id="tabs-3">
-				
-					<p>즐겨찾기된 콘텐츠 목록 (20~30개 제한)</p>
-				</div>
-
-				<div id="tabs-4">
-						<label for="actnm">경력</label>
-						<input type="text" name='actnm' class="form-control" value="${memDto.actnm}" readonly="readonly">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="section">
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
-							allowfullscreen=""></iframe>
-					</div>
-					<h3>Grooming</h3>
-					<p>Our therapeutic grooming treatments help battle fleas,
-						allergic dermatitis, and other challenging skin conditions.</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
-							allowfullscreen=""></iframe>
-					</div>
-					<h3>Grooming</h3>
-					<p>Our therapeutic grooming treatments help battle fleas,
-						allergic dermatitis, and other challenging skin conditions.</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
-							allowfullscreen=""></iframe>
-					</div>
-					<h3>General Health</h3>
-					<p>Wellness and senior exams, ultrasound, x-ray, and dental
-						cleanings are just a few of our general health services.</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
-							allowfullscreen=""></iframe>
-					</div>
-					<h3>General Health</h3>
-					<p>Wellness and senior exams, ultrasound, x-ray, and dental
-						cleanings are just a few of our general health services.</p>
-				</div>
-			</div>
-		</div>
-		
-		<!-- 밑으로 페이지 내리는 부분 -->
-		<p class="more">
-			<button type="button" class="btn btn-default btn-sm center">
-				<span class="fa fa-2x fa-fw fa-angle-double-down"></span>
-			</button>
-		</p>
-	</div>
-
-
-
 	<!--     푸터부분 -->
 <%@include file="../common/footer.jsp" %>
->>>>>>> 6feebe6908c568b0a89e04f24465079cde806334
 </body>
 </html>

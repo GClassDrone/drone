@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gclass.drone.board.dao.BoardDao;
 import com.gclass.drone.board.dto.AttachDto;
 import com.gclass.drone.board.dto.BoardDto;
+import com.gclass.drone.board.dto.BsubjDto;
 import com.gclass.drone.board.dto.InitSearchPage;
 
 @Service
@@ -87,8 +88,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardDto> sublistAll(InitSearchPage isp) throws Exception {
-		return bDao.sublistAll(isp);
+	public List<BsubjDto> sublistAll() throws Exception {
+		return bDao.sublistAll();
 	}
 
 	

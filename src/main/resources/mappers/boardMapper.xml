@@ -47,6 +47,24 @@
 		]]>
 	</select>
 	
+	<select id="sublistAll" resultType="BsubjDto" parameterType="InitSearchPage">
+		select * 
+		  from (
+				select rownum as rnum, a.* 
+				  from (
+						select /*+ index_desc(bsubj bsubj_subjno_pk) */ *
+						  from board
+						 <if test="searchType != '' and keyWord != null">
+							 where ${searchType} like '%'||#{keyWord}||'%'
+						 </if>
+					   ) a 
+		<![CDATA[
+				 where rownum <= #{endRowNum}
+			   ) b
+		 where rnum >= #{startRowNum}
+		]]>
+	</select>
+	
 	<select id="totalRow" resultType="int" parameterType="InitSearchPage">
 		select count(bno)
 		  from board

@@ -23,6 +23,10 @@ $(document).ready(function(){
 	$("#newBtn").on("click", function(event){
 		self.location = "register";
 	});
+	
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
 });
 </script>
 
