@@ -4,7 +4,7 @@
 
 <html>
 <head>
-<!--     <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
     .navbar-default {
@@ -12,13 +12,8 @@
         z-index: 9999; 
 }  
 </style>
--->
 
-<<<<<<< HEAD
 <jsp:include page="common/include.jsp"></jsp:include> 
-=======
-<%-- <jsp:include page="common/include.jsp"></jsp:include> --%>
->>>>>>> a40c64397b6407e130caa86a32f2a251d214efb8
 </head>
 
 <body>
