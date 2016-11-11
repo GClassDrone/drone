@@ -171,7 +171,7 @@
 			<artifactId>oracle-driver-ojdbc6</artifactId>
 			<version>12.1.0.1</version>
 		</dependency>
-		
+
 	</dependencies>
     <build>
         <plugins>

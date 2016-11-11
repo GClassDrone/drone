@@ -1,23 +1,29 @@
 package com.gclass.drone.mem.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.gclass.drone.loc.service.LocService;
+import com.gclass.drone.login.dto.LoginDto;
 import com.gclass.drone.mem.service.MemService;
 
 
-@RequestMapping("/profile")
+@RequestMapping("/mem")
 @Controller
 public class MemController {
 	
 	@Inject
 	private MemService service;
-	
+	@Inject
+	private LocService servic;
+			
 	@RequestMapping(value="/ProfileDetail", method=RequestMethod.GET)
 	public void read(@RequestParam("mno") int mno, Model model) throws Exception {
 		
@@ -27,4 +33,15 @@ public class MemController {
 	@RequestMapping("/ProfileList")
 	public void main() {
 	}
+	
+	@RequestMapping(value="/registrieren", method = RequestMethod.GET)
+	public void loginGET(@ModelAttribute("dto")LoginDto dto){
+		
+	}
+	@RequestMapping(value="/loginPost", method= RequestMethod.POST)
+	public void loginPOST(LoginDto dto, HttpSession session, Model model)throws Exception{
+	
+	}
+	
+	
 }

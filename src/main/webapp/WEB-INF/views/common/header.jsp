@@ -3,33 +3,19 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-<link href="/resources/css/intro.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src="/resources/js/common/jquery-2.1.4.min.js"></script>
-<script src="/resources/js/common/bootstrap.min.js"></script>
-<script src="/resources/js/common/script.js"></script>
+
+
 <script src="/resources/js/common/jquery-ui.min.js"></script>
 <script src="/resources/js/login/LoginSocial.js"></script>
 <script src="/resources/js/login/naverLogin_implicit-1.0.2.js" ></script>
 <meta name="google-signin-client_id" content="454362485000-mvso1bhsstao8khbfvet4a5t3ibl7bfj.apps.googleusercontent.com">
 <script src="/resources/js/login/platform.js" async defer></script>
+<%-- <jsp:include page="include.jsp"></jsp:include> --%>
 <!-- 카카오 js -->
 <script src="/resources/js/login/kakao.min.js"></script>
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
-
-<style type="text/css">
-.navbar-default {
-  width: 100%;
-  z-index: 9999;
-}
-body {
-	padding-top: 50px;
-}
-</style>
-
 <div id ="dialog-login">
 	<form>
 	<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
@@ -57,8 +43,10 @@ body {
 			<div class="fb-login-button" data-max-rows="10" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
 		</div>
 	</form>
-</div>
-
+</div>    
+    
+    
+    
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -74,10 +62,10 @@ body {
              <!--     <p class="navbar-text">Sharing People's Drone Life</p> -->
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/map">드론영상</a>
+                        <a href="/map/map">드론영상</a>
                     </li>
                     <li class="dropdonw-split-left">
-                        <a href="/intro">분류</a>
+                        <a href="/intro">카테고리</a>
                     </li>
                     <li class="dropdown dropdown-split-right hidden-xs">
                     	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -121,7 +109,8 @@ body {
 		         	<a href="#">
 	                	<i class="material-icons pull-right" style="padding-top: 7px; font-size: 34px; color: #8BC34A">tag_faces</i></a>
                 </div>
-             <div class="col-xs-2 col-sm-3 pull-right">
+            
+             <div class="col-sm-3 col-md-3 pull-right">
 			        <form class="navbar-form" role="search">
 				        <div class="input-group">
 				            <input type="text" class="form-control" placeholder="Search" name="q">
@@ -134,5 +123,4 @@ body {
             </div>
         </div>
     </nav>
-
 

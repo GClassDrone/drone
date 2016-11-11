@@ -20,8 +20,8 @@ $(function(){
 
 //카카오톡
 $(function(){
-	var id;
-	var siteid = 2;
+	var siteid;
+	var siteno = 2;
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('3e0f3c6fb1266462e7580703c7107575');
     // 카카오 로그인 버튼을 생성합니다.
@@ -31,8 +31,8 @@ $(function(){
         Kakao.API.request({
         	url: '/v1/user/me',
         	success: function(res){
-        		id = res.id;
-        		location.href="http://192.168.0.23:8080/intro?id="+id+"&siteid="+siteid;
+        		siteid = res.id;
+        		location.href="http://192.168.0.23:8080/intro?siteid="+siteid+"&siteno="+siteno;
         	},
         	fail: function(error){
         		alert(JSON.stringify(error));

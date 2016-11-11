@@ -1,5 +1,8 @@
 package com.gclass.drone.mem.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -33,5 +36,15 @@ public class MemDaoImpl implements MemDao{
 	@Override
 	public void update(MemDto dto) throws Exception {
 		session.update(namespace + ".update", dto);
+	}
+	//로그인확인
+	@Override
+	public MemDto login(String siteid, String siteno) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("siteno", siteno);
+		paramMap.put("siteid", siteid);
+		
+		return session.selectOne(namespace +".login", paramMap);
 	}
 }
