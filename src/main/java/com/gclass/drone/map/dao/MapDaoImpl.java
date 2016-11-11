@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.LocDto;
+import com.gclass.drone.map.dto.MemViewDto;
 
 @Repository
 public class MapDaoImpl implements MapDao {
@@ -35,5 +36,20 @@ public class MapDaoImpl implements MapDao {
 	@Override
 	public List<CtsDto> ctsSelectAll() {
 		return session.selectList(namespace+".ctsSelectAll");
+	}
+
+	@Override
+	public CtsDto ctsSelectOne(CtsDto cDto) {
+		return session.selectOne(namespace+".ctsSelectOne", cDto);
+	}
+
+	@Override
+	public void ctsUpdateReadcnt(CtsDto cDto) {
+		session.update(namespace+".ctsUpdateReadcnt", cDto);
+	}
+
+	@Override
+	public List<MemViewDto> memSelectAll() {
+		return session.selectList(namespace+".memSelectAll");
 	}
 }

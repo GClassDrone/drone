@@ -43,10 +43,16 @@
 <c:forEach items="${listAll}" var="MemDto"> 
      <div class="row">
          <div class="col-md-1">
+<<<<<<< HEAD
 	         <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
 	         <img src="../resources/images/castleMo2.png" class="center-block img-circle">
 	             <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> 
 	         </a>
+=======
+         <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
+         <img src="../resources/images/castleMo2.png" class="center-block img-circle">
+             <h6 class="text-center">${MemDto.niknm }<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></a>
+>>>>>>> 3a5035688978e6a9355c17cd97272636ec439f0e
          </div>
          <div class="col-md-3">
              <div class="panel panel-success">
@@ -60,11 +66,18 @@
              </div>
          </div>
          <div class="col-md-1">
+<<<<<<< HEAD
 	        <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
 	         <img src="../resources/images/dcLee.png" class="center-block img-circle">
              <h6 class="text-center">${MemDto.niknm }<p>(${MemDto.levnm})</p></h6> 
 	        </a>
 	     </div>
+=======
+        <a href="/profile/ProfileDetail?mno=${MemDto.mno }">
+         <img src="../resources/images/dcLee.png" class="center-block img-circle">
+             <h6 class="text-center">${MemDto.niknm }<p>(${MemDto.levnm})</p></h6></a>
+         </div>
+>>>>>>> 3a5035688978e6a9355c17cd97272636ec439f0e
          <div class="col-md-3">
              <div class="panel panel-success">
                  <ul>

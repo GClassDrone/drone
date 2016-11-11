@@ -1091,7 +1091,9 @@ div.mejs-speed-button {
 	height: 100%;
 	margin: auto;
 }
-#dialog-form{
+#dialog-video{
 	background-color: white;
-	padding-top: 20px;
+	padding-top: 50px;
+	margin: auto;
+	color: black;
 }

@@ -10,3 +10,8 @@
 <script src="/resources/js/common/jquery-2.1.4.min.js"></script>
 <script src="/resources/js/common/bootstrap.min.js"></script>
 <script src="/resources/js/common/script.js"></script>
+<script src="/resources/js/common/jquery-ui.min.js"></script>
+<script src="/resources/js/login/naverLogin_implicit-1.0.2.js" ></script>
+<script src="/resources/js/login/platform.js" async defer></script>
+<script src="/resources/js/login/kakao.min.js"></script>
+<script src="/resources/js/login/LoginSocial.js"></script>

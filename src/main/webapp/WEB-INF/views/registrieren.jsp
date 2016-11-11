@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -117,63 +118,73 @@
 										</div>
 		                            </div>
 		                            
+		                           
+		                            
+		                          <!-- 주소탭 -->
+		                            <div class="tab-pane" id="address">
+		                                <div class="row">
+		                                    <div class="col-sm-12">
+		                                        <h5 class="info-text"> 사는 지역은?  </h5>
+		                                    </div>
+		                                   <div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <label>Country</label><br>
+		                                            
+		                                            <select name="sido" class="form-control">
+		                                                <option value="">선택하세요</option>
+		                                            </select>
+		                                            
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <label>Country</label><br>
+		                                            
+		                                            <select name="sigungu" class="form-control">
+		                                                <option value=""> -- </option>
+		                                            </select>
+		                                            
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            
 		                            <!-- 가입목적 -->
 		                            <div class="tab-pane" id="account">
-		                                <h5 class="info-text"> What are you doing? (checkboxes) </h5>
+		                                <h5 class="info-text"> 가입하신 목적은? </h5>
 		                                <div class="row">
 		                                    <div class="col-sm-8 col-sm-offset-2">
+		                                        
 		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="1">
+		                                            <div class="choice" data-toggle="wizard-radio">
+		                                                <input type="radio" name="jobb" value="1">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-paint-roller"></i>
 															<p>Design</p>
 		                                                </div>
 		                                            </div>
 		                                        </div>
+		                                        
 		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="2">
+		                                            <div class="choice" data-toggle="wizard-radio">
+		                                                <input type="radio" name="jobb" value="2">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-pencil-alt"></i>
 															<p>Code</p>
 		                                                </div>
 		                                            </div>
 		                                        </div>
+		                                        
 		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-checkbox">
-		                                                <input type="checkbox" name="jobb" value="3">
+		                                            <div class="choice" data-toggle="wizard-radio">
+		                                                <input type="radio" name="jobb" value="3">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-star"></i>
 															<p>Develop</p>
 		                                                </div>
 		                                            </div>
 		                                        </div>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                            
-		                          <!-- 주소탭 -->
-		                            <div class="tab-pane" id="address">
-		                                <div class="row">
-		                                    <div class="col-sm-12">
-		                                        <h5 class="info-text"> Are you living in a nice area? </h5>
-		                                    </div>
-		                                   <div class="col-sm-5">
-		                                        <div class="form-group">
-		                                            <label>Country</label><br>
-		                                            <select name="sido" class="form-control">
-		                                                <option value="">선택하세요</option>
-		                                            </select>
-		                                        </div>
-		                                    </div>
-		                                    <div class="col-sm-5">
-		                                        <div class="form-group">
-		                                            <label>Country</label><br>
-		                                            <select name="sigungu" class="form-control">
-		                                                <option value=""> -- </option>
-		                                            </select>
-		                                        </div>
+		                                        
 		                                    </div>
 		                                </div>
 		                            </div>
