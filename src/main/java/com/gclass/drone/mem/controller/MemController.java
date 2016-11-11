@@ -24,15 +24,11 @@ public class MemController {
 	
 	@Inject
 	private MemService service;
-<<<<<<< HEAD
 	@Inject
 	private LocService servic;
-			
-=======
 
 	private static final Logger logger= LoggerFactory.getLogger(MemController.class);
 	
->>>>>>> a40c64397b6407e130caa86a32f2a251d214efb8
 	@RequestMapping(value="/ProfileDetail", method=RequestMethod.GET)
 	public void read(@RequestParam("mno") int mno, Model model) throws Exception {
 		

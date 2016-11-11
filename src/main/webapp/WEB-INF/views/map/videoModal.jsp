@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script src="/resources/js/map/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/resources/css/map/videoModal.css" />
 <script type="text/javascript" src="/resources/js/map/videoModal.js"></script>
 <script type="text/javascript" src="/resources/js/map/MediaElement.js"></script>

@@ -2,24 +2,20 @@
 $(function(){
 	var form;
 	var dialog;
-	
 	dialog = $("#dialog-login").dialog({
 		autoOpen : false,
 		height : 400,
 		width : 400,
 		modal : true,
-		
 	});
 	form = dialog.find("form").on("submit",function(event){
 		event.preventDefault();
 	});
-	$("#login-user").button().on("click", function(){
+	$("#login-user").on("click", function(){
 		dialog.dialog("open");
 	});
-});
 
-//카카오톡
-$(function(){
+	//카카오톡
 	var siteid;
 	var siteno = 2;
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -50,10 +46,8 @@ $(function(){
 		   },1000);
 		   });
    }
- });
 
 //구글
-$(function(){
 	function signOut() {
 	    var auth2 = gapi.auth2.getAuthInstance();
 	    auth2.signOut().then(function () {
@@ -67,12 +61,10 @@ $(function(){
 	console.log('Image URL: ' + profile.getImageUrl());
 	console.log('Email: ' + profile.getEmail());
 	}   
-});
 
 //네이버
 
 //페이스북
-$(function(){
 	function statusChangeCallback(response) {
 	  console.log('statusChangeCallback');
 	  console.log(response);
@@ -117,12 +109,12 @@ $(function(){
 	      'Thanks for logging in, ' + response.name + '!';
 	  });
 	}
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=319535861760649";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.8&appId=319535861760649";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
 });
 //트위터
