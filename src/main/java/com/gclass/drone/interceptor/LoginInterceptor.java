@@ -54,8 +54,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				response.sendRedirect("/registrieren");
 			}
 		}
-		
-		
 		return true;
 	}
 }

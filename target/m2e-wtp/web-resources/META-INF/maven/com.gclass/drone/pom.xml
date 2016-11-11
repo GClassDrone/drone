@@ -172,8 +172,6 @@
 			<version>12.1.0.1</version>
 		</dependency>
 
-<<<<<<< HEAD
-=======
 		<dependency>
 			<groupId>org.imgscalr</groupId>
 			<artifactId>imgscalr-lib</artifactId>
@@ -184,7 +182,6 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3.1</version>
 		</dependency>
->>>>>>> a40c64397b6407e130caa86a32f2a251d214efb8
 	</dependencies>
     <build>
         <plugins>

@@ -47,9 +47,7 @@
 </div>    
     
     
-=======
 <jsp:include page="include.jsp"></jsp:include>
->>>>>>> a40c64397b6407e130caa86a32f2a251d214efb8
     
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
