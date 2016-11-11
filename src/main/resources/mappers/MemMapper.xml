@@ -35,10 +35,7 @@
 <!--프로필 상세 페이지볼 때 읽어오는 값들 -->
 
 	<select id="read" resultType="MemDto">
-		select mno, niknm, email, pic, license, msgrcyn, prmsg,
-				regcnt, datcnt, joacnt, favcnt, readcnt, indt,
-				levno, levpoint, locno, ppose, levnm, levnic, 
-				locnm, mdrnm, actnm
+		select *
 		from vw_mem
 		where mno= #{mno}
 	</select>
@@ -75,7 +72,7 @@
 	
 	<select id="listAll" resultType="MemDto">
 		select *
-		  from mem
+		  from vw_mem
 		  where mno>0
 		  order by mno desc
 	</select>

@@ -40,6 +40,11 @@ public class MemServiceImpl implements MemService {
 		dao.delete(mno);
 	}
 	
+	@Override
+	public List<MemDto> listAll() throws Exception {
+		return dao.listAll();
+	}
+	
 	//로그인
 	@Override
 	public MemDto login(String siteid , String siteno) throws Exception {
@@ -47,9 +52,5 @@ public class MemServiceImpl implements MemService {
 		return dao.login(siteid, siteno);
 	}
 
-	@Override
-	public List<MemDto> listAll() throws Exception {
-		return dao.listAll();
-	}
 
 }

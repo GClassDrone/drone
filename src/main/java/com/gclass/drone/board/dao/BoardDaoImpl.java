@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gclass.drone.board.dto.AttachDto;
 import com.gclass.drone.board.dto.BoardDto;
+import com.gclass.drone.board.dto.BsubjDto;
 import com.gclass.drone.board.dto.InitSearchPage;
 
 @Repository
@@ -33,19 +34,25 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public void delete(Integer num) throws Exception {
-		session.delete(namespace+".delete", num);
+	public void delete(Integer subjno, int bno) throws Exception {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("subjno", subjno);
+		map.put("bno", bno);
+		session.delete(namespace+".delete", map);
 	}
 
 	@Override
-	public BoardDto read(Integer num) throws Exception {
-		return session.selectOne(namespace+".read", num);
+	public BoardDto read(Integer subjno, int bno) throws Exception {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("subjno", subjno);
+		map.put("bno", bno);
+		return session.selectOne(namespace+".read", map);
 	}
 	
 
 	@Override
-	public List<BoardDto> listAll(InitSearchPage isp) throws Exception {
-		return session.selectList(namespace+".listAll", isp);
+	public List<BoardDto> listAll() throws Exception {
+		return session.selectList(namespace+".listAll");
 	}
 
 	@Override
@@ -95,8 +102,8 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BoardDto> sublistAll(InitSearchPage isp) throws Exception {
-		return session.selectList(namespace+".sublistAll", isp);
+	public List<BsubjDto> sublistAll() throws Exception {
+		return session.selectList(namespace+".sublistAll");
 	}
 	
 	

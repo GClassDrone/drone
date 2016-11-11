@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page session="false" %>
+
 <%@ include file="../common/header.jsp" %>
 <%@ include file="../common/include.jsp" %>
 <section class="content">
@@ -23,12 +23,16 @@ $(document).ready(function(){
 	$("#newBtn").on("click", function(event){
 		self.location = "register";
 	});
+	
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
 });
 </script>
 
 <form role="form" method="post">
-	<input type='hidden' name='subjno' value="${BoardDto.subjno}">
-	<input type='hidden' name='bno' value="${BoardDto.bno}">
+	<input type='hidden' name='bcateno' value="${BsubjDto.bcateno}">
+	<input type='hidden' name='subjno' value="${BsubjDto.subjno}">
 </form>
 	<div class="row">
 		<div class="col-md-12">
@@ -56,7 +60,7 @@ $(document).ready(function(){
 						<th>등록일</th>
 						<th style="width:40px">조회수</th>
 					</tr>
-					<c:forEach items="${sublist}" var="board">
+					<c:forEach items="${list}" var="BoardDto">
 					<tr>
 						<td>${board.bno}</td>
 						<td><a href="read${pageMake.makeSearch(pageMake.initPage.page)}&bno=${board.bno} ">${board.ttl}</a></td>

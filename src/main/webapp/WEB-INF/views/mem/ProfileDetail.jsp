@@ -7,6 +7,7 @@
  
 <link href="/resources/css/profile/profile.css" rel="stylesheet" type="text/css">
 <script src="/resources/js/profile/profile.js"></script>
+<jsp:include page="../common/include.jsp"></jsp:include>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -20,6 +21,10 @@ $(document).ready(function() {
             $(this).find('.caption').slideUp(250); //.fadeOut(205)
         }
     ); 
+    
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
  });
 </script> 
 
@@ -29,6 +34,11 @@ $(document).ready(function() {
 <jsp:include page="../common/header.jsp"></jsp:include>
  <header class="bgimage hidden-xs">
  </header>
+
+<form role="form" method="post">
+	<input type='hidden' name='mno' value="${MemDto.mno}">
+</form>
+
 <div class="container">
    <div class="row">
        <br />
@@ -37,7 +47,8 @@ $(document).ready(function() {
    </div><br />
    <h1 style="text-align: center;"><strong>파일럿 정보</strong></h1>
    <!-- <p style="text-align: center;">회원님의 상세한 소개를 위한~~~~~~~</p> -->
-
+   
+<div class="form-group">
 	<div class="col-sm-10 col-sm-offset-1">
 	    <div class="card hovercard">
 	        <div class="card-background">
@@ -47,12 +58,11 @@ $(document).ready(function() {
 	        <div class="useravatar">
 	            <img alt="" src="/resources/images/castleMo.png">
 	        </div>
-	        <div class="card-info"> <span class="card-title">Castle Mo </span>
+	        <div class="card-info"> <span class="card-title" name="niknm">${memDto.niknm}</span>
 	        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb"></i></a>&nbsp; 
 	        <a href="#"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
 	        <section class="col-sm-8 col-sm-offset-2">
-	        <div><p style="text-align: center;">저는 안양에 사는 모인성이고 ~~~~Doloremque quam porro ab ratione facilis, magni quo, velit impedit facere, error, rem obcaecati asperiores 
-					      글자수 제한...</p></div>
+	        <div><p style="color: black; cotext-align: center;">${memDto.prmsg}</p></div>
 	        </div>
 	        </section>
 	    </div>
@@ -91,24 +101,22 @@ $(document).ready(function() {
 		              <h3 style="display:inline-block">프로필 정보</h3> <a href="#tab1"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
 					    <dl class="dl-horizontal">
 					      <dt>개인 소개</dt>
-					      <dd>Ipsum dolor sit amet, consectetur adipisicing elit. Esse quo ducimus dolorum dolore ipsam unde, 
-					      <code>&lt;em&gt;</code>facere explicabo quae natus alias deserunt quibusdam voluptatem, 
-					      <kbd>officiis</kbd> itaque rerum magni eius odio mollitia!</dd>
+					      <dd>${memDto.prmsg}</dd>
 			              <br />		
 					      <dt>랭킹</dt>
-					      <dd>무당드론(아비터) </dd>
+					      <dd>${memDto.levnm},${memDto.levnic }<br>(점수 : ${memDto.levpoint}) </dd>
 					      <br />		
 					      <dt>이메일</dt>
-					      <dd>Gdrone@gmail.com </dd>
+					      <dd>${memDto.email}</dd>
 					      <br />	
 					      <dt>보유 라이센스 </dt>
 					      <dd><ul>
-					      	<li>초경량 비행장치 조종자 (2016.11.11)</li>
-					      	<li>드론 지도사 자격증 (2016.11.11)</li>
+					      	<li>${memDto.mdrnm}</li>
+					      	<li>자격증에서 긁어와서 뿌려주기</li>
 					      </ul></dd>
 					      <br />	
 					      <dt>주요 활동지역</dt>
-					      <dd>서울 구로 </dd>
+					      <dd>${memDto.locnm} </dd>
 					    </dl>
 		        </div>
 		        
@@ -241,12 +249,9 @@ $(document).ready(function() {
 		        </div>
 		      </div>
 	    </div>
-    
     </div>
-            
+  </div>          
 </div>
-
-
 
 <div class="container">
         <div class="col-md-12">
@@ -286,86 +291,7 @@ $(document).ready(function() {
         </div>
     </div>
 
-<<<<<<< HEAD
-        <p class="more"><br />
-            <button type="button" class="btn btn-default btn-sm center">
-                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
-            </button>
-        </p>
-<jsp:include page="../common/footer.jsp"></jsp:include>
-=======
-				<div id="tabs-2">
-					<p>가입된 게시판 목록</p>
-				</div>
-
-				<div id="tabs-3">
-				
-					<p>즐겨찾기된 콘텐츠 목록 (20~30개 제한)</p>
-				</div>
-
-				<div id="tabs-4">
-						<label for="actnm">경력</label>
-						<input type="text" name='actnm' class="form-control" value="${memDto.actnm}" readonly="readonly">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="section">
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
-							allowfullscreen=""></iframe>
-					</div>
-					<h3>Grooming</h3>
-					<p>Our therapeutic grooming treatments help battle fleas,
-						allergic dermatitis, and other challenging skin conditions.</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
-							allowfullscreen=""></iframe>
-					</div>
-					<h3>Grooming</h3>
-					<p>Our therapeutic grooming treatments help battle fleas,
-						allergic dermatitis, and other challenging skin conditions.</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
-							allowfullscreen=""></iframe>
-					</div>
-					<h3>General Health</h3>
-					<p>Wellness and senior exams, ultrasound, x-ray, and dental
-						cleanings are just a few of our general health services.</p>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3">
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item"
-							src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0"
-							allowfullscreen=""></iframe>
-					</div>
-					<h3>General Health</h3>
-					<p>Wellness and senior exams, ultrasound, x-ray, and dental
-						cleanings are just a few of our general health services.</p>
-				</div>
-			</div>
-		</div>
-		
-		<!-- 밑으로 페이지 내리는 부분 -->
-		<p class="more">
-			<button type="button" class="btn btn-default btn-sm center">
-				<span class="fa fa-2x fa-fw fa-angle-double-down"></span>
-			</button>
-		</p>
-	</div>
-
-
-
 	<!--     푸터부분 -->
 <%@include file="../common/footer.jsp" %>
->>>>>>> 6feebe6908c568b0a89e04f24465079cde806334
 </body>
 </html>

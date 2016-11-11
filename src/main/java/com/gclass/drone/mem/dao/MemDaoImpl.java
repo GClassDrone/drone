@@ -38,6 +38,12 @@ public class MemDaoImpl implements MemDao{
 	public void update(MemDto dto) throws Exception {
 		session.update(namespace + ".update", dto);
 	}
+	
+	@Override
+	public List<MemDto> listAll() throws Exception {
+		return session.selectList(namespace+".listAll");
+	}
+	
 	//로그인확인
 	@Override
 	public MemDto login(String siteid, String siteno) throws Exception {
@@ -47,9 +53,5 @@ public class MemDaoImpl implements MemDao{
 		paramMap.put("siteid", siteid);
 		
 		return session.selectOne(namespace +".login", paramMap);
-	}
-	@Override
-	public List<MemDto> listAll() throws Exception {
-		return session.selectList(namespace+".listAll");
 	}
 }
