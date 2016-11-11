@@ -16,7 +16,10 @@ public class MainController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3a5035688978e6a9355c17cd97272636ec439f0e
 	@RequestMapping("/imsi")
 	public void imsi() {
 		

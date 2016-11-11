@@ -48,7 +48,10 @@ public class MemDaoImpl implements MemDao{
 		
 		return session.selectOne(namespace +".login", paramMap);
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3a5035688978e6a9355c17cd97272636ec439f0e
 	@Override
 	public List<MemDto> listAll() throws Exception {
 		return session.selectList(namespace+".listAll");
