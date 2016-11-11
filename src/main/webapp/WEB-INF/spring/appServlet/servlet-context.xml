@@ -27,4 +27,13 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:exclude-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
 	</context:component-scan>
+	
+	<beans:bean id="LoginInterceptor" class="com.gclass.drone.interceptor.LoginInterceptor">
+	</beans:bean>
+		<interceptors>
+			<interceptor>
+				<mapping path="/intro"/>
+				<beans:ref bean="LoginInterceptor"/>
+			</interceptor>
+		</interceptors>
 </beans:beans>
