@@ -43,7 +43,7 @@
  <%--      <c:forEach items="${listAll}" var="MemDto"> --%>
 	      <div class="row">
 	          <div class="col-md-1">
-	          <a href="#">
+	          <a href="ProfileDetail">
 	          <img src="../resources/images/castleMo.png" class="center-block img-circle">
 	              <h6 class="text-center">Castle Mo<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
 	          </a>
@@ -59,7 +59,7 @@
 	              </div>
 	          </div>
 	          <div class="col-md-1">
-	          <a href="#">
+	          <a href="ProfileDetail">
 	          <img src="../resources/images/dcLee.png" class="center-block img-circle">
 	              <h6 class="text-center">DC Lee<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6> </div>
 	          </a>
@@ -75,7 +75,7 @@
 	              </div>
 	          </div>
 	          <div class="col-md-1">
-	          <a href="#">
+	          <a href="ProfileDetail">
 	          <img src="../resources/images/g9Kim.png" class="img-circle img-responsive">
 	              <h6 class="text-center">G9 Kim<p>(<span class="glyphicon glyphicon-star"></span>)</p></h6></div>
 	          </a>

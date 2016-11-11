@@ -23,10 +23,16 @@ public class MemController {
 
 	private static final Logger logger= LoggerFactory.getLogger(MemController.class);
 	
-	@RequestMapping(value="/ProfileDetail", method=RequestMethod.GET)
+/*	@RequestMapping(value="/ProfileDetail", method=RequestMethod.GET)
 	public void read(@RequestParam("mno") int mno, Model model) throws Exception {
 		
 		model.addAttribute(service.read(mno));
+	}*/
+	
+	
+	@RequestMapping("/ProfileDetail")
+	public void ProfileDetail() {
+		
 	}
 
 	@RequestMapping(value="/ProfileList", method= RequestMethod.GET)
