@@ -12,7 +12,7 @@
 	vertical-align : center;
 }
 </style>
-<%-- <jsp:include page="common/include.jsp"></jsp:include> --%>
+<jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 <body>
