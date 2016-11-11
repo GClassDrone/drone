@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gclass.drone.mapper.replyMapper">
+	<select id="count" resultType="int">
+		select count(bdatno) from bdat where bno = #{bno}
+	</select>
+
+	<select id="listTest" resultType="BdatDto">
+		select *
+		  from bdat
+		 where mno = #{mno}
+	</select>	
+
+	<select id="list" resultType="BdatDto">
+		select * 
+		  from (
+				select rowmno as rmno, a.* 
+				  from (
+						select /*+ index_desc(reply reply_bdatno_pk) */ *
+						  from reply
+						 where mno = #{mno}
+					   ) a 
+		<![CDATA[
+				 where rowmno <= #{ipg.endRowmno}
+			   ) b
+		 where rmno >= #{ipg.startRowmno}
+		]]>
+	</select>
+	
+	<insert id="insert">
+		insert into bdat (subjno, bno, bdatno, mno, ctt)
+		values (#{subjno},#{bno},bdat_next(#{subjno}, #{bno}), #{mno}, #{ctt})
+	</insert>
+	
+	<update id="update">
+		update bdat 
+		   set ctt = #{ctt}
+			   regdt = now()
+		where bdatno= #{bdatno}
+	</update>
+	
+	<delete id="delete">
+		delete from bdat where bdatno = #{bdatno}
+	</delete>
+
+	<select id="getBno" resultType="int">
+		select bno from bdat where bdatno = #{bdatno}
+	</select>
+</mapper>  
