@@ -37,8 +37,9 @@ public class MemController {
 	
 	
 	@RequestMapping("/ProfileDetail")
-	public void ProfileDetail() {
+	public void read(@RequestParam("mno") int mno, Model model) throws Exception {
 		
+		model.addAttribute(service.read(mno));
 	}
 
 	@RequestMapping(value="/ProfileList", method= RequestMethod.GET)

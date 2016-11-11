@@ -47,7 +47,7 @@ $(document).ready(function() {
    <h1 style="text-align: center;"><strong>파일럿 정보</strong></h1>
    <!-- <p style="text-align: center;">회원님의 상세한 소개를 위한~~~~~~~</p> -->
    
-<div class="form">
+<div class="form-group">
 	<div class="col-sm-10 col-sm-offset-1">
 	    <div class="card hovercard">
 	        <div class="card-background">
@@ -57,12 +57,11 @@ $(document).ready(function() {
 	        <div class="useravatar">
 	            <img alt="" src="/resources/images/castleMo.png">
 	        </div>
-	        <div class="card-info"> <span class="card-title">${memDto.niknm}요기는 닉네임 나오는부분</span>
+	        <div class="card-info"> <span class="card-title" name="niknm">${memDto.niknm}</span>
 	        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb"></i></a>&nbsp; 
 	        <a href="#"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
 	        <section class="col-sm-8 col-sm-offset-2">
-	        <div><p style="color: black; cotext-align: center;">${memDto.prmsg}저는 안양에 사는 모인성이고 ~~~~Doloremque quam porro ab ratione facilis, magni quo, velit impedit facere, error, rem obcaecati asperiores 
-					      글자수 제한...</p></div>
+	        <div><p style="color: black; cotext-align: center;">${memDto.prmsg}</p></div>
 	        </div>
 	        </section>
 	    </div>
@@ -101,24 +100,22 @@ $(document).ready(function() {
 		              <h3 style="display:inline-block">프로필 정보</h3> <a href="#tab1"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
 					    <dl class="dl-horizontal">
 					      <dt>개인 소개</dt>
-					      <dd>Ipsum dolor sit amet, consectetur adipisicing elit. Esse quo ducimus dolorum dolore ipsam unde, 
-					      <code>&lt;em&gt;</code>facere explicabo quae natus alias deserunt quibusdam voluptatem, 
-					      <kbd>officiis</kbd> itaque rerum magni eius odio mollitia!</dd>
+					      <dd>${memDto.prmsg}</dd>
 			              <br />		
 					      <dt>랭킹</dt>
-					      <dd>무당드론(아비터) </dd>
+					      <dd>${memDto.levnm},${memDto.levnic }<br>(점수 : ${memDto.levpoint}) </dd>
 					      <br />		
 					      <dt>이메일</dt>
-					      <dd>Gdrone@gmail.com </dd>
+					      <dd>${memDto.email}</dd>
 					      <br />	
 					      <dt>보유 라이센스 </dt>
 					      <dd><ul>
-					      	<li>초경량 비행장치 조종자 (2016.11.11)</li>
-					      	<li>드론 지도사 자격증 (2016.11.11)</li>
+					      	<li>${memDto.mdrnm}</li>
+					      	<li>자격증에서 긁어와서 뿌려주기</li>
 					      </ul></dd>
 					      <br />	
 					      <dt>주요 활동지역</dt>
-					      <dd>서울 구로 </dd>
+					      <dd>${memDto.locnm} </dd>
 					    </dl>
 		        </div>
 		        
