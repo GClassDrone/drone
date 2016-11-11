@@ -10,9 +10,9 @@ import com.gclass.drone.board.dto.InitSearchPage;
 public interface BoardDao {
 	public void insert(BoardDto bDto) throws Exception;
 	public void update(BoardDto bDto) throws Exception;
-	public void delete(Integer bno)  throws Exception;
-	public BoardDto read(Integer bno)  throws Exception;
-	public List<BoardDto> listAll(InitSearchPage isp)  throws Exception;
+	public void delete(Integer bno, int subjno)  throws Exception;
+	public BoardDto read(Integer bno, int subjno)  throws Exception;
+	public List<BoardDto> listAll() throws Exception;
 	public List<BsubjDto> sublistAll()  throws Exception;
 	public int totalRow(InitSearchPage isp) throws Exception;
 	public void readCountUp(Integer bno)  throws Exception;

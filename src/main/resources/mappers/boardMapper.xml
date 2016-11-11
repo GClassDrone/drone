@@ -29,40 +29,18 @@
 		where subjno= #{subjno} and bno = #{bno}
 	</select>
 	
-	<select id="listAll" resultType="BoardDto" parameterType="InitSearchPage">
+	<select id="listAll" resultType="BoardDto">
 		select * 
-		  from (
-				select rownum as rnum, a.* 
-				  from (
-						select /*+ index_desc(board board_subjno_bno_pk) */ *
-						  from board
-						 <if test="searchType != '' and keyWord != null">
-							 where ${searchType} like '%'||#{keyWord}||'%'
-						 </if>
-					   ) a 
-		<![CDATA[
-				 where rownum <= #{endRowNum}
-			   ) b
-		 where rnum >= #{startRowNum}
-		]]>
+		  from board
+		 where subjno= #{subjno} and bcateno= #{bcateno}
+	  order by bno desc
 	</select>
 	
-	<select id="sublistAll" resultType="BsubjDto" parameterType="InitSearchPage">
+	<select id="sublistAll" resultType="BsubjDto">
 		select * 
-		  from (
-				select rownum as rnum, a.* 
-				  from (
-						select /*+ index_desc(bsubj bsubj_subjno_pk) */ *
-						  from board
-						 <if test="searchType != '' and keyWord != null">
-							 where ${searchType} like '%'||#{keyWord}||'%'
-						 </if>
-					   ) a 
-		<![CDATA[
-				 where rownum <= #{endRowNum}
-			   ) b
-		 where rnum >= #{startRowNum}
-		]]>
+		  from bsubj
+		 where bcateno > 0
+	  order by memcnt desc
 	</select>
 	
 	<select id="totalRow" resultType="int" parameterType="InitSearchPage">

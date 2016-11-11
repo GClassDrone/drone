@@ -50,28 +50,28 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public void list(@ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
-		logger.info("list ....");
-		logger.info("받은 후 : "+isp.toString());
-		model.addAttribute("list", service.listAll(isp));
-		PageMake pm = new PageMake();
-		pm.setInitPage(isp);
-		pm.setTotalCount(service.totalRow(isp));
-		logger.info("처리후"+isp.toString());
-		model.addAttribute("pageMake", pm);
+	public void list(@RequestParam("bsujno") int bsujno, Model model) throws Exception{
+//		logger.info("list ....");
+//		logger.info("받은 후 : "+isp.toString());
+		model.addAttribute("list", service.listAll());
+//		PageMake pm = new PageMake();
+//		pm.setInitPage(isp);
+//		pm.setTotalCount(service.totalRow(isp));
+//		logger.info("처리후"+isp.toString());
+//		model.addAttribute("pageMake", pm);
 	}
 	
 	@RequestMapping(value="/read", method=RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, @ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
+	public void read(@PathVariable("bno") int bno, int subjno, @ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
 		logger.info("read....");
 		logger.info(isp.toString());
-		model.addAttribute("board",service.read(bno));
+		model.addAttribute("board",service.read(bno, subjno));
 	}
 	
 	@RequestMapping(value="/remove", method=RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, InitSearchPage isp, RedirectAttributes rttr) throws Exception{
+	public String remove(@PathVariable("bno") int bno,@PathVariable("subjno") int subjno, InitSearchPage isp, RedirectAttributes rttr) throws Exception{
 		logger.info("remove....");
-		service.delete(bno);
+		service.delete(bno,subjno);
 		rttr.addAttribute("page", isp.getPage());
 		rttr.addAttribute("perPageNum", isp.getPerPageNum());
 		rttr.addAttribute("searchType", isp.getSearchType());
@@ -82,10 +82,10 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
-	public void modify(@RequestParam("bno") int bno, @ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
+	public void modify(@PathVariable("bno") int bno,@PathVariable("subjno") int subjno, @ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
 		logger.info("modifyGET....");
 		logger.info(isp.toString());		
-		model.addAttribute(service.read(bno));
+		model.addAttribute(service.read(bno,subjno));
 	}
 	
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
@@ -117,15 +117,14 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/sublist", method=RequestMethod.GET)
-	public void sublist(@ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
+	public void sublist(Model model) throws Exception{
 		logger.info("sublist ....");
-		logger.info("받은 후 : "+isp.toString());
-		System.out.println("서브리스트 올 : "+ service.sublistAll());
+
 		model.addAttribute("sublist", service.sublistAll());
-		PageMake pm = new PageMake();
-		pm.setInitPage(isp);
-		pm.setTotalCount(service.totalRow(isp));
-		logger.info("처리후"+isp.toString());
-		model.addAttribute("pageMake", pm);
+//		PageMake pm = new PageMake();
+//		pm.setInitPage(isp);
+//		pm.setTotalCount(service.totalRow(isp));
+//		logger.info("처리후"+isp.toString());
+//		model.addAttribute("pageMake", pm);
 	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html>
@@ -69,25 +70,15 @@ $(document).ready(function(){
           <h1 class="text-center"><strong>주제별 게시판 목록</strong></h1>
           <p class="text-center">일정 등급 이상의 전문 회원님들이 운영하는 소모임 그룹에 속한 게시판 리스트 목록입니다.</p>
      </div>
-  	<div class="box-body" style="color: black;">
-		<select name="searchType">
-			<option value="" <c:out value="${isp.searchType == null?'selected':''}" /> >선택</option>
-			<option value="niknm" <c:out value="${isp.searchType eq 'niknm' ? 'selected':''}" /> >닉네임</option>					
-			<option value="title" <c:out value="${isp.searchType eq 'ttl' ? 'selected':''}" /> >제목</option>
-			<option value="content" <c:out value="${isp.searchType eq 'ctt' ? 'selected':''}" /> >내용</option>
-		</select>
-		<input type="text" name="keyWord" id="keywordInput" value="${isp.keyWord}" />
-		<button id="searchBtn">검색</button>
-	</div>
   </div><br />
  <c:forEach items="${sublist}" var="BsubjDto"> 
   <div class="well">
       <div class="media">
-      	<a class="pull-left" href="#">
+      	<a class="pull-left" href="/board/list?bsubjno=${bsubjno}">
     		<img class="media-object" src="http://placekitten.com/121/121">
   		</a>
   		<div class="media-body" style="color: #424242">
-    		<a href="#"><h4 class="media-heading"><strong>게시판 제목 : ${bsubj.subjttl}</strong></h4></a>
+    		<a href="/board/list?bsubjno=${bsubjno}"><h4 class="media-heading"><strong>게시판 제목 : ${bsubj.subjttl}</strong></h4></a>
           <p class="text-right">${bsubj.mno}</p>
           <p>게시판 설명 : ${bsubj.subjctt}</p>
           <ul class="list-inline list-unstyled">

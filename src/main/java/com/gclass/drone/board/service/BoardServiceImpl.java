@@ -39,37 +39,37 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void update(BoardDto bDto) throws Exception {
 //		bDao.update(bDto);
-//		Integer num = bDto.getNum();
+//		Integer  = bDto.getNum();
 //		
-//		bDao.deleteAllAttach(num);
+//		bDao.deleteAllAttach();
 //		
 //		String[] files = bDto.getFiles();
 //		
 //		if(files == null){ return; }
 //		
 //		for(String fileName : files){
-//			bDao.replaceAttach(fileName, num);
+//			bDao.replaceAttach(fileName);
 //		}
 	}
 
 	@Transactional
 	@Override
-	public void delete(Integer num) throws Exception {
+	public void delete(Integer subjno, int bno) throws Exception {
 //		upload 추가된 부분
-		bDao.deleteAllAttach(num);
-		bDao.delete(num);
+		bDao.deleteAllAttach(bno);
+		bDao.delete(subjno,bno);
 	}
 
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
-	public BoardDto read(Integer num) throws Exception {
-		bDao.readCountUp(num);
-		return bDao.read(num);
+	public BoardDto read(Integer bno, int subjno) throws Exception {
+		bDao.readCountUp(bno);
+		return bDao.read(bno,subjno);
 	}
 
 	@Override
-	public List<BoardDto> listAll(InitSearchPage isp) throws Exception {
-		return bDao.listAll(isp);
+	public List<BoardDto> listAll() throws Exception {
+		return bDao.listAll();
 	}
 
 	@Override
@@ -91,6 +91,4 @@ public class BoardServiceImpl implements BoardService {
 	public List<BsubjDto> sublistAll() throws Exception {
 		return bDao.sublistAll();
 	}
-
-	
 }
