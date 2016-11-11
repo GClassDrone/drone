@@ -39,6 +39,7 @@
           <p class="text-center">일정 등급 이상의 전문 회원님들이 운영하는 소모임 그룹에 속한 게시판 리스트 목록입니다.</p>
      </div>
   </div><br />
+ <c:forEach items="${sublistAll}" var="board"> 
   <div class="well">
       <div class="media">
       	<a class="pull-left" href="#">
@@ -67,64 +68,8 @@
        </div>
     </div>
   </div>
-   <div class="well">
-      <div class="media">
-  		<a class="pull-left" href="#">
-    		<img class="media-object" src="http://placekitten.com/120/120">
-  		</a>
-  		<div class="media-body" style="color: #424242">
-    		<a href="#"><h4 class="media-heading"><strong>게시판 제목</strong></h4></a>
-          <p class="text-right">By Gclass</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-			Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-			dolor, in sagittis nisi.</p>
-          <ul class="list-inline list-unstyled">
-  			<li><span><i class="glyphicon glyphicon-calendar"></i> 2016. 11. 01 </span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 77 posts</span>
-            <li>|</li>
-            <li>
-            <span><i class="fa fa-users"></i> 25 persons</span>
-            </li>
-            <li>|</li>
-            <li>
-            <i class="fa fa-cog fa-spin fa-2x fa-fw" style="color: green" aria-hidden="false"></i>
-			<span class="label label-warning arrowed-in">Active</span>
-			</li>
-	</ul>
-     </div>
-  </div>
-</div>
-
-<div class="well">
-      <div class="media">
-  		<a class="pull-left" href="#">
-    		<img class="media-object" src="http://placekitten.com/120/120">
-  		</a>
-  		<div class="media-body" style="color: #424242">
-    	  <a href="#"><h4 class="media-heading"><strong>게시판 제목</strong></h4></a>
-          <p class="text-right">By Gclass</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-			Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-			dolor, in sagittis nisi.</p>
-          <ul class="list-inline list-unstyled">
-  			<li><span><i class="glyphicon glyphicon-calendar"></i> 2016. 11. 01 </span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 77 posts</span>
-            <li>|</li>
-            <li>
-            <span><i class="fa fa-users"></i> 25 persons</span>
-            </li>
-            <li>|</li>
-            <li>
-            <i class="fa fa-cog fa-spin fa-2x fa-fw" style="color: green" aria-hidden="false"></i>
-			<span class="label label-warning arrowed-in">Active</span>
-			</li>
-	</ul>
-     </div>
-  </div>
-</div>
-
+ <div class="clearfix"></div>
+</c:forEach>
 <br />
 <!-- row -->
 <p class="more">

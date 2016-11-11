@@ -169,6 +169,7 @@ section {
 </head>
 
 <body>
+	<jsp:include page="common/include.jsp"></jsp:include>
     <jsp:include page="common/header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
     </header>
@@ -200,7 +201,7 @@ section {
 		            <div class="overlay">
 		               <h2>친목모임</h2>
 		               <p class="info">회원들간의 친목과 정보공유를 주 목적으로 개설된 소모임 리스트 그룹<br />
-		               <a class="btn btn-warning" href="/boardSubList">Go</a>
+		               <a class="btn btn-warning" href="/board/sublist?subjno=1">Go</a>
 		            </div>
                 </div>
                 <div class="hovereffect col-xs-6 col-md-3">
@@ -208,7 +209,7 @@ section {
 		            <div class="overlay">
 		               <h2>드론정보</h2>
 		               <p class="info">국내외 드론시장과 업계의 동향 또 입문부터 중/고급 하이엔드급 까지의 다양한 제품에 관한 정보 공유 소모임 그룹<br />
-		               <a class="btn btn-warning" href="/boardSubList">Go</a>
+		               <a class="btn btn-warning" href="/board/sublist?subjno=2">Go</a>
 		            </div>
                 </div>
                 <div class="hovereffect col-xs-6 col-md-3">
@@ -216,7 +217,7 @@ section {
 		            <div class="overlay">
 		               <h2>엔지니어</h2>
 		               <p class="info">최신 액세서리 활용 및 경주용 제품의 자가 제작 등 드론의 광범위한 응용에 필요한 기술정보를 논의하는 소모음 그룹<br />
-		               <a class="btn btn-warning" href="/boardSubList">Go</a>
+		               <a class="btn btn-warning" href="/board/sublist?subjno=3">Go</a>
 		            </div>
                 </div>
                 <div class="hovereffect col-xs-6 col-md-3">
@@ -224,7 +225,7 @@ section {
 		            <div class="overlay">
 		               <h2>비행모임</h2>
 		               <p class="info">드론 보유 회원들 간의 비행정보 공유와 필드에서의 비행 모임을 목적으로 운영되는 소모임 그룹<br />
-		               <a class="btn btn-warning" href="/boardSubList">Go</a>
+		               <a class="btn btn-warning" href="/board/sublist?subjno=4">Go</a>
 		            </div>
                 </div>
                 <div class="clearfix"></div> <br />
@@ -233,7 +234,7 @@ section {
 		            <div class="overlay">
 		               <h2>중고거래</h2>
 		               <p class="info">회원들이 보유중인 드론의 상호 중고거래를 위한 온라인 중개정보 제공 목적의 소모임 그룹<br />
-		               <a class="btn btn-warning" href="/boardSubList">Go</a>
+		               <a class="btn btn-warning" href="/board/sublist?subjno=5">Go</a>
 		            </div>
                 </div>
 				<div class="hovereffect col-xs-6 col-md-3">
@@ -241,7 +242,7 @@ section {
 		            <div class="overlay">
 		               <h2>공동구매</h2>
 		               <p class="info">현장에서 인기있는 드론 모델이나 주변장치 또는 최신 핫아이템들의 공동구매를 위한 소모임 그룹<br />
-		               <a class="btn btn-warning" href="/boardSubList">Go</a>
+		               <a class="btn btn-warning" href="/board/sublist?subjno=6">Go</a>
 		            </div>
                 </div>
                 <div class="hovereffect col-xs-6 col-md-3">
@@ -249,7 +250,7 @@ section {
 		            <div class="overlay">
 		               <h2>드론판매</h2>
 		               <p class="info">상업채널로서 제조사나 판매유통회사들의 드론 제품 판매와 홍보 마케팅을 위한 소모임 그룹<br />
-		               <a class="btn btn-warning" href="/boardSubList" disabled>Go</a>
+		               <a class="btn btn-warning" href="/board/sublist?subjno=7" disabled>Go</a>
 		            </div>
                 </div>
                 <div class="hovereffect col-xs-6 col-md-3">
@@ -257,7 +258,7 @@ section {
 		            <div class="overlay">
 		               <h2>항공촬영</h2>
 		               <p class="info">다양한 기관에서 주관하는 항공촬영 이벤트나 개인간 드론영역의 니즈 중개를 목적으로 한 소모임 그룹<br />
-		               <a class="btn btn-warning" href="/boardSubList" disabled>Go</a>
+		               <a class="btn btn-warning" href="/board/sublist?subjno=8" disabled>Go</a>
 		            </div>
                 </div>
        </div>

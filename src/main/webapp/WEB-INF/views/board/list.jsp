@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page session="false" %>
 <%@ include file="../common/header.jsp" %>
+<%@ include file="../common/include.jsp" %>
 <section class="content">
 <script type="text/javascript">
 var result='${msg}';
@@ -24,6 +25,11 @@ $(document).ready(function(){
 	});
 });
 </script>
+
+<form role="form" method="post">
+	<input type='hidden' name='subjno' value="${BoardDto.subjno}">
+	<input type='hidden' name='bno' value="${BoardDto.bno}">
+</form>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="box">
@@ -50,14 +56,14 @@ $(document).ready(function(){
 						<th>등록일</th>
 						<th style="width:40px">조회수</th>
 					</tr>
-					<c:forEach items="${list}" var="board">
+					<c:forEach items="${sublist}" var="board">
 					<tr>
 						<td>${board.bno}</td>
 						<td><a href="read${pageMake.makeSearch(pageMake.initPage.page)}&bno=${board.bno} ">${board.ttl}</a></td>
 						<td>${board.mno}</td>
 						<td>${board.ctt}</td>
 						<td>${board.regdt}</td>
-						<td>${board.readcount}</td>
+						<td>${board.readcnt}</td>
 					</tr>
 					</c:forEach>
 				</table>
