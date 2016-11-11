@@ -32,7 +32,12 @@
 <body>
 <jsp:include page="common/header.jsp"></jsp:include>
 
-<div class="container"> <br /><br />
+<div class="container"> 
+  <div class="row">
+      <br />
+      <a href="/boardGroupList"><i class="material-icons">arrow_back</i> 
+      <span style="font-size: 20px">Back</span></a>
+  </div><br />
   <div class="row">
      <div class="col-md-12">
           <h1 class="text-center"><strong>주제별 게시판 목록</strong></h1>

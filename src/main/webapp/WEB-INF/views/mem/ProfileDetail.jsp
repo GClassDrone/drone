@@ -9,7 +9,7 @@
 <script src="/resources/js/profile/profile.js"></script>
 <jsp:include page="../common/include.jsp"></jsp:include>
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     $("[rel='tooltip']").tooltip();    
  
@@ -21,19 +21,14 @@ $(document).ready(function() {
             $(this).find('.caption').slideUp(250); //.fadeOut(205)
         }
     ); 
-    
-	var formObj = $("form[role='form']");
-	
-	console.log(formObj);
  });
-</script> 
+</script>
 
-<jsp:include page="../common/include.jsp"></jsp:include> 
 </head>
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
- <header class="bgimage hidden-xs">
- </header>
+<!-- <header class="bgimage hidden-xs">
+ </header>  -->
 
 <form role="form" method="post">
 	<input type='hidden' name='mno' value="${MemDto.mno}">
@@ -45,7 +40,7 @@ $(document).ready(function() {
        <a href="ProfileList"><i class="material-icons">arrow_back</i> 
        <span style="font-size: 20px">Back</span></a>
    </div><br />
-   <h1 style="text-align: center;"><strong>파일럿 정보</strong></h1>
+   <h1 id="pilot" style="text-align: center;"><strong>파일럿 정보</strong></h1>
    <!-- <p style="text-align: center;">회원님의 상세한 소개를 위한~~~~~~~</p> -->
    
 <div class="form-group">
@@ -58,12 +53,13 @@ $(document).ready(function() {
 	        <div class="useravatar">
 	            <img alt="" src="/resources/images/castleMo.png">
 	        </div>
-	        <div class="card-info"> <span class="card-title" name="niknm">${memDto.niknm}</span>
-	        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb"></i></a>&nbsp; 
-	        <a href="#"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
+	        <div class="card-info"> 
+	        	<span class="card-title" name="niknm">${memDto.niknm}</span>
+			        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb"></i></a>&nbsp; 
+			        <a href="#pilot"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
 	        <section class="col-sm-8 col-sm-offset-2">
-	        <div><p style="color: black; cotext-align: center;">${memDto.prmsg}</p></div>
-	        </div>
+		        <div><p style="color: black; cotext-align: center;">${memDto.prmsg}</p></div>
+		        </div>
 	        </section>
 	    </div>
 	    
@@ -129,8 +125,9 @@ $(document).ready(function() {
 	                    </div>
 	                    <div class="panel-body" style="background-color:white">
 	                        <ul>
-	                        <li>자격요건 : ~~~~~ </li>
-	                        <li>DJI 팬텀4로 작품을 촬영하고, iMovie로 영상을 편집하여 장려상 수상 경력</li>
+		                        <li>자격요건 : ~~~~~ </li>
+		                        <li>DJI 팬텀4로 작품을 촬영하고, iMovie로 영상을 편집하여 장려상 수상 경력</li>
+		                    </ul>
 	                    </div>
 	                    <div class="panel-footer">
 	                        &raquo; <a href="#" style="color:#4e342e">'해당 영상 보러 가기' 링크</a>
@@ -143,8 +140,9 @@ $(document).ready(function() {
 	                    </div>
 	                    <div class="panel-body" style="background-color:white">
 	                        <ul>
-	                        <li>주관 : 충청북도 (http://www.koreadrone.kr/) </li>
-	                        <li>패럿 최신 ㅇㅇ모델을 활용한 시범비행 프로모션 행사 진행</li>
+		                        <li>주관 : 충청북도 (http://www.koreadrone.kr/) </li>
+		                        <li>패럿 최신 ㅇㅇ모델을 활용한 시범비행 프로모션 행사 진행</li>
+		                    </ul>
 	                    </div>
 	                    <div class="panel-footer">
 	                        &raquo; <a href="#" style="color:#4e342e">'해당 영상 보러 가기' 링크</a>
@@ -155,41 +153,38 @@ $(document).ready(function() {
 		        
 		        <div class="tab-pane fade in" id="tab3">
 		          <h3>드론 보유 이력</h3>
-	
-	
 				    <!-- TH1 -->
 			        <div class="col-sm-4">
 			            <div class="thumbnail">
 			                <div class="caption">
-		                     <h4 class="">Thumbnail Headline</h4>
-			                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
+		                     <h4 class="">DJI Mavic Pro</h4>
+			                    <p class="">휴대가 용이한 접이식 드론. 개인용 항공촬영 목적에 적합. 휴대성과 촬영성능이 높으면서도 조작이 간편하다.
+			                    2016년11월 구매</p>
 			                </div>
-			                <img src="http://placehold.it/350x250" alt="..." class="">
+			                <img src="/resources/images/dji-mavic.jpg" alt="..." class="">
 			            </div>
 			        </div>
 			        <!-- TH2 -->
 			        <div class="col-sm-4">
 			            <div class="thumbnail">
 			                <div class="caption">
-			                   <h4 class="">Thumbnail Headline</h4>
-			                    <p class="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+			                   <h4 class="">Parrot Disco</h4>
+			                    <p class="">시속 80Km, 비행시간 45분, 원버튼 자동귀환, 1인칭 비행 FPV. 2016년1월 구매</p>
 			                </div>
-			                <img src="http://placehold.it/350x250" alt="..." class="">
+			                <img src="/resources/images/parrot.jpg" alt="..." class="">
 			            </div>
 			        </div>
 			        <!-- TH3 -->
 			        <div class="col-sm-4">
 			            <div class="thumbnail">
 			                <div class="caption">
-			                     <h4 class="">Thumbnail Headline</h4>
-			                    <p class="">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p>
+			                     <h4 class="">시마 X5</h4>
+			                    <p class="">입문용 국민드론. 조립형으로 카메라 부품 장착. 구매 : 2015.05</p>
 			                </div>
-			                <img src="http://placehold.it/350x250" alt="..." class="">
+			                <img src="/resources/images/syma.jpg" alt="..." class="">
 			            </div>
 			        </div>
-			
-	
-	
+			        <div class="clearfix"></div>
 		        </div>
 		        
 		        <div class="tab-pane fade in" id="tab4">
@@ -289,7 +284,13 @@ $(document).ready(function() {
                 <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
             </div>
         </div>
-    </div>
+    </div><br />
+    
+    	<p class="more">
+            <button type="button" class="btn btn-default btn-sm center">
+                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
+            </button>
+        </p>
 
 	<!--     푸터부분 -->
 <%@include file="../common/footer.jsp" %>
