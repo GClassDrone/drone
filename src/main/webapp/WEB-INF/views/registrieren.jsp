@@ -35,11 +35,12 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 	<link href="/resources/css/login/themify-icons.css" rel="stylesheet">
+	<script src="resources/js/login/loc.js"></script>
 </head>
+
 
 <body>
 	<div class="image-container set-full-height" style="background-image: url('resources/images/login/paper-1.jpeg')">
-
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">
@@ -49,7 +50,9 @@
 		            <div class="wizard-container">
 
 		                <div class="card wizard-card" data-color="orange" id="wizardProfile">
-		                    <form action="" method="">
+		                    <form method="POST">
+		                    <input type="hidden" name="siteid" value="${siteid }">
+		                    <input type="hidden" name="siteno" value="${siteno }">
 		                <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
 
 		                    	<div class="wizard-header text-center">
@@ -101,8 +104,8 @@
 											</div>
 											<div class="col-sm-4">
 												<div class="form-group">
-													<label>닉네임 <small>(필수)</small></label>
-													<input name="nicknm" type="text" class="form-control" placeholder="닉네임을 적어주세요">
+													<label>닉네임 <small>(필수)${sideid }</small></label>
+													<input name="niknm" type="text" class="form-control" placeholder="닉네임을 적어주세요">
 												</div>
 												
 											</div>
@@ -126,26 +129,26 @@
 		                                    <div class="col-sm-12">
 		                                        <h5 class="info-text"> 사는 지역은?  </h5>
 		                                    </div>
-		                                   <div class="col-sm-5">
-		                                        <div class="form-group">
-		                                            <label>Country</label><br>
-		                                            
-		                                            <select name="sido" class="form-control">
-		                                                <option value="">선택하세요</option>
-		                                            </select>
-		                                            
-		                                        </div>
-		                                    </div>
-		                                    <div class="col-sm-5">
-		                                        <div class="form-group">
-		                                            <label>Country</label><br>
-		                                            
-		                                            <select name="sigungu" class="form-control">
-		                                                <option value=""> -- </option>
-		                                            </select>
-		                                            
-		                                        </div>
-		                                    </div>
+			                                   <div class="col-sm-5">
+			                                        <div class="form-group">
+			                                            <label>Country</label><br>
+			                                            <select id = "sido" name="sido" class="form-control">
+			                                                <option value="">선택하세요</option>
+				                                            <c:forEach items="${sido}" var="LocDto" >
+				                                            	<option value="${LocDto.sido }">${LocDto.sido }</option>
+				                                            </c:forEach>
+			                                            </select>
+			                                            
+			                                        </div>
+			                                    </div>
+			                                    <div class="col-sm-5">
+			                                        <div class="form-group">
+			                                            <label>Country</label><br>
+			                                           <select id="sigungu" name="sigungu" class="form-control">
+			                                                <option value="">선택하세요</option>
+			                                            </select>
+			                                        </div>
+			                                    </div>
 		                                </div>
 		                            </div>
 		                            
@@ -157,7 +160,7 @@
 		                                        
 		                                        <div class="col-sm-4">
 		                                            <div class="choice" data-toggle="wizard-radio">
-		                                                <input type="radio" name="jobb" value="1">
+		                                                <input type="radio" name="ppose" value="1">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-paint-roller"></i>
 															<p>Design</p>
@@ -167,7 +170,7 @@
 		                                        
 		                                        <div class="col-sm-4">
 		                                            <div class="choice" data-toggle="wizard-radio">
-		                                                <input type="radio" name="jobb" value="2">
+		                                                <input type="radio" name="ppose" value="2">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-pencil-alt"></i>
 															<p>Code</p>
@@ -176,8 +179,8 @@
 		                                        </div>
 		                                        
 		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-radio">
-		                                                <input type="radio" name="jobb" value="3">
+		                                            <div class="choice" data-toggle="wizard-radio"> 
+		                                                <input type="radio" name="ppose" value="3">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-star"></i>
 															<p>Develop</p>
@@ -193,7 +196,7 @@
 		                        <div class="wizard-footer">
 		                            <div class="pull-right">
 		                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
-		                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' value='Finish' />
+		                                <button type='submit' class='btn btn-finish btn-fill btn-warning btn-wd'>submit</button>
 		                            </div>
 
 		                            <div class="pull-left">
@@ -207,7 +210,6 @@
 		        </div>
 	    	</div><!-- end row -->
 		</div> <!--  big container -->
-
 	   
 	</div>
 

@@ -1,6 +1,7 @@
 package com.gclass.drone.loc.service;
 
 import java.util.List;
+
 import com.gclass.drone.loc.dto.LocDto;
 
 public interface LocService {

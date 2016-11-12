@@ -20,11 +20,6 @@ public class MemDaoImpl implements MemDao{
 	private static String namespace = "com.gclass.drone.mapper.MemMapper";
 
 	@Override
-	public void create(MemDto dto) throws Exception {
-		session.insert(namespace + ".create", dto);
-	}
-
-	@Override
 	public void delete(Integer mno) throws Exception {
 		session.delete(namespace + ".delete", mno);
 	}
@@ -51,5 +46,9 @@ public class MemDaoImpl implements MemDao{
 	@Override
 	public List<MemDto> listAll() throws Exception {
 		return session.selectList(namespace+".listAll");
+	}
+	@Override
+	public void insert(MemDto dto) throws Exception {
+		session.insert(namespace +".insert", dto);
 	}
 }

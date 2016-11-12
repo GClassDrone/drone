@@ -1,13 +1,10 @@
 package com.gclass.drone.mem.dao;
 
-import com.gclass.drone.login.dto.LoginDto;
 import java.util.List;
 
 import com.gclass.drone.mem.dto.MemDto;
 
 public interface MemDao {
-	
-	public void create(MemDto Dto) throws Exception;
 	
 	public MemDto read(Integer mno) throws Exception;
 	
@@ -19,4 +16,6 @@ public interface MemDao {
 	public MemDto login(String siteid, String siteno)throws Exception;
 	
 	public List<MemDto> listAll()throws Exception;
+
+	public void insert(MemDto dto) throws Exception;
 }

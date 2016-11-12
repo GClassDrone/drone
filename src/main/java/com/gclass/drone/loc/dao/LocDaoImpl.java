@@ -26,5 +26,4 @@ public class LocDaoImpl implements LocDao {
 	public List<LocDto> sigungu(String sido) throws Exception {
 		return session.selectList(namespace + ".sigungu", sido);
 	}
-
 }

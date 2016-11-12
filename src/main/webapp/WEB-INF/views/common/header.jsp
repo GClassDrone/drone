@@ -33,13 +33,10 @@
 		</div>
 	</form>
 </div>    
-<<<<<<< HEAD
     
     
 <jsp:include page="include.jsp"></jsp:include>
     
-=======
->>>>>>> 3a5035688978e6a9355c17cd97272636ec439f0e
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
