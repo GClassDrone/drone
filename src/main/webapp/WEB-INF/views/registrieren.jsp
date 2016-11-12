@@ -110,7 +110,7 @@
 												
 											</div>
 											<div class="col-sm-1">
-													 <input type='button' class='btn btn-fill btn-warning btn-wd' name='next' value='중복확인' />
+													 <input type='button' class='btn btn-fill btn-warning btn-wd' name='check' value='중복확인' onclick="idChek()" />
 												</div>
 											<div class="col-sm-10 col-sm-offset-1">
 												<div class="form-group">
@@ -160,7 +160,7 @@
 		                                        
 		                                        <div class="col-sm-4">
 		                                            <div class="choice" data-toggle="wizard-radio">
-		                                                <input type="radio" name="ppose" value="1">
+		                                                <input type="radio" name="ppose" value="a">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-paint-roller"></i>
 															<p>Design</p>
@@ -170,7 +170,7 @@
 		                                        
 		                                        <div class="col-sm-4">
 		                                            <div class="choice" data-toggle="wizard-radio">
-		                                                <input type="radio" name="ppose" value="2">
+		                                                <input type="radio" name="ppose" value="b">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-pencil-alt"></i>
 															<p>Code</p>
@@ -180,7 +180,7 @@
 		                                        
 		                                        <div class="col-sm-4">
 		                                            <div class="choice" data-toggle="wizard-radio"> 
-		                                                <input type="radio" name="ppose" value="3">
+		                                                <input type="radio" name="ppose" value="c">
 		                                                <div class="card card-checkboxes card-hover-effect">
 		                                                    <i class="ti-star"></i>
 															<p>Develop</p>

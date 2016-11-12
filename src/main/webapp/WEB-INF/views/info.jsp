@@ -83,6 +83,7 @@
     </div>
     <div class="container">
         <div class="row">
+          
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
@@ -99,6 +100,7 @@
                     </div>
                 </div>
             </section>
+            
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg">
@@ -115,6 +117,7 @@
                     </div>
                 </div>
             </section>
+            
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img alt="Bootstrap Thumbnail Third" src="http://lorempixel.com/output/sports-q-c-600-200-1.jpg">
@@ -130,6 +133,7 @@
                     </div>
                 </div>
             </section>
+            
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
@@ -146,7 +150,9 @@
                     </div>
                 </div>
             </section>
+            
         </div>
+        
          <div class="row">
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
                 <div class="thumbnail">
@@ -164,6 +170,7 @@
                     </div>
                 </div>
             </section>
+            
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg">
@@ -180,6 +187,7 @@
                     </div>
                 </div>
             </section>
+            
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img alt="Bootstrap Thumbnail Third" src="http://lorempixel.com/output/sports-q-c-600-200-1.jpg">
@@ -195,6 +203,7 @@
                     </div>
                 </div>
             </section>
+            
             <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
@@ -211,6 +220,7 @@
                     </div>
                 </div>
             </section>
+            
         </div>
         <br />
         <!-- row -->
