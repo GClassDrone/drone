@@ -11,7 +11,6 @@ $(function(){
 			data: JSON.stringify({sido:sido}),
 			dataType: 'json',
 			success : function(data){
-				alert("aaa")
 				$("#sigungu").empty();
 				
 				$(data).each(function(){

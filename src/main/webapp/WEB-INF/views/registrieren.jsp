@@ -144,7 +144,7 @@
 			                                    <div class="col-sm-5">
 			                                        <div class="form-group">
 			                                            <label>Country</label><br>
-			                                           <select id="sigungu" name="sigungu" class="form-control">
+			                                           <select id="sigungu" name="locno" class="form-control">
 			                                                <option value="">선택하세요</option>
 			                                            </select>
 			                                        </div>

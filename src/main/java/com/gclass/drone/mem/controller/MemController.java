@@ -42,15 +42,7 @@ public class MemController {
 	}
 	
 	
-	@RequestMapping(value="/registrieren",  method = RequestMethod.POST)
-	public String loginHEAD(MemDto dto,  Model model)throws Exception{
-		logger.info("dddadsada");
-		System.out.println(dto);
-		service.regist(dto);
-		model.addAttribute("result", "success");
-		
-		return "/intro";
-	}
+	
 	
 	
 }
