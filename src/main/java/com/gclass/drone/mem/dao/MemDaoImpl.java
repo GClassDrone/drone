@@ -33,6 +33,12 @@ public class MemDaoImpl implements MemDao{
 	public void update(MemDto dto) throws Exception {
 		session.update(namespace + ".update", dto);
 	}
+	
+	@Override
+	public List<MemDto> listAll() throws Exception {
+		return session.selectList(namespace+".listAll");
+	}
+	
 	//로그인확인
 	@Override
 	public MemDto login(String siteid, String siteno) throws Exception {
@@ -43,6 +49,7 @@ public class MemDaoImpl implements MemDao{
 		
 		return session.selectOne(namespace +".login", paramMap);
 	}
+<<<<<<< HEAD
 	@Override
 	public List<MemDto> listAll() throws Exception {
 		return session.selectList(namespace+".listAll");
@@ -51,4 +58,6 @@ public class MemDaoImpl implements MemDao{
 	public void insert(MemDto dto) throws Exception {
 		session.insert(namespace +".insert", dto);
 	}
+=======
+>>>>>>> e486bf0bb4383674608c588f5b2e6c573059c071
 }

@@ -35,19 +35,27 @@ public class MemServiceImpl implements MemService {
 	public List<MemDto> listAll() throws Exception {
 		return dao.listAll();
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> e486bf0bb4383674608c588f5b2e6c573059c071
 	//로그인
 	@Override
 	public MemDto login(String siteid , String siteno) throws Exception {
 	
 		return dao.login(siteid, siteno);
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public void regist(MemDto dto) throws Exception {
 		System.out.println(dto);
 		dao.insert(dto);
 	}
+=======
+
+>>>>>>> e486bf0bb4383674608c588f5b2e6c573059c071
 
 
 }

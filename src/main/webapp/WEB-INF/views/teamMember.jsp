@@ -40,17 +40,19 @@ small {
     color: #ffb74d;
 }
 </style>
-<%-- <jsp:include page="common/include.jsp"></jsp:include> --%>
+<jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 <body>
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="container-fluid bg"> <br /><br />
+  <div class="container">	
   <h1>Team Member</h1>
 <!-- 	  <p class="lead">Bootstrap Jumbotron to highlight speciality of your wesbites.</p>
 	  <hr class="m-y-md"> -->
   <p>본 프로젝트 구축에 참여한 멤버 소개</p>
+  </div>
 </div>
 
 <div class="section">
