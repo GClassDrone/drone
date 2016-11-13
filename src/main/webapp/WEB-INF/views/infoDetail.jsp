@@ -12,7 +12,7 @@
 	vertical-align : center;
 }
 </style>
-<%-- <jsp:include page="common/include.jsp"></jsp:include> --%>
+<jsp:include page="common/include.jsp"></jsp:include>
 </head>
 
 <body>
@@ -31,7 +31,8 @@
                     <div class="thumbnail"><img src="https://ununsplash.imgix.net/photo-1415302199888-384f752645d0?w=1024&amp;q=50&amp;fm=jpg&amp;s=823bdcc1b7ad955f5180efd352561016" class="img-responsive">
                         <div class="caption">
                             <h2>Tittle<small>&nbsp; 2016/10/28 12:42 by <a href="#">matthewkim</a></small></h2>
-                            <a class="btn btn-default btn-sm center" href="#reply"><span class="fa fa-2x fa-fw umbs-o-up -square -plus-square -square fa-comment-o"></span> 0
+                            <a class="btn btn-default btn-sm center" href="#reply">
+                            	<span class="fa fa-2x fa-fw umbs-o-up -square -plus-square -square fa-comment-o"></span> 0
                             </a>
                             <button type="button" class="btn btn-default btn-sm center">
                                 <span class="fa fa-2x fa-fw fa-thumbs-o-up"></span></button>

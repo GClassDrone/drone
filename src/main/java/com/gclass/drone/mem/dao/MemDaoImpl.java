@@ -20,11 +20,6 @@ public class MemDaoImpl implements MemDao{
 	private static String namespace = "com.gclass.drone.mapper.MemMapper";
 
 	@Override
-	public void create(MemDto dto) throws Exception {
-		session.insert(namespace + ".create", dto);
-	}
-
-	@Override
 	public void delete(Integer mno) throws Exception {
 		session.delete(namespace + ".delete", mno);
 	}
@@ -38,6 +33,12 @@ public class MemDaoImpl implements MemDao{
 	public void update(MemDto dto) throws Exception {
 		session.update(namespace + ".update", dto);
 	}
+	
+	@Override
+	public List<MemDto> listAll() throws Exception {
+		return session.selectList(namespace+".listAll");
+	}
+	
 	//로그인확인
 	@Override
 	public MemDto login(String siteid, String siteno) throws Exception {
@@ -49,7 +50,7 @@ public class MemDaoImpl implements MemDao{
 		return session.selectOne(namespace +".login", paramMap);
 	}
 	@Override
-	public List<MemDto> listAll() throws Exception {
-		return session.selectList(namespace+".listAll");
+	public void insert(MemDto dto) throws Exception {
+		session.insert(namespace +".insert", dto);
 	}
 }

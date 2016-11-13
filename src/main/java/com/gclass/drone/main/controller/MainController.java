@@ -19,8 +19,7 @@ public class MainController {
 	@RequestMapping("/imsi")
 	public void imsi() {
 		
-	}
-	
+	}	
 
 	@RequestMapping("/board")
 	public void board() {

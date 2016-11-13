@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gclass.drone.mapper.BoardMapper">
+
+	<insert id="insert">
+		insert into board ( subjno, bno, mno, ttl, ctt, upfile)
+		values(#{subjno}, board_next(#{subjno}), #{mno}, #{ttl}, #{ctt}, #{upfile})
+	</insert>
+	
+ 	<update id="update">
+		update board set
+		         ttl = #{ttl}
+			   , ctt = #{ctt}
+			   , delyn = #{delyn}
+		 where subjno= #{subjno} and bno = #{bno}
+	</update>
+	
+	<delete id="delete">
+		delete
+		  from board
+		 where subjno= #{subjno} and bno = #{bno}
+	</delete>
+	
+	<select id="read" resultType="BoardDto">
+		select *
+		from board
+		where subjno= #{subjno} and bno = #{bno}
+	</select>
+	
+	<select id="listAll" resultType="BoardDto">
+		select * 
+		  from board
+		 where subjno= #{subjno} and bcateno= #{bcateno}
+	  order by bno desc
+	</select>
+	
+	<select id="sublistAll" resultType="BsubjDto">
+		select * 
+		  from bsubj
+		 where bcateno > 0
+	  order by memcnt desc
+	</select>
+	
+	<select id="totalRow" resultType="int" parameterType="InitSearchPage">
+		select count(bno)
+		  from board
+		 <if test="searchType != '' and keyWord != null">
+			 where ${searchType} like '%'||#{keyWord}||'%'
+		 </if>		  
+	</select>
+
+
+	<!-- upload 부분 -->
+	<insert id="addAttach">
+		insert into attach (  fullname , num 				)
+					values (#{fullname}, board_seq.currval	)			
+	</insert>
+	
+	<select id="getAttach" resultType="string">
+		select fullname 
+		  from attach
+		 where num = #{num} 	
+	</select>
+	
+	<delete id="deleteAllAttach">
+		delete 
+		  from attach
+		 where num = #{num}
+	</delete>
+	
+	<delete id="deleteOneAttach">
+		delete 
+		  from attach
+		 where num		= #{num} 
+		   and fullname	= #{fullName}
+	</delete>
+	
+	<insert id="replaceAttach">
+		insert into attach (  fullname ,   num )
+					values (#{fullname}, #{num}) 
+	</insert>
+
+</mapper>  

@@ -28,6 +28,10 @@
 		</div>
 	</form>
 </div>    
+    
+    
+<jsp:include page="include.jsp"></jsp:include>
+    
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -82,7 +86,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/profile/ProfileList">파일럿</a>
+                        <a href="/mem/ProfileList">파일럿</a>
                     </li>
                 </ul>
                 <div class="pull-right">

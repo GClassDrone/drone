@@ -6,31 +6,31 @@
 	<select id="list" resultType="bdatDto">
 		select *
 		from bdat
-		where bno =
-		#{bno}
-		order by rno desc
+		where bno =	#{bno}
+		order by bdatno desc
 	</select>
 
 	<insert id="create">
-		insert into bdat (subjno, bno, bdatno, mno, ctt, regdt)
-		values (#{subjno},#{bno},bdat_next(#{subjno}, #{bno}), #{mno}, #{ctt}, #{regdt})
+		insert into bdat (subjno, bno, bdatno, mno, ctt)
+		values (#{subjno},#{bno},bdat_next(#{subjno}, #{bno}), #{mno}, #{ctt})
 	</insert>
 
 	<update id="update">
-		update tbl_reply set replytext = #{replytext},
-		updatedate = now()
-		where rno= #{rno}
+		update bdat 
+		   set ctt = #{ctt}
+			   regdt = now()
+		where bdatno= #{bdatno}
 	</update>
 
 	<delete id="delete">
-		delete from tbl_reply where rno = #{rno}
+		delete from bdat where bdatno = #{bdatno}
 	</delete>
 	
 	<select id ="count" resultType="int">
-		select count(bno) from tbl_reply where bno = #{bno}
+		select count(bdatno) from bdat where bno = #{bno}
 	</select>
 	
 	<select id="getBno" resultType="int">
-		select bno from tbl_reply where rno = #{rno}
+		select bno from bdat where bdatno = #{bdatno}
 	</select>
 </mapper>
