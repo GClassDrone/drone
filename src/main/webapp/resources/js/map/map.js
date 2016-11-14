@@ -38,6 +38,25 @@ $(function() {
 			imagePath : '/resources/images/map/m'
 		});
 // 특정 줌레벨 이후 2이상 마커 크러스터 클릭 이벤트
+/*		
+		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
+			var str = "";
+			var len = cluster.getMarkers().length;
+			$(cluster.getMarkers()).each(function(i){
+				str += "<div class='slide' data-ctscateno='"+this.ctscateno+"' data-ctsno='"+this.ctsno+"'>";
+				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
+				str += "<h3 class='text-center'>"+this.ttl+"</h3>";
+				if(this.ctt.length > 50){
+					str += "<p class='text-center'>"+this.ctt.substring(0,50)+"...</p>";
+				}else{
+					str += "<p class='text-center'>"+this.ctt+"</p>";
+				}
+				str += "</div>";
+			});
+			$("#list_wrap").empty();
+			$("#list_wrap").html(str);
+		}); */
+		
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
 			var str = "";
 			var len = cluster.getMarkers().length;
@@ -47,17 +66,17 @@ $(function() {
 				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
 				str += "<span class='fa fa-2x fa-fw fa-play-circle'></span>";
 				str += "</div>";
-				str += "<h3>"+this.ttl+"</h3>";
+				str += "<h3 class='text-center'>"+this.ttl+"</h3>";
 				if(this.ctt.length > 50){
-					str += "<p>"+this.ctt.substring(0,50)+"...</p>";
+					str += "<p class='text-center'>"+this.ctt.substring(0,50)+"...</p>";
 				}else{
-					str += "<p>"+this.ctt+"</p>";
+					str += "<p class='text-center'>"+this.ctt+"</p>";
 				}
 				str += "</div>";
 			});
 			$("#list_wrap").empty();
 			$("#list_wrap").html(str);
-		});
+		}); 
 // 맵 클릭이벤트
 //		google.maps.event.addListener(map, 'click', function(event) {
 //			googleapisView(event.latLng.lat(), event.latLng.lng());

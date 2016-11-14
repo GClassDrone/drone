@@ -58,7 +58,7 @@ $(document).ready(function() {
 			        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb"></i></a>&nbsp; 
 			        <a href="#pilot"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
 	        <section class="col-sm-8 col-sm-offset-2">
-		        <div><p style="color: black; cotext-align: center;">${memDto.prmsg}</p></div>
+		        <div><p style="color: #4e342e">${memDto.prmsg}</p></div>
 		        </div>
 	        </section>
 	    </div>
