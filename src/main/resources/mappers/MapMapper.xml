@@ -48,27 +48,20 @@
 	<![CDATA[
 		SELECT *
 		  FROM (
-				SELECT  /*+ index_desc(c idx_cts_joa_regdt) */ 'joa' AS gubun, c.*
+				SELECT  /*+ index_desc(c idx_cts_regdt_joacnt) */ 'joa' AS gubun, c.*
 				  FROM cts c
-				 WHERE regdt BETWEEN TO_CHAR(TO_CHAR(TRUNC(SYSDATE, 'IW')-1, 'YYYY-MM-DD')) AND TO_CHAR(TO_CHAR(TRUNC(SYSDATE, 'IW')+5, 'YYYY-MM-DD'))
-				   AND ROWNUM < 9
-				   and delyn='n'
-				
+				 WHERE delyn='n' 
+				   and ROWNUM < 5
 				UNION ALL 
-				
-				SELECT  /*+ index_desc(c idx_cts_read_regdt) */ 'read' AS gubun, c.*
+				SELECT  /*+ index_desc(c idx_cts_regdt_readcnt) */ 'read' AS gubun, c.*
 				  FROM cts c
-				 WHERE regdt BETWEEN TO_CHAR(TO_CHAR(TRUNC(SYSDATE, 'IW')-1, 'YYYY-MM-DD')) AND TO_CHAR(TO_CHAR(TRUNC(SYSDATE, 'IW')+5, 'YYYY-MM-DD'))
-				   AND ROWNUM < 9
-				   and delyn = 'n'
-				
-				UNION ALL
-				
-				SELECT  /*+ index_desc(c idx_cts_fav_regdt) */ 'fav' AS gubun, c.*
+				 WHERE delyn='n' 
+				   and ROWNUM < 5
+<!-- 				UNION ALL
+				SELECT  /*+ index_desc(c idx_cts_regdt_favcnt) */ 'fav' AS gubun, c.*
 				  FROM cts c
-				 WHERE regdt BETWEEN TO_CHAR(TO_CHAR(TRUNC(SYSDATE, 'IW')-1, 'YYYY-MM-DD')) AND TO_CHAR(TO_CHAR(TRUNC(SYSDATE, 'IW')+5, 'YYYY-MM-DD'))
-				   AND ROWNUM < 9
-				   and delyn = 'n'
+				 WHERE delyn='n' 
+				   and ROWNUM < 5 -->
 				) A
 	]]>
 	</select>
@@ -81,11 +74,9 @@
 					SELECT /*+ index_desc(mem idx_mem_levpoint) */ * 
 					  FROM mem
 					 WHERE ROWNUM < 51
-					   and delyn = 'n'
 					) A
 			 ORDER BY dbms_random.VALUE) v
 	 where rownum < 13
-		 
 	]]>
 	</select>
 	
