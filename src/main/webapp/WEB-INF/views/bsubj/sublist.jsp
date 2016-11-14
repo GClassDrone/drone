@@ -14,7 +14,7 @@
 <body>
 <div class="container"> 
 <form role="form" method="post">
-	<input type='hidden' name='bcateno' value="${bcateno}">
+	<input type='hidden' name='bcateno' value="${BsubjDto.bcateno}">
 </form>
   <div class="row">
       <br />
@@ -36,7 +36,7 @@
   		</a>
   		<div class="media-body" style="color: #424242">
     		<a href="/instanceboard/itlist?subjno=${BsubjDto.subjno}"><h4 class="media-heading"><strong>게시판 제목 : ${BsubjDto.subjttl}</strong></h4></a>
-          <p class="text-right">${BsubjDto.mno}</p>
+          <p>게시판 관리자 :${BsubjDto.mno}</p>
           <p>게시판 설명 : ${BsubjDto.subjctt}</p>
           <ul class="list-inline list-unstyled">
   			<li><span><i class="glyphicon glyphicon-calendar"></i>개설일 : ${BsubjDto.opendt}</span></li>

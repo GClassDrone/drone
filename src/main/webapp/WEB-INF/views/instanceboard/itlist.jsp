@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@include file="../common/include.jsp" %>
+<jsp:include page="../common/include.jsp"></jsp:include>
+<jsp:include page="../common/header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="../common/header.jsp"%>
 	
 	<form role="form" method="post">
 		<input type='hidden' name='subjno' value="${BsubjDto.subjno}">
@@ -20,7 +19,7 @@
 		<div class="section">
 		<div class="row">
             <br />
-            <ol class="breadcrumb">
+            <ol class="breadcrumb" style="background: black;">
                 <li><a href="#">home</a></li>
                 <li><a href="#">정보</a></li>
                 <li><a href="#">게시판</a></li>
@@ -50,7 +49,7 @@
 			<c:forEach items="${list}" var="board">
 					<tr>
 						<td>${board.bno}</td>
-						<td><a href="#">${board.ttl}</a></td>
+						<td><a href="itdetail?subjno=${board.subjno}&bno=${board.bno}">${board.ttl}</a></td>
 						<td>${board.mno}</td>
 						<td>${board.regdt}</td>
 						<td>${board.readcnt}</td>

@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.iboard.dao.IBoardDao;
 import com.gclass.drone.iboard.dto.IBoardDto;
 
@@ -21,8 +22,9 @@ public class IBoardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public IBoardDto read(Integer bno) throws Exception {
-		return dao.read(bno);
+	public IBoardDto read(Integer bno,Integer subjno) throws Exception {
+		
+		return dao.read(bno, subjno);
 	}
 
 	@Override
@@ -36,9 +38,13 @@ public class IBoardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public List<IBoardDto> listAll(Integer subjno) throws Exception {
-		return dao.listAll(subjno);
+	public List<IBoardDto> listAll(Integer subjno, InitSearchPage isp) throws Exception {
+		
+		return dao.listAll(subjno, isp);
 	}
 
-
+	@Override
+	public int totalRow(Integer subjno, InitSearchPage isp) throws Exception {
+		return dao.totalRow(subjno, isp);
+	}
 }

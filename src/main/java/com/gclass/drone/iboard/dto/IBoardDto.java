@@ -1,6 +1,5 @@
 package com.gclass.drone.iboard.dto;
 
-import java.sql.Clob;
 import java.sql.Timestamp;
 
 public class IBoardDto {
@@ -14,6 +13,7 @@ public class IBoardDto {
 	private String upfile;
 	private Timestamp regdt;
 	private char delyn;
+	
 	public int getSubjno() {
 		return subjno;
 	}
