@@ -3,9 +3,6 @@
 <link rel="stylesheet" href="/resources/css/map/videoModal.css" />
 <script type="text/javascript" src="/resources/js/map/videoModal.js"></script>
 <!-- <script type="text/javascript" src="/resources/js/map/MediaElement.js"></script>  -->
-
-
-
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->

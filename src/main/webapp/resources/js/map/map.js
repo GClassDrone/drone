@@ -101,9 +101,9 @@ $(function() {
 		}); */
 		
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
+			var str;
 			data=[];
 			$(cluster.getMarkers()).each(function(i){
-<<<<<<< HEAD
 				str += "<div class='col-xs-12 col-sm-6 col-md-3'>";
 				str += "<div class='video-btn embed-responsive embed-responsive-4by3' data-ctscateno='"+this.ctscateno+"' data-ctsno='"+this.ctsno+"'>";
 				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
@@ -124,24 +124,36 @@ $(function() {
 //		google.maps.event.addListener(map, 'click', function(event) {
 //			googleapisView(event.latLng.lat(), event.latLng.lng());
 //		});
-=======
-				data.push({ctscateno:this.ctscateno,ctsno:this.ctsno,filelk:this.filelk,ttl:this.ttl,ctt:this.ctt});
-			});
-			nowPage=1;
-			startNum=0;
-			endNum=0;
-			videoPage();
-		});
->>>>>>> 6cce1ca9c6894f461ea8d86cb9bf09472ad5ee28
 // 마커 모달오픈 이벤트 등록
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
-				$("#dialog-video").data("ctscateno",this.ctscateno);
-				$("#dialog-video").data("ctsno", this.ctsno);
-				dialog.dialog( "open" );
+				var data = {ctscateno:this.ctscateno,ctsno:this.ctsno};
+				$.ajax({
+					url: "/map/videoDetail",
+					type: "POST",
+					data: JSON.stringify(data),
+					headers: {
+						"Content-Type" : "application/json",
+						"X-HTTP-Method-Override" : "POST"
+					},
+					dataType: "json",
+					success: function(result){
+						var str = "<video id='youtube1'><source src='' type='video/youtube'></video>";
+						$("#youtube-wrap").html(str);
+						$("#modal-ttl").text(result.ttl);
+						$("#youtube-wrap").find("source").attr("src","http://www.youtube.com/watch?v="+result.filelk);
+						$("#modal-ctt").text(result.ctt);
+						$("#modal-readcnt").text(result.readcnt);
+						$('#youtube1').mediaelementplayer();
+					}
+				});
+				$("#myModal").show();
 			});
 		}
 	}
+	$("span[class='close']").on("click",function(){
+		$("#myModal").hide();
+	});
 	function videoPage(){
 		var str = "";
 		startNum=(nowPage-1)*videoPageRow;
@@ -468,45 +480,4 @@ $(function() {
 //		});
 //	});
 	initMap();
-	var form;
-	var dialog;
-	dialog = $("#dialog-video").dialog({
-		autoOpen : false,
-		height : 1100,
-		width : 900,
-		modal : true,
-		open: function(){
-			var data = {ctscateno:$("#dialog-video").data("ctscateno"),ctsno:$("#dialog-video").data("ctsno")};
-			$.ajax({
-				url: "/map/videoDetail",
-				type: "POST",
-				data: JSON.stringify(data),
-				headers: {
-					"Content-Type" : "application/json",
-					"X-HTTP-Method-Override" : "POST"
-				},
-				dataType: "json",
-				success: function(result){
-					var str = "<video id='youtube1'><source src='' type='video/youtube'></video>";
-					$("#youtube-wrap").html(str);
-					$("#modal-ttl").text(result.ttl);
-					$("#youtube-wrap").find("source").attr("src","http://www.youtube.com/watch?v="+result.filelk);
-					$("#modal-ctt").text(result.ctt);
-					$("#modal-readcnt").text(result.readcnt);
-					$('#youtube1').mediaelementplayer();
-				}
-			});
-			$("#dialog-video").prev().remove();
-		},
-		close: function(){
-			$('#youtube-wrap').empty();
-		}
-	});
-// 모달 닫기 버튼
-	$("#modal-close").on("click",function(){
-		dialog.dialog("close");
-	});
-	form = dialog.find("form").on("submit",function(event){
-		event.preventDefault();
-	});
-})
+});
