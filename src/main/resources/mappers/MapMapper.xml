@@ -73,7 +73,7 @@
 					 WHERE ROWNUM < 51
 					) A
 			 ORDER BY dbms_random.VALUE) v
-	 where rownum < 13
+	 where rownum < 10
 	]]>
 	</select>
 	
