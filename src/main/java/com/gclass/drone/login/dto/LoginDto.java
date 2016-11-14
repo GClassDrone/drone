@@ -6,7 +6,7 @@ public class LoginDto {
 	private int mno;
 	private String niknm;
 	private String email;
-	private char ppose;
+	private String ppose;
 	private String pic;
 	private int siteno;
 	private String siteid;
@@ -31,10 +31,10 @@ public class LoginDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public char getPpose() {
+	public String getPpose() {
 		return ppose;
 	}
-	public void setPpose(char ppose) {
+	public void setPpose(String ppose) {
 		this.ppose = ppose;
 	}
 	public String getPic() {
