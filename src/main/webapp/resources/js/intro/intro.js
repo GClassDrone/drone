@@ -38,8 +38,8 @@ $(function(){
 					}
 					str += "<div class='col-md-1'>";
 					str += "<a href='/mem/ProfileDetail?mno="+this.mno+"'>";
-					str += "<img src='../resources/images/castleMo2.png' class='center-block img-circle'>";
-					str += "<h6 class='text-center'>"+this.niknm+"<p>(<span class='glyphicon glyphicon-star'></span>)</p></h6>";
+					str += "<img src='../resources/images/castleMo2.png' style='width:80px' class='center-block img-circle'>";
+					str += "<h6 class='text-center' style='padding-left:12px'>"+this.niknm+"<p>(<span class='glyphicon glyphicon-star'></span>)</p></h6>";
 					str += "</a>";
 					str += "</div>";
 					str += "<div class='col-md-3'>";
