@@ -9,14 +9,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">×</span>
-                <h2><small>&nbsp; 2016/10/28 12:42 by <a href="#">PaulYoung</a></small></h2>
+                <h2></h2>
             </div>
             <div class="modal-body">
                 <div class="container">
                     <div class="col-xs-10 text-left">
                         <br />
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+                        <div id="modal-iframe" class="embed-responsive embed-responsive-16by9">
                         </div>
                         <div style="padding-top:5px; padding-bottom:10px">
                             <button type="button" class="btn btn-warning btn-sm center">
@@ -40,7 +39,7 @@
                             <button type="button" class="btn btn-warning btn-sm center" style="width:50px; height:38px">
                                 <img src="/resources/images/band2.png"></button>
                         </div>
-                        <p style="color:#4e342e">Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
+                        <p id="modalCtt" style="color:#4e342e"></p>
                     </div>
                 </div>
             </div>

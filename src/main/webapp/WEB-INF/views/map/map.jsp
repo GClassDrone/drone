@@ -9,22 +9,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA19l1lXb7Knj6sgwTXGwnKSqfakx3laYE"></script>
 <script src="/resources/js/map/markerclusterer.js"></script>
 <script src="/resources/js/map/map.js"></script>
-<<<<<<< HEAD
-=======
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
-<script src="/resources/js/map/jquery.bxslider.js"></script> 
-<script type="text/javascript"> 
-$(document).ready(function() {
-    $('.slider').bxSlider({
-        slideWidth: 300,
-        minSlides: 4,
-        maxSlides: 4,
-        moveSlide: 4,
-        slideMargin: 10
-    });
-});
-</script>   -->
->>>>>>> 3d52f707708e6663d3c6a644dc85054688191fd3
 </head>
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
@@ -34,15 +18,7 @@ $(document).ready(function() {
 	<!-- <div><input type="button" id="latlngbtn" value="등록"></div> -->
 	<div id="map">
 	</div><br />
-<<<<<<< HEAD
  	<div class="slider">
-=======
-<!-- <div class="slider">
-	<div id="list_wrap"></div>
-	</div>  -->
-	<div class="container">
-	<div id="list_wrap"></div>
->>>>>>> 3d52f707708e6663d3c6a644dc85054688191fd3
 	</div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
