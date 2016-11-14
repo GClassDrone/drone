@@ -40,8 +40,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		/*System.out.println(request.getParameter("siteid"));
 		System.out.println(request.getParameter("siteno"));
 		*/
-	
-		
 		String siteid = request.getParameter("siteid") ;
 		String siteno = request.getParameter("siteno");
 		System.out.println(siteid);
@@ -54,8 +52,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				response.sendRedirect("/registrieren");
 			}
 		}
-		
-		
 		return true;
 	}
 }

@@ -22,7 +22,6 @@ public class LocServiceImpl implements LocService {
 
 	@Override
 	public List<LocDto> listSigungu(String sido) throws Exception {
-		
 		return dao.sigungu(sido);
 	}
 

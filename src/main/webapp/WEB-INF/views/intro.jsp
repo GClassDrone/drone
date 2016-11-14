@@ -4,6 +4,10 @@
 
 <html>
 <head>
+<<<<<<< HEAD
+<jsp:include page="common/include.jsp"></jsp:include>
+<script type="text/javascript" src="/resources/js/intro/intro.js"></script>
+=======
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
@@ -15,6 +19,7 @@
 
 <jsp:include page="common/include.jsp"></jsp:include> 
 <%-- <jsp:include page="common/include.jsp"></jsp:include> --%>
+>>>>>>> e4438675f7c56abf58d3628ada3b3a44eb39ee73
 </head>
 
 <body>
@@ -63,7 +68,7 @@
     </div>
     <div class="container">
     <!-- 핫클립 영상  -->
-	<jsp:include page="common/videoList.jsp"></jsp:include>
+    <div id="hotclipVideo"></div>
     </div>
     <div class="section">
         <div class="container">
@@ -75,7 +80,7 @@
             </div>
             <br />
 	<!-- 파일럿 리스트 -->
-			<jsp:include page="common/pilotList.jsp"></jsp:include>
+            <div id="hotclipPilot"></div>
         </div>
     </div>
     <jsp:include page="common/footer.jsp"></jsp:include>

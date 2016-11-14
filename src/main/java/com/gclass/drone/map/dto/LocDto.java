@@ -1,10 +1,18 @@
 package com.gclass.drone.map.dto;
 
 public class LocDto {
+	private int locno;
 	private String sido;
 	private String sigungu;
 	private Double lat;
 	private Double lng;
+	
+	public int getLocno() {
+		return locno;
+	}
+	public void setLocno(int locno) {
+		this.locno = locno;
+	}
 	public String getSido() {
 		return sido;
 	}
@@ -31,6 +39,7 @@ public class LocDto {
 	}
 	@Override
 	public String toString() {
-		return "LocDto [sido=" + sido + ", sigungu=" + sigungu + ", lat=" + lat + ", lng=" + lng + "]";
+		return "LocDto [locno=" + locno + ", sido=" + sido + ", sigungu=" + sigungu + ", lat=" + lat + ", lng=" + lng
+				+ "]";
 	}
 }

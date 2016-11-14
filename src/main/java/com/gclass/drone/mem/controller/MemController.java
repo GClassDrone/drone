@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gclass.drone.loc.service.LocService;
 import com.gclass.drone.login.dto.LoginDto;
+import com.gclass.drone.mem.dto.MemDto;
 import com.gclass.drone.mem.service.MemService;
 
 
@@ -24,8 +25,7 @@ public class MemController {
 	
 	@Inject
 	private MemService service;
-	@Inject
-	private LocService servic;
+
 
 	private static final Logger logger= LoggerFactory.getLogger(MemController.class);
 	
@@ -42,20 +42,14 @@ public class MemController {
 		model.addAttribute(service.read(mno));
 	}
 
-	@RequestMapping(value="/ProfileList", method= RequestMethod.GET)
+	@RequestMapping(value="/ProfileList", method = RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		
 		model.addAttribute("listAll", service.listAll());
 	}
 	
-	@RequestMapping(value="/registrieren", method = RequestMethod.GET)
-	public void loginGET(@ModelAttribute("dto")LoginDto dto){
-		
-	}
-	@RequestMapping(value="/loginPost", method= RequestMethod.POST)
-	public void loginPOST(LoginDto dto, HttpSession session, Model model)throws Exception{
 	
-	}
+	
 	
 	
 }

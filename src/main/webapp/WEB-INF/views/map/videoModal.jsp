@@ -88,9 +88,6 @@
 		<input type="button" id="modal-close" value="닫기">
 	</div>
 	<div id="youtube-wrap">
-		<video id="youtube1">
-			<source src="" type="video/youtube">
-		</video>
 	</div>
 	<div class="social-byline--share">
 		<div class="share-module "

@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+#map {
+	max-width: 900px;
+	max-height: 700px;
+	width: 900px;
+	height: 700px;
+	margin: auto;
+}
+#input_wrap input, #input_wrap textarea, #input_wrap select{
+	color: black;
+}

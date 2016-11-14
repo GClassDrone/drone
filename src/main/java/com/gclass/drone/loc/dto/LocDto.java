@@ -1,15 +1,15 @@
 package com.gclass.drone.loc.dto;
 
 public class LocDto {
-	private int	locno;
+	private String locno;
 	private String sido;
 	private String sigungu;
 	private int lat;
 	private int lng;
-	public int getLocno() {
+	public String getLocno() {
 		return locno;
 	}
-	public void setLocno(int locno) {
+	public void setLocno(String locno) {
 		this.locno = locno;
 	}
 	public String getSido() {
