@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
 <head>
 <jsp:include page="common/include.jsp"></jsp:include>
 <script type="text/javascript" src="/resources/js/intro/intro.js"></script>
+<<<<<<< HEAD
 <style type="text/css">
     .navbar-default {
         width: 100%;
         z-index: 9999; 
 }  
 </style>
+=======
+>>>>>>> 5afd7855426bc8631d69ed1ae496408cf35ba1e9
 </head>
-
 <body>
 <jsp:include page="common/header.jsp"></jsp:include>
     <div id="carousel" data-interval="false" class="carousel slide" data-ride="carousel">
@@ -59,8 +60,7 @@
         </div>
     </div>
     <div class="container">
-    <!-- 핫클립 영상  -->
-    <div id="hotclipVideo"></div>
+    <div id="hotVideo" class="slider"></div>
     </div>
     <div class="section">
         <div class="container">
