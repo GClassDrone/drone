@@ -39,18 +39,10 @@
 	
 	<!-- 리스트 뽑아오기 -->
 	
-	<select id="listAll" resultType="IBoardDto">
+	<select id="iboardlistAll" resultType="IBoardDto">
 		select * 
-		  from (
-				select rownum as rnum, a.* 
-				  from (
-						select /*+ index_desc(board board_subjno_bno_pk) */ *
-						  from board
-					   ) a 
-		<![CDATA[
-				 where rownum <= #{endRowNum}
-			   ) b
-		 where rnum >= #{startRowNum}
-		]]>
+		  from board
+		 where subjno = #{subjno}
+	  order by bno desc
 	</select>
 </mapper>

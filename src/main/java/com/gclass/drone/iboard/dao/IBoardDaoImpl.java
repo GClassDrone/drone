@@ -39,7 +39,8 @@ public class IBoardDaoImpl implements IBoardDao{
 	}
 
 	@Override
-	public List<IBoardDto> listAll() throws Exception {
-		return session.selectList(namespace+".listAll");
+	public List<IBoardDto> listAll(Integer subjno) throws Exception {
+		
+		return session.selectList(namespace+".iboardlistAll", subjno);
 	}
 }

@@ -5,20 +5,17 @@
 
 <html>
 <head>
-<%@ include file="/resources/css/board/sublist.css" %>
 <jsp:include page="../common/include.jsp"></jsp:include>
+<jsp:include page="../common/header.jsp"></jsp:include>
+<script type="text/javascript" src="/resources/js/board/sublist.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/css/board/sublist.css"/>
 </head>
 
-<%@ include file="/resources/js/board/sublist.js" %>
 <body>
-<jsp:include page="../common/header.jsp"></jsp:include>
-
-<form role="form" method="post">
-	<input type='hidden' name='subjno' value="${BsubjDto.bcateno}">
-</form>
-
-
 <div class="container"> 
+<form role="form" method="post">
+	<input type='hidden' name='bcateno' value="${bcateno}">
+</form>
   <div class="row">
       <br />
       <a href="/boardGroupList"><i class="material-icons">arrow_back</i> 
@@ -30,28 +27,29 @@
           <p class="text-center">일정 등급 이상의 전문 회원님들이 운영하는 소모임 그룹에 속한 게시판 리스트 목록입니다.</p>
      </div>
   </div><br />
+
  <c:forEach items="${sublist}" var="BsubjDto"> 
   <div class="well">
       <div class="media">
-      	<a class="pull-left" href="/board/list?bsubjno=${bsubjno}">
+      	<a class="pull-left" href="/instanceboard/itlist?subjno=${BsubjDto.subjno}">
     		<img class="media-object" src="http://placekitten.com/121/121">
   		</a>
   		<div class="media-body" style="color: #424242">
-    		<a href="/board/list?bsubjno=${bsubjno}"><h4 class="media-heading"><strong>게시판 제목 : ${bsubj.subjttl}</strong></h4></a>
-          <p class="text-right">${bsubj.mno}</p>
-          <p>게시판 설명 : ${bsubj.subjctt}</p>
+    		<a href="/instanceboard/itlist?subjno=${BsubjDto.subjno}"><h4 class="media-heading"><strong>게시판 제목 : ${BsubjDto.subjttl}</strong></h4></a>
+          <p class="text-right">${BsubjDto.mno}</p>
+          <p>게시판 설명 : ${BsubjDto.subjctt}</p>
           <ul class="list-inline list-unstyled">
-  			<li><span><i class="glyphicon glyphicon-calendar"></i>개설일 : ${bsubj.opendt}</span></li>
+  			<li><span><i class="glyphicon glyphicon-calendar"></i>개설일 : ${BsubjDto.opendt}</span></li>
   			<li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i>등록 글수 : ${bsubj.regcnt}</span>
+            <span><i class="glyphicon glyphicon-comment"></i>등록 글수 : ${BsubjDto.regcnt}</span>
             <li>|</li>
             <li>
-			<span><i class="fa fa-users"></i>게시회원수 : ${bsubj.memcnt}</span> 
+			<span><i class="fa fa-users"></i>게시회원수 : ${BsubjDto.memcnt}</span> 
 			</li>
        		<li>|</li>
        		<li>
 		       <i class="fa fa-cog fa-spin fa-2x fa-fw" style="color: green" aria-hidden="false"></i>
-		       <span class="label label-warning arrowed-in">활동중 (opendt + 2주)</span>
+		       <span class="label label-warning arrowed-in">활동중${BsubjDto.opendt} +2주후 </span>
 			</li>
 			<!-- <li>|</li> -->
 		 </ul>
@@ -60,6 +58,7 @@
   </div>
  <div class="clearfix"></div>
 </c:forEach>
+
 <br />
 <!-- row -->
 <p class="more">

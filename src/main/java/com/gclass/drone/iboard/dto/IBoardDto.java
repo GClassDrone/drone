@@ -9,10 +9,11 @@ public class IBoardDto {
 	private int bno;
 	private int mno;
 	private String ttl;
-	private Clob ctt;
+	private String ctt;
 	private int readcnt;
+	private String upfile;
 	private Timestamp regdt;
-	
+	private char delyn;
 	public int getSubjno() {
 		return subjno;
 	}
@@ -37,10 +38,10 @@ public class IBoardDto {
 	public void setTtl(String ttl) {
 		this.ttl = ttl;
 	}
-	public Clob getCtt() {
+	public String getCtt() {
 		return ctt;
 	}
-	public void setCtt(Clob ctt) {
+	public void setCtt(String ctt) {
 		this.ctt = ctt;
 	}
 	public int getReadcnt() {
@@ -49,16 +50,28 @@ public class IBoardDto {
 	public void setReadcnt(int readcnt) {
 		this.readcnt = readcnt;
 	}
+	public String getUpfile() {
+		return upfile;
+	}
+	public void setUpfile(String upfile) {
+		this.upfile = upfile;
+	}
 	public Timestamp getRegdt() {
 		return regdt;
 	}
 	public void setRegdt(Timestamp regdt) {
 		this.regdt = regdt;
 	}
-	
+	public char getDelyn() {
+		return delyn;
+	}
+	public void setDelyn(char delyn) {
+		this.delyn = delyn;
+	}
+
 	@Override
 	public String toString() {
-		return "BoardDto [subjno=" + subjno + ", bno=" + bno + ", mno=" + mno + ", ttl=" + ttl + ", ctt=" + ctt
-				+ ", readcnt=" + readcnt + ", regdt=" + regdt + "]";
-	}
+		return "IBoardDto [subjno=" + subjno + ", bno=" + bno + ", mno=" + mno + ", ttl=" + ttl + ", ctt=" + ctt
+				+ ", readcnt=" + readcnt + ", upfile=" + upfile + ", regdt=" + regdt + ", delyn=" + delyn + "]";
+	}	
 }

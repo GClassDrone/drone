@@ -11,6 +11,11 @@
 </head>
 <body>
 	<%@include file="../common/header.jsp"%>
+	
+	<form role="form" method="post">
+		<input type='hidden' name='subjno' value="${BsubjDto.subjno}">
+	</form>
+	
 	<div class="container">
 		<div class="section">
 		<div class="row">
@@ -37,154 +42,20 @@
 			<table>
 				<tr>
 					<th style="width: 50px;">글번호</th>
-					<th style="width: 600px;">글제목[댓글수]</th>
+					<th style="width: 600px;">글제목</th>
 					<th style="width: 200px;">작성자</th>
 					<th style="width: 200px;">등록일</th>
 					<th style="width: 200px;">조회수</th>
 				</tr>
-				<tr>
-					<td style="width: 200px">1</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				
-<!-- el 가져올때 예시-----------------------------------------------------  -->
-				<tr>
-					<td style="width: 200px">${boardDto.bno }</td>
-					<td style="width: 200px">${boardDto.ttl }</td>
-					<td style="width: 200px">${boardDto.mno }</td>
-					<td style="width: 200px">${boardDto.regdt }</td>
-					<td style="width: 200px">${boardDto.readcnt }</td>
-				</tr>
-				
-				<tr>
-					<td style="width: 200px">3</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">4</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">1</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">2</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">3</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">4</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">1</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">2</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">3</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">4</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-								<tr>
-					<td style="width: 200px">1</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">2</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">3</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">4</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-								<tr>
-					<td style="width: 200px">1</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">2</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">3</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
-				<tr>
-					<td style="width: 200px">4</td>
-					<td style="width: 200px">오빤강남스타일</td>
-					<td style="width: 200px">싸이</td>
-					<td style="width: 200px">255</td>
-					<td style="width: 200px">3444</td>
-				</tr>
+			<c:forEach items="${list}" var="board">
+					<tr>
+						<td>${board.bno}</td>
+						<td><a href="#">${board.ttl}</a></td>
+						<td>${board.mno}</td>
+						<td>${board.regdt}</td>
+						<td>${board.readcnt}</td>
+					</tr>
+					</c:forEach>
 			</table>
 		</div>
 	</div>
