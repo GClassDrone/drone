@@ -70,7 +70,7 @@
 		                    <form role="form">
 		                        <div class="form-group">
 		                                    <label for="inputComments"><span style="color:#4e342e">Write reply</span></label>
-		                            <textarea class="form-control" id="inputComments" placeholder="Enter reply"></textarea>
+		                            <textarea rows="6" class="form-control" id="inputComments" placeholder="Enter reply"></textarea>
 		                        </div>
 		                        <button type="submit" class="btn btn-block btn-warning">댓글올리기</button>
 		                    </form>
