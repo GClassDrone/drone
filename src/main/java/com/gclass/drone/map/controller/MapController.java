@@ -88,6 +88,7 @@ public class MapController {
 		ResponseEntity<CtsDto> entity = null;
 		try{
 			entity = new ResponseEntity<CtsDto>(service.ctsSelectOne(cDto), HttpStatus.OK);
+			logger.info(entity.toString());
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

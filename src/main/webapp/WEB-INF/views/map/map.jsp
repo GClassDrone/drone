@@ -19,11 +19,14 @@
 	<div id="map">
 	</div><br />
  	<div class="slider">
+<<<<<<< HEAD
+=======
 <!-- <div class="slider">
 	<div id="list_wrap"></div>
 	</div>  -->
 	<div class="container">
 	<div id="list_wrap"></div>
+>>>>>>> daa0c6c8e764e382ac5429c30c9d80bca590d2ef
 	</div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
