@@ -5,57 +5,11 @@
 
 <html>
 <head>
-<style type="text/css">
-.media-heading {
-	color : #3e2723;
-}
-.more {
-    text-align: center;
-}
-.mainBody {
-    padding-top: 50px;
-}
-.progress {
-    background-color: #000000;
-    border: 1px solid #7aff66;
-}
-.progress-bar {
-    background-color: #c4ffbc;
-}
-.progress-bar span {
-    color: #000000;
-}
-</style>
-
+<%@ include file="/resources/css/board/sublist.css" %>
 <jsp:include page="../common/include.jsp"></jsp:include>
 </head>
 
-<script type="text/javascript">
-var result='${msg}';
-if(result=="success"){
-	alert("처리되었습니다.");	
-}
-
-$(document).ready(function(){
-	$("#searchBtn").on("click", function(event){
-		self.location = "list"
-					  + "${pageMake.makeQuery(1)}"
-					  + "&searchType="
-					  + $("select option:selected").val()
-					  +"&keyWord=" + $("#keywordInput").val();
-	});
-	
-	$("#newBtn").on("click", function(event){
-		self.location = "register";
-	});
-
-	
-	var formObj = $("form[role='form']");
-	
-	console.log(formObj);
-});
-</script>
-
+<%@ include file="/resources/js/board/sublist.js" %>
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
 
