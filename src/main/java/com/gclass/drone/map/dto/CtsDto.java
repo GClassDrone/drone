@@ -15,9 +15,10 @@ public class CtsDto {
 	private int joacnt;
 	private int readcnt;
 	private int favcnt;
-	private Timestamp makedt;
+	private String makedt;
 	private int mno;
 	private char delyn;
+	
 	public int getCtscateno() {
 		return ctscateno;
 	}
@@ -90,10 +91,10 @@ public class CtsDto {
 	public void setFavcnt(int favcnt) {
 		this.favcnt = favcnt;
 	}
-	public Timestamp getMakedt() {
+	public String getMakedt() {
 		return makedt;
 	}
-	public void setMakedt(Timestamp makedt) {
+	public void setMakedt(String makedt) {
 		this.makedt = makedt;
 	}
 	public int getMno() {

@@ -13,11 +13,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gclass.drone.map.dto.CtsDto;
-import com.gclass.drone.map.dto.LocArrayDto;
-import com.gclass.drone.map.dto.LocDto;
+import com.gclass.drone.map.dto.CtscateDto;
 import com.gclass.drone.map.dto.MemViewDto;
 import com.gclass.drone.map.service.MapService;
 
@@ -31,6 +31,43 @@ public class MapController {
 	
 	@RequestMapping(value="/map", method=RequestMethod.GET)
 	public void mapGet(){
+	}
+	
+	@RequestMapping(value="/ctsInsert", method=RequestMethod.GET)
+	public void ctsInsert(CtsDto cDto, Model model) throws Exception{
+		logger.info("CtsInsert GET");
+	}
+	
+	@RequestMapping(value="/ctsInsert", method=RequestMethod.POST)
+	public String ctsInsert(CtsDto cDto) throws Exception{
+		logger.info("ctsInsert POST");
+		logger.info(cDto.toString());
+		service.ctsInsert(cDto);
+		
+		return "redirect:/map/map";
+	}
+	
+	@RequestMapping(value="/ctsUpdate", method=RequestMethod.GET)
+	public void ctsUpdate(CtsDto cDto, Model model){
+		logger.info("CtsUpdate GET");
+	}
+	
+	@RequestMapping(value="/ctsUpdate", method=RequestMethod.POST)
+	public String ctsUpdate(CtsDto cDto) throws Exception{
+		logger.info("ctsUpdate POST");
+		logger.info(cDto.toString());
+		service.ctsUpdate(cDto);
+		
+		return "redirect:/map/map";
+	}
+	
+	@RequestMapping(value="/ctsDelete", method=RequestMethod.DELETE)
+	public String ctsDelete(@RequestParam int ctsno, @RequestParam int ctscateno) throws Exception{
+		logger.info("ctsDelete Delete");
+		logger.info("ctsno : "+ctsno+", ctscateno : " + ctscateno);
+		service.ctsDelete(ctsno, ctscateno);
+		
+		return "redirect:/map/map";
 	}
 	
 	@ResponseBody
@@ -63,6 +100,42 @@ public class MapController {
 		ResponseEntity<List<MemViewDto>> entity = null;
 		try{
 			entity = new ResponseEntity<List<MemViewDto>>(service.memSelectAll(),HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/hotclipVideo",method=RequestMethod.POST)
+	public ResponseEntity<List<CtsDto>> hotclipVideo(){
+		ResponseEntity<List<CtsDto>> entity = null;
+		try{
+			entity = new ResponseEntity<List<CtsDto>>(service.hotclipVideo(), HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/hotclipPilot",method=RequestMethod.POST)
+	public ResponseEntity<List<MemViewDto>> hotclipPilot(){
+		ResponseEntity<List<MemViewDto>> entity = null;
+		try{
+			entity = new ResponseEntity<List<MemViewDto>>(service.hotclipPilot(), HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/ctscateSelect", method=RequestMethod.POST)
+	public ResponseEntity<List<CtscateDto>> ctscateSelect(){
+		ResponseEntity<List<CtscateDto>> entity = null;
+		try{
+			entity = new ResponseEntity<List<CtscateDto>>(service.ctscateSelectAll(), HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

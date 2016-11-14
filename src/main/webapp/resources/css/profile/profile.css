@@ -82,9 +82,10 @@
     overflow: hidden;
     font-size: 12px;
     line-height: 20px;
-    color: white;
+    color: white; 
     height: auto;
     text-overflow: ellipsis;
+    text-aligh: center;
 }
 .card.hovercard .bottom {
     padding: 0 20px;
@@ -100,6 +101,7 @@
 
 .well {
 	height: 600px;
+	overflow: auto;
 }
 
 
@@ -108,6 +110,11 @@
 .thumbnail {
     position:relative;
     overflow:hidden;
+}
+
+.thumbnail img {
+	max-width: 100%;
+	height: auto;
 }
  
 .caption {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gclass.drone.bdat.dto.bdatDto;
 
+
 public interface bdatDao {
 	
 	public List<bdatDto> list(Integer bno) throws Exception;

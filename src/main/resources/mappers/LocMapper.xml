@@ -13,7 +13,7 @@
 </select>
 
 <!-- 시 군 구 -->
-<select id ="sigungu" resultType="MemDto">
+<select id ="sigungu" resultType="LocDto">
 	select locno,sigungu
 	from loc
 	where sido = #{sido}

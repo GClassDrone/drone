@@ -194,7 +194,7 @@ section {
        </div><br />
        
        <div class="row">
-            <div classs="col-xs-12">
+            <div class="col-xs-12">
                 <div class="hovereffect col-xs-6 col-md-3">
                     <img class="img-responsive" src="/resources/images/bonding.jpg" alt="bonding photo">
 		            <div class="overlay">
@@ -227,6 +227,8 @@ section {
 		               <a class="btn btn-warning" href="/board/sublist?bcateno=4">Go</a>
 		            </div>
                 </div>
+              </div>  
+           <div class="col-xs-12">    
                 <div class="clearfix"></div> <br />
                 <div class="hovereffect col-xs-6 col-md-3">
                     <img class="img-responsive media-object" src="/resources/images/secondmarket.jpg" alt="secondmarket photo">
@@ -260,7 +262,7 @@ section {
 		               <a class="btn btn-warning" href="/board/sublist?bcateno=8" disabled>Go</a>
 		            </div>
                 </div>
-       </div>
+         </div>
      </div>
  </div>
  <br />
