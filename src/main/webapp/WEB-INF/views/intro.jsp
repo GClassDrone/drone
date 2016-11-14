@@ -5,6 +5,12 @@
 <head>
 <jsp:include page="common/include.jsp"></jsp:include>
 <script type="text/javascript" src="/resources/js/intro/intro.js"></script>
+<style type="text/css">
+    .navbar-default {
+        width: 100%;
+        z-index: 9999; 
+}  
+</style>
 </head>
 <body>
 <jsp:include page="common/header.jsp"></jsp:include>
