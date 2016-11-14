@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-<<<<<<< HEAD:src/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
-Built-By: S501-01
-=======
-Built-By: S501-21
->>>>>>> e486bf0bb4383674608c588f5b2e6c573059c071:target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
-Build-Jdk: 1.8.0_91
-Created-By: Maven Integration for Eclipse
-

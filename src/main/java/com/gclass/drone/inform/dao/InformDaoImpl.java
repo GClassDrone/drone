@@ -7,9 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.gclass.drone.inform.dto.Criteria;
+import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.inform.dto.InformDto;
-import com.gclass.drone.inform.dto.InitSearchPages;
 
 @Repository
 public class InformDaoImpl implements InformDao {
@@ -37,12 +36,12 @@ public class InformDaoImpl implements InformDao {
 		session.delete(namespace + ".delete", dto);
 	}
 	@Override
-	public List<InformDto> listAll(InitSearchPages isp) throws Exception {
+	public List<InformDto> listAll(InitSearchPage isp) throws Exception {
 		return session.selectList(namespace+".listAll", isp);
 	}
 
 	@Override
-	public int totalRow(InitSearchPages isp) throws Exception {
+	public int totalRow(InitSearchPage isp) throws Exception {
 		return session.selectOne(namespace+".totalRow", isp);
 	}
 }

@@ -2,9 +2,8 @@ package com.gclass.drone.inform.dao;
 
 import java.util.List;
 
-import com.gclass.drone.inform.dto.Criteria;
+import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.inform.dto.InformDto;
-import com.gclass.drone.inform.dto.InitSearchPages;
 
 public interface InformDao {
 	
@@ -16,8 +15,8 @@ public interface InformDao {
 	
 	public void delete(InformDto dto)throws Exception;
 	
-	public List<InformDto> listAll(InitSearchPages isp)  throws Exception;
+	public List<InformDto> listAll(InitSearchPage isp)  throws Exception;
 	
-	public int totalRow(InitSearchPages isp) throws Exception;
+	public int totalRow(InitSearchPage isp) throws Exception;
 }
 

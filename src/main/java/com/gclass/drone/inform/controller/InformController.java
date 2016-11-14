@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.gclass.drone.inform.dto.Criteria;
-import com.gclass.drone.inform.dto.InitSearchPages;
-import com.gclass.drone.inform.dto.PageMakes;
-import com.gclass.drone.inform.dto.PageMaker;
+import com.gclass.drone.common.InitSearchPage;
+import com.gclass.drone.common.PageMake;
 import com.gclass.drone.inform.service.InformServiceImpl;
 
 @Controller
@@ -26,15 +24,20 @@ public class InformController {
 	private static final Logger logger = LoggerFactory.getLogger(InformController.class);
 	
 	@RequestMapping(value="/listNotice", method=RequestMethod.GET)
-	public void list(@ModelAttribute("isp") InitSearchPages isp, Model model) throws Exception{
+	public void list(@ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
 		logger.info("list ....");
 		logger.info("받은 후 : "+isp.toString());
 		model.addAttribute("list", service.listAll(isp));
-		PageMakes pm = new PageMakes();
+		PageMake pm = new PageMake();
 		pm.setInitPage(isp);
 		pm.setTotalCount(service.totalRow(isp));
 //		logger.info(pm.toString());
 		logger.info("처리후"+isp.toString());
 		model.addAttribute("pageMake", pm);
+	}
+	
+	@RequestMapping(value="/noticeDetail", method=RequestMethod.GET)
+	public void noticeDetail(){
+		
 	}
 }

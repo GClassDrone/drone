@@ -5,7 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
+ <script type="text/javascript">
+var result='${msg}';
+if(result=="success"){
+	alert("처리되었습니다.");	
+}
+
+$(document).ready(function(){
+	$("#searchBtn").on("click", function(event){
+		self.location = "listNotice"
+					  + "${pageMake.makeQuery(1)}"
+					  + "&searchType="
+					  + $("select option:selected").val()
+					  +"&keyWord=" + $("#keywordInput").val();
+	});
+	
+	$("#newBtn").on("click", function(event){
+		self.location = "register";
+	});
+});
+</script>
 <link rel="stylesheet" type="text/css" href="/resources/css/inform/inform.css"/>
 <jsp:include page="../common/include.jsp"></jsp:include>
 </head>
@@ -32,7 +51,7 @@
             <div class="col-md-12">
                     <h1 class="text-center"><strong>공지 사항</strong></h1>
             </div>
-            <div class="box-body">
+           <div class="box-body">
 					<select name="searchType">
 						<option value="" <c:out value="${isp.searchType == null?'selected':''}" /> >선택</option>
 						<option value="name" <c:out value="${isp.searchType eq 'name' ? 'selected':''}" /> >이름</option>					
@@ -58,28 +77,30 @@
 					<c:forEach items="${list}" var="InformDto">
 						<tr>
 							<td>${InformDto.ino }</td>
-							<td>${InformDto.ttl }</td>
+							<td><a href="noticeDetail${pageMake.makeSearch(pageMake.initPage.page)}&ino=${InformDto.ino} ">${InformDto.ttl }</td>
 							<td><strong>${InformDto.mgid }</strong></td>
 							<td><fmt:formatDate pattern="yyyy-mm-dd HH:mm" value="${InformDto.regdt }"/>
 							<td><span class="badge bg-red">${InformDto.readcnt }</span></td>
 						</tr>
 					</c:forEach>
 					</table>
- 					<ul class="pagination">
- 						<c:if test="${pageMakes.prev }">
-							<li><a href="listNotice${pageMake.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
- 						</c:if>
- 						
- 						<c:forEach begin="${pageMakes.startPage }" end="${pageMaker.endPage }" var="idx">
- 							<li
- 							 <c:out value="${pageMakes.cri.page == idx?'class =active':''}"/>>
- 							 <a href="listNotice${pageMakes.makeSearch(idx)}">${idx }</a>
- 							 </li>
- 						</c:forEach>
- 						<c:if test="${pageMakes.next && pageMakes.endPage > 0 }">
- 							<li><a href="listNotice${pageMakes.makeSearch(pageMaker.endPage + 1) }">&raquo;</a></li>
- 						</c:if>
- 					</ul>
+					<ul class="pagination">
+						<c:if test="${pageMake.first}">
+							<li><a href="listNotice${pageMake.makeSearch(1)}">&lt;&lt;</a></li> 
+						</c:if>
+						<c:if test="${pageMake.prev}">
+							<li><a href="listNotice${pageMake.makeSearch(pageMake.startPage-1)}">&lt;</a></li> 
+						</c:if>
+						<c:forEach begin="${pageMake.startPage}" end="${pageMake.endPage}" var="idx">
+							<li <c:out value="${pageMake.initPage.page == idx?'class=active':''}"/> ><a href="listNotice${pageMake.makeSearch(idx)}">${idx}</a></li>
+						</c:forEach>
+						<c:if test="${pageMake.next}">
+							<li><a href="listNotice${pageMake.makeSearch(pageMake.endPage+1)}">&gt;</a></li> 
+						</c:if>
+						<c:if test="${pageMake.last}">
+							<li><a href="listNotice${pageMake.makeSearch(pageMake.lastPage)}">&gt;&gt;</a></li> 
+						</c:if>						
+					</ul>
  					
  				</div>
      </div>

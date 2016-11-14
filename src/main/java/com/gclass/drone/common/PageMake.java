@@ -148,6 +148,4 @@ public class PageMake {
 				+ totalCount + ", block=" + block + ", prev=" + prev + ", next=" + next + ", first=" + first + ", last="
 				+ last + ", initPage=" + initPage + "]";
 	}
-	
-	
 }

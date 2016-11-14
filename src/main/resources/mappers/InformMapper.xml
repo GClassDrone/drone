@@ -8,7 +8,7 @@
                 
 		
  <select id="listAll" resultType="InformDto" parameterType="InitSearchPage">
-		      select * 
+	    select * 
         from (
          select rownum as rnum, a.* 
            from (
@@ -20,11 +20,15 @@
                       , regdt
                       , mgid
                  FROM inform 
-                WHERE igubun = 'g') a 
+                WHERE igubun = 'g'
+                <if test="searchType != '' and keyWord != null">
+                   where ${searchType} like '%'||#{keyWord}||'%'
+                </if>
+               ) a 
       <![CDATA[
-             where rownum <= 10
+             where rownum <= #{endRowNum}
             ) b
-       where rnum >= 1
+       where rnum >= #{startRowNum}
       ]]>
 	</select>
 	

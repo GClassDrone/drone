@@ -6,10 +6,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.gclass.drone.inform.dto.Criteria;
+import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.inform.dao.InformDao;
 import com.gclass.drone.inform.dto.InformDto;
-import com.gclass.drone.inform.dto.InitSearchPages;
 
 @Service
 public class InformServiceImpl implements InformSerivce {
@@ -38,12 +37,12 @@ public class InformServiceImpl implements InformSerivce {
 	}
 	
 	@Override
-	public List<InformDto> listAll(InitSearchPages isp) throws Exception {
+	public List<InformDto> listAll(InitSearchPage isp) throws Exception {
 		return dao.listAll(isp);
 	}
 
 	@Override
-	public int totalRow(InitSearchPages isp) throws Exception {
+	public int totalRow(InitSearchPage isp) throws Exception {
 		return dao.totalRow(isp);
 	}
 	
