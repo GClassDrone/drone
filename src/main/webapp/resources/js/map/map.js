@@ -28,92 +28,72 @@ $(function() {
 		videoCluster(map, markers); // 지도에 마커 크러스터 표시
 	}
 /* 클러스터 생성 함수 */
+	var slider;
 	function videoCluster(map, markers){
 		markerCluster = new MarkerClusterer(map, markers, {
 			imagePath : '/resources/images/map/m'
 		});
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
-			var str;
+			var str="";
 			$(cluster.getMarkers()).each(function(){
-				str += "<div class='slide'><img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'></div>";
+				str += "<div data-ctsno='"+this.ctsno+"' data-ctscateno='"+this.ctscateno+"' class='slide'><img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'></div>";
 			});
-			$(".slider").empty();
+			$(".sliver").empty();
 			$(".slider").html(str);
-			sliderMake();
+			makeSlider();
 		});
 // 마커 모달오픈 이벤트 등록
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
-				alert(this.ctscateno);
-				alert(this.ctsno);
 				var data = {ctscateno:this.ctscateno,ctsno:this.ctsno};
-				$.ajax({
-					url: "/map/videoDetail",
-					type: "POST",
-					data: JSON.stringify(data),
-					headers: {
-						"Content-Type" : "application/json",
-						"X-HTTP-Method-Override" : "POST"
-					},
-					dataType: "json",
-					success: function(result){
-						$(".modal-header > h2").text(result.ttl+"<small>&nbsp;"+result.regdt+"<a href='/mem/ProfileDetail?mno="+result.mno+"'>"+result.niknm+"</a></small>");
-						$(".modal-header > h2 > small").text("&nbsp;"+result.regdt);
-						$(".modal-header > h2 > small > a").attr("href","/mem/ProfileDetail?mno="+result.mno);
-						$(".modal-header > h2 > small > a").text(result.niknm);
-						$("#myModal").show();
-					}
-				});
+				openModal(data);
 			});
 		}
 	}
+	$(document).on("click","div[class='slide']",function(){
+		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno")};
+		openModal(data);
+	});
+	function openModal(data){
+		$.ajax({
+			url: "/map/videoDetail",
+			type: "POST",
+			data: JSON.stringify(data),
+			headers: {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST"
+			},
+			dataType: "json",
+			success: function(result){
+				modalOpen(result);
+			}
+		});
+	}
+	function makeSlider(){
+		if(slider != null){
+			slider.destroySlider();
+		}
+		slider = $('.slider').bxSlider({
+			slideWidth: 300,
+			minSlides: 4,
+			maxSlides: 4,
+			moveSlide: 4,
+			slideMargin: 10
+		});
+	}
+	function modalOpen(result){
+		var date = new Date(result.regdt);
+		var dateString = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+		$(".modal-header > h2").text(result.ttl);
+		$(".modal-header > h2").append("<small>&nbsp;"+dateString+"<a href='/mem/ProfileDetail?mno="+result.mno+"'>"+result.niknm+"</a></small>");
+		$("#modal-iframe").html("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/"+result.filelk+"?autoplay=0' allowfullscreen=''></iframe>");
+		$("#modalCtt").text(result.ctt);
+		$("#myModal").show();
+	}
 	$("span[class='close']").on("click",function(){
+		$("#modal-iframe").empty();
 		$("#myModal").hide();
 	});
-	function sliderMake(){
-		$('.slider').bxSlider({
-	        slideWidth: 300,
-	        minSlides: 4,
-	        maxSlides: 4,
-	        moveSlide: 4,
-	        slideMargin: 10
-	    });
-	}
-	function videoPage(){
-		var str = "";
-		startNum=(nowPage-1)*videoPageRow;
-		if(nowPage!=Math.ceil(data.length/videoPageRow)){
-			endNum=(videoPageRow*nowPage)-1;
-		}else if(nowPage==Math.ceil(data.length/videoPageRow)){
-			if(data.length%videoPageRow != 0){
-				endNum=startNum+data.length%videoPageRow-1;
-			}else{
-				endNum=nowPage*videoPageRow-data.length%videoPageRow-1;
-			}
-		}
-		if(nowPage>1){
-			str+="<div><input type='button' class='prevPage video' value='prev'></div>";
-		}
-		for(var i=startNum;i<=endNum;i++){
-			str += "<div class='col-xs-12 col-sm-6 col-md-3'>";
-			str += "<div class='video-btn embed-responsive embed-responsive-4by3' data-ctscateno='"+data[i].ctscateno+"' data-ctsno='"+data[i].ctsno+"'>";
-			str += "<img src='http://img.youtube.com/vi/"+data[i].filelk+"/0.jpg'>";
-			str += "<span class='fa fa-2x fa-fw fa-play-circle'></span>";
-			str += "</div>";
-			str += "<h3>"+data[i].ttl+"</h3>";
-			if(data[i].ctt.length > 50){
-				str += "<p>"+data[i].ctt.substring(0,50)+"...</p>";
-			}else{
-				str += "<p>"+data[i].ctt+"</p>";
-			}
-			str += "</div>";
-		}
-		if(nowPage<Math.ceil(data.length/videoPageRow)){
-			str += "<div><input type='button' class='nextPage video' value='next'></div>";
-		}
-		$("#list_wrap").empty();
-		$("#list_wrap").html(str);
-	}
 	$(document).on("click",".prevPage",function(){
 		nowPage=nowPage-1;
 		if($(this).hasClass("video")){

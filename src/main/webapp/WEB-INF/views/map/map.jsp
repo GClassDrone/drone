@@ -19,9 +19,6 @@
 	<div id="map">
 	</div><br />
  	<div class="slider">
-<!-- <div class="slider">
-	<div id="list_wrap"></div>
-	</div>  -->
 	<div class="container">
 	<div id="list_wrap"></div>
 	</div>
