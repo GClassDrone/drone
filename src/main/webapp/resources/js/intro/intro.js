@@ -1,30 +1,33 @@
 $(function(){
-	var videoData = new Array;
 	var pilotData = new Array;
-	var videoStartNum;
 	var pilotStartNum;
-	var videoEndnum;
 	var pilotEndNum;
-	var videoNowPage;
 	var pilotNowPage
-	var videoPageRow = 8;
-	var pilotPageRow = 12;
+	var pilotPageRow = 9;
 	function hotclipVideo(){
 		$.ajax({
 			url: "/map/hotclipVideo",
 			type: "POST",
 			dataType: "json",
 			success: function(result){
-				videoData = [];
+				var str = "";
 				$(result).each(function(){
-					videoData.push({ctscateno:this.ctscateno,ctsno:this.ctsno,filelk:this.filelk,ttl:this.ttl,ctt:this.ctt});
+					str += "<div class='slide'><img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'></div>";
 				});
-				videoNowPage=1;
-				videoStartNum=0;
-				videoEndNum=0;
-				videoPage();
+				$("#hotVideo").empty();
+				$("#hotVideo").html(str);
+				sliderMake();
 			}
 		});
+	}
+	function sliderMake(){
+		$('.slider').bxSlider({
+	        slideWidth: 300,
+	        minSlides: 4,
+	        maxSlides: 4,
+	        moveSlide: 4,
+	        slideMargin: 10
+	    });
 	}
 	function hotclipPilot(){
 		$.ajax({
@@ -42,41 +45,6 @@ $(function(){
 				pilotPage();
 			}
 		});
-	}
-	function videoPage(){
-		var str = "";
-		videoStartNum=(videoNowPage-1)*videoPageRow;
-		if(videoNowPage!=Math.ceil(videoData.length/videoPageRow)){
-			videoEndNum=(videoPageRow*videoNowPage)-1;
-		}else if(videoNowPage==Math.ceil(videoData.length/videoPageRow)){
-			if(videoData.length%videoPageRow != 0){
-				videoEndNum=videoStartNum+videoData.length%videoPageRow-1;
-			}else{
-				videoEndNum=videoNowPage*videoPageRow-videoData.length%videoPageRow-1;
-			}
-		}
-		if(videoNowPage>1){
-			str+="<div><input type='button' class='prevPage video' value='prev'></div>";
-		}
-		for(var i=videoStartNum;i<=videoEndNum;i++){
-			str += "<div class='col-xs-12 col-sm-6 col-md-3'>";
-			str += "<div class='video-btn embed-responsive embed-responsive-4by3' data-ctscateno='"+videoData[i].ctscateno+"' data-ctsno='"+videoData[i].ctsno+"'>";
-			str += "<img src='http://img.youtube.com/vi/"+videoData[i].filelk+"/0.jpg'>";
-			str += "<span class='fa fa-2x fa-fw fa-play-circle'></span>";
-			str += "</div>";
-			str += "<h3>"+videoData[i].ttl+"</h3>";
-			if(videoData[i].ctt.length > 50){
-				str += "<p>"+videoData[i].ctt.substring(0,50)+"...</p>";
-			}else{
-				str += "<p>"+videoData[i].ctt+"</p>";
-			}
-			str += "</div>";
-		}
-		if(videoNowPage<Math.ceil(videoData.length/videoPageRow)){
-			str += "<div><input type='button' class='nextPage video' value='next'></div>";
-		}
-		$("#hotclipVideo").empty();
-		$("#hotclipVideo").html(str);
 	}
 	function pilotPage(){
 		var str = "";

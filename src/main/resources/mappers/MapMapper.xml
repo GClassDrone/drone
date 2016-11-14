@@ -18,11 +18,13 @@
 	</select>
 	
 	<select id="ctsSelectOne" resultType="CtsDto">
-		select *
-		  from cts
-		 where ctscateno=#{ctscateno}
-		   and ctsno=#{ctsno}
-		   and delyn='n'
+		select c.*, m.*
+		  from cts c
+		  join mem m
+		    on c.mno = m.mno
+		 where c.ctscateno=#{ctscateno}
+		   and c.ctsno=#{ctsno}
+		   and c.delyn='n'
 	</select>
 	
 	<select id="memSelectAll" resultType="MemViewDto">
@@ -57,11 +59,6 @@
 				  FROM cts c
 				 WHERE delyn='n' 
 				   and ROWNUM < 5
-<!-- 				UNION ALL
-				SELECT  /*+ index_desc(c idx_cts_regdt_favcnt) */ 'fav' AS gubun, c.*
-				  FROM cts c
-				 WHERE delyn='n' 
-				   and ROWNUM < 5 -->
 				) A
 	]]>
 	</select>

@@ -30,3 +30,4 @@ a {
             </div>
         </div>
     </footer>
+<jsp:include page="../map/videoModal.jsp"></jsp:include>
