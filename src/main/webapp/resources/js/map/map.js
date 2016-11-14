@@ -81,9 +81,50 @@ $(function() {
 			imagePath : '/resources/images/map/m'
 		});
 // 특정 줌레벨 이후 2이상 마커 크러스터 클릭 이벤트
+/*		
+		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
+			var str = "";
+			var len = cluster.getMarkers().length;
+			$(cluster.getMarkers()).each(function(i){
+				str += "<div class='slide' data-ctscateno='"+this.ctscateno+"' data-ctsno='"+this.ctsno+"'>";
+				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
+				str += "<h3 class='text-center'>"+this.ttl+"</h3>";
+				if(this.ctt.length > 50){
+					str += "<p class='text-center'>"+this.ctt.substring(0,50)+"...</p>";
+				}else{
+					str += "<p class='text-center'>"+this.ctt+"</p>";
+				}
+				str += "</div>";
+			});
+			$("#list_wrap").empty();
+			$("#list_wrap").html(str);
+		}); */
+		
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
 			data=[];
 			$(cluster.getMarkers()).each(function(i){
+<<<<<<< HEAD
+				str += "<div class='col-xs-12 col-sm-6 col-md-3'>";
+				str += "<div class='video-btn embed-responsive embed-responsive-4by3' data-ctscateno='"+this.ctscateno+"' data-ctsno='"+this.ctsno+"'>";
+				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
+				str += "<span class='fa fa-2x fa-fw fa-play-circle'></span>";
+				str += "</div>";
+				str += "<h3 class='text-center'>"+this.ttl+"</h3>";
+				if(this.ctt.length > 50){
+					str += "<p class='text-center'>"+this.ctt.substring(0,50)+"...</p>";
+				}else{
+					str += "<p class='text-center'>"+this.ctt+"</p>";
+				}
+				str += "</div>";
+			});
+			$("#list_wrap").empty();
+			$("#list_wrap").html(str);
+		}); 
+// 맵 클릭이벤트
+//		google.maps.event.addListener(map, 'click', function(event) {
+//			googleapisView(event.latLng.lat(), event.latLng.lng());
+//		});
+=======
 				data.push({ctscateno:this.ctscateno,ctsno:this.ctsno,filelk:this.filelk,ttl:this.ttl,ctt:this.ctt});
 			});
 			nowPage=1;
@@ -91,6 +132,7 @@ $(function() {
 			endNum=0;
 			videoPage();
 		});
+>>>>>>> 6cce1ca9c6894f461ea8d86cb9bf09472ad5ee28
 // 마커 모달오픈 이벤트 등록
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {

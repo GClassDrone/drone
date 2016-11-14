@@ -82,9 +82,10 @@
     overflow: hidden;
     font-size: 12px;
     line-height: 20px;
-    color: white;
+    color: white; 
     height: auto;
     text-overflow: ellipsis;
+    text-aligh: center;
 }
 .card.hovercard .bottom {
     padding: 0 20px;
