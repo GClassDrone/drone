@@ -9,7 +9,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">×</span>
-                <h2>영상제목<small>&nbsp; 2016/10/28 12:42 by <a href="#">PaulYoung</a></small></h2>
+                <h2><small>&nbsp; 2016/10/28 12:42 by <a href="#">PaulYoung</a></small></h2>
             </div>
             <div class="modal-body">
                 <div class="container">

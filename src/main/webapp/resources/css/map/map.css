@@ -7,9 +7,7 @@
 	border: 7px solid #fbc02d; 
 	border-radius:20px;
 }
-
-#list_wrap{
-	width: 100%;
+.slider{
 	height: 150px;
 }
 .dropbtn {
@@ -58,7 +56,7 @@
     background-color: #ffab00;
 }
 
-img{
+.slide > img{
 	max-width: 100%;
 	height: auto;
 }

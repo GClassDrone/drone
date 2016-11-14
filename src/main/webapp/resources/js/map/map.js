@@ -1,132 +1,51 @@
 $(function() {
-// 맵 설정용 변수
+/* 맵 생성 */
 	var map;
 	var markers;
 	var markerCluster;
 	var m_center = {lat:36.2707833, lng:127.7498591};
-	var map_init={ // 맵 생성 초기값
-			zoom : 7,
-			maxZoom : 13,
-			minZoom : 7,
-			center : m_center
-		};
+	var map_init = { // 맵 생성 초기값
+		zoom : 7,
+		maxZoom : 13,
+		minZoom : 7,
+		center : m_center
+	};
 	function initMap() {// 맵  생성 함수
 		map = new google.maps.Map(document.getElementById('map'), map_init);
 		map.set("disableDoubleClickZoom", true); // 맵 더블클릭 이벤트 잠금
-
 		// 우측 상단 버튼
 		var searchMenuDiv = document.createElement('div');
 		searchMenuDiv.setAttribute('class','dropdown');
 		var searchMenu = new SearchMenu(searchMenuDiv, map);
 		searchMenuDiv.index = 1;
 		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchMenuDiv);
-		
 		// 지도에 표시된 마커 초기화
 		if(markerCluster != null){
 			markerCluster.clearMarkers();
 			markers=[];
 		}
-		
 		markers = videoList(); // 동영상 마커 생성
-
 		videoCluster(map, markers); // 지도에 마커 크러스터 표시
-		hotclipVideo();
 	}
-	function hotclipVideo(){
-		$.ajax({
-			url: "/map/hotclipVideo",
-			type: "POST",
-			dataType: "json",
-			success: function(result){
-				data = [];
-				$(result).each(function(){
-					data.push({ctscateno:this.ctscateno,ctsno:this.ctsno,filelk:this.filelk,ttl:this.ttl,ctt:this.ctt});
-				});
-				nowPage=1;
-				startNum=0;
-				endNum=0;
-				videoPage();
-			}
-		});
-	}
-	function hotclipPilot(){
-		$.ajax({
-			url: "/map/hotclipPilot",
-			type: "POST",
-			dataType: "json",
-			success: function(result){
-				data = [];
-				$(result).each(function(){
-					data.push({mno:this.mno,niknm:this.niknm,locnm:this.locnm,actnm:this.actnm,mdrnm:this.mdrnm});
-				});
-				nowPage=1;
-				startNum=0;
-				endNum=0;
-				pilotPage();
-			}
-		});
-	}
-// 동영상 리스튼
-//페이징용 변수
-	var data = new Array;
-	var startNum;
-	var endNum;
-	var nowPage;
-	var videoPageRow = 8;
-	var pilotPageRow = 12;
-	var p_cluster;
-//페이징용 변수
+/* 클러스터 생성 함수 */
 	function videoCluster(map, markers){
 		markerCluster = new MarkerClusterer(map, markers, {
 			imagePath : '/resources/images/map/m'
 		});
-// 특정 줌레벨 이후 2이상 마커 크러스터 클릭 이벤트
-/*		
-		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
-			var str = "";
-			var len = cluster.getMarkers().length;
-			$(cluster.getMarkers()).each(function(i){
-				str += "<div class='slide' data-ctscateno='"+this.ctscateno+"' data-ctsno='"+this.ctsno+"'>";
-				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
-				str += "<h3 class='text-center'>"+this.ttl+"</h3>";
-				if(this.ctt.length > 50){
-					str += "<p class='text-center'>"+this.ctt.substring(0,50)+"...</p>";
-				}else{
-					str += "<p class='text-center'>"+this.ctt+"</p>";
-				}
-				str += "</div>";
-			});
-			$("#list_wrap").empty();
-			$("#list_wrap").html(str);
-		}); */
-		
 		google.maps.event.addListener(markerCluster, 'clusterclick', function(cluster) {
 			var str;
-			data=[];
-			$(cluster.getMarkers()).each(function(i){
-				str += "<div class='col-xs-12 col-sm-6 col-md-3'>";
-				str += "<div class='video-btn embed-responsive embed-responsive-4by3' data-ctscateno='"+this.ctscateno+"' data-ctsno='"+this.ctsno+"'>";
-				str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
-				str += "<span class='fa fa-2x fa-fw fa-play-circle'></span>";
-				str += "</div>";
-				str += "<h3 class='text-center'>"+this.ttl+"</h3>";
-				if(this.ctt.length > 50){
-					str += "<p class='text-center'>"+this.ctt.substring(0,50)+"...</p>";
-				}else{
-					str += "<p class='text-center'>"+this.ctt+"</p>";
-				}
-				str += "</div>";
+			$(cluster.getMarkers()).each(function(){
+				str += "<div class='slide'><img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'></div>";
 			});
-			$("#list_wrap").empty();
-			$("#list_wrap").html(str);
-		}); 
-// 맵 클릭이벤트
-//		google.maps.event.addListener(map, 'click', function(event) {
-//			googleapisView(event.latLng.lat(), event.latLng.lng());
-//		});
+			$(".slider").empty();
+			$(".slider").html(str);
+			sliderMake();
+		});
 // 마커 모달오픈 이벤트 등록
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
+				alert(this.ctscateno);
+				alert(this.ctsno);
 				var data = {ctscateno:this.ctscateno,ctsno:this.ctsno};
 				$.ajax({
 					url: "/map/videoDetail",
@@ -138,22 +57,28 @@ $(function() {
 					},
 					dataType: "json",
 					success: function(result){
-						var str = "<video id='youtube1'><source src='' type='video/youtube'></video>";
-						$("#youtube-wrap").html(str);
-						$("#modal-ttl").text(result.ttl);
-						$("#youtube-wrap").find("source").attr("src","http://www.youtube.com/watch?v="+result.filelk);
-						$("#modal-ctt").text(result.ctt);
-						$("#modal-readcnt").text(result.readcnt);
-						$('#youtube1').mediaelementplayer();
+						$(".modal-header > h2").text(result.ttl+"<small>&nbsp;"+result.regdt+"<a href='/mem/ProfileDetail?mno="+result.mno+"'>"+result.niknm+"</a></small>");
+						$(".modal-header > h2 > small").text("&nbsp;"+result.regdt);
+						$(".modal-header > h2 > small > a").attr("href","/mem/ProfileDetail?mno="+result.mno);
+						$(".modal-header > h2 > small > a").text(result.niknm);
+						$("#myModal").show();
 					}
 				});
-				$("#myModal").show();
 			});
 		}
 	}
 	$("span[class='close']").on("click",function(){
 		$("#myModal").hide();
 	});
+	function sliderMake(){
+		$('.slider').bxSlider({
+	        slideWidth: 300,
+	        minSlides: 4,
+	        maxSlides: 4,
+	        moveSlide: 4,
+	        slideMargin: 10
+	    });
+	}
 	function videoPage(){
 		var str = "";
 		startNum=(nowPage-1)*videoPageRow;
