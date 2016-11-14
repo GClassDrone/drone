@@ -28,10 +28,6 @@
 		</div>
 	</form>
 </div>    
-    
-    
-<jsp:include page="include.jsp"></jsp:include>
-    
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
