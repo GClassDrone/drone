@@ -1,33 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div id ="dialog-login">
-	<form>
-	<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-		<!-- 구글 버튼 -->
-		<div align="center">
-			<div class="g-signin2" data-onsuccess="onSignIn" >
-			<img src="/resources/images/login/google-sign-in.png">
-			</div>
-		<br>
-		</div>
-		<!-- 카카오톡 -->
-		<div align="center">
-			<a id="kakao-login-btn"></a><br>
-			<br>
-		</div>
-		
-		<!-- 네이버 -->
-		<div align="center">
-			<a id="naver_id_login"></a>
-			<script src="/resources/js/login/naverLogin.js"></script><br>
-			<br>
-		</div>
-		<!-- 페이스북 -->
-		<div align="center">
-			<div class="fb-login-button" data-max-rows="10" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
-		</div>
-	</form>
-</div>    
+    
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
