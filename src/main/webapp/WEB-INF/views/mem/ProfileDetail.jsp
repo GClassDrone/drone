@@ -185,6 +185,7 @@ $(document).ready(function() {
 			            </div>
 			        </div>
 			        <div class="clearfix"></div>
+			        <a href="#" style="color:#616161"><i class="fa fa-3x fa-plus-square"></i></a>
 		        </div>
 		        
 		        <div class="tab-pane fade in" id="tab4">
