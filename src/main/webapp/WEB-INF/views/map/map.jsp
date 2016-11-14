@@ -11,7 +11,7 @@
 <script src="/resources/js/map/markerclusterer.js"></script>
 <script src="/resources/js/map/map.js"></script>
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
- <script src="/resources/js/map/jquery.bxslider.js"></script> 
+<script src="/resources/js/map/jquery.bxslider.js"></script> 
 <script type="text/javascript"> 
 $(document).ready(function() {
     $('.slider').bxSlider({
@@ -32,7 +32,7 @@ $(document).ready(function() {
 	<!-- <div><input type="button" id="latlngbtn" value="등록"></div> -->
 	<div id="map">
 	</div><br />
-<!-- 	<div class="slider">
+<!-- <div class="slider">
 	<div id="list_wrap"></div>
 	</div>  -->
 	<div class="container">

@@ -4,7 +4,7 @@
 	width: 100%;
 	height: 100%;
 	margin: auto;
-	border: 7px solid #5abb69; 
+	border: 7px solid #fbc02d; 
 	border-radius:20px;
 }
 
@@ -13,7 +13,7 @@
 	height: 150px;
 }
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: #fbc02d;
     color: white;
     padding: 16px;
     font-size: 16px;
