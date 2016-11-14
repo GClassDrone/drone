@@ -134,7 +134,6 @@
 	  </div>
 	</div>  
 </section>
-</div>
 
 <script id="template" type="text/x-handlebars-template">
 {{#each.}}

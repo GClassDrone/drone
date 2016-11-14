@@ -12,7 +12,8 @@
 }
 .dropbtn {
     background-color: #fbc02d;
-    color: white;
+    font-weight: bold;
+    color: #004d40;
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -52,7 +53,7 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: #ffab00;
 }
 
 .slide > img{

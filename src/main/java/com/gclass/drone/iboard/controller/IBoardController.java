@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gclass.drone.iboard.dao.IBoardDao;
@@ -42,10 +43,10 @@ public class IBoardController {
 	}
 	
 	@RequestMapping(value="/itlist", method=RequestMethod.GET)
-	public void itlist(){
+	public void itlist(@RequestParam("subjno") int subjno, Model model) throws Exception{
 		
+		model.addAttribute("list", service.listAll(subjno));
 	}
-	
 	@RequestMapping("/itdetail")
 	public void itdetail(){
 		

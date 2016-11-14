@@ -36,8 +36,8 @@ public class IBoardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public List<IBoardDto> listAll() throws Exception {
-		return listAll();
+	public List<IBoardDto> listAll(Integer subjno) throws Exception {
+		return dao.listAll(subjno);
 	}
 
 

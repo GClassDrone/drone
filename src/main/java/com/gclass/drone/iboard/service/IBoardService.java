@@ -14,6 +14,6 @@ public interface IBoardService {
 
 	public void remove(Integer bno) throws Exception;
 
-	public List<IBoardDto> listAll() throws Exception;
+	public List<IBoardDto> listAll(Integer subjno) throws Exception;
 
 }
