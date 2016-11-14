@@ -14,13 +14,17 @@
 	<select id="ctsSelectAll" resultType="CtsDto">
 		select *
 		  from cts
+		 where delyn='n'
 	</select>
 	
 	<select id="ctsSelectOne" resultType="CtsDto">
-		select *
-		  from cts
-		 where ctscateno=#{ctscateno}
-		   and ctsno=#{ctsno}
+		select c.*, m.*
+		  from cts c
+		  join mem m
+		    on c.mno = m.mno
+		 where c.ctscateno=#{ctscateno}
+		   and c.ctsno=#{ctsno}
+		   and c.delyn='n'
 	</select>
 	
 	<select id="memSelectAll" resultType="MemViewDto">
@@ -33,5 +37,96 @@
 		   set readcnt = readcnt + 1
 		 where ctscateno=#{ctscateno}
 		   and ctsno=#{ctsno}
+	</update>
+	
+	<update id="ctsUpdateJoa">
+		update cts
+		   set joacnt = joant + 1
+		 where ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</update>
+	
+	<select id="hotclipVideo" resultType="CtsDto">
+	<![CDATA[
+		SELECT *
+		  FROM (
+				SELECT  /*+ index_desc(c idx_cts_regdt_joacnt) */ 'joa' AS gubun, c.*
+				  FROM cts c
+				 WHERE delyn='n' 
+				   and ROWNUM < 5
+				UNION ALL 
+				SELECT  /*+ index_desc(c idx_cts_regdt_readcnt) */ 'read' AS gubun, c.*
+				  FROM cts c
+				 WHERE delyn='n' 
+				   and ROWNUM < 5
+				) A
+	]]>
+	</select>
+	<select id="hotclipPilot" resultType="MemViewDto">
+	<![CDATA[
+	select *
+	  from (
+			SELECT *
+			  FROM (
+					SELECT /*+ index_desc(mem idx_mem_levpoint) */ * 
+					  FROM mem
+					 WHERE ROWNUM < 51
+					) A
+			 ORDER BY dbms_random.VALUE) v
+	 where rownum < 10
+	]]>
+	</select>
+	
+	<select id="ctscateSelectAll" resultType="CtscateDto">
+		select *
+		  from ctscate
+		 where delyn = 'n'
+		 order by ctscateno
+	</select>
+	
+	<insert id="ctsInsert">
+		insert into cts(
+						ctscateno
+					  , ctsno
+					  , ttl
+					  , ctt
+					  , filelk
+					  , pt
+					  , lat
+					  , lng
+					  , makedt
+					  , mno
+						)
+				values(
+						#{ctscateno}
+					  , cts_next(#{ctscateno})
+					  , #{ttl}
+					  , #{ctt}
+					  , #{filelk}
+					  , #{pt}
+					  , #{lat}
+					  , #{lng}
+					  , #{makedt}
+					  , #{mno}
+						)
+	</insert>
+	<update id="ctsUpdate">
+		update cts
+		   set ttl = #{ttl}
+		     , ctt = #{ctt}
+		     , filelk = #{filelk}
+		     , pt = #{pt}
+		     , lat = #{lat}
+		     , lng = #{lng}
+		     , makedt = #{makedt}
+		 where mno = #{mno}
+		 	 , ctscateno = #{ctscateno}
+		 	 , ctsno = #{ctsno}
+	</update>
+	<update id="ctsDelete">
+		update cts
+		   set delyn = 'y'
+		 where ctsno = #{ctsno}
+		   and ctscateno = #{ctscateno}
 	</update>
 </mapper>

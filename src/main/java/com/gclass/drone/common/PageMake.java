@@ -1,4 +1,4 @@
-package com.gclass.drone.board.dto;
+package com.gclass.drone.common;
 
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;

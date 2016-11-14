@@ -1,4 +1,4 @@
-package com.gclass.drone.board.dto;
+package com.gclass.drone.common;
 
 public class InitPage {
 	private int page;

@@ -15,9 +15,11 @@ public class CtsDto {
 	private int joacnt;
 	private int readcnt;
 	private int favcnt;
-	private Timestamp makedt;
+	private String makedt;
 	private int mno;
-	private char delyn;
+	private String delyn;
+	private String niknm;
+	
 	public int getCtscateno() {
 		return ctscateno;
 	}
@@ -90,10 +92,10 @@ public class CtsDto {
 	public void setFavcnt(int favcnt) {
 		this.favcnt = favcnt;
 	}
-	public Timestamp getMakedt() {
+	public String getMakedt() {
 		return makedt;
 	}
-	public void setMakedt(Timestamp makedt) {
+	public void setMakedt(String makedt) {
 		this.makedt = makedt;
 	}
 	public int getMno() {
@@ -102,17 +104,23 @@ public class CtsDto {
 	public void setMno(int mno) {
 		this.mno = mno;
 	}
-	public char getDelyn() {
+	public String getDelyn() {
 		return delyn;
 	}
-	public void setDelyn(char delyn) {
+	public void setDelyn(String delyn) {
 		this.delyn = delyn;
+	}
+	public String getNiknm() {
+		return niknm;
+	}
+	public void setNiknm(String niknm) {
+		this.niknm = niknm;
 	}
 	@Override
 	public String toString() {
 		return "CtsDto [ctscateno=" + ctscateno + ", ctsno=" + ctsno + ", ttl=" + ttl + ", ctt=" + ctt + ", regdt="
 				+ regdt + ", filelk=" + filelk + ", pt=" + pt + ", lat=" + lat + ", lng=" + lng + ", joacnt=" + joacnt
 				+ ", readcnt=" + readcnt + ", favcnt=" + favcnt + ", makedt=" + makedt + ", mno=" + mno + ", delyn="
-				+ delyn + "]";
+				+ delyn + ", niknm=" + niknm + "]";
 	}
 }

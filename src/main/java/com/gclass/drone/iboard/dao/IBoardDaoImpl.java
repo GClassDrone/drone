@@ -1,12 +1,15 @@
 package com.gclass.drone.iboard.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.iboard.dto.IBoardDto;
 
 
@@ -29,8 +32,13 @@ public class IBoardDaoImpl implements IBoardDao{
 	}
 
 	@Override
-	public IBoardDto read(Integer mno) throws Exception {
-		return session.selectOne(namespace + ".read", mno);
+	public IBoardDto read(Integer bno, Integer subjno) throws Exception {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("bno", bno);
+		map.put("subjno", subjno);
+		
+		return session.selectOne(namespace + ".read", map);
 	}
 
 	@Override
@@ -39,7 +47,22 @@ public class IBoardDaoImpl implements IBoardDao{
 	}
 
 	@Override
-	public List<IBoardDto> listAll() throws Exception {
-		return session.selectList(namespace+".listAll");
+	public List<IBoardDto> listAll(Integer subjno, InitSearchPage isp) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("subjno", subjno);
+		map.put("isp", isp);
+		
+		return session.selectList(namespace+".iboardlistAll", map);
+	}
+	
+	@Override
+	public int totalRow(Integer subjno, InitSearchPage isp) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("subjno", subjno);
+		map.put("isp", isp);
+		
+		return session.selectOne(namespace+".totalRow", map);
 	}
 }

@@ -1,4 +1,4 @@
-package com.gclass.drone.board.dto;
+package com.gclass.drone.common;
 
 public class InitSearchPage extends InitPage {
 	private String searchType;
@@ -33,5 +33,7 @@ public class InitSearchPage extends InitPage {
 		return "InitSearchPage [searchType=" + searchType + " keyWord=" + keyWord + " toString()=" + super.toString() + ", getClass()="
 				+ getClass() + ", hashCode()=" + hashCode() + "]";
 	}
+	
+	
 	
 }

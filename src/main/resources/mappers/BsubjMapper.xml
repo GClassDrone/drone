@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gclass.drone.mapper.BsubjMapper">
+
+	<insert id="insert">
+		insert into bsubj (bcateno, subjno, subjttl, subjctt, mno)
+		values(#{bcateno}, bsubj_next, #{subjttl}, #{subjctt}, #{mno})
+	</insert>
+	
+ 	<update id="update">
+		update bsubj set
+			     subjttl = #{subjttl}
+			     subjctt = #{subjctt}
+			   , delyn = #{delyn}
+		 where subjno= #{subjno}
+	</update>
+	
+	<delete id="delete">
+		delete *
+		  from bsubj
+		 where subjno= #{subjno}
+	</delete>
+
+	<select id="sublistAll" resultType="BsubjDto">
+		select * 
+		  from bsubj
+		 where bcateno = #{bcateno}
+	  order by memcnt desc
+	</select>
+
+</mapper>  

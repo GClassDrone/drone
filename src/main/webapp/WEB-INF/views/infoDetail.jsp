@@ -77,19 +77,19 @@
                     <div id="reply" class="well text-info">
                         <h2>Reply<small>&nbsp; 2시간전 by <a href="#">matthewkim</a></small></h2>
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                        <form role="form">
+                      <!--   <form role="form">
                             <div class="form-group">
                                 <label class="control-label" for="inputComments">Leave a comment</label>
                                 <input class="form-control" id="inputComments" placeholder="Enter comment" type="text">
                             </div>
                             <button type="submit" class="btn btn-info btn-sm" data-toggle="button">답글달기</button>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
             </div>
             <div class="row">
             	<div class="col-md-1 center">
-            	<i class="material-icons" style="font-size: 48px; color: #8BC34A">tag_faces</i></a>
+            	<i class="material-icons text-right" style="padding-top: 15px; padding-left: 10px; font-size: 36px; color: #8BC34A">tag_faces</i></a>
             	<h5 class="media-heading"><span>matthewkim</span></h5>
             	</div>
                 <div class="col-md-11">
