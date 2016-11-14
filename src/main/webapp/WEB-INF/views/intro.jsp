@@ -4,22 +4,14 @@
 
 <html>
 <head>
-<<<<<<< HEAD
 <jsp:include page="common/include.jsp"></jsp:include>
 <script type="text/javascript" src="/resources/js/intro/intro.js"></script>
-=======
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
     .navbar-default {
         width: 100%;
         z-index: 9999; 
 }  
 </style>
-
-<jsp:include page="common/include.jsp"></jsp:include> 
-<%-- <jsp:include page="common/include.jsp"></jsp:include> --%>
->>>>>>> e4438675f7c56abf58d3628ada3b3a44eb39ee73
 </head>
 
 <body>
