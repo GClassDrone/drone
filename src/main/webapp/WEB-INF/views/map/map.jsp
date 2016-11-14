@@ -18,7 +18,7 @@
 	<!-- <div><input type="button" id="latlngbtn" value="등록"></div> -->
 	<div id="map">
 	</div><br />
- 	<div class="slider">
+ 	<div id="list-wrap" class="slider">
 	</div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
