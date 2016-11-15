@@ -24,6 +24,7 @@ public class MemViewDto {
 	private char ppose;
 	private String sido;
 	private String sigungu;
+	private String locnm;
 	private double lat;
 	private double lng;
 	
@@ -166,13 +167,19 @@ public class MemViewDto {
 		this.lng = lng;
 	}
 	
+	public String getLocnm() {
+		return locnm;
+	}
+	public void setLocnm(String locnm) {
+		this.locnm = locnm;
+	}
 	@Override
 	public String toString() {
 		return "MemViewDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", siteid=" + siteid + ", email="
 				+ email + ", pic=" + pic + ", license=" + license + ", msgrcyn=" + msgrcyn + ", prmsg=" + prmsg
 				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt
 				+ ", readcnt=" + readcnt + ", indt=" + indt + ", levno=" + levno + ", levpoint=" + levpoint + ", locno="
-				+ locno + ", ppose=" + ppose + ", sido=" + sido + ", sigungu=" + sigungu + ", lat=" + lat + ", lng="
-				+ lng + "]";
+				+ locno + ", ppose=" + ppose + ", sido=" + sido + ", sigungu=" + sigungu + ", locnm=" + locnm + ", lat="
+				+ lat + ", lng=" + lng + "]";
 	}
 }

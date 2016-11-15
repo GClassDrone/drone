@@ -73,7 +73,6 @@
         </div>
         <div class="container">
             <br />
-            <jsp:include page="common/pilotList.jsp"></jsp:include>
         </div>
         <p class="more">
             <button type="button" class="btn btn-default btn-sm center">

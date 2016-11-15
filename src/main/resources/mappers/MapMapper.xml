@@ -69,7 +69,7 @@
 			SELECT *
 			  FROM (
 					SELECT /*+ index_desc(mem idx_mem_levpoint) */ * 
-					  FROM vw_mem
+					  FROM vw_mem_levpoint
 					 WHERE ROWNUM < 51
 					) A
 			 ORDER BY dbms_random.VALUE) v
