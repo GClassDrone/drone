@@ -10,24 +10,17 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
+$(document).ready(function(){
 var result='${msg}';
 if(result=="success"){
 	alert("처리되었습니다.");	
 }
-
-$(document).ready(function(){
-	$("#searchBtn").on("click", function(event){
-		self.location = "itlist"
-					  + "${pageMake.makeQuery(1)}"
-					  + "&searchType="
-					  + $("select option:selected").val()
-					  +"&keyWord=" + $("#keywordInput").val();
-	});
 	
 	$("#newBtn").on("click", function(event){
-		self.location = "register";
+		$(location).attr("href","/instanceboard/itregi");
 	});
 });
+
 </script>
 
 </head>
@@ -61,14 +54,6 @@ $(document).ready(function(){
 		</div>
 		
 <div class="box-body" style="color: black;">
-	<select name="searchType">
-		<option value="" <c:out value="${isp.searchType == null?'selected':''}" /> >선택</option>
-		<option value="name" <c:out value="${isp.searchType eq 'name' ? 'selected':''}" /> >이름</option>					
-		<option value="title" <c:out value="${isp.searchType eq 'title' ? 'selected':''}" /> >제목</option>
-		<option value="content" <c:out value="${isp.searchType eq 'content' ? 'selected':''}" /> >내용</option>
-	</select>
-	<input type="text" name="keyWord" id="keywordInput" value="${isp.keyWord}" />
-	<button id="searchBtn">검색</button>
 	<button id="newBtn">글작성</button>
 </div>		
 		
@@ -81,15 +66,15 @@ $(document).ready(function(){
 					<th style="width: 200px;">등록일</th>
 					<th style="width: 200px;">조회수</th>
 				</tr>
-			<c:forEach items="${list}" var="board">
+			<c:forEach items="${list}" var="BoardDto">
 					<tr>
-						<td>${board.bno}</td>
-						<td><a href="itdetail?subjno=${board.subjno}&bno=${board.bno}">${board.ttl}</a></td>
-						<td>${board.mno}</td>
-						<td>${board.regdt}</td>
-						<td>${board.readcnt}</td>
+						<td>${BoardDto.bno}</td>
+						<td><a href="itdetail?subjno=${BoardDto.subjno}&bno=${BoardDto.bno}">${BoardDto.ttl}</a></td>
+						<td>${BoardDto.mno}</td>
+						<td>${BoardDto.regdt}</td>
+						<td>${BoardDto.readcnt}</td>
 					</tr>
-					</c:forEach>
+			</c:forEach>
 			</table>
 		</div>
 		<div class="text-center">
@@ -110,7 +95,7 @@ $(document).ready(function(){
 							<li><a href="itlist${pageMake.makeSearch(pageMake.lastPage)}">&gt;</a></li> 
 						</c:if>						
 					</ul>
-				</div>
+		</div>
 	</div>
 	<%@ include file="../common/footer.jsp"%>
 </body>

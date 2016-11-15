@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../common/include.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,16 +24,15 @@
 <script type="text/javascript">
 
 function getAllList(){
-	var bno = 123239;
 	
-	$.getJSON("/boarddat/all/"+bno, function(data){
+	$.getJSON("/bdat/all/"+bno, function(data){
 		
 		var str ="";
 		console.log(data.length);
 		
 		$(data).each(function(){
-			str += "<li data-bdatno='"this.bdatno+"' class='replyLi'>"
-					+ this.bdatno+":"_this.ctt
+			str += "<li data-bdatno='"+this.bdatno+"' class='replyLi'>"
+					+ this.bdatno+":"+ this.ctt
 					+ "<button>설정</button></li>";
 		});
 		$("#bdat").html(str);
@@ -47,7 +46,7 @@ $("#replyAddBtn").on("click", function(){
 	
 	$.ajax({
 		type : 'post',
-		url : '/boarddat',
+		url : '/bdat',
 		headers : {
 			"Content-Type" : "application/json",
 			"X-HTTp-Method-Override" :"POST"
@@ -84,7 +83,7 @@ $("#replyDelBtn").on("click", function(){
 	
 	$.ajax({
 		type :'delete',
-		url : '/boarddat' + bdatno,
+		url : '/'+$("#bno").val()+'/'+$("#subjno").val(),
 		headers : {
 			"Content-Type" : "application/json",
 			"X-HTTP-Method-Override" : "DELETE"
@@ -107,7 +106,7 @@ $("#replyModBtn").on("click", function(){
 	
 	$.ajax({
 		type :'put',
-		url : '/boarddat' + bdatno,
+		url : '/bdat' + bdatno ,
 		headers : {
 			"Content-Type" : "application/json",
 			"X-HTTP-Method-Override" : "PUT"
@@ -127,7 +126,7 @@ $("#replyModBtn").on("click", function(){
 
 </head>
 <body>
-	<h2>ajax Test Page</h2>
+	<h2>댓글 리스트</h2>
 	
 	<div>
 		<div>

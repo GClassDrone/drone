@@ -35,9 +35,9 @@
                             <!--                        <button type="button" class="btn btn-default btn-sm center"><span style="font-size: 16px">Share</span>
                             <span class="fa fa-2x fa-fw umbs-o-up -square -plus-square -square -o fa-share-square-o"></span></button> -->
                             <button type="button" class="btn btn-warning btn-sm center" style="width:50px; height:38px">
-                                <img src="/resources/images/kakaostory.png"></button>
+                                <img src="/resources/images/kakaostory.png" style="width:100%; height:auto"></button>
                             <button type="button" class="btn btn-warning btn-sm center" style="width:50px; height:38px">
-                                <img src="/resources/images/band2.png"></button>
+                                <img src="/resources/images/band2.png" style="width:100%; height:auto"></button>
                         </div>
                         <p id="modalCtt" style="color:#4e342e"></p>
                     </div>

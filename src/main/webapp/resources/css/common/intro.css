@@ -6201,7 +6201,11 @@ button.close {
   position: absolute;
   bottom: 10px;
   left: 50%;
-  z-index: 15;
+<<<<<<< HEAD
+  z-index: 1;
+=======
+  z-index: 2;
+>>>>>>> fa453b51f08fa790acd73d2a3dafc277de38844d
   width: 60%;
   margin-left: -30%;
   padding-left: 0;

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.gclass.drone.bdat.dao.bdatDao;
 import com.gclass.drone.bdat.dto.bdatDto;
-import com.gclass.drone.iboard.dao.IBoardDao;
 
 
 @Service
@@ -18,38 +17,36 @@ public class bdatServiceImpl implements bdatService {
 	@Inject
 	private bdatDao bdatdao;
 	
-	@Inject
-	private IBoardDao iboardDao;
-	
 	@Transactional
 	@Override
-	public void addbdat(bdatDto dto) throws Exception {
+	public void addbdat(Integer subjno, Integer bno, Integer bdatno) throws Exception {
 
-		bdatdao.create(dto);
+		bdatdao.create(subjno, bno, bdatno);
 	}
 
 	
 	@Override
-	public List<bdatDto> listbdat(Integer bno) throws Exception {
+	public List<bdatDto> listbdat(Integer subjno, Integer bno) throws Exception {
+	
+		return bdatdao.list(subjno, bno);
+	}
+
+	@Override
+	public void modifybdat(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+
+		bdatdao.update(subjno, bno, bdatno);
+	}
+	
+	@Transactional
+	@Override
+	public void removebdat(Integer subjno, Integer bno, Integer bdatno) throws Exception {
 		
-		return bdatdao.list(bno);
+		bdatdao.delete(subjno, bno, bdatno);
 	}
 
 	@Override
-	public void modifybdat(bdatDto dto) throws Exception {
-
-		bdatdao.update(dto);
-	}
-	
-	@Transactional
-	@Override
-	public void removebdat(Integer bdatno) throws Exception {
-
-	}
-
-	@Override
-	public int count(Integer bno) throws Exception {
-		return bdatdao.count(bno);
+	public int count(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+		return bdatdao.count(subjno, bno, bdatno);
 	}
 
 }

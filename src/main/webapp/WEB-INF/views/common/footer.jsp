@@ -12,7 +12,7 @@ a {
                 <div class="col-sm-6">
                     <a href="/teamMember"><h1>GClass</h1></a>
                     <p>Copyright ⓒ &nbsp;2016 by GClass, All rights reserved. Contact Us
-                        <br>XSharing.lab@gmail.com.</p>
+                        <br>XSharing.lab@gmail.com</p>
                 </div>
                 <div class="col-sm-6">
                     <p class="text-info text-right">

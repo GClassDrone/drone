@@ -117,7 +117,7 @@ $(function() {
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
 				var data = {ctscateno:this.ctscateno,ctsno:this.ctsno};
-				openModal(data);
+				ctsDetailAjax(data);
 			});
 		}
 	}
@@ -129,18 +129,23 @@ $(function() {
 		$(".modal-header > h2").append("<small>&nbsp;"+dateString+"<a href='/mem/ProfileDetail?mno="+result.mno+"'>"+result.niknm+"</a></small>");
 		$("#modal-iframe").html("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/"+result.filelk+"?autoplay=0' allowfullscreen=''></iframe>");
 		$("#modalCtt").text(result.ctt);
+		$("body").css("overflow-y","hidden");
 		$("#myModal").show();
 	}
 	
 /* 모달 닫기 버튼 */
 	$("span[class='close']").on("click",function(){
 		$("#modal-iframe").empty();
+		$("body").css("overflow-y","auto");
 		$("#myModal").hide();
 	});
 	
 /* 슬라이더 썸네일 클릭이벤트 */
 	$(document).on("click","div[class='slide']",function(){
 		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno")};
+		ctsDetailAjax(data);
+	});
+	function ctsDetailAjax(data){
 		$.ajax({
 			url: "/map/videoDetail",
 			type: "POST",
@@ -154,8 +159,7 @@ $(function() {
 				modalOpen(result);
 			}
 		});
-	});
-	
+	}
 /* 슬라이더 초기화 및 생성 함수 */
 	var slider;
 	function makeSlider(){

@@ -42,12 +42,14 @@ $(function(){
 				$(".modal-header > h2").append("<small>&nbsp;"+dateString+"<a href='/mem/ProfileDetail?mno="+result.mno+"'>"+result.niknm+"</a></small>");
 				$("#modal-iframe").html("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/"+result.filelk+"?autoplay=0' allowfullscreen=''></iframe>");
 				$("#modalCtt").text(result.ctt);
+				$("body").css("overflowY","hidden");
 				$("#myModal").show();
 			}
 		});
 	});
 	$("span[class='close']").on("click",function(){
 		$("#modal-iframe").empty();
+		$("body").css("overflowY","auto");
 		$("#myModal").hide();
 	});
 	function hotclipPilot(){

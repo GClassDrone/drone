@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../common/include.jsp" %>
 <!DOCTYPE html>
-
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<jsp:include page="../common/include.jsp"/>
     <style type="text/css">
     .navbar-default {
         width: 100%;
@@ -45,15 +41,39 @@
         height: 600px
     }
     </style>
+    
+<script type="text/javascript">
+$(function(){
+	var formObj = $("form[role='form']");
+	alert(formObj.length);
+	$("#modifyBtn").on("click", function(){
+		formObj.attr("action", "/instanceboard/itupdate");
+		formObj.attr("method", "get");
+		formObj.submit();
+	});
+	
+	$("#removeBtn").on("click", function(){
+		formObj.attr("action", "/instanceboard/remove");
+		formObj.submit();
+	});		
+	
+	$("#goListBtn").on("click", function(){
+		formObj.attr("method", "get");
+		formObj.attr("action", "/instanceboard/itlist");
+		formObj.submit();
+	});
+});
+</script>
 </head>
 
 <body>
+<jsp:include page="../common/header.jsp"></jsp:include>
 <form role="form" method="post">
-	<input type='hidden' name='bno' value="${BoardDto.bno}">
-	<input type='hidden' name='subjno' value="${BoardDto.subjno}">
+	<input type='hidden' id='bno' name='bno' value="${BoardDto.bno}">
+	<input type='hidden' id='subjno' name='subjno' value="${BoardDto.subjno}">
 </form>
 
-    <jsp:include page="../common/header.jsp"></jsp:include>
+
     <div class="section">
         <div class="container">
             <br />
@@ -78,8 +98,15 @@
 	            </div>
        		</div>
         </div>
-    </div>
-    <div class="container">
+  	 </div>
+   
+   
+	<div class="box-footer">
+		   <button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
+		   <button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
+		   <button type="submit" class="btn btn-primary" id="goListBtn">GO LIST </button>
+	</div>
+   	<div class="container">
         <div class="row pull-right">
             <button type="button" class="btn btn-warning btn-sm center">
                 <span class="fa fa-3x fa-fw umbs-o-up fa-facebook-square"></span></button>
@@ -92,6 +119,10 @@
             <button type="button" class="btn btn-warning btn-sm center">
                 <img src="/resources/images/band2.png"></button>
         </div>
+    </div>
+    
+    <div class="bdat">
+    	<jsp:include page="../bdat/bdat.jsp"></jsp:include>
     </div>
 </body>
 

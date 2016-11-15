@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gclass.drone.mapper.CateMapper">
+	<select id="ctsCateList" resultType="CateDto">
+		SELECT *
+		  FROM (
+				SELECT ROWNUM AS rnum
+		        	 , a.*
+		          FROM (
+		        		SELECT /*+ index_desc(cts idx_cts_regdt) */ filelk
+		                	 , ttl
+		                     , ctt
+		                     , ctsno
+		                     , ctscateno
+		                     , regdt
+		                  FROM CTS
+		                 <include refid="Category"></include>
+		                ) a
+		        <![CDATA[
+		         WHERE ROWNUM <= #{endRowNum}
+		        ) b
+		 WHERE rnum >= #{startRowNum}
+		        ]]>
+		 <include refid="Category"></include>
+	</select>
+	<sql id="Category">
+		<if test="cateArray.length() != 7">
+			<if test="cateArray.length() == 1">
+				<![CDATA[
+				where ctscateno in(#{cataArray[0]})
+				]]>
+			</if>
+			<if test="cateArray.length() == 2">
+				<![CDATA[
+				where ctscateno in(#{cataArray[0]}, #{cataArray[1]})
+				]]>
+			</if>
+			<if test="cateArray.length() == 3">
+				<![CDATA[
+				where ctscateno in(#{cataArray[0]}, #{cataArray[1]}, #{cataArray[2]})
+				]]>
+			</if>
+			<if test="cateArray.length() == 4">
+				<![CDATA[
+				where ctscateno in(#{cataArray[0]}, #{cataArray[1]}, #{cataArray[2]}, #{cataArray[3]})
+				]]>
+			</if>
+			<if test="cateArray.length() == 5">
+				<![CDATA[
+				where ctscateno in(#{cataArray[0]}, #{cataArray[1]}, #{cataArray[2]}, #{cataArray[3]}, #{cataArray[4]})
+				]]>
+			</if>
+			<if test="cateArray.length() == 6">
+				<![CDATA[
+				where ctscateno in(#{cataArray[0]}, #{cataArray[1]}, #{cataArray[2]}, #{cataArray[3]}, #{cataArray[5]}, #{cataArray[5]})
+				]]>
+			</if>
+		</if>
+	</sql>
+</mapper>

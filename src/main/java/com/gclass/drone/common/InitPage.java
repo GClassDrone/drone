@@ -8,7 +8,7 @@ public class InitPage {
 	
 
 	public InitPage() {
-		this(1,5);
+		this(1,8);
 	}
 
 	public InitPage(int page, int perPageNum) {

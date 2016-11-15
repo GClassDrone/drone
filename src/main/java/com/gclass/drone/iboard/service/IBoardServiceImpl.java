@@ -33,8 +33,8 @@ public class IBoardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public void remove(Integer bno) throws Exception {
-		dao.delete(bno);
+	public void remove(Integer bno, Integer subjno) throws Exception {
+		dao.delete(bno, subjno);
 	}
 
 	@Override

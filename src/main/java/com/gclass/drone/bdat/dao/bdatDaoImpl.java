@@ -1,6 +1,8 @@
 package com.gclass.drone.bdat.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -18,28 +20,60 @@ public class bdatDaoImpl implements bdatDao {
 	private static String namespace = "com.gclass.drone.mapper.BDatMapper";
 	
 	@Override
-	public List<bdatDto> list(Integer bdatno) throws Exception {
-		return session.selectList(namespace + ".list", bdatno);
+	public List<bdatDto> list(Integer subjno, Integer bno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("subjno", subjno);
+		paramMap.put("bno", bno);
+		
+		return session.selectList(namespace + ".list", paramMap);
 	}
 
 	@Override
-	public void create(bdatDto dto) throws Exception {
-		session.insert(namespace + ".create", dto);
+	public void create(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("subjno", subjno);
+		paramMap.put("bno", bno);
+		paramMap.put("bdatno", bdatno);
+		
+		session.insert(namespace + ".create", paramMap);
 	}
 
 	@Override
-	public void update(bdatDto dto) throws Exception {
-		session.update(namespace + ".update" , dto);
+	public void update(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("subjno", subjno);
+		paramMap.put("bno", bno);
+		paramMap.put("bdatno", bdatno);
+		
+		
+		session.update(namespace + ".update" , paramMap);
 	}
 
 	@Override
-	public void delete(Integer bdatno) throws Exception {
-		session.delete(namespace + ".delete",bdatno);
+	public void delete(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("subjno", subjno);
+		paramMap.put("bno", bno);
+		paramMap.put("bdatno", bdatno);
+		
+		
+		session.delete(namespace + ".delete", paramMap);
 	}
 
 	@Override
-	public int count(Integer bdatno) throws Exception {
-		return session.selectOne(namespace +".count", bdatno);
+	public int count(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("subjno", subjno);
+		paramMap.put("bno", bno);
+		paramMap.put("bdatno", bdatno);
+		
+		
+		return session.selectOne(namespace +".count", paramMap);
 	}
 
 }

@@ -13,7 +13,7 @@ public interface IBoardService {
 
 	public void modify(IBoardDto board) throws Exception;
 
-	public void remove(Integer bno) throws Exception;
+	public void remove(Integer bno, Integer subjno) throws Exception;
 
 	public List<IBoardDto> listAll(Integer subjno, InitSearchPage isp) throws Exception;
 

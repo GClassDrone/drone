@@ -1,173 +1,240 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="../common/include.jsp" %>
-<!DOCTYPE html>
-
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-    .navbar-default {
-        width: 100%;
-        z-index: 9999;
-    }
-    
-    .breadcrumb {
-        background: rgba(23, 21, 21, 0);
-        border: 0px solid rgba(245, 245, 245, 1);
-        border-radius: 0px;
-        display: block;
-    }
-    
-    .breadcrumb li {
-        font-size: 14px;
-    }
-    
-    .breadcrumb a {
-        color: rgba(66, 139, 202, 1);
-    }
-    
-    .breadcrumb a:hover {
-        color: rgba(42, 100, 150, 1);
-    }
-    
-    .breadcrumb>.active {
-        color: rgba(153, 153, 153, 1);
-    }
-    
-    .breadcrumb>li+li:before {
-        color: rgba(204, 204, 204, 1);
-        content: "\002F\00a0";
-    }
-    .thumbnail img {
-        height: 600px
-    }
-    </style>
-</head>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<%@ include file="../common/header.jsp" %> 
+<style>
+.fileDrop {
+  width: 80%;
+  height: 100px;
+  border: 1px dotted gray;
+  background-color: lightslategrey;
+  margin: auto;
+  
+}
+.back {
+	background-color: gray;
+	opacity: 0.5;
+	width: 100%;
+	height: 300%;
+	overflow: hidden;
+	z-index: 1101;
+}
+.front{
+	z-index: 1110;
+	opacity: 1;
+	border: 1px;
+	margin: auto;
+}
+.show{
+	position: relative;
+	max-width: 1200px;
+	max-height: 800px;
+	overflow: auto;
+}
+</style>
+<div class="popup back" style="display:none;"></div>
+<div id="popup_front" class="popup front" style="display:none;"> 
+	<img id="popup_img" />
+</div>	 	
+<section class="content">
 <script type="text/javascript">
-$(function(){
-    //전역변수선언
-    var editor_object = [];
-     
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: editor_object,
-        elPlaceHolder: "smarteditor",
-        sSkinURI: "/naver_editor/SmartEditor2Skin.html", 
-        htParams : {
-            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseToolbar : true,             
-            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseVerticalResizer : true,     
-            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseModeChanger : true, 
-        }
-    });
-     
-    //전송버튼 클릭이벤트
-    $("#submit_button_id").click(function(){
-        //id가 smarteditor인 textarea에 에디터에서 대입
-        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-         
-        // 이부분에 에디터 validation 검증
-         
-        //폼 submit
-        $("#form_id").submit();
-    })
-})
-
+/* $(document).ready(function(){
+	var formObj = $("form[role='form']");
+	console.log(formObj);
+	
+	$(".btn-warning").on("click", function(){
+		self.location="/board/list?page=${isp.page}&perPageNum=${isp.perPageNum}&searchType=${isp.searchType}&keyWord=${isp.keyWord}";
+	});
+	
+	$(".btn-primary").on("click", function(){
+		formObj.submit();
+	});
+}); */
 </script>
-<body>
-    <jsp:include page="../common/header.jsp"></jsp:include>
-    <div class="section">
-        <div class="container">
-            <br />
-            <ol class="breadcrumb">
-                <li><a href="#">home</a></li>
-                <li><a href="#">정보</a></li>
-                <li><a href="#">게시판</a></li>
-                <li class="active">지금 들어와있는 게시판</li>
-            </ol>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="thumbnail"><img src="https://ununsplash.imgix.net/photo-1415302199888-384f752645d0?w=1024&amp;q=50&amp;fm=jpg&amp;s=823bdcc1b7ad955f5180efd352561016" class="img-responsive">
-                        <div class="caption">
-                            <h2>Tittle<small>&nbsp; 2016/10/28 12:42 by <a href="#">matthewkim</a></small></h2>
-                            <a class="btn btn-default btn-sm center" href="#reply"><span class="fa fa-2x fa-fw umbs-o-up -square -plus-square -square fa-comment-o"></span> 0
-                            </a>
-                            <button type="button" class="btn btn-default btn-sm center">
-                                <span class="fa fa-2x fa-fw fa-thumbs-o-up"></span></button>
-                            <button type="button" class="btn btn-default btn-sm center">
-                                <span class="fa fa-2x fa-fw fa-thumbs-up"></span> 0 </button>
-                            <button type="button" class="btn btn-default btn-sm center">
-                                <span class="fa fa-2x fa-fw umbs-o-up -square -plus-square -square fa-heart"></span> 0 </button>
-                            <button type="button" class="btn btn-default btn-sm center">
-                                <span class="fa fa-2x fa-fw umbs-o-up fa-facebook-square"></span></button>
-                            <button type="button" class="btn btn-default btn-sm center">
-                                <span class="fa fa-2x fa-fw umbs-o-up -square fa-google-plus-square"></span></button>
-                            <button type="button" class="btn btn-default btn-sm center">
-                                <span class="fa fa-2x fa-fw umbs-o-up -square -plus-square fa-twitter-square"></span></button>
-                            <button type="button" class="btn btn-default btn-sm center"><span style="font-size: 16px">Share</span>
-                                <span class="fa fa-2x fa-fw umbs-o-up -square -plus-square -square -o fa-share-square-o"></span></button>
-                            <hr />
-                            <span style="font-size: 16px">
-                            	
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row pull-right">
-            <button type="button" class="btn btn-warning btn-sm center">
-                <span class="fa fa-3x fa-fw umbs-o-up fa-facebook-square"></span></button>
-            <button type="button" class="btn btn-warning btn-sm center">
-                <span class="fa fa-3x fa-fw umbs-o-up -square fa-google-plus-square"></span></button>
-            <button type="button" class="btn btn-warning btn-sm center">
-                <span class="fa fa-3x fa-fw umbs-o-up -square -plus-square fa-twitter-square"></span></button>
-            <button type="button" class="btn btn-warning btn-sm center">
-                <img src="/resources/images/kakaostory.png"></button>
-            <button type="button" class="btn btn-warning btn-sm center">
-                <img src="/resources/images/band2.png"></button>
-        </div>
-    </div>
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="reply" class="well text-info">
-                        <h2>Reply<small>&nbsp; 2시간전 by <a href="#">matthewkim</a></small></h2>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                        <form role="form">
-                            <div class="form-group">
-                                <label class="control-label" for="inputComments">Leave a comment</label>
-                                <input class="form-control" id="inputComments" placeholder="Enter comment" type="text">
-                            </div>
-                            <button type="submit" class="btn btn-info btn-sm" data-toggle="button">답글달기</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <form role="form">
-                        <div class="form-group">
-                                    <label for="inputComments">Write reply</label>
-                            <textarea class="form-control" id="inputComments" placeholder="Enter reply"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-block btn-warning">댓글올리기</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+	<div class="row">
+		<div class="col-md-12">
+			<form role="form" method="post" action="modify">
+				<input type='hidden' name='bno' value="${BoardDto.bno}">
+				<input type='hidden' name='subjno' value="${BoardDto.subjno}">
+				<div class="box-body">
+					<div class="form-group">
+						<label for="exampleInputttl">글제목</label>
+						<input type="text" id="num" name="num" class="form-control" placeholder="${BoardDto.ttl}"/>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputctt">글내용</label>
+						<input type="text" name="title" class="form-control" placeholder="${BoardDto.title}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="exampleInputEmail1">글삭제 여부</label>
+						<input type="text" name="name" class="form-control"  placeholder="${BoardDto.delyn}" />
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">파일업로드</label>
+						<div class="fileDrop"></div>
+					</div>						
+				</div>
+			
+			<div class="box-footer">
+				<div>
+					<hr>
+				</div>
+			
+				<ul class="mailbox-attachments clearfix uploadedList">
+				</ul>			
+				<button type="submit" class="btn btn-primary">저장</button>
+				<button type="submit" class="btn btn-warning">취소</button>
+			</div>	
+			</form>
+		</div>
+	</div>
+</section>
+</div>
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
-</html>
+<script id="template" type="text/x-handlebars-template">
+<li>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{fullName}}" 
+     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+	</span>
+  </div>
+</li>                
+</script>    
+
+<script>
+$(document).ready(function(){
+		
+	var formObj = $("form[role='form']");
+
+	formObj.submit(function(event){
+		event.preventDefault();
+		var that = $(this);
+		var str ="";
+		$(".uploadedList .delbtn").each(function(index){
+			 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+		});
+		
+		that.append(str);
+		console.log(str);
+		that.get(0).submit();
+	});
+	
+	
+	$(".btn-warning").on("click", function(){
+	  //self.location = "/board/list?page=${isp.page}&perPageNum=${isp.perPageNum}&searchType=${isp.searchType}&keyWord=${isp.keyWord}";
+		formObj.attr("method", "get");
+		formObj.attr("action", "/instanceboard/itlist");
+		formObj.submit();	  
+	});
+	
+});
+
+
+
+
+var template = Handlebars.compile($("#template").html());
+
+
+$(".fileDrop").on("dragenter dragover", function(event){
+	event.preventDefault();
+});
+
+
+$(".fileDrop").on("drop", function(event){
+	event.preventDefault();
+	
+	var files = event.originalEvent.dataTransfer.files;
+	var file = files[0];
+	var formData = new FormData();
+	
+	formData.append("file", file);	
+	
+	$.ajax({
+		  url: '/uploadAjax',
+		  data: formData,
+		  dataType:'text',
+		  processData: false,
+		  contentType: false,
+		  type: 'POST',
+		  success: function(data){
+			  var fileInfo = getFileInfo(data);
+			  var html = template(fileInfo);
+			  $(".uploadedList").append(html);
+		  }
+		});	
+});
+
+$(".uploadedList").on("click", ".mailbox-attachment-name", function(event){
+	event.preventDefault();
+	var fileLink = $(this).attr("href");
+
+	if(checkImageType(fileLink)){
+		
+		var imgTag = $("#popup_img");
+		imgTag.attr("src", fileLink);
+		console.log(imgTag.attr("src"));
+		$(".popup").show('slow');
+		imgTag.addClass("show");		
+	}	
+});
+
+$(".uploadedList").on("click", ".delbtn", function(event){
+	event.preventDefault();
+	var that = $(this);
+	var file = $(this).attr("href");
+	
+	$.ajax({
+		type: "post",
+		url: "/board/delOneAttach",
+		headers: {
+				 "Content-Type":"application/json",
+				 "X-HTTP-Method-Override":"POST"},
+		dataType: "text",
+		data: JSON.stringify({fullName:file, num:$("#num").val()}),
+		success: function(result){
+		   if(result == "deleted"){
+			   alert("DB삭제완료");
+			   	//파일 삭제
+				$.ajax({
+					   url:"/deleteFile",
+					   type:"post",
+					   data: {fileName:file},
+					   dataType:"text",
+					   success:function(result){
+						   if(result == "deleted"){
+							   that.closest("li").remove();
+							   alert("파일삭제완료");
+						   }
+					   }
+				   }); 
+		   }			
+		}
+	});
+
+});
+
+
+var bno = ${boardDto.num};
+var template = Handlebars.compile($("#template").html());
+
+$.getJSON("/board/getAttach/"+bno,function(list){
+	$(list).each(function(){
+		var fileInfo = getFileInfo(this);
+		var html = template(fileInfo);
+		 $(".uploadedList").append(html);
+		
+	});
+});
+
+
+$("#popup_img").on("click", function(){
+	$(".popup").hide('slow');
+});	
+</script>
+
+<%@ include file="../common/footer.jsp" %>
