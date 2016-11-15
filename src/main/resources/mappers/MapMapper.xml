@@ -68,7 +68,7 @@
 	  from (
 			SELECT *
 			  FROM (
-					SELECT /*+ index_desc(mem idx_mem_levpoint) */ * 
+					SELECT * 
 					  FROM vw_mem_levpoint
 					 WHERE ROWNUM < 51
 					) A

@@ -117,7 +117,7 @@ $(function() {
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
 				var data = {ctscateno:this.ctscateno,ctsno:this.ctsno};
-				openModal(data);
+				ctsDetailAjax(data);
 			});
 		}
 	}
@@ -141,6 +141,9 @@ $(function() {
 /* 슬라이더 썸네일 클릭이벤트 */
 	$(document).on("click","div[class='slide']",function(){
 		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno")};
+		ctsDetailAjax(data);
+	});
+	function ctsDetailAjax(data){
 		$.ajax({
 			url: "/map/videoDetail",
 			type: "POST",
@@ -154,8 +157,7 @@ $(function() {
 				modalOpen(result);
 			}
 		});
-	});
-	
+	}
 /* 슬라이더 초기화 및 생성 함수 */
 	var slider;
 	function makeSlider(){

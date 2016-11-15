@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.gclass.drone.category.dto.CateDto;
+import com.gclass.drone.category.dto.CatePageDto;
 import com.gclass.drone.category.service.CateService;
 
 @Controller
@@ -30,10 +31,11 @@ public class CateController {
 	}
 	
 	@RequestMapping(value="/cateList", method=RequestMethod.POST)
-	public ResponseEntity<List<CateDto>> cataList(int[] cateArray){
+	public ResponseEntity<List<CateDto>> cataList(CatePageDto cpDto){
 		ResponseEntity<List<CateDto>> entity = null;
 		try{
-			entity = new ResponseEntity<List<CateDto>>(service.ctsCateList(cateArray), HttpStatus.OK);
+			cpDto.setStartEnd();
+			entity = new ResponseEntity<List<CateDto>>(service.ctsCateList(cpDto), HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
