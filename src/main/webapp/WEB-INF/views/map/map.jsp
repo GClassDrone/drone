@@ -19,8 +19,9 @@
 	<div id="map">
 	</div><br />
  	<div class="slider">
-	<div class="container">
-	<div id="list_wrap"></div>
+		<div class="container">
+			<div id="list_wrap"></div>
+		</div>
 	</div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>

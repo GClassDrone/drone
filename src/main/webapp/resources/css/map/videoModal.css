@@ -1166,12 +1166,15 @@ div.mejs-speed-button {
 .modal-body {
     padding: 2px 16px;
     background-color: #e0e0e0;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .modal-footer {
     padding: 2px 16px;
     background-color: #bdbdbd;
     color: white;
+    margin: 0 auto;
     padding-bottom: 20px;
 }
 
