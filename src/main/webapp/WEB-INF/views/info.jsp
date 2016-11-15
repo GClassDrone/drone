@@ -73,7 +73,7 @@
             <ul class="nav nav-tabs pull-right">
                 <li class="active"><a href="/info">시장동향</a></li>
                 <li><a href="/boardGroupList">주제별 게시판</a></li>
-                <li><a href="#">공지사항</a></li>
+                <li><a href="/inform/listNotice">공지사항</a></li>
                 <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>
                 <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
             </ul>
@@ -84,130 +84,25 @@
     <div class="container">
         <div class="row">
           
-            <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="/infoDetail">Go</a>
-                        </p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg">
-                    <div class="caption">
-                        <h3>
-                                Thumbnail label
-                            </h3>
-                        <p>
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="/infoDetail">Go</a>
-                        </p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img alt="Bootstrap Thumbnail Third" src="http://lorempixel.com/output/sports-q-c-600-200-1.jpg">
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="/infoDetail">Go</a>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="/infoDetail">Go</a>
-                        </p>
-                    </div>
-                </div>
-            </section>
+          <div id ="infolist"></div>
+    		  <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
+<div class="thumbnail">
+    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
+    <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>
+            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        </p>
+        <p>
+            <a class="btn btn-primary" href="/infoDetail">Go</a>
+        </p>
+    </div>
+</div>
+</section> 
             
         </div>
         
-         <div class="row">
-            <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="/infoDetail">Go</a>
-                        </p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img alt="Bootstrap Thumbnail Second" src="http://lorempixel.com/output/city-q-c-600-200-1.jpg">
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="/infoDetail">Go</a>
-                        </p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img alt="Bootstrap Thumbnail Third" src="http://lorempixel.com/output/sports-q-c-600-200-1.jpg">
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="/infoDetail">Go</a>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>
-                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                        <p>
-                            <a class="btn btn-primary" href="/infoDetail">Go</a>
-                        </p>
-                    </div>
-                </div>
-            </section>
-            
-        </div>
+        
         <br />
         <!-- row -->
         <p class="more">

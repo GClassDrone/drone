@@ -77,7 +77,7 @@ $(document).ready(function(){
 					<c:forEach items="${list}" var="InformDto">
 						<tr>
 							<td>${InformDto.ino }</td>
-							<td><a href="noticeDetail${pageMake.makeSearch(pageMake.initPage.page)}&ino=${InformDto.ino} ">${InformDto.ttl }</td>
+							<td><a href="noticeDetail${pageMake.makeSearch(pageMake.initPage.page)}&ino=${InformDto.ino}&igubun=g">${InformDto.ttl }</td>
 							<td><strong>${InformDto.mgid }</strong></td>
 							<td><fmt:formatDate pattern="yyyy-mm-dd HH:mm" value="${InformDto.regdt }"/>
 							<td><span class="badge bg-red">${InformDto.readcnt }</span></td>

@@ -10,14 +10,16 @@ public interface InformSerivce {
 	
 	public void regist(InformDto dto)throws Exception;
 	
-	public InformDto read(Integer ino, String igubun)throws Exception;
+	public InformDto read(InformDto dto)throws Exception;
 	
 	public void modify(InformDto dto)throws Exception;
 	
-	public void remove(Integer ino, String igubun)throws Exception;
+	public void remove(InformDto dto)throws Exception;
 	
-	public List<InformDto> listAll(InitSearchPage isp)  throws Exception;
+	public List<InformDto> listAll(InitSearchPage isp)throws Exception;
 	
 	public int totalRow(InitSearchPage isp) throws Exception;
 	
+	//시장동향
+	public List<InformDto> list(InitSearchPage isp)throws Exception;
 }
