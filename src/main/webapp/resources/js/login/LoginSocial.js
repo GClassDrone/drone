@@ -1,6 +1,6 @@
 //모달
 $(function(){
-	var form;
+	/*var form;
 	var dialog;
 	dialog = $("#dialog-login").dialog({
 		autoOpen : false,
@@ -13,7 +13,7 @@ $(function(){
 	});
 	$("#login-user").on("click", function(){
 		dialog.dialog("open");
-	});
+	});*/
 
 	//카카오톡
 	var siteid;

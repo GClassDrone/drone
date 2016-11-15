@@ -1,16 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@include file="../common/include.jsp" %>
+<jsp:include page="../common/include.jsp"></jsp:include>
+<jsp:include page="../common/header.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+var result='${msg}';
+if(result=="success"){
+	alert("처리되었습니다.");	
+}
+
+$(document).ready(function(){
+	$("#searchBtn").on("click", function(event){
+		self.location = "itlist"
+					  + "${pageMake.makeQuery(1)}"
+					  + "&searchType="
+					  + $("select option:selected").val()
+					  +"&keyWord=" + $("#keywordInput").val();
+	});
+	
+	$("#newBtn").on("click", function(event){
+		self.location = "register";
+	});
+});
+</script>
+
 </head>
 <body>
-	<%@include file="../common/header.jsp"%>
 	
 	<form role="form" method="post">
 		<input type='hidden' name='subjno' value="${BsubjDto.subjno}">
@@ -20,7 +41,7 @@
 		<div class="section">
 		<div class="row">
             <br />
-            <ol class="breadcrumb">
+            <ol class="breadcrumb" style="background: black;">
                 <li><a href="#">home</a></li>
                 <li><a href="#">정보</a></li>
                 <li><a href="#">게시판</a></li>
@@ -38,6 +59,19 @@
 			</div>
 				<br>
 		</div>
+		
+<div class="box-body" style="color: black;">
+	<select name="searchType">
+		<option value="" <c:out value="${isp.searchType == null?'selected':''}" /> >선택</option>
+		<option value="name" <c:out value="${isp.searchType eq 'name' ? 'selected':''}" /> >이름</option>					
+		<option value="title" <c:out value="${isp.searchType eq 'title' ? 'selected':''}" /> >제목</option>
+		<option value="content" <c:out value="${isp.searchType eq 'content' ? 'selected':''}" /> >내용</option>
+	</select>
+	<input type="text" name="keyWord" id="keywordInput" value="${isp.keyWord}" />
+	<button id="searchBtn">검색</button>
+	<button id="newBtn">글작성</button>
+</div>		
+		
 		<div id="content" style="float: left; border: 1px solid white; max-width: 100%;">
 			<table>
 				<tr>
@@ -50,7 +84,7 @@
 			<c:forEach items="${list}" var="board">
 					<tr>
 						<td>${board.bno}</td>
-						<td><a href="#">${board.ttl}</a></td>
+						<td><a href="itdetail?subjno=${board.subjno}&bno=${board.bno}">${board.ttl}</a></td>
 						<td>${board.mno}</td>
 						<td>${board.regdt}</td>
 						<td>${board.readcnt}</td>
@@ -58,6 +92,25 @@
 					</c:forEach>
 			</table>
 		</div>
+		<div class="text-center">
+					<ul class="pagination">
+						<c:if test="${pageMake.first}">
+							<li><a href="itlist${pageMake.makeSearch(1)}">&lt;</a></li> 
+						</c:if>
+						<c:if test="${pageMake.prev}">
+							<li><a href="itlist${pageMake.makeSearch(pageMake.startPage-1)}">&lt;&lt;</a></li> 
+						</c:if>
+						<c:forEach begin="${pageMake.startPage}" end="${pageMake.endPage}" var="idx">
+							<li <c:out value="${pageMake.initPage.page == idx?'class=active':''}"/> ><a href="itlist${pageMake.makeSearch(idx)}">${idx}</a></li>
+						</c:forEach>
+						<c:if test="${pageMake.next}">
+							<li><a href="itlist${pageMake.makeSearch(pageMake.endPage+1)}">&gt;&gt;</a></li> 
+						</c:if>
+						<c:if test="${pageMake.last}">
+							<li><a href="itlist${pageMake.makeSearch(pageMake.lastPage)}">&gt;</a></li> 
+						</c:if>						
+					</ul>
+				</div>
 	</div>
 	<%@ include file="../common/footer.jsp"%>
 </body>

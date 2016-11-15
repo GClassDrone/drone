@@ -52,9 +52,9 @@
 		  FROM (
 				SELECT  /*+ index_desc(c idx_cts_regdt_joacnt) */ 'joa' AS gubun, c.*
 				  FROM cts c
-				 WHERE delyn='n' 
+				 WHERE delyn='n'
 				   and ROWNUM < 5
-				UNION ALL 
+				UNION ALL
 				SELECT  /*+ index_desc(c idx_cts_regdt_readcnt) */ 'read' AS gubun, c.*
 				  FROM cts c
 				 WHERE delyn='n' 
