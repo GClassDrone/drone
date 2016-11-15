@@ -19,14 +19,14 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="/resources/images/carousel/carousel01.png" alt="carousel02 Photo">
+                <img src="/resources/images/carousel/carousel01.png" alt="carousel01 Photo">
                 <div class="carousel-caption">
                     <h3>Headline</h3>
                     <p>We strive to be your pet's medical experts from youth through the senior years. We build preventative health care plans for each and every one of our patients, based on breed, age, and sex, so that your pet receives the most appropriate care at crucial milestones. We want to give your pet a long and healthy life.</p>
                 </div>
             </div>
             <div class="item">
-                <img src="/resources/images/carousel/carousel02.png" alt="carousel01 Photo">
+                <img src="/resources/images/carousel/carousel02.png" alt="carousel02 Photo">
             </div>
             <div class="item">
                 <img src="/resources/images/carousel/carousel03.png" alt="carousel03 Photo">
