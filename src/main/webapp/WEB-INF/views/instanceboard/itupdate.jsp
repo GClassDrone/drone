@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<%@ include file="../common/header.jsp" %> 
 <style>
 .fileDrop {
   width: 80%;
@@ -32,6 +30,8 @@
 	overflow: auto;
 }
 </style>
+<jsp:include page="../common/include.jsp"/>
+<jsp:include page="../common/header.jsp"/>
 <div class="popup back" style="display:none;"></div>
 <div id="popup_front" class="popup front" style="display:none;"> 
 	<img id="popup_img" />
@@ -90,7 +90,6 @@
 		</div>
 	</div>
 </section>
-</div>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 

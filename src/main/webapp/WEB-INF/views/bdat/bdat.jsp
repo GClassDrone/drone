@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../common/include.jsp" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <style type="text/css">
 #modDiv {
 	width: 300px;
@@ -123,9 +117,6 @@ $("#replyModBtn").on("click", function(){
 	});
 });
 </script>
-
-</head>
-<body>
 	<h2>댓글 리스트</h2>
 	
 	<div>
@@ -153,5 +144,3 @@ $("#replyModBtn").on("click", function(){
 			<button type="button" id="closeBtn">닫기</button>
 		</div>	
 	</div>
-</body>
-</html>

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <%@include file="../common/include.jsp"%>
 <%@include file="../common/header.jsp"%>
+
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
@@ -13,6 +14,7 @@
 				</div>
 
 				<form role="form" method="post">
+					<input type='hidden' id='subjno' name='subjno' value="${board.subjno}">
 					<div class="box-body">
 						<div class="form-group">
 							<label for="Inputbcateno">글제목</label> <input type="text"

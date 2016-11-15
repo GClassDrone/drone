@@ -44,8 +44,7 @@
     
 <script type="text/javascript">
 $(function(){
-	var formObj = $("form[role='form']");
-	alert(formObj.length);
+	var formObj = $("form[role='form']").eq(0);
 	$("#modifyBtn").on("click", function(){
 		formObj.attr("action", "/instanceboard/itupdate");
 		formObj.attr("method", "get");
@@ -69,8 +68,8 @@ $(function(){
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
 <form role="form" method="post">
-	<input type='hidden' id='bno' name='bno' value="${BoardDto.bno}">
-	<input type='hidden' id='subjno' name='subjno' value="${BoardDto.subjno}">
+	<input type='hidden' id='bno' name='bno' value="${bno}">
+	<input type='hidden' id='subjno' name='subjno' value="${subjno}">
 </form>
 
 
@@ -124,6 +123,7 @@ $(function(){
     <div class="bdat">
     	<jsp:include page="../bdat/bdat.jsp"></jsp:include>
     </div>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 
 </html>

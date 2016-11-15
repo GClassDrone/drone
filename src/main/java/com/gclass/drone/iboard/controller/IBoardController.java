@@ -16,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.common.PageMake;
-import com.gclass.drone.iboard.dao.IBoardDao;
 import com.gclass.drone.iboard.dto.IBoardDto;
 import com.gclass.drone.iboard.service.IBoardService;
 
@@ -49,7 +48,7 @@ public class IBoardController {
 	
 	@RequestMapping(value="/itlist", method=RequestMethod.GET)
 	public void itlist(@RequestParam("subjno") int subjno, @ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
-
+		logger.info("itlist get..."+subjno);
 		model.addAttribute("list", service.listAll(subjno, isp));
 		PageMake pm = new PageMake();
 		pm.setInitPage(isp);
@@ -58,7 +57,9 @@ public class IBoardController {
 	}
 	@RequestMapping(value = "/itdetail", method= RequestMethod.GET)
 	public void itdetail(@RequestParam("bno") int bno, @RequestParam("subjno") Integer subjno, Model model) throws Exception{
-		
+		model.addAttribute("bno", bno);
+		logger.info("itde"+bno+"aa"+subjno);
+		model.addAttribute("subjno", subjno);
 		model.addAttribute(service.read(bno, subjno));
 	}
 	
@@ -78,11 +79,12 @@ public class IBoardController {
 	}
 	
 	@RequestMapping(value="/remove", method=RequestMethod.POST)
-	public String remove(@RequestParam("subjno") int subjno, @RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
-		
+	public String remove(@RequestParam("subjno") int subjno, @RequestParam("bno") int bno, @ModelAttribute("isp") InitSearchPage isp, RedirectAttributes rttr) throws Exception{
+		logger.info(subjno + " " + bno);
 		logger.info("remove....");
 		service.remove(bno, subjno);
-		rttr.addFlashAttribute("msg","success");
+		rttr.addFlashAttribute("subjno",subjno);
+//		rttr.addFlashAttribute("isp", isp);
 		
 		return "redirect:/instanceboard/itlist";
 	}
