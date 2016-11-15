@@ -27,8 +27,13 @@ public class IBoardDaoImpl implements IBoardDao{
 	}
 
 	@Override
-	public void delete(Integer mno) throws Exception {
-		session.delete(namespace + ".delete", mno);
+	public void delete(Integer bno, Integer subjno) throws Exception {
+	
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("bno", bno);
+		map.put("subjno", subjno);
+		
+		session.delete(namespace + ".delete", map);
 	}
 
 	@Override

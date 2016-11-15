@@ -13,7 +13,7 @@ public interface IBoardDao {
 	
 	public void update(IBoardDto dto) throws Exception;
 	
-	public void delete(Integer bno) throws Exception;
+	public void delete(Integer bno, Integer subjno) throws Exception;
 	
 	public List<IBoardDto> listAll(Integer subjno, InitSearchPage isp) throws Exception;
 	

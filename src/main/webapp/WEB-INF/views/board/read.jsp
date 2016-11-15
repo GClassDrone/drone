@@ -170,7 +170,7 @@ $(document).ready(function(){
 	//console.log(formObj);
 	
 	$("#modifyBtn").on("click", function(){
-		formObj.attr("action", "/board/modify");
+		formObj.attr("action", "/instanceboard/modify");
 		formObj.attr("method", "get");
 		formObj.submit();
 	});
