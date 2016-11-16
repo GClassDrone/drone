@@ -73,7 +73,7 @@ if(result=="success"){
 					<tr>
 						<td>${BoardDto.bno}</td>
 						<td><a href="itdetail?subjno=${BoardDto.subjno}&bno=${BoardDto.bno}" style="color: #3e2723">${BoardDto.ttl}</a></td>
-						<td>${BoardDto.mno}</td>
+						<td>${BoardDto.niknm}</td>
 						<td>${BoardDto.regdt}</td>
 						<td>${BoardDto.readcnt}</td>
 					</tr>

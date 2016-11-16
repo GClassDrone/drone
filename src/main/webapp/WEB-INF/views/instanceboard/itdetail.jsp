@@ -78,7 +78,7 @@
 	            <div class="row">
 	                <div class="col-md-12">
 	                        <div class="caption">
-	                            <h2>${IBoardDto.ttl}<small>&nbsp;${IBoardDto.regdt} by <a href="#">${IBoardDto.mno}</a></small></h2>
+	                            <h2>${IBoardDto.ttl}<small>&nbsp;${IBoardDto.regdt} by <a href="#">${IBoardDto.niknm}</a></small></h2>
 	                                <span class="fa"></span>
 	                            <hr />
 	                            <span style="font-size: 16px">${IBoardDto.ctt}</span>
