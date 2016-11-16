@@ -47,6 +47,9 @@
 	  	  		select rownum as rnum, a.* 
 	     		  from (
 	      				select /*+ index_desc(b BOARD_SUBJNO_BNO_PK) */ b.*, m.niknm
+	      				       , case when to_char(regdt, 'yyyymmdd') = to_char(sysdate, 'yyyymmdd')
+	      				              then 'y' else 'n' 
+	      				          end as newyn
 	        		   	  from board b join mem m 
 	          				on b.mno = m.mno
 	       				 where subjno = #{subjno}
