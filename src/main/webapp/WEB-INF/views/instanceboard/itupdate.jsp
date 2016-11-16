@@ -38,18 +38,18 @@
 </div>	 	
 <section class="content">
 <script type="text/javascript">
-/* $(document).ready(function(){
+	$(document).ready(function(){
 	var formObj = $("form[role='form']");
 	console.log(formObj);
 	
 	$(".btn-warning").on("click", function(){
-		self.location="/board/list?page=${isp.page}&perPageNum=${isp.perPageNum}&searchType=${isp.searchType}&keyWord=${isp.keyWord}";
+		self.location="instanceboard/itdetail?subjno=${subjno}&bno=${bno}";
 	});
 	
 	$(".btn-primary").on("click", function(){
 		formObj.submit();
 	});
-}); */
+});
 </script>
 	<div class="row">
 		<div class="col-md-12">

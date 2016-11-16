@@ -18,7 +18,7 @@ if(result=="success"){
 	alert("처리되었습니다.");	
 }
 	$("#newBtn").on("click", function(event){
-		$(location).attr("href","/instanceboard/itregi");
+		$(location).attr("href","/instanceboard/itregi?subjno=${subjno}");
 	});
 });
 </script>
@@ -35,14 +35,14 @@ if(result=="success"){
 	    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">게시판 분류 &nbsp;
 	    <span class="caret"></span></button>
 	    <ul class="dropdown-menu text-right">
-	      <li><a href="#">친목모임</a></li>
-	      <li><a href="#">드론정보</a></li>
-	      <li><a href="#">엔지니어</a></li>
-	      <li><a href="#">비행모임</a></li>
-	      <li><a href="#">중고거래</a></li>
-	      <li><a href="#">공동구매</a></li>
-	      <li><a href="#" class="list-group-item disabled" style="border: 0">드론판매</a></li>
-	      <li><a href="#" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=1">친목모임</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=2">드론정보</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=3">엔지니어</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=4">비행모임</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=5">중고거래</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=6">공동구매</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=7" class="list-group-item disabled" style="border: 0">드론판매</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=8" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
 	    </ul>
 	  </div>
 		

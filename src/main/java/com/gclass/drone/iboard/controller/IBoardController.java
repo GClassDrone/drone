@@ -43,9 +43,8 @@ public class IBoardController {
 		
 		System.out.println("subjno 번호"+subjno);
 		service.regist(board);
-		rttr.addFlashAttribute("subjno", subjno);
-	    
-	    return "redirect:/instanceboard/itlist";
+		
+	    return "redirect:/instanceboard/itlist?subjno="+subjno;
 	}
 	
 	@RequestMapping(value="/itlist", method=RequestMethod.GET)

@@ -21,7 +21,24 @@ $(document).ready(function() {
             $(this).find('.caption').slideUp(250); //.fadeOut(205)
         }
     ); 
+	var formObj = $("form[role='form']").eq(0);
+	console.log(formObj);
+	$(".btn-warning").on("click", function(){
+		formObj.attr("action", "/여기에 들어갈 경로를 적어주세요");
+		formObj.attr("method","get");
+		formObj.submit();
+	});
+	$(".btn-danger").on("click",function(){
+		formObj.attr("action", "/instanceboard/remove");
+		formObj.attr("method","post");
+		
+		formObj.submit();
+	});
+	$(".btn-primary").on("click",function(){
+		self.location = "instanceboard/itlist?subjno=${subjno}";
+	});
  });
+ 
 </script>
 
 </head>
@@ -54,13 +71,13 @@ $(document).ready(function() {
 	            <img alt="" src="/resources/images/castleMo.png">
 	        </div>
 	        <div class="card-info"> 
-	        	<span class="card-title" name="niknm">${memDto.niknm}</span>
+	        	<span class="card-title" id="niknm">${memDto.niknm}</span>
 			        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb"></i></a>&nbsp; 
 			        <a href="#pilot"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
-	        <section class="col-sm-8 col-sm-offset-2">
+	        <div class="col-sm-8 col-sm-offset-2">
 		        <div><p style="color: #4e342e">${memDto.prmsg}</p></div>
 		        </div>
-	        </section>
+	        </div>
 	    </div>
 	    
 	    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
@@ -256,12 +273,18 @@ $(document).ready(function() {
     </div>
     <div class="container">
         <div class="section">
+        <!-- 글등록 버튼 여기잇음 -->
+        <div>
+        	<button type="submit" class="btn btn-warning">글등록</button>
+        </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
                 </div>
                 <h3>Grooming</h3>
                 <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
+                <button type="submit" class="btn btn-danger">수정</button>
+ 				<button type="submit" class="btn btn-primary">삭제</button>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="embed-responsive embed-responsive-16by9">
