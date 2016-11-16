@@ -5,7 +5,6 @@
 <head>
  
 <link href="/resources/css/profile/profile.css" rel="stylesheet" type="text/css">
-<script src="/resources/js/profile/profile.js"></script>
 <jsp:include page="../common/include.jsp"></jsp:include>
 
  <script type="text/javascript">
@@ -64,7 +63,7 @@
  					<button type="submit" class="btn btn-warning">Modify</button>
  					<button type="submit" class="btn btn-danger">REMOVE</button>
  					<button type="submit" class="btn btn-primary">LIST ALL</button>
- 				</div>
+ 		</div>
     </div>
   </div>          
 </div>

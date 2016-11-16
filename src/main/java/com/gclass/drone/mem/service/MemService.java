@@ -14,4 +14,5 @@ public interface MemService {
 	//로그인
 	public MemDto login(String siteid, String siteno)throws Exception;
 	public void regist(MemDto dto)throws Exception;
+	public MemDto dulogin(String niknm)throws Exception;
 }

@@ -82,12 +82,15 @@ public class InformController {
 	//시장동향
 	@RequestMapping(value="/info", method=RequestMethod.GET)
 	public void lists(@ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
-		logger.info("list ....");
-		logger.info("받은 후 : "+isp.toString());
-		model.addAttribute("list", service.list(isp));
+		logger.info("info");
+		logger.info("info받은 후 : "+isp.toString());
+		
+		model.addAttribute("result", service.list(isp));
+		logger.info("info" +  service.list(isp) );
 		PageMake pm = new PageMake();
 		pm.setInitPage(isp);
 		pm.setTotalCount(service.totalRow(isp));
+	
 		logger.info("처리후"+isp.toString());
 		model.addAttribute("pageMake", pm);
 	}

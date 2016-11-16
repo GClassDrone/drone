@@ -35,7 +35,11 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 	<link href="/resources/css/login/themify-icons.css" rel="stylesheet">
+	<!-- 주소 -->
 	<script src="resources/js/login/loc.js"></script>
+	<!-- 중복확인 -->
+<script src="/resources/js/login/registrieren.js"></script>
+
 </head>
 
 
@@ -50,7 +54,8 @@
 		            <div class="wizard-container">
 
 		                <div class="card wizard-card" data-color="orange" id="wizardProfile">
-		                    <form method="POST">
+		                    <form method="POST" name="frm">
+		                
 		                    <input type="hidden" name="siteid" value="${siteid }">
 		                    <input type="hidden" name="siteno" value="${siteno }">
 		                <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
@@ -110,7 +115,7 @@
 												
 											</div>
 											<div class="col-sm-1">
-													 <input type='button' class='btn btn-fill btn-warning btn-wd' name='check' value='중복확인' onclick="idChek()" />
+													 <input type='button' class='btn btn-fill btn-warning btn-wd' name='check' value='중복확인' onclick="idCheck()" />
 												</div>
 											<div class="col-sm-10 col-sm-offset-1">
 												<div class="form-group">

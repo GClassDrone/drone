@@ -4,11 +4,12 @@
 
 <html>
 <head>
-<!--     <meta charset="utf-8">	
+<!--     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">  -->
+<jsp:include page="../common/include.jsp"></jsp:include>
 <script src="/resources/js/inform/inform.js"></script>
 <style type="text/css">
     .bgimage {
@@ -54,11 +55,11 @@
         content: "\002F\00a0";
     }
     </style>
-<jsp:include page="common/include.jsp"></jsp:include>
+
 </head>
 
 <body>
-    <jsp:include page="common/header.jsp"></jsp:include>
+    <jsp:include page="../common/header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
     </header>
 
@@ -112,7 +113,7 @@
         </p>
     </div>
 
-    <jsp:include page="common/footer.jsp"></jsp:include>
+    <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 
 </html>
