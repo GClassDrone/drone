@@ -15,7 +15,6 @@ public class CtsDto {
 	private int joacnt;
 	private int readcnt;
 	private int favcnt;
-	private String makedt;
 	private int mno;
 	private String delyn;
 	private String niknm;
@@ -92,12 +91,6 @@ public class CtsDto {
 	public void setFavcnt(int favcnt) {
 		this.favcnt = favcnt;
 	}
-	public String getMakedt() {
-		return makedt;
-	}
-	public void setMakedt(String makedt) {
-		this.makedt = makedt;
-	}
 	public int getMno() {
 		return mno;
 	}
@@ -116,11 +109,12 @@ public class CtsDto {
 	public void setNiknm(String niknm) {
 		this.niknm = niknm;
 	}
+	
 	@Override
 	public String toString() {
 		return "CtsDto [ctscateno=" + ctscateno + ", ctsno=" + ctsno + ", ttl=" + ttl + ", ctt=" + ctt + ", regdt="
 				+ regdt + ", filelk=" + filelk + ", pt=" + pt + ", lat=" + lat + ", lng=" + lng + ", joacnt=" + joacnt
-				+ ", readcnt=" + readcnt + ", favcnt=" + favcnt + ", makedt=" + makedt + ", mno=" + mno + ", delyn="
+				+ ", readcnt=" + readcnt + ", favcnt=" + favcnt + ", mno=" + mno + ", delyn="
 				+ delyn + ", niknm=" + niknm + "]";
 	}
 }

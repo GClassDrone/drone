@@ -35,7 +35,7 @@
                         <a href="/map/map">드론영상</a>
                     </li>
                     <li class="dropdonw-split-left">
-                        <a href="/intro">분류</a>
+                        <a href="/cate/cateList">분류</a>
                     </li>
                     <li class="dropdown dropdown-split-right hidden-xs">
                     	<a href="#" class="dropdown-toggle" data-toggle="dropdown">

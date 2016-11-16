@@ -1,7 +1,6 @@
 package com.gclass.drone.map.service;
 
 import java.util.List;
-import java.util.Map;
 
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.CtscateDto;
@@ -20,7 +19,7 @@ public interface MapService {
 	public List<CtsDto> hotclipVideo() throws Exception;
 	public List<MemViewDto> hotclipPilot() throws Exception;
 	
-	public void ctsInsert(CtsDto cDto) throws Exception;
+	public void ctsInsert(CtsDto cDto, String ctstagnm) throws Exception;
 	public List<CtscateDto> ctscateSelectAll() throws Exception;
 	public void ctsUpdate(CtsDto cDto) throws Exception;
 	public void ctsDelete(int ctsno, int ctscateno) throws Exception;

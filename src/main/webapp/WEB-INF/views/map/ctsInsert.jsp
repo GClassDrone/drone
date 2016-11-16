@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +23,7 @@
 	<div class="col-md-6 col-sm-12 col-xs-12 well">
 	
 	<form method="post" id="videoInsertForm" class="form-horizontal">
+	<input type="hidden" name="mno" value="${mno}">
 		<fieldset>
 			<h3>Registration Form</h3> <hr />
 			<div class="form-group">
@@ -31,23 +33,24 @@
                         <div class="input-group-addon">
                             <i class="fa fa-file-word-o"></i>
                         </div>
-                        <input id="ttl" name="ttl" type="text" placeholder="제목을 넣어주세요" class="form-control input-md">
+                        <input id="ttl" name="ttl" type="text" placeholder="제목을 넣어주세요" class="form-control input-md" maxlength="30">
                     </div>
                 </div>
                 <div class="col-md-3">
-					<select class="form-control">
+					<select name="ctscateno" id="ctscateno" class="form-control">
 					    <optgroup label="카테고리 분류">
-							<option>분류</option>
-							<option>Two</option>
-							<option>Three</option>
+							<option value="">분류</option>
+							<c:forEach items="${ctscateList}" var="ccDto">
+								<option value="${ccDto.ctscateno}">${ccDto.ctscatenm}</option>
+							</c:forEach>
 						</optgroup>
 					</select>
 				</div>
             </div>
 			<div class="form-group">
-                <label class="col-md-2 control-label" for="ctt">내용</label>
+                <label class="col-md-2 control-label" for="ctt">내용<br/><span id="wordCount">(0/200)</span></label>
                 <div class="col-md-10">
-                    <textarea class="form-control" rows="3" id="ctt" name="ctt" placeholder="영상의 내용을 간단히 소개해주세요"></textarea>
+                    <textarea class="form-control" rows="3" id="ctt" name="ctt" placeholder="영상의 내용을 간단히 소개해주세요" maxlength="200"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -82,7 +85,8 @@
                         <div class="input-group-addon">
                             <i class="fa fa-file-video-o"></i>
                         </div>
-                        <input id="filelk" name="filelk" type="text" placeholder="ex) https://youtu.be/AdOLn67hLgY" class="form-control input-md">
+                        <input id="filelkValid" type="text" placeholder="ex) https://youtu.be/AdOLn67hLgY" class="form-control input-md">
+                        <input id="filelk" name="filelk" type="hidden">
                     </div>
                 </div>
             </div>

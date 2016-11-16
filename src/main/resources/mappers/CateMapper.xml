@@ -23,40 +23,18 @@
 		        ) b
 		 WHERE rnum >= #{startRowNum}
 		        ]]>
-		 <include refid="Category"></include>
+	</select>
+	<select id="ctsCateTotalRow" resultType="int">
+		SELECT /*+ index_desc(cts idx_cts_regdt) */ count(*)
+		  FROM CTS
+	  <include refid="Category"></include> 
 	</select>
 	<sql id="Category">
-		<if test="cateArray.length() != 7">
-			<if test="cateArray.length() == 1">
-				<![CDATA[
-				where ctscateno in(#{cataArray[0]})
-				]]>
-			</if>
-			<if test="cateArray.length() == 2">
-				<![CDATA[
-				where ctscateno in(#{cataArray[0]}, #{cataArray[1]})
-				]]>
-			</if>
-			<if test="cateArray.length() == 3">
-				<![CDATA[
-				where ctscateno in(#{cataArray[0]}, #{cataArray[1]}, #{cataArray[2]})
-				]]>
-			</if>
-			<if test="cateArray.length() == 4">
-				<![CDATA[
-				where ctscateno in(#{cataArray[0]}, #{cataArray[1]}, #{cataArray[2]}, #{cataArray[3]})
-				]]>
-			</if>
-			<if test="cateArray.length() == 5">
-				<![CDATA[
-				where ctscateno in(#{cataArray[0]}, #{cataArray[1]}, #{cataArray[2]}, #{cataArray[3]}, #{cataArray[4]})
-				]]>
-			</if>
-			<if test="cateArray.length() == 6">
-				<![CDATA[
-				where ctscateno in(#{cataArray[0]}, #{cataArray[1]}, #{cataArray[2]}, #{cataArray[3]}, #{cataArray[5]}, #{cataArray[5]})
-				]]>
-			</if>
+		<if test="cateArray.length != 7 and cateArray.length != 0">
+		where ctscateno in
+			 <foreach collection="cateArray" item="ctscateno" open="(" close=")" separator=",">
+        		#{ctscateno}
+    		</foreach>
 		</if>
 	</sql>
 </mapper>

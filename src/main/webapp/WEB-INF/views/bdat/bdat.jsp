@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-=======
->>>>>>> bcc246be868ee22075bb3a14a821e689b3dabb49
 <style type="text/css">
 #modDiv {
 	width: 300px;
@@ -42,7 +39,7 @@ function getAllList(){
 
 }
 
-$("#replyAddBtn").on("click", function(){
+$(".replyAddBtn").on("click", function(){
 	var mno = $("newReplyWriter").val();
 	var ctt = $("newReplyText").val();
 	
@@ -125,20 +122,21 @@ $("#replyModBtn").on("click", function(){
 	});
 });
 </script>
-	<h2>댓글 리스트</h2>
-	
-	<div>
-		<div>
-			작성자
-			<input style="color: black;" type ='text' name='mno' id='newReplyWriter'>	
-		</div>
-		<div>
-			댓글내용
-			<input style="color: black;" type ='text' name='ctt' id='newReplyText'>	
-		</div>
-		<button id="replyAddBtn" style="color: black;">댓글등록</button>
+<div class="row">
+	<div class="col-sm-1 col-xs-12 center">
+		<i class="material-icons text-right" style="padding-top: 15px; padding-left: 20px; font-size: 36px; color: #2e7d32">tag_faces</i></a>
+		<h5 class="media-heading"><span>${niknm}</span></h5>
 	</div>
-	
+	<div class="col-sm-6 col-xs-12 center">
+      <form role="form">
+      	<div class="form-group">
+           <label for="inputComments"><span style="color:#4e342e">Write reply</span></label>
+        <textarea rows="6" class="form-control" id="inputComments" placeholder="Enter reply"></textarea>
+    </div>
+	        <button type="submit" id="replyAddBtn" class="btn btn-block btn-warning">댓글올리기</button>
+	    </form>
+	</div>
+</div>
 	<!-- 설정페이지 모달창 -->
 	
 	<div id='modDiv'>

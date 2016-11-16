@@ -20,14 +20,21 @@
 	<delete id="delete">
 		delete *
 		  from bsubj
-		 where subjno= #{subjno}
+		 where subjno = #{subjno}
 	</delete>
 
 	<select id="sublistAll" resultType="BsubjDto">
-		select * 
+		select *
 		  from bsubj
 		 where bcateno = #{bcateno}
 	  order by memcnt desc
+	</select>
+
+	<select id="cate" resultType="BsubjDto">
+		SELECT b.bcatenm
+      	     , A.subjttl
+  		  FROM bsubj A JOIN bcate b ON A.bcateno=b.bcateno
+ 		 where a.subjno = #{subjno}
 	</select>
 
 </mapper>  

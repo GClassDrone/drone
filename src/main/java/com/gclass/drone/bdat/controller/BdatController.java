@@ -23,11 +23,11 @@ public class BdatController {
 	private bdatService service;
 
 	@RequestMapping(value = "/{subjno}/{bno}/{bdatno}", method = RequestMethod.POST)
-	public ResponseEntity<String> register(@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno,@PathVariable("bdatno") Integer bdatno) {
+	public ResponseEntity<String> register(@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno) {
 
 		ResponseEntity<String> entity = null;
 		try {
-			service.addbdat(bno, subjno, bdatno);
+			service.addbdat(bno, subjno);
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,7 +41,7 @@ public class BdatController {
 
 		ResponseEntity<List<bdatDto>> entity = null;
 		try {
-			entity = new ResponseEntity<>(service.listbdat(bno, subjno), HttpStatus.OK);
+			entity = new ResponseEntity<>(service.bdatlist(bno, subjno), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

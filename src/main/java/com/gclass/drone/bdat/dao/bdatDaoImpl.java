@@ -20,22 +20,21 @@ public class bdatDaoImpl implements bdatDao {
 	private static String namespace = "com.gclass.drone.mapper.BDatMapper";
 	
 	@Override
-	public List<bdatDto> list(Integer subjno, Integer bno) throws Exception {
+	public List<bdatDto> bdatlist(Integer subjno, Integer bno) throws Exception {
 		Map<String, Object> paramMap = new HashMap<>();
 		
 		paramMap.put("subjno", subjno);
 		paramMap.put("bno", bno);
 		
-		return session.selectList(namespace + ".list", paramMap);
+		return session.selectList(namespace + ".bdatlist", paramMap);
 	}
 
 	@Override
-	public void create(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+	public void create(Integer subjno, Integer bno) throws Exception {
 		Map<String, Object> paramMap = new HashMap<>();
 		
 		paramMap.put("subjno", subjno);
 		paramMap.put("bno", bno);
-		paramMap.put("bdatno", bdatno);
 		
 		session.insert(namespace + ".create", paramMap);
 	}
@@ -65,12 +64,11 @@ public class bdatDaoImpl implements bdatDao {
 	}
 
 	@Override
-	public int count(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+	public int count(Integer subjno, Integer bno) throws Exception {
 		Map<String, Object> paramMap = new HashMap<>();
 		
 		paramMap.put("subjno", subjno);
 		paramMap.put("bno", bno);
-		paramMap.put("bdatno", bdatno);
 		
 		
 		return session.selectOne(namespace +".count", paramMap);

@@ -19,16 +19,16 @@ public class bdatServiceImpl implements bdatService {
 	
 	@Transactional
 	@Override
-	public void addbdat(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+	public void addbdat(Integer subjno, Integer bno) throws Exception {
 
-		bdatdao.create(subjno, bno, bdatno);
+		bdatdao.create(subjno, bno);
 	}
 
 	
 	@Override
-	public List<bdatDto> listbdat(Integer subjno, Integer bno) throws Exception {
+	public List<bdatDto> bdatlist(Integer subjno, Integer bno) throws Exception {
 	
-		return bdatdao.list(subjno, bno);
+		return bdatdao.bdatlist(subjno, bno);
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public class bdatServiceImpl implements bdatService {
 	}
 
 	@Override
-	public int count(Integer subjno, Integer bno, Integer bdatno) throws Exception {
-		return bdatdao.count(subjno, bno, bdatno);
+	public int count(Integer subjno, Integer bno) throws Exception {
+		return bdatdao.count(subjno, bno);
 	}
 
 }
