@@ -21,3 +21,5 @@
 <script src="/resources/js/login/kakao.min.js"></script>
 <script src="/resources/js/login/LoginSocial.js"></script>
 <script src="/resources/js/map/jquery.bxslider.js"></script>
+<!-- 로그인 모달 -->
+<script src="/resources/js/login/LoginModal.js"></script>

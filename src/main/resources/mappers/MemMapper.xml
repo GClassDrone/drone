@@ -13,11 +13,16 @@
 	
 <!-- 로그인 확인 -->
 	<select id="login" resultType="MemDto">
-		select mno,niknm,levno 
+		select * 
 		from mem 
 		where siteno = #{siteno} and siteid = #{siteid}
 	</select>
-	
+<!-- 중복확인 -->	
+<select id = "dulogin" resultType="MemDto">
+	select niknm
+	  from mem
+	 where niknm = #{niknm}
+</select>
 
 
 <!--프로필 상세 페이지볼 때 읽어오는 값들 -->
@@ -61,8 +66,16 @@
 	<select id="listAll" resultType="MemDto">
 		select *
 		  from vw_mem
-		  where mno>0
-		  order by mno desc
+		 where mno>0
+		 order by mno desc
+	</select>
+	
+	<!-- 프로필 디테일부분에서 자기가 올린 컨텐츠를 불러오는 쿼리 -->
+	
+	<select id="conlist" resultType="MemDto">
+	  select /*+ index_desc(cts idx_cts_regdt) */ *
+        FROM cts
+       WHERE mno = #{mno}
 	</select>
 	
 </mapper>

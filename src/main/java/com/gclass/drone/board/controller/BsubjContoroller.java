@@ -67,8 +67,13 @@ public class BsubjContoroller {
 	
 	@RequestMapping(value="/sublist", method=RequestMethod.GET)
 	public void sublist(@RequestParam("bcateno") int bcateno, Model model) throws Exception{
-		logger.info("sublist ....");
 		
+		logger.info("sublist ....");
 		model.addAttribute("sublist", service.sublistAll(bcateno));
+	}
+	
+	@RequestMapping("/notgrade")
+	public void notgrade() throws Exception {
+		logger.info("권한부족");
 	}
 }

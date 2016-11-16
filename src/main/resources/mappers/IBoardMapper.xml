@@ -16,9 +16,10 @@
 <!--프로필 상세 페이지볼 때 읽어오는 값들 -->
 
 	<select id="read" resultType="IBoardDto">
-		select *
-		from board
-		where bno= #{bno} and subjno = #{subjno}
+		select b.*, m.niknm
+		from board b join mem m
+		  on  b.mno = m.mno
+		where b.bno= #{bno} and b.subjno = #{subjno}
 	</select>
 
 
@@ -28,14 +29,15 @@
 		update board set
 		         ttl = #{ttl}
 			   , ctt = #{ctt}
-			   , delyn = #{delyn}
 		 where bno= #{bno} and subjno = #{subjno}
 	</update>
 
 <!-- 삭제시에 삭제는 글번호로 -->
-	<delete id="delete">
-		delete from board where bno= #{bno} and subjno = #{subjno}
-	</delete>
+	<update id="delete">
+		update board set
+			   delyn = 'y'
+		 where bno= #{bno} and subjno = #{subjno}
+	</update>
 	
 	<!-- 리스트 뽑아오기 -->
 	
@@ -45,9 +47,13 @@
 	  	  		select rownum as rnum, a.* 
 	     		  from (
 	      				select /*+ index_desc(b BOARD_SUBJNO_BNO_PK) */ b.*, m.niknm
+	      				       , case when to_char(regdt, 'yyyymmdd') = to_char(sysdate, 'yyyymmdd')
+	      				              then 'y' else 'n' 
+	      				          end as newyn
 	        		   	  from board b join mem m 
 	          				on b.mno = m.mno
 	       				 where subjno = #{subjno}
+	       				   and delyn = 'n'
 						 <!-- <if test="searchType != '' and keyWord != null">
 							 and ${searchType} like '%'||#{keyWord}||'%'
 						 </if> -->
@@ -67,4 +73,5 @@
 							 and ${searchType} like '%'||#{keyWord}||'%'
 						 </if> -->
 	</select>
+	
 </mapper>

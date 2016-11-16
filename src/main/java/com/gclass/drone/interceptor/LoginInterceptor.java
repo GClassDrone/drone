@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.gclass.drone.mem.dto.MemDto;
 import com.gclass.drone.mem.service.MemService;
 
 
@@ -45,11 +46,16 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		System.out.println(siteid);
 		System.out.println(siteno);
 		if(siteid != null && siteno  != null){
-			memservice.login(siteid,siteno);
+			MemDto dto=memservice.login(siteid,siteno);
 			System.out.println(memservice.login(siteid,siteno));
 			
 			if (memservice.login(siteid,siteno) == null) {
 				response.sendRedirect("/registrieren");
+			}else{
+				System.out.println(dto.getMno());	
+				System.out.println(dto.getNiknm());
+				session.setAttribute("mno", dto.getMno());
+				session.setAttribute("niknm", dto.getNiknm());
 			}
 		}
 		return true;

@@ -28,7 +28,7 @@ $(function(){
         	url: '/v1/user/me',
         	success: function(res){
         		siteid = res.id;
-        		location.href="http://192.168.0.23:8080/intro?siteid="+siteid+"&siteno="+siteno;
+        		location.href="http://localhost:8080/intro?siteid="+siteid+"&siteno="+siteno;
         	},
         	fail: function(error){
         		alert(JSON.stringify(error));
@@ -42,7 +42,7 @@ $(function(){
    function ktout(){
 	   Kakao.Auth.logout(function(){
 		   setTimeout(function(){
-			   location.href="http://192.168.0.23:8080/intro"
+			   location.href="http://localhost:8080/intro"
 		   },1000);
 		   });
    }

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../common/include.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,16 +23,15 @@
 <script type="text/javascript">
 
 function getAllList(){
-	var bno = 123239;
 	
-	$.getJSON("/boarddat/all/"+bno, function(data){
+	$.getJSON("/bdat/all/"+bno, function(data){
 		
 		var str ="";
 		console.log(data.length);
 		
 		$(data).each(function(){
-			str += "<li data-bdatno='"this.bdatno+"' class='replyLi'>"
-					+ this.bdatno+":"_this.ctt
+			str += "<li data-bdatno='"+this.bdatno+"' class='replyLi'>"
+					+ this.bdatno+":"+ this.ctt
 					+ "<button>설정</button></li>";
 		});
 		$("#bdat").html(str);
@@ -41,13 +39,13 @@ function getAllList(){
 
 }
 
-$("#replyAddBtn").on("click", function(){
+$(".replyAddBtn").on("click", function(){
 	var mno = $("newReplyWriter").val();
 	var ctt = $("newReplyText").val();
 	
 	$.ajax({
 		type : 'post',
-		url : '/boarddat',
+		url : '/bdat',
 		headers : {
 			"Content-Type" : "application/json",
 			"X-HTTp-Method-Override" :"POST"
@@ -84,7 +82,7 @@ $("#replyDelBtn").on("click", function(){
 	
 	$.ajax({
 		type :'delete',
-		url : '/boarddat' + bdatno,
+		url : '/'+$("#bno").val()+'/'+$("#subjno").val(),
 		headers : {
 			"Content-Type" : "application/json",
 			"X-HTTP-Method-Override" : "DELETE"
@@ -107,7 +105,7 @@ $("#replyModBtn").on("click", function(){
 	
 	$.ajax({
 		type :'put',
-		url : '/boarddat' + bdatno,
+		url : '/bdat' + bdatno ,
 		headers : {
 			"Content-Type" : "application/json",
 			"X-HTTP-Method-Override" : "PUT"
@@ -124,23 +122,21 @@ $("#replyModBtn").on("click", function(){
 	});
 });
 </script>
-
-</head>
-<body>
-	<h2>ajax Test Page</h2>
-	
-	<div>
-		<div>
-			작성자
-			<input style="color: black;" type ='text' name='mno' id='newReplyWriter'>	
-		</div>
-		<div>
-			댓글내용
-			<input style="color: black;" type ='text' name='ctt' id='newReplyText'>	
-		</div>
-		<button id="replyAddBtn" style="color: black;">댓글등록</button>
+<div class="row">
+	<div class="col-sm-1 col-xs-12 center">
+		<i class="material-icons text-right" style="padding-top: 15px; padding-left: 20px; font-size: 36px; color: #2e7d32">tag_faces</i></a>
+		<h5 class="media-heading"><span>${niknm}</span></h5>
 	</div>
-	
+	<div class="col-sm-6 col-xs-12 center">
+      <form role="form">
+      	<div class="form-group">
+           <label for="inputComments"><span style="color:#4e342e">Write reply</span></label>
+        <textarea rows="6" class="form-control" id="inputComments" placeholder="Enter reply"></textarea>
+    </div>
+	        <button type="submit" id="replyAddBtn" class="btn btn-block btn-warning">댓글올리기</button>
+	    </form>
+	</div>
+</div>
 	<!-- 설정페이지 모달창 -->
 	
 	<div id='modDiv'>
@@ -154,5 +150,3 @@ $("#replyModBtn").on("click", function(){
 			<button type="button" id="closeBtn">닫기</button>
 		</div>	
 	</div>
-</body>
-</html>

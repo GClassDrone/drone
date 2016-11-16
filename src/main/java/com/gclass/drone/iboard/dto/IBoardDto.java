@@ -13,7 +13,21 @@ public class IBoardDto {
 	private String upfile;
 	private Timestamp regdt;
 	private char delyn;
+	private String niknm;
+	private String newyn;
 	
+	public String getNewyn() {
+		return newyn;
+	}
+	public void setNewyn(String newyn) {
+		this.newyn = newyn;
+	}
+	public String getNiknm() {
+		return niknm;
+	}
+	public void setNiknm(String niknm) {
+		this.niknm = niknm;
+	}
 	public int getSubjno() {
 		return subjno;
 	}
@@ -72,6 +86,8 @@ public class IBoardDto {
 	@Override
 	public String toString() {
 		return "IBoardDto [subjno=" + subjno + ", bno=" + bno + ", mno=" + mno + ", ttl=" + ttl + ", ctt=" + ctt
-				+ ", readcnt=" + readcnt + ", upfile=" + upfile + ", regdt=" + regdt + ", delyn=" + delyn + "]";
-	}	
+				+ ", readcnt=" + readcnt + ", upfile=" + upfile + ", regdt=" + regdt + ", delyn=" + delyn + ", niknm="
+				+ niknm + ", newyn=" + newyn + "]";
+	}
+	
 }

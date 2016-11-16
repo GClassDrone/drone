@@ -35,6 +35,7 @@ public class MemServiceImpl implements MemService {
 	public List<MemDto> listAll() throws Exception {
 		return dao.listAll();
 	}
+	
 	//로그인
 	@Override
 	public MemDto login(String siteid , String siteno) throws Exception {
@@ -45,5 +46,10 @@ public class MemServiceImpl implements MemService {
 	public void regist(MemDto dto) throws Exception {
 		System.out.println(dto);
 		dao.insert(dto);
+	}
+	@Override
+	public MemDto dulogin(String niknm) throws Exception {
+		System.out.println(niknm+"niknm");
+		return dao.dulogin(niknm);
 	}
 }

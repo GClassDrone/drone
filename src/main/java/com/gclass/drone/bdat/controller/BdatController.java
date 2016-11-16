@@ -16,18 +16,18 @@ import com.gclass.drone.bdat.dto.bdatDto;
 import com.gclass.drone.bdat.service.bdatService;
 
 @RestController
-@RequestMapping("/boarddat")
+@RequestMapping("/bdat")
 public class BdatController {
 
 	@Inject
 	private bdatService service;
 
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<String> register(@RequestBody bdatDto dto) {
+	@RequestMapping(value = "/{subjno}/{bno}/{bdatno}", method = RequestMethod.POST)
+	public ResponseEntity<String> register(@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno) {
 
 		ResponseEntity<String> entity = null;
 		try {
-			service.addbdat(dto);
+			service.addbdat(bno, subjno);
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,12 +36,12 @@ public class BdatController {
 		return entity;
 	}
 
-	@RequestMapping(value = "/all/{bno}", method = RequestMethod.GET)
-	public ResponseEntity<List<bdatDto>> list(@PathVariable("bno") Integer bno) {
+	@RequestMapping(value = "/all/{subjno}/{bno}", method = RequestMethod.GET)
+	public ResponseEntity<List<bdatDto>> list(@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno) {
 
 		ResponseEntity<List<bdatDto>> entity = null;
 		try {
-			entity = new ResponseEntity<>(service.listbdat(bno), HttpStatus.OK);
+			entity = new ResponseEntity<>(service.bdatlist(bno, subjno), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -49,15 +49,15 @@ public class BdatController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/{bdatno}", method = {RequestMethod.PUT, RequestMethod.PATCH})
+	@RequestMapping(value="/{subjno}/{bno}/{bdatno}", method = {RequestMethod.PUT, RequestMethod.PATCH})
 	public ResponseEntity<String> update(
-			@PathVariable("bdatno") Integer bdatno,
+			@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno, @PathVariable("bdatno") Integer bdatno,
 			@RequestBody bdatDto dto) {
 		
 		ResponseEntity<String> entity = null;
 		try {
 			dto.setBdatno(bdatno);
-			service.modifybdat(dto);
+			service.modifybdat(bno, subjno, bdatno);
 			
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		}catch (Exception e) {
@@ -68,13 +68,13 @@ public class BdatController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/{bdatno}", method = {RequestMethod.DELETE})
+	@RequestMapping(value="/{subjno}/{bno}/{bdatno}", method = {RequestMethod.DELETE})
 	public ResponseEntity<String> remove(
-			@PathVariable("bdatno") Integer bdatno) {
+			@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno,@PathVariable("bdatno") Integer bdatno) {
 		
 		ResponseEntity<String> entity = null;
 		try {
-			service.removebdat(bdatno);
+			service.removebdat(bno, subjno, bdatno);
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		}catch (Exception e) {
 			e.printStackTrace();

@@ -1,6 +1,7 @@
 package com.gclass.drone.iboard.controller;
 
 
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -15,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.common.PageMake;
-import com.gclass.drone.iboard.dao.IBoardDao;
 import com.gclass.drone.iboard.dto.IBoardDto;
 import com.gclass.drone.iboard.service.IBoardService;
 
@@ -28,41 +28,71 @@ public class IBoardController {
 	@Inject
 	private IBoardService service;
 	
-	@RequestMapping(value="/register", method= RequestMethod.GET)
-	public void registerGET(IBoardDao board, Model model) throws Exception {
-		
+	@RequestMapping(value="/itregi", method= RequestMethod.GET)
+	public void registerGET(IBoardDto board, @RequestParam("subjno") int subjno, Model model) throws Exception {
+		model.addAttribute("subjno", subjno);
 		logger.info("인스턴스게시판 글등록 겟 .....");
+		logger.info("subjno"+ subjno);
 	}
 	
-	@RequestMapping(value="/register", method= RequestMethod.POST)
-	public String registerPOST(IBoardDto board, RedirectAttributes rttr) throws Exception {
+	@RequestMapping(value="/itregi", method= RequestMethod.POST)
+	public String registerPOST(IBoardDto board,@RequestParam("subjno") int subjno, RedirectAttributes rttr) throws Exception {
 		
 		logger.info("인스턴스게시판 글등록 포스트.....");
 		logger.info(board.toString());
 		
-		service.regist(board);		
-		rttr.addFlashAttribute("msg", "SUCCESS");
-	    
-	    return "redirect:/instanceboard/itlist";
+		System.out.println("subjno 번호"+subjno);
+		service.regist(board);
+		
+	    return "redirect:/instanceboard/itlist?subjno="+subjno;
 	}
 	
 	@RequestMapping(value="/itlist", method=RequestMethod.GET)
 	public void itlist(@RequestParam("subjno") int subjno, @ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
-
+		logger.info("itlist get..."+subjno);
 		model.addAttribute("list", service.listAll(subjno, isp));
 		PageMake pm = new PageMake();
 		pm.setInitPage(isp);
 		pm.setTotalCount(service.totalRow(subjno, isp));
+		model.addAttribute("subjno",subjno);
 		model.addAttribute("pageMake", pm);		
 	}
 	@RequestMapping(value = "/itdetail", method= RequestMethod.GET)
 	public void itdetail(@RequestParam("bno") int bno, @RequestParam("subjno") Integer subjno, Model model) throws Exception{
 		
+		model.addAttribute("bno", bno);
+		model.addAttribute("subjno", subjno);
+		
+		model.addAttribute(service.read(bno, subjno));
+		
+		logger.info("글번호"+bno+"서브젝트번호"+subjno);
+	}
+	
+	@RequestMapping(value="/itupdate",  method=RequestMethod.GET)
+	public void itupdate(@RequestParam("bno") int bno, @RequestParam("subjno") Integer subjno, Model model) throws Exception{
+		model.addAttribute("bno", bno);
+		logger.info("글번호 업뎅티ㅡ"+bno+"서브젝트번호"+subjno);
+		model.addAttribute("subjno", subjno);
 		model.addAttribute(service.read(bno, subjno));
 	}
 	
-	@RequestMapping("/itupdate")
-	public void itupdate(){
+	
+	@RequestMapping(value="/itupdate", method=RequestMethod.POST)
+	public String modify(IBoardDto bDto,@RequestParam("subjno") int subjno,@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
+
+		logger.info(bDto.toString());
+		service.modify(bDto);
 		
+		return "redirect:/instanceboard/itdetail?subjno="+subjno+"&bno="+bno;
+	}
+	
+	@RequestMapping(value="/remove", method=RequestMethod.POST)
+	public String remove(@RequestParam("subjno") int subjno, @RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
+		
+		logger.info("remove....");
+		service.remove(bno, subjno);
+		rttr.addFlashAttribute("subjno",subjno);
+		
+		return "redirect:/instanceboard/itlist?subjno="+subjno;
 	}
 }

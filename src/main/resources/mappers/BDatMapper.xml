@@ -3,11 +3,22 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gclass.drone.mapper.BDatMapper">
+
+
 	<select id="list" resultType="bdatDto">
-		select *
-		from bdat
-		where bno =	#{bno}
-		order by bdatno desc
+		select * 
+		  from (
+				select rownum as rnum, a.* 
+				  from (
+						select /*+ index_desc(bdat subjno_bno_bdatno_pk) */ *
+						  from bdat
+						 where subjno = #{subjno} and bno =#{bno}
+					   ) a 
+		<![CDATA[
+				 where rownum <= #{ipg.endRowNum}
+			   ) b
+		 where rnum >= #{ipg.startRowNum}
+		]]>
 	</select>
 
 	<insert id="create">
@@ -19,15 +30,15 @@
 		update bdat 
 		   set ctt = #{ctt}
 			   regdt = now()
-		where bdatno= #{bdatno}
+		where bdatno= #{bdatno} and subjno = #{subjno} and bno =#{bno}
 	</update>
 
 	<delete id="delete">
-		delete from bdat where bdatno = #{bdatno}
+		delete from bdat where bdatno = #{bdatno} and subjno = #{subjno} and bno =#{bno}
 	</delete>
 	
 	<select id ="count" resultType="int">
-		select count(bdatno) from bdat where bno = #{bno}
+		select count(bdatno) from bdat where bno = #{bno} and subjno = #{subjno}
 	</select>
 	
 	<select id="getBno" resultType="int">

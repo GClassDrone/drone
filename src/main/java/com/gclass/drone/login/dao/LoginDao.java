@@ -13,4 +13,6 @@ public interface LoginDao {
 	
 	public List<LoginDto> sido()throws Exception;
 	
+	
+	
 }
