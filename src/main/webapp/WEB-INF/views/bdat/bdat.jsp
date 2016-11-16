@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+=======
+>>>>>>> bcc246be868ee22075bb3a14a821e689b3dabb49
 <style type="text/css">
 #modDiv {
 	width: 300px;

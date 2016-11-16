@@ -5,7 +5,30 @@
 
 <mapper namespace="com.gclass.drone.mapper.InformMapper">
 	
-                
+<insert id="insert">
+insert into inform(igubun,ino,ttl,ctt,upfile,regdt,mgid,mno,delyn)
+values(#{igubun},inform_next(#{igubun}),#{ttl},#{ctt},#{upfile},#{regdt},#{mgid},#{mno},#{delyn});
+
+</insert>
+	
+<select id ="read" resultType="InformDto">
+	select *
+	  from inform
+	 where igubun = #{igubun} AND ino = #{ino}
+	 
+</select>
+
+<delete id="delete">
+	delete 
+	from inform
+	where igubun = #{igubun} AND ino = #{ino}
+</delete>
+
+<update id="update">
+	update inform
+	set ttl =#{ttl}, ctt = #{ctt}
+	where igubun = #{igubun} AND ino = #{ino}
+</update>
 		
  <select id="listAll" resultType="InformDto" parameterType="InitSearchPage">
 	    select * 
@@ -38,20 +61,31 @@
 		 WHERE igubun = 'g' 
 	</select>
 
-<!-- <select id ="listCriteria" resultType="InformDto">
-	
-</select>-->
-
-
-<!-- <select id ="countPageing" resultType="InformDto">
-	<![CDATA[
-		select
-			count(ino)
-		from
-			inform
-		where 
-		  	ino > 0 and  igubun = ${igubun}
-	]]>
-</select>   -->
-
+<!-- 시장 동향 -->
+<select id = "list" resultType="InformDto">
+	select * 
+        from (
+         select rownum as rnum, a.* 
+           from (
+               SELECT /*+ index_desc(inform inform_igubun_ino_pk) */ igubun
+                      , ino
+                      , ttl
+                      , ctt
+                      , readcnt
+                      , regdt
+                      ,	upfile
+                      , mno
+                      , mgid
+                 FROM inform 
+                WHERE igubun = 's'
+                <if test="searchType != '' and keyWord != null">
+                   where ${searchType} like '%'||#{keyWord}||'%'
+                </if>
+               ) a 
+      <![CDATA[
+             where rownum <= #{endRowNum}
+            ) b
+       where rnum >= #{startRowNum}
+      ]]>
+</select>
 </mapper>

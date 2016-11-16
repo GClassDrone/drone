@@ -177,7 +177,7 @@ section {
         <div class="row">
             <br />
             <ul class="nav nav-tabs pull-right">
-                <li><a href="/info">시장동향</a></li>
+                <li><a href="/inform/info">시장동향</a></li>
                 <li  class="active"><a href="/boardGroupList">주제별 게시판</a></li>
                 <li><a href="/inform/listNotice">공지사항</a></li>
                 <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>

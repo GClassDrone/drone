@@ -38,7 +38,7 @@ $(document).ready(function(){
         <div class="row">
             <br />
             <ul class="nav nav-tabs pull-right">
-                <li><a href="/info">시장동향</a></li>
+                <li><a href="/inform/info">시장동향</a></li>
                 <li><a href="/boardGroupList">주제별 게시판</a></li>
                 <li class="active"><a href="#">공지사항</a></li>
                 <li><a href="https://goo.gl/orXmEX" target="_blank">기상정보</a></li>
@@ -77,7 +77,7 @@ $(document).ready(function(){
 					<c:forEach items="${list}" var="InformDto">
 						<tr>
 							<td>${InformDto.ino }</td>
-							<td><a href="noticeDetail${pageMake.makeSearch(pageMake.initPage.page)}&ino=${InformDto.ino} ">${InformDto.ttl }</td>
+							<td><a href="noticeDetail${pageMake.makeSearch(pageMake.initPage.page)}&ino=${InformDto.ino}&igubun=g">${InformDto.ttl }</td>
 							<td><strong>${InformDto.mgid }</strong></td>
 							<td><fmt:formatDate pattern="yyyy-mm-dd HH:mm" value="${InformDto.regdt }"/>
 							<td><span class="badge bg-red">${InformDto.readcnt }</span></td>
