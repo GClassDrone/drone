@@ -14,24 +14,22 @@
 				</div>
 
 				<form role="form" method="post">
-					<input type='hidden' id='subjno' name='subjno' value="${board.subjno}">
+					<input type='hidden' id='subjno' name='subjno' value="${subjno}">
+					
+						<div class="form-group">
+							<label for="mno">작성자</label> <input type="text"
+								id="mno" name='mno' class="form-control" placeholder="Enter Title" value="${mno }">
+						</div>
 					<div class="box-body">
 						<div class="form-group">
-							<label for="Inputbcateno">글제목</label> <input type="text"
-								name='ttl' class="form-control" placeholder="Enter Title">
+							<label for="ttl">글제목</label> <input type="text"
+								id="ttl" name='ttl' class="form-control" placeholder="Enter Title">
 						</div>
 						<div class="form-group">
-							<label for="Inputsubjttl">글내용</label>
-							<textarea class="form-control" name="ctt" rows="3"
+							<label for="ctt">글내용</label>
+							<textarea class="form-control" id="ctt" name="ctt" rows="3"
 								placeholder="Enter ..."></textarea>
-						</div>
-						<div class="form-group">
-							<label for="Inputsubjctt">삭제여부</label>
-							<select>
-								<option value="n">삭제하지않음</option>
-								<option value="y">삭제</option>
-							</select>
-						</div>
+						</div>>
 					</div>
 					<div class="box-footer">
 						<button type="submit" class="btn btn-primary">글 등록</button>

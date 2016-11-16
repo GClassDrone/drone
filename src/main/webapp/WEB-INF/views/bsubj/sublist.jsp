@@ -14,7 +14,7 @@
 <body>
 <div class="container"> 
 <form role="form" method="post">
-	<input type='hidden' name='bcateno' value="${BsubjDto.bcateno}">
+	<input type='hidden' name='bcateno' value="${bcateno}">
 </form>
   <div class="row">
       <br />

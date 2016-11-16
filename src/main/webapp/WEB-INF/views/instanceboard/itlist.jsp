@@ -17,7 +17,7 @@ if(result=="success"){
 }
 	
 	$("#newBtn").on("click", function(event){
-		$(location).attr("href","/instanceboard/itregi");
+		$(location).attr("href","/instanceboard/itregi?subjno=${subjno}");
 	});
 });
 </script>
@@ -25,7 +25,7 @@ if(result=="success"){
 <body>
 	
 	<form role="form" method="post">
-		<input type='hidden' name='subjno' value="${BsubjDto.subjno}">
+		<input type='hidden' name='subjno' value="${subjno}">
 	</form>
 	
 	<div class="container">

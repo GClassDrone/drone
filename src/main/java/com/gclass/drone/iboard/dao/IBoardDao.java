@@ -18,4 +18,5 @@ public interface IBoardDao {
 	public List<IBoardDto> listAll(Integer subjno, InitSearchPage isp) throws Exception;
 	
 	public int totalRow(Integer subjno, InitSearchPage isp) throws Exception;
+
 }

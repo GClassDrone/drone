@@ -44,7 +44,7 @@
     
 <script type="text/javascript">
 $(function(){
-	var formObj = $("form[role='form']").eq(0);
+	var formObj = $("form[role='form']");
 	$("#modifyBtn").on("click", function(){
 		formObj.attr("action", "/instanceboard/itupdate");
 		formObj.attr("method", "get");
@@ -121,6 +121,15 @@ $(function(){
     </div>
     
     <div class="bdat">
+    		<c:forEach items="${bdatlist}" var="bdatDto">
+					<tr>
+						<td>${BoardDto.bno}</td>
+						<td><a href="itdetail?subjno=${BoardDto.subjno}&bno=${BoardDto.bno}">${BoardDto.ttl}</a></td>
+						<td>${BoardDto.mno}</td>
+						<td>${BoardDto.regdt}</td>
+						<td>${BoardDto.readcnt}</td>
+					</tr>
+			</c:forEach>
     	<jsp:include page="../bdat/bdat.jsp"></jsp:include>
     </div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
