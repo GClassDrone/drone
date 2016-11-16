@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script type="text/javascript">
+	$(function(){
+		$("#logout-user").on("click", function(){
+		$.ajax({
+			url: "/sesout",
+			type: "post",
+			
+			success: function(){
+				alert("로그아웃");
+				history.go(0);
+		}
+		});
+	});
+});
+</script>
+  
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -37,7 +54,7 @@
                         </ul>
                     </li>
                     <li class="dropdonw-split-left active">
-                        <a href="/info">정보</a>
+                        <a href="/inform/info">정보</a>
                     </li>
                     <li class="dropdown dropdown-split-right hidden-xs active">
                     	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -54,12 +71,21 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/mem/ProfileList">파일럿</a>
+                        <a href="/mem/ProfileList">파일럿  ${mno }</a>
                     </li>
                 </ul>
                 <div class="pull-right">
 <!-- 	                 <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span> -->
-	                <button type="button" id="login-user" class="btn btn-default navbar-btn pull-right">sign-in</button>
+				<c:choose>
+					<c:when test="${empty mno }">
+						<button type="button" id="login-user" class="btn btn-default navbar-btn pull-right">sign-in</button>
+					</c:when>
+					<c:otherwise>
+						<button type="button" id="logout-user" name="out" class="btn btn-default navbar-btn pull-right">sign-out</button>
+					</c:otherwise>
+				</c:choose>
+				
+	                
 		         	<a href="#">
 	                	<i class="material-icons pull-right" style="padding-top: 7px; font-size: 34px; color: #8BC34A">tag_faces</i></a>
                 </div>

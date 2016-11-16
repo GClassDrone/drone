@@ -56,7 +56,7 @@ public class MemDaoImpl implements MemDao{
 	}
 	
 	@Override
-	public MemDto dulogin(String niknm) throws Exception {
+	public int dulogin(String niknm) throws Exception {
 		return session.selectOne(namespace +".dulogin", niknm);
 	}
 }
