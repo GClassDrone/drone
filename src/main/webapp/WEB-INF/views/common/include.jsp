@@ -21,5 +21,8 @@
 <script src="/resources/js/login/kakao.min.js"></script>
 <script src="/resources/js/login/LoginSocial.js"></script>
 <script src="/resources/js/map/jquery.bxslider.js"></script>
+<<<<<<< HEAD
 <!-- 로그인 모달 -->
+=======
+>>>>>>> bcc246be868ee22075bb3a14a821e689b3dabb49
 <script src="/resources/js/login/LoginModal.js"></script>

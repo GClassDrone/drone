@@ -20,9 +20,7 @@ if(result=="success"){
 		$(location).attr("href","/instanceboard/itregi");
 	});
 });
-
 </script>
-
 </head>
 <body>
 	
@@ -97,6 +95,6 @@ if(result=="success"){
 					</ul>
 		</div>
 	</div>
-	<%@ include file="../common/footer.jsp"%>
+	<jsp:include page="../common/footer.jsp"/>
 </body>
 </html>
