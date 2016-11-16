@@ -251,7 +251,7 @@ section {
 		            <div class="overlay">
 		               <h2>드론판매</h2>
 		               <p class="info">상업채널로서 제조사나 판매유통회사들의 드론 제품 판매와 홍보 마케팅을 위한 소모임 그룹<br />
-		               <a class="btn btn-warning" href="/bsubj/sublist?bcateno=7" disabled>Go</a>
+		               <a class="btn btn-warning" href="/bsubj/notgrade">Go</a>
 		            </div>
                 </div>
                 <div class="hovereffect col-xs-6 col-md-3">
@@ -259,7 +259,7 @@ section {
 		            <div class="overlay">
 		               <h2>항공촬영</h2>
 		               <p class="info">다양한 기관에서 주관하는 항공촬영 이벤트나 개인간 드론영역의 니즈 중개를 목적으로 한 소모임 그룹<br />
-		               <a class="btn btn-warning" href="/bsubj/sublist?bcateno=8" disabled>Go</a>
+		               <a class="btn btn-warning" href="/bsubj/notgrade">Go</a>
 		            </div>
                 </div>
          </div>

@@ -71,4 +71,9 @@ public class BsubjContoroller {
 		logger.info("sublist ....");
 		model.addAttribute("sublist", service.sublistAll(bcateno));
 	}
+	
+	@RequestMapping("/notgrade")
+	public void notgrade() throws Exception {
+		logger.info("권한부족");
+	}
 }

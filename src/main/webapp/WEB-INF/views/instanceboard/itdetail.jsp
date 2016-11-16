@@ -71,20 +71,12 @@
 	<input type='hidden' id='subjno' name='subjno' value="${subjno}">
 </form>
 
-
     <div class="section">
         <div class="container">
             <br />
-            <ol class="breadcrumb">
-                <li><a href="#">home</a></li>
-                <li><a href="#">정보</a></li>
-                <li><a href="#">게시판</a></li>
-                <li class="active">지금 들어와있는 게시판</li>
-            </ol>
             <div class="form-group">
 	            <div class="row">
 	                <div class="col-md-12">
-	                    <div class="thumbnail"><img src="https://ununsplash.imgix.net/photo-1415302199888-384f752645d0?w=1024&amp;q=50&amp;fm=jpg&amp;s=823bdcc1b7ad955f5180efd352561016" class="img-responsive">
 	                        <div class="caption">
 	                            <h2>${IBoardDto.ttl}<small>&nbsp;${IBoardDto.regdt} by <a href="#">${IBoardDto.mno}</a></small></h2>
 	                                <span class="fa"></span>
@@ -96,32 +88,16 @@
 	            </div>
        		</div>
         </div>
-  	 </div>
    
-   
-	<div class="box-footer">
-		  	<button type="submit" class="btn btn-warning">Modify</button>
- 					<button type="submit" class="btn btn-danger">REMOVE</button>
- 					<button type="submit" class="btn btn-primary">LIST ALL</button>
-	</div>
    	<div class="container">
         <div class="row pull-right">
-            <button type="button" class="btn btn-warning btn-sm center">
-                <span class="fa fa-3x fa-fw umbs-o-up fa-facebook-square"></span></button>
-            <button type="button" class="btn btn-warning btn-sm center">
-                <span class="fa fa-3x fa-fw umbs-o-up -square fa-google-plus-square"></span></button>
-            <button type="button" class="btn btn-warning btn-sm center">
-                <span class="fa fa-3x fa-fw umbs-o-up -square -plus-square fa-twitter-square"></span></button>
-            <button type="button" class="btn btn-warning btn-sm center">
-                <img src="/resources/images/kakaostory.png"></button>
-            <button type="button" class="btn btn-warning btn-sm center">
-                <img src="/resources/images/band2.png"></button>
+		  	<button type="submit" class="btn btn-warning">Modify</button>
+ 			<button type="submit" class="btn btn-danger">REMOVE</button>
+ 			<button type="submit" class="btn btn-primary">LIST ALL</button>
         </div>
-    </div>
-    
-    <div class="bdat">
     	<jsp:include page="../bdat/bdat.jsp"></jsp:include>
     </div>
+    
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 

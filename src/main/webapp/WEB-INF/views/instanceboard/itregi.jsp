@@ -29,7 +29,7 @@
 							<label for="ctt">글내용</label>
 							<textarea class="form-control" id="ctt" name="ctt" rows="3"
 								placeholder="Enter ..."></textarea>
-						</div>>
+						</div>
 					</div>
 					<div class="box-footer">
 						<button type="submit" class="btn btn-primary">글 등록</button>

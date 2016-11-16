@@ -28,7 +28,6 @@
 		update board set
 		         ttl = #{ttl}
 			   , ctt = #{ctt}
-			   , delyn = #{delyn}
 		 where bno= #{bno} and subjno = #{subjno}
 	</update>
 

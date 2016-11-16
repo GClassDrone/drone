@@ -65,6 +65,13 @@
 						<label for="ctt">글내용</label>
 						<input type="text" id="ctt" name="ctt" class="form-control" value="${IBoardDto.ctt}" />
 					</div>
+					
+					<div class="form-group">
+						<label for="delyn">글삭제 여부</label>
+						<select name="delyn" class="form-control">
+							<option value="n">삭제하지 않음</option>
+						</select>
+					</div>				
 				</div>
 			
 			<div class="box-footer">
