@@ -38,42 +38,33 @@
 </div>	 	
 <section class="content">
 <script type="text/javascript">
-/* $(document).ready(function(){
+	$(document).ready(function(){
 	var formObj = $("form[role='form']");
 	console.log(formObj);
-	
-	$(".btn-warning").on("click", function(){
-		self.location="/board/list?page=${isp.page}&perPageNum=${isp.perPageNum}&searchType=${isp.searchType}&keyWord=${isp.keyWord}";
-	});
 	
 	$(".btn-primary").on("click", function(){
 		formObj.submit();
 	});
-}); */
+	
+	$(".btn-warning").on("click", function(){
+		self.location="/instanceboard/itdetail?subjno=${subjno}&bno=${bno}";
+	});
+});
 </script>
 	<div class="row">
 		<div class="col-md-12">
-			<form role="form" method="post" action="modify">
-				<input type='hidden' name='bno' value="${BoardDto.bno}">
-				<input type='hidden' name='subjno' value="${BoardDto.subjno}">
+			<form role="form" method="post">
+				<input type='hidden' id='bno' name='bno' value="${bno}">
+				<input type='hidden' id='subjno' name='subjno' value="${subjno}">
 				<div class="box-body">
 					<div class="form-group">
-						<label for="exampleInputttl">글제목</label>
-						<input type="text" id="num" name="num" class="form-control" placeholder="${BoardDto.ttl}"/>
+						<label for="ttl">글제목</label>
+						<input type="text" id="ttl" name="ttl" class="form-control" value="${IBoardDto.ttl}"/>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputctt">글내용</label>
-						<input type="text" name="title" class="form-control" placeholder="${BoardDto.title}" />
+						<label for="ctt">글내용</label>
+						<input type="text" id="ctt" name="ctt" class="form-control" value="${IBoardDto.ctt}" />
 					</div>
-					
-					<div class="form-group">
-						<label for="exampleInputEmail1">글삭제 여부</label>
-						<input type="text" name="name" class="form-control"  placeholder="${BoardDto.delyn}" />
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">파일업로드</label>
-						<div class="fileDrop"></div>
-					</div>						
 				</div>
 			
 			<div class="box-footer">
@@ -81,8 +72,6 @@
 					<hr>
 				</div>
 			
-				<ul class="mailbox-attachments clearfix uploadedList">
-				</ul>			
 				<button type="submit" class="btn btn-primary">저장</button>
 				<button type="submit" class="btn btn-warning">취소</button>
 			</div>	
@@ -90,150 +79,4 @@
 		</div>
 	</div>
 </section>
-<script type="text/javascript" src="/resources/js/upload.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-
-<script id="template" type="text/x-handlebars-template">
-<li>
-  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-  <div class="mailbox-attachment-info">
-	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-	<a href="{{fullName}}" 
-     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
-	</span>
-  </div>
-</li>                
-</script>    
-
-<script>
-$(document).ready(function(){
-		
-	var formObj = $("form[role='form']");
-
-	formObj.submit(function(event){
-		event.preventDefault();
-		var that = $(this);
-		var str ="";
-		$(".uploadedList .delbtn").each(function(index){
-			 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
-		});
-		
-		that.append(str);
-		console.log(str);
-		that.get(0).submit();
-	});
-	
-	
-	$(".btn-warning").on("click", function(){
-	  //self.location = "/board/list?page=${isp.page}&perPageNum=${isp.perPageNum}&searchType=${isp.searchType}&keyWord=${isp.keyWord}";
-		formObj.attr("method", "get");
-		formObj.attr("action", "/instanceboard/itlist");
-		formObj.submit();	  
-	});
-	
-});
-
-
-
-
-var template = Handlebars.compile($("#template").html());
-
-
-$(".fileDrop").on("dragenter dragover", function(event){
-	event.preventDefault();
-});
-
-
-$(".fileDrop").on("drop", function(event){
-	event.preventDefault();
-	
-	var files = event.originalEvent.dataTransfer.files;
-	var file = files[0];
-	var formData = new FormData();
-	
-	formData.append("file", file);	
-	
-	$.ajax({
-		  url: '/uploadAjax',
-		  data: formData,
-		  dataType:'text',
-		  processData: false,
-		  contentType: false,
-		  type: 'POST',
-		  success: function(data){
-			  var fileInfo = getFileInfo(data);
-			  var html = template(fileInfo);
-			  $(".uploadedList").append(html);
-		  }
-		});	
-});
-
-$(".uploadedList").on("click", ".mailbox-attachment-name", function(event){
-	event.preventDefault();
-	var fileLink = $(this).attr("href");
-
-	if(checkImageType(fileLink)){
-		
-		var imgTag = $("#popup_img");
-		imgTag.attr("src", fileLink);
-		console.log(imgTag.attr("src"));
-		$(".popup").show('slow');
-		imgTag.addClass("show");		
-	}	
-});
-
-$(".uploadedList").on("click", ".delbtn", function(event){
-	event.preventDefault();
-	var that = $(this);
-	var file = $(this).attr("href");
-	
-	$.ajax({
-		type: "post",
-		url: "/board/delOneAttach",
-		headers: {
-				 "Content-Type":"application/json",
-				 "X-HTTP-Method-Override":"POST"},
-		dataType: "text",
-		data: JSON.stringify({fullName:file, num:$("#num").val()}),
-		success: function(result){
-		   if(result == "deleted"){
-			   alert("DB삭제완료");
-			   	//파일 삭제
-				$.ajax({
-					   url:"/deleteFile",
-					   type:"post",
-					   data: {fileName:file},
-					   dataType:"text",
-					   success:function(result){
-						   if(result == "deleted"){
-							   that.closest("li").remove();
-							   alert("파일삭제완료");
-						   }
-					   }
-				   }); 
-		   }			
-		}
-	});
-
-});
-
-
-var bno = ${boardDto.num};
-var template = Handlebars.compile($("#template").html());
-
-$.getJSON("/board/getAttach/"+bno,function(list){
-	$(list).each(function(){
-		var fileInfo = getFileInfo(this);
-		var html = template(fileInfo);
-		 $(".uploadedList").append(html);
-		
-	});
-});
-
-
-$("#popup_img").on("click", function(){
-	$(".popup").hide('slow');
-});	
-</script>
-
 <%@ include file="../common/footer.jsp" %>

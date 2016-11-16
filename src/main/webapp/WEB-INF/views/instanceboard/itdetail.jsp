@@ -42,35 +42,25 @@
     }
     </style> -->
     
-<<<<<<< HEAD
  <script type="text/javascript">
 	$(document).ready(function(){
 		var formObj = $("form[role='form']").eq(0);
 		console.log(formObj);
 		$(".btn-warning").on("click", function(){
-			formObj.attr("action","/inform/modify");
+			formObj.attr("action", "/instanceboard/itupdate");
 			formObj.attr("method","get");
 			formObj.submit();
 		});
 		$(".btn-danger").on("click",function(){
-			formObj.attr("action","/inform/remove");
+			formObj.attr("action", "/instanceboard/remove");
 			formObj.attr("method","post");
 			
 			formObj.submit();
 		});
 		$(".btn-primary").on("click",function(){
-			self.location = "/inform/listNotice";
+			self.location = "/instanceboard/itlist?subjno=${subjno}";
 		});
-=======
-<script type="text/javascript">
-$(function(){
-	var formObj = $("form[role='form']");
-	$("#modifyBtn").on("click", function(){
-		formObj.attr("action", "/instanceboard/itupdate");
-		formObj.attr("method", "get");
-		formObj.submit();
->>>>>>> bcc246be868ee22075bb3a14a821e689b3dabb49
-	});
+});
  </script>
 </head>
 
@@ -96,10 +86,10 @@ $(function(){
 	                <div class="col-md-12">
 	                    <div class="thumbnail"><img src="https://ununsplash.imgix.net/photo-1415302199888-384f752645d0?w=1024&amp;q=50&amp;fm=jpg&amp;s=823bdcc1b7ad955f5180efd352561016" class="img-responsive">
 	                        <div class="caption">
-	                            <h2>글제목${BoardDto.ttl}<small>&nbsp;${BoardDto.regdt} by <a href="#">${BoardDto.mno}</a></small></h2>
+	                            <h2>${IBoardDto.ttl}<small>&nbsp;${IBoardDto.regdt} by <a href="#">${IBoardDto.mno}</a></small></h2>
 	                                <span class="fa"></span>
 	                            <hr />
-	                            <span style="font-size: 16px">글내용${BoardDto.ctt}</span>
+	                            <span style="font-size: 16px">${IBoardDto.ctt}</span>
 	                        </div>
 	                    </div>
 	                </div>
@@ -130,20 +120,7 @@ $(function(){
     </div>
     
     <div class="bdat">
-<<<<<<< HEAD
-    		<c:forEach items="${bdatlist}" var="bdatDto">
-					<tr>
-						<td>${BoardDto.bno}</td>
-						<td><a href="itdetail?subjno=${BoardDto.subjno}&bno=${BoardDto.bno}">${BoardDto.ttl}</a></td>
-						<td>${BoardDto.mno}</td>
-						<td>${BoardDto.regdt}</td>
-						<td>${BoardDto.readcnt}</td>
-					</tr>
-			</c:forEach>
     	<jsp:include page="../bdat/bdat.jsp"></jsp:include>
-=======
-     <%-- <jsp:include page="../bdat/bdat.jsp"></jsp:include> --%>
->>>>>>> 3c8b9e47c17d67db548e1f361e725b624f84c2cc
     </div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>

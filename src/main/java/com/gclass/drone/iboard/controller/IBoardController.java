@@ -43,9 +43,8 @@ public class IBoardController {
 		
 		System.out.println("subjno 번호"+subjno);
 		service.regist(board);
-		rttr.addFlashAttribute("subjno", subjno);
-	    
-	    return "redirect:/instanceboard/itlist";
+		
+	    return "redirect:/instanceboard/itlist?subjno="+subjno;
 	}
 	
 	@RequestMapping(value="/itlist", method=RequestMethod.GET)
@@ -60,10 +59,13 @@ public class IBoardController {
 	}
 	@RequestMapping(value = "/itdetail", method= RequestMethod.GET)
 	public void itdetail(@RequestParam("bno") int bno, @RequestParam("subjno") Integer subjno, Model model) throws Exception{
+		
 		model.addAttribute("bno", bno);
-		logger.info("itde"+bno+"aa"+subjno);
 		model.addAttribute("subjno", subjno);
+		
 		model.addAttribute(service.read(bno, subjno));
+		
+		logger.info("글번호"+bno+"서브젝트번호"+subjno);
 	}
 	
 	@RequestMapping(value="/itupdate",  method=RequestMethod.GET)
@@ -76,12 +78,12 @@ public class IBoardController {
 	
 	
 	@RequestMapping(value="/itupdate", method=RequestMethod.POST)
-	public String modify(IBoardDto bDto,@RequestParam("subjno") int subjno, RedirectAttributes rttr) throws Exception{
+	public String modify(IBoardDto bDto,@RequestParam("subjno") int subjno,@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
 
+		logger.info(bDto.toString());
 		service.modify(bDto);
-		rttr.addFlashAttribute("subjno",subjno);
 		
-		return "redirect:/instanceboard/itlist";
+		return "redirect:/instanceboard/itdetail?subjno="+subjno+"&bno="+bno;
 	}
 	
 	@RequestMapping(value="/remove", method=RequestMethod.POST)
@@ -91,6 +93,6 @@ public class IBoardController {
 		service.remove(bno, subjno);
 		rttr.addFlashAttribute("subjno",subjno);
 		
-		return "redirect:/instanceboard/itlist";
+		return "redirect:/instanceboard/itlist?subjno="+subjno;
 	}
 }

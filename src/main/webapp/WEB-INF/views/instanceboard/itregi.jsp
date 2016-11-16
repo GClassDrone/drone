@@ -15,10 +15,10 @@
 
 				<form role="form" method="post">
 					<input type='hidden' id='subjno' name='subjno' value="${subjno}">
-					
-						<div class="form-group">
-							<label for="mno">작성자</label> <input type="text"
-								id="mno" name='mno' class="form-control" placeholder="Enter Title" value="${mno }">
+					<input type='hidden' id='mno' name='mno' value="${mno}">
+						<div>
+							<label for="niknm">작성자</label> <input type="text"
+								id="niknm" name='niknm' class="form-control" placeholder="Enter Title" value="${niknm}" readonly="readonly">
 						</div>
 					<div class="box-body">
 						<div class="form-group">
