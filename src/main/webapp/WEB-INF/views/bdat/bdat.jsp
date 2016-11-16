@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-=======
->>>>>>> bcc246be868ee22075bb3a14a821e689b3dabb49
 <style type="text/css">
 #modDiv {
 	width: 300px;
@@ -128,7 +125,7 @@ $("#replyModBtn").on("click", function(){
 <div class="row">
 	<div class="col-sm-1 col-xs-12 center">
 		<i class="material-icons text-right" style="padding-top: 15px; padding-left: 20px; font-size: 36px; color: #2e7d32">tag_faces</i></a>
-		<h5 class="media-heading"><span>matthewkim</span></h5>
+		<h5 class="media-heading"><span>${niknm}</span></h5>
 	</div>
 	<div class="col-sm-6 col-xs-12 center">
       <form role="form">

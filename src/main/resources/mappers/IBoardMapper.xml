@@ -33,9 +33,11 @@
 	</update>
 
 <!-- 삭제시에 삭제는 글번호로 -->
-	<delete id="delete">
-		delete from board where bno= #{bno} and subjno = #{subjno}
-	</delete>
+	<update id="delete">
+		update board set
+			   delyn = 'y'
+		 where bno= #{bno} and subjno = #{subjno}
+	</update>
 	
 	<!-- 리스트 뽑아오기 -->
 	
@@ -48,6 +50,7 @@
 	        		   	  from board b join mem m 
 	          				on b.mno = m.mno
 	       				 where subjno = #{subjno}
+	       				   and delyn = 'n'
 						 <!-- <if test="searchType != '' and keyWord != null">
 							 and ${searchType} like '%'||#{keyWord}||'%'
 						 </if> -->
