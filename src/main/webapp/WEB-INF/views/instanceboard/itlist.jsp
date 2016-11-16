@@ -20,8 +20,14 @@ if(result=="success"){
 	$("#newBtn").on("click", function(event){
 		$(location).attr("href","/instanceboard/itregi?subjno=${subjno}");
 	});
+	
+	$("#notgrade").on("click",function(){
+		alert("권한이 부족합니다. 레벨업이 필요합니다.");
+	});
 });
 </script>
+
+	
 </head>
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>	
@@ -41,8 +47,8 @@ if(result=="success"){
 	      <li><a href="/bsubj/sublist?bcateno=4">비행모임</a></li>
 	      <li><a href="/bsubj/sublist?bcateno=5">중고거래</a></li>
 	      <li><a href="/bsubj/sublist?bcateno=6">공동구매</a></li>
-	      <li><a href="/bsubj/notgrade" class="list-group-item disabled" style="border: 0">드론판매</a></li>
-	      <li><a href="/bsubj/notgrade" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
+	      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">드론판매</a></li>
+	      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
 	    </ul>
 	  </div>
 		
