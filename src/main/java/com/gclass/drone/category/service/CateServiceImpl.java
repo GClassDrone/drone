@@ -1,8 +1,6 @@
 package com.gclass.drone.category.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -24,10 +22,7 @@ public class CateServiceImpl implements CateService {
 
 	@Override
 	public List<CateDto> ctsCateList(CatePageDto cpDto) throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("startRowNum", cpDto.getStartRowNum());
-		map.put("endRowNum", cpDto.getEndRowNum());
-		map.put("cateArray", cpDto.getCateArray());
-		return cDao.ctsCateList(map);
+		cpDto.setTotalRow(cDao.ctsCateTotalRow(cpDto));
+		return cDao.ctsCateList(cpDto);
 	}
 }

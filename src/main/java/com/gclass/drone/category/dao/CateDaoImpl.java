@@ -1,7 +1,6 @@
 package com.gclass.drone.category.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -23,7 +22,12 @@ public class CateDaoImpl implements CateDao {
 	private SqlSession session;
 
 	@Override
-	public List<CateDto> ctsCateList(Map<String, Object> map) throws Exception {
-		return session.selectList(namespace+".ctsCateList", map);
+	public List<CateDto> ctsCateList(CatePageDto cpDto) throws Exception {
+		return session.selectList(namespace+".ctsCateList", cpDto);
+	}
+
+	@Override
+	public int ctsCateTotalRow(CatePageDto cpDto) throws Exception {
+		return session.selectOne(namespace+".ctsCateTotalRow", cpDto);
 	}
 }

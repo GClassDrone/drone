@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+#cateList{
+	position: relative;
+}
+#cateList img{
+	max-width: 100%;
+	height: auto;
+}
+#pageBtn-wrap span{
+	margin: 0 auto;
+}
+.btnColor{
+	color: blue;
+}
+#cateList .section{
+	min-height: 320px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/* 썸네일 호버 */
+.embed-responsive:hover{
+	
+}
+
+/* 제목 호버 */
+#cateList h3:hover{
+	
+}

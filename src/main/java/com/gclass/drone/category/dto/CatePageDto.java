@@ -8,6 +8,8 @@ public class CatePageDto {
 	private int endRowNum;
 	private int nowPage;
 	private int pagePerRow;
+	private int totalRow;
+	private int lastPage;
 	public int[] getCateArray() {
 		return cateArray;
 	}
@@ -42,9 +44,23 @@ public class CatePageDto {
 		startRowNum = (nowPage-1)*pagePerRow+1;
 		endRowNum = nowPage*pagePerRow;
 	}
+	public int getTotalRow() {
+		return totalRow;
+	}
+	public void setTotalRow(int totalRow) {
+		this.totalRow = totalRow;
+		this.lastPage = (int)Math.ceil((double)totalRow/pagePerRow);
+	}
+	public int getLastPage() {
+		return lastPage;
+	}
+	public void setLastPage(int lastPage) {
+		this.lastPage = lastPage;
+	}
 	@Override
 	public String toString() {
 		return "CatePageDto [cateArray=" + Arrays.toString(cateArray) + ", startRowNum=" + startRowNum + ", endRowNum="
-				+ endRowNum + ", nowPage=" + nowPage + ", pagePerRow=" + pagePerRow + "]";
+				+ endRowNum + ", nowPage=" + nowPage + ", pagePerRow=" + pagePerRow + ", totalRow=" + totalRow
+				+ ", lastPage=" + lastPage + "]";
 	}
 }
