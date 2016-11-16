@@ -49,8 +49,14 @@ public class MemDaoImpl implements MemDao{
 		
 		return session.selectOne(namespace +".login", paramMap);
 	}
+	
 	@Override
 	public void insert(MemDto dto) throws Exception {
 		session.insert(namespace +".insert", dto);
+	}
+	
+	@Override
+	public MemDto dulogin(String niknm) throws Exception {
+		return session.selectOne(namespace +".dulogin", niknm);
 	}
 }

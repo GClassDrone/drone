@@ -18,5 +18,8 @@ public interface InformDao {
 	public List<InformDto> listAll(InitSearchPage isp)  throws Exception;
 	
 	public int totalRow(InitSearchPage isp) throws Exception;
+	
+	//시장동향
+	public List<InformDto> list(InitSearchPage isp)  throws Exception;
 }
 

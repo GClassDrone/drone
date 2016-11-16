@@ -44,4 +44,10 @@ public class InformDaoImpl implements InformDao {
 	public int totalRow(InitSearchPage isp) throws Exception {
 		return session.selectOne(namespace+".totalRow", isp);
 	}
+	
+	//시장동향
+	@Override
+	public List<InformDto> list(InitSearchPage isp) throws Exception {
+		return session.selectList(namespace+".list", isp);
+	}
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <jsp:include page="../common/include.jsp"/>
-    <style type="text/css">
+<!--     <style type="text/css">
     .navbar-default {
         width: 100%;
         z-index: 9999;
@@ -40,29 +40,38 @@
     .thumbnail img {
         height: 600px
     }
-    </style>
+    </style> -->
     
+<<<<<<< HEAD
+ <script type="text/javascript">
+	$(document).ready(function(){
+		var formObj = $("form[role='form']").eq(0);
+		console.log(formObj);
+		$(".btn-warning").on("click", function(){
+			formObj.attr("action","/inform/modify");
+			formObj.attr("method","get");
+			formObj.submit();
+		});
+		$(".btn-danger").on("click",function(){
+			formObj.attr("action","/inform/remove");
+			formObj.attr("method","post");
+			
+			formObj.submit();
+		});
+		$(".btn-primary").on("click",function(){
+			self.location = "/inform/listNotice";
+		});
+=======
 <script type="text/javascript">
 $(function(){
-	var formObj = $("form[role='form']").eq(0);
+	var formObj = $("form[role='form']");
 	$("#modifyBtn").on("click", function(){
 		formObj.attr("action", "/instanceboard/itupdate");
 		formObj.attr("method", "get");
 		formObj.submit();
+>>>>>>> bcc246be868ee22075bb3a14a821e689b3dabb49
 	});
-	
-	$("#removeBtn").on("click", function(){
-		formObj.attr("action", "/instanceboard/remove");
-		formObj.submit();
-	});		
-	
-	$("#goListBtn").on("click", function(){
-		formObj.attr("method", "get");
-		formObj.attr("action", "/instanceboard/itlist");
-		formObj.submit();
-	});
-});
-</script>
+ </script>
 </head>
 
 <body>
@@ -101,9 +110,9 @@ $(function(){
    
    
 	<div class="box-footer">
-		   <button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
-		   <button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
-		   <button type="submit" class="btn btn-primary" id="goListBtn">GO LIST </button>
+		  	<button type="submit" class="btn btn-warning">Modify</button>
+ 					<button type="submit" class="btn btn-danger">REMOVE</button>
+ 					<button type="submit" class="btn btn-primary">LIST ALL</button>
 	</div>
    	<div class="container">
         <div class="row pull-right">
@@ -121,7 +130,20 @@ $(function(){
     </div>
     
     <div class="bdat">
+<<<<<<< HEAD
+    		<c:forEach items="${bdatlist}" var="bdatDto">
+					<tr>
+						<td>${BoardDto.bno}</td>
+						<td><a href="itdetail?subjno=${BoardDto.subjno}&bno=${BoardDto.bno}">${BoardDto.ttl}</a></td>
+						<td>${BoardDto.mno}</td>
+						<td>${BoardDto.regdt}</td>
+						<td>${BoardDto.readcnt}</td>
+					</tr>
+			</c:forEach>
     	<jsp:include page="../bdat/bdat.jsp"></jsp:include>
+=======
+     <%-- <jsp:include page="../bdat/bdat.jsp"></jsp:include> --%>
+>>>>>>> 3c8b9e47c17d67db548e1f361e725b624f84c2cc
     </div>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>

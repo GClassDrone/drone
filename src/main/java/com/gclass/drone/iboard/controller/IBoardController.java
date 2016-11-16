@@ -29,19 +29,21 @@ public class IBoardController {
 	private IBoardService service;
 	
 	@RequestMapping(value="/itregi", method= RequestMethod.GET)
-	public void registerGET(IBoardDto board, Model model) throws Exception {
-		
+	public void registerGET(IBoardDto board, @RequestParam("subjno") int subjno, Model model) throws Exception {
+		model.addAttribute("subjno", subjno);
 		logger.info("인스턴스게시판 글등록 겟 .....");
+		logger.info("subjno"+ subjno);
 	}
 	
 	@RequestMapping(value="/itregi", method= RequestMethod.POST)
-	public String registerPOST(IBoardDto board, RedirectAttributes rttr) throws Exception {
+	public String registerPOST(IBoardDto board,@RequestParam("subjno") int subjno, RedirectAttributes rttr) throws Exception {
 		
 		logger.info("인스턴스게시판 글등록 포스트.....");
 		logger.info(board.toString());
 		
-		service.regist(board);		
-		rttr.addFlashAttribute("msg", "SUCCESS");
+		System.out.println("subjno 번호"+subjno);
+		service.regist(board);
+		rttr.addFlashAttribute("subjno", subjno);
 	    
 	    return "redirect:/instanceboard/itlist";
 	}
@@ -53,6 +55,7 @@ public class IBoardController {
 		PageMake pm = new PageMake();
 		pm.setInitPage(isp);
 		pm.setTotalCount(service.totalRow(subjno, isp));
+		model.addAttribute("subjno",subjno);
 		model.addAttribute("pageMake", pm);		
 	}
 	@RequestMapping(value = "/itdetail", method= RequestMethod.GET)
@@ -65,26 +68,28 @@ public class IBoardController {
 	
 	@RequestMapping(value="/itupdate",  method=RequestMethod.GET)
 	public void itupdate(@RequestParam("bno") int bno, @RequestParam("subjno") Integer subjno, Model model) throws Exception{
+		model.addAttribute("bno", bno);
+		logger.info("글번호 업뎅티ㅡ"+bno+"서브젝트번호"+subjno);
+		model.addAttribute("subjno", subjno);
 		model.addAttribute(service.read(bno, subjno));
 	}
 	
 	
 	@RequestMapping(value="/itupdate", method=RequestMethod.POST)
-	public String modify(IBoardDto bDto, RedirectAttributes rttr) throws Exception{
+	public String modify(IBoardDto bDto,@RequestParam("subjno") int subjno, RedirectAttributes rttr) throws Exception{
 
 		service.modify(bDto);
-		rttr.addFlashAttribute("msg","success");
+		rttr.addFlashAttribute("subjno",subjno);
 		
 		return "redirect:/instanceboard/itlist";
 	}
 	
 	@RequestMapping(value="/remove", method=RequestMethod.POST)
-	public String remove(@RequestParam("subjno") int subjno, @RequestParam("bno") int bno, @ModelAttribute("isp") InitSearchPage isp, RedirectAttributes rttr) throws Exception{
-		logger.info(subjno + " " + bno);
+	public String remove(@RequestParam("subjno") int subjno, @RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
+		
 		logger.info("remove....");
 		service.remove(bno, subjno);
 		rttr.addFlashAttribute("subjno",subjno);
-//		rttr.addFlashAttribute("isp", isp);
 		
 		return "redirect:/instanceboard/itlist";
 	}

@@ -38,7 +38,7 @@ public class IBoardDaoImpl implements IBoardDao{
 
 	@Override
 	public IBoardDto read(Integer bno, Integer subjno) throws Exception {
-		
+
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("bno", bno);
 		map.put("subjno", subjno);

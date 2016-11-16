@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gclass.drone.loc.dto.LocDto;
@@ -57,11 +58,15 @@ public class LoginController {
 	//로그인
 	@RequestMapping(value="/registrieren",  method = RequestMethod.POST)
 	public String loginHEAD(MemDto dto,  Model model)throws Exception{
-		logger.info("dddadsada");
 		System.out.println(dto);
 		service.regist(dto);
 		model.addAttribute("result", "success");
 		
 		return "/intro";
+	}
+	@RequestMapping(value="/dulogin", method= RequestMethod.POST)
+	public String dulogin(@RequestParam("niknm") String niknm, Model model)throws Exception{
+		model.addAttribute("niknm", service.dulogin(niknm));
+		return "niknm";
 	}
 }

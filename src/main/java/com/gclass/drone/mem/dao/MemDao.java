@@ -18,4 +18,6 @@ public interface MemDao {
 	public List<MemDto> listAll()throws Exception;
 
 	public void insert(MemDto dto) throws Exception;
+	
+	public MemDto dulogin(String niknm)throws Exception;
 }

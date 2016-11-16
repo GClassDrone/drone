@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.gclass.drone.common.InitSearchPage;
@@ -16,14 +18,18 @@ public class InformServiceImpl implements InformSerivce {
 	@Inject
 	private InformDao dao;
 	
+	private static final Logger logger=
+			LoggerFactory.getLogger(InformServiceImpl.class);
+	
 	@Override
 	public void regist(InformDto dto) throws Exception {
 
 	}
 
 	@Override
-	public InformDto read(Integer ino, String igubun) throws Exception {
-		return null;
+	public InformDto read(InformDto dto) throws Exception {
+//		dao.updateViewCnt(ino,igubun);
+		return dao.read(dto);
 	}
 
 	@Override
@@ -32,7 +38,8 @@ public class InformServiceImpl implements InformSerivce {
 	}
 
 	@Override
-	public void remove(Integer ino, String igubun) throws Exception {
+	public void remove(InformDto dto) throws Exception {
+		dao.delete(dto);
 
 	}
 	
@@ -46,5 +53,9 @@ public class InformServiceImpl implements InformSerivce {
 		return dao.totalRow(isp);
 	}
 	
+	@Override
+	public List<InformDto> list(InitSearchPage isp) throws Exception {
+		return dao.list(isp);
+	}
 	
 }
