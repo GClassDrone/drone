@@ -80,7 +80,7 @@ if(result=="success"){
 						<td>${BoardDto.bno}</td>
 						<td><a href="itdetail?subjno=${BoardDto.subjno}&bno=${BoardDto.bno}" style="color: #3e2723">${BoardDto.ttl}</a>
 							<c:if test="${BoardDto.newyn eq 'y'}">
-								new
+								[New]
 							</c:if>
 						</td>
 						<td>${BoardDto.niknm}</td>
