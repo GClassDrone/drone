@@ -28,7 +28,7 @@ $(function(){
         	url: '/v1/user/me',
         	success: function(res){
         		siteid = res.id;
-        		location.href="http://localhost:8080/intro?siteid="+siteid+"&siteno="+siteno;
+        		location.href="http://localhost:8080/login?siteid="+siteid+"&siteno="+siteno;
         	},
         	fail: function(error){
         		alert(JSON.stringify(error));
@@ -48,20 +48,34 @@ $(function(){
    }
 
 //구글
-	function signOut() {
-	    var auth2 = gapi.auth2.getAuthInstance();
-	    auth2.signOut().then(function () {
-	      console.log('User signed out.');
-	 });
-	}   
-	function onSignIn(googleUser) {
-	var profile = googleUser.getBasicProfile();
-	console.log('ID: ' + profile.getId()); 
-	console.log('Name: ' + profile.getName());
-	console.log('Image URL: ' + profile.getImageUrl());
-	console.log('Email: ' + profile.getEmail());
-	}   
-
+   function login(){
+	   hello('google').login({scope: 'email'}).then(function(auth) {
+		   hello(auth.network).api('/me').then(function(r) {
+			   console.log(JSON.stringify(auth));
+			   accessToken = auth.authResponse.access_token;
+			   console.log(accessToken);
+			   getGoogleMe(); // 로그인 하자마자 바로 사용자 정보 호출한다.
+		   });
+	   });
+   }
+   function getGoogleMe(){
+	   hello('google').api('me').then(
+	   function(json) {
+	   console.log(JSON.stringify(json));
+	   name = json.name;
+	   email = json.email;
+	   domain = json.domain;
+	   thumbnail = json.thumbnail;
+	   console.log('name   : ' + name);
+	   console.log('email  : ' + email);
+	   console.log('domain : ' + domain);
+	   console.log('thumbnail : ' + thumbnail);
+	   loginComplete();// JSNI에 정의 되어있다.
+	   },
+	   function(e) {
+	   console.log('me error : ' + e.error.message);
+	   });
+   }
 //네이버
 
 //페이스북

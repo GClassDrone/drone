@@ -7,6 +7,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<jsp:include page="common/include.jsp"></jsp:include>
 <script src="/resources/js/login/registrieren.js"></script>
 </head>
 <body>

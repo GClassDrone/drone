@@ -79,7 +79,7 @@
                 <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
             </ul>
         </div><br />
-        <h1 style="text-align: center;"><strong>드론 시장동향</strong></h1>
+        <h1 style="text-align: center;"><strong>드론 시장동향   1.${siteno } 2.${siteid} 3.${mno } 4.${niknm}</strong></h1>
         <p style="text-align: center;">공지사항 텍스트 요약 ~~~~~~~~</p>
     </div>
     <div class="container">

@@ -19,5 +19,5 @@ public interface MemDao {
 
 	public void insert(MemDto dto) throws Exception;
 	
-	public MemDto dulogin(String niknm)throws Exception;
+	public int dulogin(String niknm)throws Exception;
 }
