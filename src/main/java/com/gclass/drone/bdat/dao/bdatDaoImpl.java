@@ -50,7 +50,7 @@ public class bdatDaoImpl implements bdatDao {
 		paramMap.put("bno", bno);
 		paramMap.put("bdatno", bdatno);
 		
-		
+		System.out.println("+++"+paramMap);
 		session.delete(namespace + ".delete", paramMap);
 	}
 

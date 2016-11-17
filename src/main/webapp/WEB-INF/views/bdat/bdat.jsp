@@ -96,17 +96,16 @@
 
 		$("#replyModBtn").on("click", function() {
 
-			var bdatno = $(".modal-title").html();
+			var data = $(".modal-title").html(bdatno);
 			var subjno = $("#subjno").val();
 			var bno = $("#bno").val();
-
+			var bdatno = $("#modDiv").children("div").eq(0).text();
 			var ctt = $("#cttmodal").val();
 			var mno = $("#mno").val();
-			var url = "/bdat/" + subjno + "/" + bno + "/" + bdatno;
-
 			
-			alert(url);
-
+			alert(subjno+"sadasd"+"asd"+bno+"asd"+bdatno);
+			var url = "/bdat/" + subjno + "/" + bno + "/" + bdatno;
+			
 			$.ajax({
 				type : 'put',
 				url : url,
@@ -131,15 +130,25 @@
 		/* 리플 지우는 버튼 */
 
 		$("#replyDelBtn").on("click", function() {
-			var bdatno = $(".modal-title").html();
+			var bdatno =$("#modDiv").children("div").eq(0).text();
+			alert(bdatno);
 			var ctt = $("#cttmodal").val();
-
+			
+			var subjno = $("#subjno").val();
+			var bno = $("#bno").val();
+			var url = "/bdat/" + subjno + "/" + bno + "/" + bdatno;
+			
 			$.ajax({
-				type : 'delete',
-				url : '/' + $("#subjno").val() + '/' + $("#bno").val()+ '/' + $("#bdatno").val(),
+				type : "post",
+				url : url,
+				data: JSON.stringify({
+					subjno : subjno, 
+					bno : bno,
+					bdatno : bdatno
+				}),
 				headers : {
 					"Content-Type" : "application/json",
-					"X-HTTP-Method-Override" : "DELETE"
+					"X-HTTP-Method-Override" : "POST"
 				},
 				dataType : 'text',
 				success : function(result) {
@@ -148,6 +157,7 @@
 						alert("삭제 되었습니다.");
 						$("#modDiv").hide("slow");
 						getAllList();
+						location.reload();
 					}
 				}
 			});
