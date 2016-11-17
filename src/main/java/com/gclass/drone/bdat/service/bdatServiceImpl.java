@@ -19,9 +19,9 @@ public class bdatServiceImpl implements bdatService {
 	
 	@Transactional
 	@Override
-	public void addbdat(Integer subjno, Integer bno) throws Exception {
+	public void addbdat(bdatDto dto) throws Exception {
 
-		bdatdao.create(subjno, bno);
+		bdatdao.create(dto);
 	}
 
 	
@@ -32,9 +32,9 @@ public class bdatServiceImpl implements bdatService {
 	}
 
 	@Override
-	public void modifybdat(Integer subjno, Integer bno, Integer bdatno) throws Exception {
+	public void modifybdat(bdatDto dto) throws Exception {
 
-		bdatdao.update(subjno, bno, bdatno);
+		bdatdao.update(dto);
 	}
 	
 	@Transactional

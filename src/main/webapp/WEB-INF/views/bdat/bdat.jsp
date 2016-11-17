@@ -22,39 +22,50 @@
 
 <script type="text/javascript">
 
+/* 리스트 불러오는 부분 */
+$(function(){
+	getAllList();
 function getAllList(){
-	
-	$.getJSON("/bdat/all/"+bno, function(data){
+		var subjno = $("#subjno").val();
+		var bno = $("#bno").val();
 		
+	$.getJSON('/bdat/all/'+subjno+"/"+bno, function(data){
+				
 		var str ="";
-		console.log(data.length);
 		
 		$(data).each(function(){
 			str += "<li data-bdatno='"+this.bdatno+"' class='replyLi'>"
-					+ this.bdatno+":"+ this.ctt
+					+ this.niknm+":"+ this.ctt
 					+ "<button>설정</button></li>";
 		});
 		$("#bdat").html(str);
 	});
 
 }
+		/* 리플 등록 버튼 */
 
-$(".replyAddBtn").on("click", function(){
-	var mno = $("newReplyWriter").val();
-	var ctt = $("newReplyText").val();
+$("#replyAddBtn").on("click", function(){
+	var niknm = $("niknm").val();
+	var ctt = $("ctt").val();
 	
+	var subjno = $("#subjno").val();
+	var bno = $("#bno").val();
+	
+	var url = '/bdat/'+subjno+"/"+bno;
 	$.ajax({
 		type : 'post',
-		url : '/bdat',
+		url : url,
 		headers : {
 			"Content-Type" : "application/json",
 			"X-HTTp-Method-Override" :"POST"
 		},
 		dataType : 'text',
 		data : JSON.stringify({
+			subjno : subjno,
 			bno : bno,
-			mno : mno,
-			ctt : ctt
+			mno : $("#mno").val(),
+			niknm : $("#niknm").val(),
+			ctt : $("#ctt").val()
 		}),
 		success: function(result) {
 			if(result =='SUCCESS') {
@@ -64,6 +75,8 @@ $(".replyAddBtn").on("click", function(){
 		}
 	});
 });
+
+		/* 뭔지 모름 */
 
 $("#boarddat").on("click", ".replyLi button", function(){
 	var bdat = $(this).parent();
@@ -75,6 +88,8 @@ $("#boarddat").on("click", ".replyLi button", function(){
 	$("#bdattext").val(bdattext);
 	$("#modDiv").show("slow");
 });
+
+ /* 리플 지우는 버튼 */
 
 $("#replyDelBtn").on("click", function(){
 	var bdatno=$(".modal-title").html();
@@ -99,6 +114,8 @@ $("#replyDelBtn").on("click", function(){
 	});
 });
 
+ /* 수정버튼 고치는 쪽 */
+
 $("#replyModBtn").on("click", function(){
 	var bdatno=$(".modal-title").html();
 	var bdattext = $("#bdattext").val();
@@ -121,29 +138,32 @@ $("#replyModBtn").on("click", function(){
 		}
 	});
 });
+});
 </script>
+
+		<div id='bdat'>
+		</div>
 <div class="row">
-	<div class="col-sm-1 col-xs-12 center">
-		<i class="material-icons text-right" style="padding-top: 15px; padding-left: 20px; font-size: 36px; color: #2e7d32">tag_faces</i></a>
-		<h5 class="media-heading"><span>${niknm}</span></h5>
-	</div>
-	<div class="col-sm-6 col-xs-12 center">
-      <form role="form">
-      	<div class="form-group">
-           <label for="inputComments"><span style="color:#4e342e">Write reply</span></label>
-        <textarea rows="6" class="form-control" id="inputComments" placeholder="Enter reply"></textarea>
-    </div>
-	        <button type="submit" id="replyAddBtn" class="btn btn-block btn-warning">댓글올리기</button>
-	    </form>
+    <form role="form" method="post">
+    	<input type='hidden' id='bno' name='bno' value="${bno}">
+		<input type='hidden' id='subjno' name='subjno' value="${subjno}">
+	</form>
+	<div class="form-group">
+		<div class="col-sm-1 col-xs-12 center">
+			<i class="material-icons text-right" style="padding-top: 15px; padding-left: 20px; font-size: 36px; color: #2e7d32">tag_faces</i>
+			<h5 class="media-heading"><span class="niknm" id="niknm">${niknm}</span></h5>
+		</div>
+		<div class="col-sm-6 col-xs-12 center">
+	           <label for="inputComments"><span style="color:#4e342e">댓글을 써주세요</span></label>
+	        <textarea rows="6" class="form-control" id="ctt" name="ctt" placeholder="Enter reply"></textarea>
+		        <button type="submit" id="replyAddBtn" class="btn btn-block btn-warnings">댓글올리기</button>
+		</div>
 	</div>
 </div>
 	<!-- 설정페이지 모달창 -->
 	
 	<div id='modDiv'>
 		<div class='modal-title'></div>
-		<div>
-			<input type='text' id='bdattext'>
-		</div>
 		<div>
 			<button type="button" id="replyModBtn">수정</button>
 			<button type="button" id="replyDelBtn">삭제</button>

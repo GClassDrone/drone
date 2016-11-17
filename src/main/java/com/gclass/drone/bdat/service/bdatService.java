@@ -8,11 +8,11 @@ import com.gclass.drone.common.InitPage;
 
 public interface bdatService {
 
-	public void addbdat(Integer subjno, Integer bno) throws Exception;
+	public void addbdat(bdatDto dto) throws Exception;
 	
 	public List<bdatDto> bdatlist(Integer subjno, Integer bno) throws Exception;
 	
-	public void modifybdat(Integer subjno, Integer bno, Integer bdatno) throws Exception;
+	public void modifybdat(bdatDto dto) throws Exception;
 	
 	public void removebdat(Integer subjno, Integer bno, Integer bdatnoo) throws Exception;
 	

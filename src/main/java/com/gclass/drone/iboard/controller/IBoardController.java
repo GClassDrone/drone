@@ -3,17 +3,23 @@ package com.gclass.drone.iboard.controller;
 
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+import javax.swing.text.View;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.gclass.drone.board.dto.BsubjDto;
 import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.common.PageMake;
 import com.gclass.drone.iboard.dto.IBoardDto;
@@ -49,8 +55,9 @@ public class IBoardController {
 	
 	@RequestMapping(value="/itlist", method=RequestMethod.GET)
 	public void itlist(@RequestParam("subjno") int subjno, @ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
-		logger.info("itlist get..."+subjno);
+
 		model.addAttribute("list", service.listAll(subjno, isp));
+		model.addAttribute("listheader", service.listheader(subjno));
 		PageMake pm = new PageMake();
 		pm.setInitPage(isp);
 		pm.setTotalCount(service.totalRow(subjno, isp));
@@ -59,10 +66,8 @@ public class IBoardController {
 	}
 	@RequestMapping(value = "/itdetail", method= RequestMethod.GET)
 	public void itdetail(@RequestParam("bno") int bno, @RequestParam("subjno") Integer subjno, Model model) throws Exception{
-		
 		model.addAttribute("bno", bno);
 		model.addAttribute("subjno", subjno);
-		
 		model.addAttribute(service.read(bno, subjno));
 		
 		logger.info("글번호"+bno+"서브젝트번호"+subjno);
