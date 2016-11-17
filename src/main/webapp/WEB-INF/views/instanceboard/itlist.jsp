@@ -37,26 +37,29 @@ if(result=="success"){
 	
 <div class="container">
 	<div class="section">
-	  <div class="col-sm-2 col-sm-offset-10 dropdown">
-	    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">게시판 분류 &nbsp;
-	    <span class="caret"></span></button>
-	    <ul class="dropdown-menu text-right">
-	      <li><a href="/bsubj/sublist?bcateno=1">친목모임</a></li>
-	      <li><a href="/bsubj/sublist?bcateno=2">드론정보</a></li>
-	      <li><a href="/bsubj/sublist?bcateno=3">엔지니어</a></li>
-	      <li><a href="/bsubj/sublist?bcateno=4">비행모임</a></li>
-	      <li><a href="/bsubj/sublist?bcateno=5">중고거래</a></li>
-	      <li><a href="/bsubj/sublist?bcateno=6">공동구매</a></li>
-	      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">드론판매</a></li>
-	      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
-	    </ul>
-	  </div>
 		<h1 id="pilot" class="text-center"><strong>${listheader.subjttl}</strong></h1>
 		<div class="col-sm-6 col-sm-offset-3">
    			<p style="text-align: center;">${listheader.subjctt}
    			<a href="../mem/ProfileDetail?mno=${listheader.mno }"><span style="color: #ff8f00">${listheader.niknm }</span></a></p>
    		</div>		
-	</div>
+	</div>	
+	<div class="section">
+		<div class="row" style="padding-bottom: 5px">
+			  <div class="col-sm-2 col-sm-offset-10 dropdown">
+			    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">게시판 분류 &nbsp;
+			    <span class="caret"></span></button>
+			    <ul class="dropdown-menu">
+			      <li><a href="/bsubj/sublist?bcateno=1">친목모임</a></li>
+			      <li><a href="/bsubj/sublist?bcateno=2">드론정보</a></li>
+			      <li><a href="/bsubj/sublist?bcateno=3">엔지니어</a></li>
+			      <li><a href="/bsubj/sublist?bcateno=4">비행모임</a></li>
+			      <li><a href="/bsubj/sublist?bcateno=5">중고거래</a></li>
+			      <li><a href="/bsubj/sublist?bcateno=6">공동구매</a></li>
+			      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">드론판매</a></li>
+			      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
+			    </ul>
+			  </div>
+		 </div>
 		<div class="well">
 		    <table class="table" style="color: #3e2723">
 		      <thead>
@@ -86,20 +89,21 @@ if(result=="success"){
 		      </tbody>
 		    </table>
 		</div>
-		<div>
-			<button class="btn btn-success" id="newBtn"><i class="fa fa-pencil-square-o"></i>&nbsp;Write</button>
-		</div>
-	    <div class="text-center">
-               <ul class="pagination">
-                   <li class="disabled"><a href="#">«</a></li>
-                   <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                   <li><a href="#">2</a></li>
-                   <li><a href="#">3</a></li>
-                   <li><a href="#">4</a></li>
-                   <li><a href="#">5</a></li>
-                   <li><a href="#">»</a></li>
-               </ul>
-        </div>
+	</div>
+	<div>
+		<button class="btn btn-success" id="newBtn"><i class="fa fa-pencil-square-o"></i>&nbsp;Write</button>
+	</div>
+    <div class="text-center">
+              <ul class="pagination">
+                  <li class="disabled"><a href="#">«</a></li>
+                  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+              </ul>
+       </div>
 </div>
 <jsp:include page="../common/footer.jsp"/>
 </body>
