@@ -12,7 +12,14 @@ public class BsubjDto {
 	private int memcnt;
 	private Timestamp opendt;
 	private int regcnt;
+	private String niknm;
 	
+	public String getNiknm() {
+		return niknm;
+	}
+	public void setNiknm(String niknm) {
+		this.niknm = niknm;
+	}
 	public int getBcateno() {
 		return bcateno;
 	}
@@ -72,6 +79,7 @@ public class BsubjDto {
 	public String toString() {
 		return "BsubjDto [bcateno=" + bcateno + ", subjno=" + subjno + ", subjttl=" + subjttl + ", subjctt=" + subjctt
 				+ ", mno=" + mno + ", delyn=" + delyn + ", memcnt=" + memcnt + ", opendt=" + opendt + ", regcnt="
-				+ regcnt + "]";
+				+ regcnt + ", niknm=" + niknm + "]";
 	}
+
 }

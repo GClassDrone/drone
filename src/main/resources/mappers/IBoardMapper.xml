@@ -40,16 +40,29 @@
 	</update>
 	
 	<!-- 리스트 뽑아오기 -->
+ 	<select id="listheader" resultType="BsubjDto">
+		select s.subjttl, s.subjctt, m.niknm, s.mno
+		  from bsubj s
+		  join mem m
+		    on s.mno = m.mno
+		 where s.subjno = #{subjno}
+		 
+	</select> 
 	
 	<select id="iboardlistAll" resultType="IBoardDto">
 	select * 
 	  	  from (
 	  	  		select rownum as rnum, a.* 
 	     		  from (
-	      				select /*+ index_desc(b BOARD_SUBJNO_BNO_PK) */ b.*, m.niknm
+	      				select /*+ index_desc(b BOARD_SUBJNO_BNO_PK) */ 
+	      						b.mno, b.ttl, b.subjno, b.bno, b.ctt, b.readcnt, b.delyn, b.regdt
+	      					   , m.niknm
 	      				       , case when to_char(regdt, 'yyyymmdd') = to_char(sysdate, 'yyyymmdd')
 	      				              then 'y' else 'n' 
 	      				          end as newyn
+	      				       , CASE WHEN to_char(SYSDATE, 'yyyymmdd') = to_char(regdt, 'yyyymmdd')
+	      				            THEN to_char(ROUND((sysdate-regdt)*24))||'시간전'  ELSE to_char(regdt, 'yyyy-mm-dd') 
+	      				             END regdtout
 	        		   	  from board b join mem m 
 	          				on b.mno = m.mno
 	       				 where subjno = #{subjno}
@@ -65,10 +78,18 @@
 		]]>
 	</select>
 	
+	<update id="boardUpdateReadcnt">
+		update board
+		   set readcnt = readcnt + 1
+		 where bno= #{bno} and subjno = #{subjno}
+	</update>
+	
+	
 	<select id="totalRow" resultType="int">
 		select count(bno)
 		  from board
 		 where subjno = #{subjno}
+		   and  delyn = 'n'
   						<!-- <if test="searchType != '' and keyWord != null">
 							 and ${searchType} like '%'||#{keyWord}||'%'
 						 </if> -->

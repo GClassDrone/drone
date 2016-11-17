@@ -4,43 +4,6 @@
 <html>
 <head>
 <jsp:include page="../common/include.jsp"/>
-<!--     <style type="text/css">
-    .navbar-default {
-        width: 100%;
-        z-index: 9999;
-    }
-    
-    .breadcrumb {
-        background: rgba(23, 21, 21, 0);
-        border: 0px solid rgba(245, 245, 245, 1);
-        border-radius: 0px;
-        display: block;
-    }
-    
-    .breadcrumb li {
-        font-size: 14px;
-    }
-    
-    .breadcrumb a {
-        color: rgba(66, 139, 202, 1);
-    }
-    
-    .breadcrumb a:hover {
-        color: rgba(42, 100, 150, 1);
-    }
-    
-    .breadcrumb>.active {
-        color: rgba(153, 153, 153, 1);
-    }
-    
-    .breadcrumb>li+li:before {
-        color: rgba(204, 204, 204, 1);
-        content: "\002F\00a0";
-    }
-    .thumbnail img {
-        height: 600px
-    }
-    </style> -->
     
  <script type="text/javascript">
 	$(document).ready(function(){
@@ -69,6 +32,7 @@
 <form role="form" method="post">
 	<input type='hidden' id='bno' name='bno' value="${bno}">
 	<input type='hidden' id='subjno' name='subjno' value="${subjno}">
+	<input type='hidden' id='mno' name='mno' value="${mno}">
 </form>
 
     <div class="section">

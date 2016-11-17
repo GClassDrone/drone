@@ -37,29 +37,27 @@ if(result=="success"){
 	
 <div class="container">
 	<div class="section">
-	   <h1 id="pilot" class="text-center"><strong>게시판 제목</strong></h1>
-	   <div class="col-sm-6 col-sm-offset-3">
-	  			<p style="text-align: center;">이 게시판은 안양 변두리에 사는 '모'군과 아이들이 드론을 미끼로 돈많고, 준수한 외모의 술 친구들을 낚시하는 목적의 친목 모임 공간입니다. 호갱님들의 많은 입질 기다립니다.<br />
-	  			<a href="../mem/ProfileDetail?mno=120"><span style="color: #ff8f00">-- '인성'백 (게시판 관리자명)</span></a></p>
-	   </div>
+	  <div class="col-sm-2 col-sm-offset-10 dropdown">
+	    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">게시판 분류 &nbsp;
+	    <span class="caret"></span></button>
+	    <ul class="dropdown-menu text-right">
+	      <li><a href="/bsubj/sublist?bcateno=1">친목모임</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=2">드론정보</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=3">엔지니어</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=4">비행모임</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=5">중고거래</a></li>
+	      <li><a href="/bsubj/sublist?bcateno=6">공동구매</a></li>
+	      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">드론판매</a></li>
+	      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
+	    </ul>
+	  </div>
+		<h1 id="pilot" class="text-center"><strong>${listheader.subjttl}</strong></h1>
+		<div class="col-sm-6 col-sm-offset-3">
+   			<p style="text-align: center;">${listheader.subjctt}
+   			<a href="../mem/ProfileDetail?mno=${listheader.mno }"><span style="color: #ff8f00">${listheader.niknm }</span></a></p>
+   		</div>		
 	</div>
-    <div class="section">
-      <div class="row" style="padding-bottom: 5px">
-		  <div class="col-sm-2 col-sm-offset-10 dropdown">
-		    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">게시판 분류 &nbsp;
-		    <span class="caret"></span></button>
-		    <ul class="dropdown-menu">
-		      <li><a href="/bsubj/sublist?bcateno=1">친목모임</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=2">드론정보</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=3">엔지니어</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=4">비행모임</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=5">중고거래</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=6">공동구매</a></li>
-		      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">드론판매</a></li>
-		      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
-		    </ul>
-		  </div>
-	   </div>  
+    </div>  
 		<div class="well">
 		    <table class="table" style="color: #3e2723">
 		      <thead>
@@ -73,17 +71,17 @@ if(result=="success"){
 		        </tr>
 		      </thead>
 		      <tbody>
-		        <c:forEach items="${list}" var="BoardDto">
+		        <c:forEach items="${list}" var="IBoardDto">
 					<tr>
-						<td>${BoardDto.bno}</td>
-						<td><a href="itdetail?subjno=${BoardDto.subjno}&bno=${BoardDto.bno}" style="color: #3e2723">${BoardDto.ttl}</a>
-							<c:if test="${BoardDto.newyn eq 'y'}">
+						<td>${IBoardDto.bno}</td>
+						<td><a href="itdetail?subjno=${IBoardDto.subjno}&bno=${IBoardDto.bno}" style="color: #3e2723">${IBoardDto.ttl}</a>
+							<c:if test="${IBoardDto.newyn eq 'y'}">
 								[New]
 							</c:if>
 						</td>
-						<td>${BoardDto.niknm}</td>
-						<td>${BoardDto.regdt}</td>
-						<td>${BoardDto.readcnt}</td>
+						<td>${IBoardDto.niknm}</td>
+						<td>${IBoardDto.regdtout}</td>
+						<td>${IBoardDto.readcnt}</td>
 					</tr>
 				</c:forEach>
 		      </tbody>

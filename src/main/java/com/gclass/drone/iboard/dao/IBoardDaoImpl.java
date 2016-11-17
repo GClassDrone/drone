@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.gclass.drone.board.dto.BsubjDto;
 import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.iboard.dto.IBoardDto;
 
@@ -59,6 +60,12 @@ public class IBoardDaoImpl implements IBoardDao{
 		map.put("isp", isp);
 		
 		return session.selectList(namespace+".iboardlistAll", map);
+	}
+	
+	@Override
+	public BsubjDto listheader(Integer subjno) throws Exception {
+		
+		return session.selectOne(namespace+".listheader", subjno);
 	}
 	
 	@Override

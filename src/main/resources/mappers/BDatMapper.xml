@@ -5,31 +5,22 @@
 <mapper namespace="com.gclass.drone.mapper.BDatMapper">
 
 
-	<select id="list" resultType="bdatDto">
-		select * 
-		  from (
-				select rownum as rnum, a.* 
-				  from (
-						select /*+ index_desc(bdat subjno_bno_bdatno_pk) */ *
-						  from bdat
-						 where subjno = #{subjno} and bno =#{bno}
-					   ) a 
-		<![CDATA[
-				 where rownum <= #{ipg.endRowNum}
-			   ) b
-		 where rnum >= #{ipg.startRowNum}
-		]]>
+	<select id="bdatlist" resultType="bdatDto">
+		select  b.*, m.niknm
+		  from bdat b
+		  join mem m
+		    on b.mno= m.mno
+		 where b.bno =#{bno} and b.subjno = #{subjno}
 	</select>
 
 	<insert id="create">
 		insert into bdat (subjno, bno, bdatno, mno, ctt)
-		values (#{subjno},#{bno},bdat_next(#{subjno}, #{bno}), #{mno}, #{ctt})
+		values (#{subjno},#{bno}, bdat_next(#{subjno}, #{bno}), #{mno}, #{ctt})
 	</insert>
 
 	<update id="update">
 		update bdat 
 		   set ctt = #{ctt}
-			   regdt = now()
 		where bdatno= #{bdatno} and subjno = #{subjno} and bno =#{bno}
 	</update>
 
