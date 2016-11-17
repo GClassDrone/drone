@@ -57,23 +57,7 @@ if(result=="success"){
    			<a href="../mem/ProfileDetail?mno=${listheader.mno }"><span style="color: #ff8f00">${listheader.niknm }</span></a></p>
    		</div>		
 	</div>
-    <div class="section">
-      <div class="row" style="padding-bottom: 5px">
-		  <div class="col-sm-2 col-sm-offset-10 dropdown">
-		    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">게시판 분류 &nbsp;
-		    <span class="caret"></span></button>
-		    <ul class="dropdown-menu">
-		      <li><a href="/bsubj/sublist?bcateno=1">친목모임</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=2">드론정보</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=3">엔지니어</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=4">비행모임</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=5">중고거래</a></li>
-		      <li><a href="/bsubj/sublist?bcateno=6">공동구매</a></li>
-		      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">드론판매</a></li>
-		      <li><a id="notgrade" class="list-group-item disabled" style="border: 0">항공촬영</a></li>
-		    </ul>
-		  </div>
-	   </div>  
+    </div>  
 		<div class="well">
 		    <table class="table" style="color: #3e2723">
 		      <thead>
