@@ -38,7 +38,33 @@
 	<!-- 주소 -->
 	<script src="resources/js/login/loc.js"></script>
 	<!-- 중복확인 -->
-<script src="/resources/js/login/registrieren.js"></script>
+	<!-- <script src="/resources/js/login/registrieren.js"></script> -->
+<script type="text/javascript">
+$(function(){
+	$("#btn").on("click", function(){
+		$.ajax({
+			url : "/dulogi",
+			type: "post",
+			data: {
+				niknm: $("#niknm").val()
+			},
+			dataType: "text",
+			success: function(data){
+				var str = "";
+				if(data == "fail"){
+					$("#nexts").remove();
+					$("#spn").text("사용 불가능한 아이디 입니다.");
+					$("#niknm").val("");
+				}else{
+					$("#nexts").remove();
+					$("#spn").text("사용 가능한 아이디 입니다.");
+					$("#next").append("<input type='button' class='btn btn-next btn-fill btn-warning btn-wd' id='nexts' name='nexts' value='Next' />");
+				}
+			}
+		});
+	});
+});
+</script>
 
 </head>
 
@@ -95,6 +121,7 @@
 								
 								<!-- 프로필정보 -->
 		                        <div class="tab-content">
+		                        
 		                            <div class="tab-pane" id="about">
 		                            	<div class="row">
 											<h5 class="info-text"> Please tell us more about yourself.</h5>
@@ -102,20 +129,21 @@
 												<div class="picture-container">
 													<div class="picture">
 														<img src="resources/images/login/default-avatar.jpg" class="picture-src" id="wizardPicturePreview" title="" />
-														<input type="file" id="wizard-picture">
+														<input name="pic" type="file" id="wizard-picture">
 													</div>
 													<h6>Choose Picture</h6>
 												</div>
 											</div>
 											<div class="col-sm-4">
 												<div class="form-group">
-													<label>닉네임 <small>(필수)${sideid }</small></label>
-													<input name="niknm" type="text" class="form-control" placeholder="닉네임을 적어주세요">
+													<label>닉네임 <small>(필수)</small></label>
+													<input id="niknm" name="niknm" type="text" class="form-control" placeholder="닉네임을 적어주세요">
+													<span id="spn"></span>
 												</div>
 												
 											</div>
 											<div class="col-sm-1">
-													 <input type='button' class='btn btn-fill btn-warning btn-wd' name='check' value='중복확인' onclick="idCheck()" />
+													 <input type='button' class='btn btn-fill btn-warning btn-wd' name='check' value='중복확인' id ="btn" />
 												</div>
 											<div class="col-sm-10 col-sm-offset-1">
 												<div class="form-group">
@@ -156,6 +184,8 @@
 			                                    </div>
 		                                </div>
 		                            </div>
+		                            
+		                            
 		                            
 		                            <!-- 가입목적 -->
 		                            <div class="tab-pane" id="account">
@@ -198,17 +228,22 @@
 		                            </div>
 		                            
 		                        </div>
+		                        
 		                        <div class="wizard-footer">
-		                            <div class="pull-right">
-		                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
+		                            <div id="next" class="pull-right">
+		                            	<%-- <c:if test="${data eq 'success'}">
+		                               	 <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
+		                                </c:if> --%>
 		                                <button type='submit' class='btn btn-finish btn-fill btn-warning btn-wd'>submit</button>
 		                            </div>
 
 		                            <div class="pull-left">
 		                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
 		                            </div>
+		                            
 		                            <div class="clearfix"></div>
 		                        </div>
+		                        
 		                    </form>
 		                </div>
 		            </div> <!-- wizard container -->

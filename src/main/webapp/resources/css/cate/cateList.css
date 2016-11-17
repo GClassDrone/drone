@@ -27,3 +27,41 @@
 #cateList h3:hover{
 	
 }
+
+/* 타이틀 이미지 */
+.bgimage {
+    background-image: url('/resources/images/infoboard_bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 320px;
+}
+
+/* more */
+.more {
+    text-align: center;
+}
+
+/* button */
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 20px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;   
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;   
+}
+    
+    
