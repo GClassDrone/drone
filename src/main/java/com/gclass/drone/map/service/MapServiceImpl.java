@@ -66,7 +66,7 @@ public class MapServiceImpl implements MapService {
 	@Transactional
 	@Override
 	public void ctsInsert(CtsDto cDto,String ctstagnm) throws Exception {
-		String[] replace = {"`","~","!","@","$","%","^","&","*","(",")","-","_","+","=","|","\\",",","<",".",">","/","?",";",":","'","\"","{","[","}","]"};
+		String[] replace = {"`","~","!","@","$","%","^","&","\\*","\\(","\\)","-","_","\\+","=","|","\\\\",",","<",".",">","/","?",";",":","'","\"","{","[","}","]"};
 		CtstagDto ctDto = new CtstagDto();
 		Map<String, List<CtstagDto>> map = new HashMap<String, List<CtstagDto>>();
 		List<CtstagDto> list = new ArrayList<CtstagDto>();
@@ -78,7 +78,7 @@ public class MapServiceImpl implements MapService {
 		}
 		
 		String[] tagnmArray = ctstagnm.split("#");
-		
+		logger.info(tagnmArray.toString());
 		ctDto.setCtscateno(cDto.getCtscateno());
 		ctDto.setCtsno(mDao.newCtsNo());
 		
