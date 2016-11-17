@@ -36,9 +36,7 @@ a {
 	<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 		<!-- 구글 버튼 -->
 		<div align="center">
-			<div class="g-signin2" data-onsuccess="onSignIn" >
-			<img src="/resources/images/login/google-sign-in.png">
-			</div>
+			<button onclick=”login()”>Google LogIn</button>
 		<br>
 		</div>
 		<!-- 카카오톡 -->

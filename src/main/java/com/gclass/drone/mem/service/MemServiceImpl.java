@@ -48,8 +48,7 @@ public class MemServiceImpl implements MemService {
 		dao.insert(dto);
 	}
 	@Override
-	public MemDto dulogin(String niknm) throws Exception {
-		System.out.println(niknm+"niknm");
+	public int dulogin(String niknm) throws Exception {
 		return dao.dulogin(niknm);
 	}
 }

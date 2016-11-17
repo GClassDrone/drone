@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,10 +32,12 @@ public class CateController {
 	}
 	
 	@RequestMapping(value="/cateList", method=RequestMethod.POST)
-	public ResponseEntity<List<CateDto>> cataList(CatePageDto cpDto){
+	public ResponseEntity<List<CateDto>> cataList(@RequestBody CatePageDto cpDto){
+		logger.info("cateList POST.........");
 		ResponseEntity<List<CateDto>> entity = null;
 		try{
 			cpDto.setStartEnd();
+			logger.info(cpDto.toString());
 			entity = new ResponseEntity<List<CateDto>>(service.ctsCateList(cpDto), HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

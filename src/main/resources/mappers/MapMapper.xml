@@ -80,8 +80,12 @@
 	<select id="ctscateSelectAll" resultType="CtscateDto">
 		select *
 		  from ctscate
-		 where delyn = 'n'
 		 order by ctscateno
+	</select>
+	
+	<select id="newCtsNo" resultType="int">
+		select max(ctsno)
+		  from cts
 	</select>
 	
 	<insert id="ctsInsert">
@@ -94,7 +98,6 @@
 					  , pt
 					  , lat
 					  , lng
-					  , makedt
 					  , mno
 						)
 				values(
@@ -106,9 +109,20 @@
 					  , #{pt}
 					  , #{lat}
 					  , #{lng}
-					  , #{makedt}
 					  , #{mno}
 						)
+	</insert>
+	<insert id="ctstagInsert">
+		insert into ctstag(
+							ctscateno
+						  , ctsno
+						  , tagno
+						  , tagnm
+							)
+					values
+						<foreach collection="list" item="ctDto">
+						(#{ctDto.ctscateno},#{ctDto.ctsno},ctstag_next(#{ctDto.ctscateno},#{ctDto.ctsno}),#{ctDto.tagnm)
+						</foreach>
 	</insert>
 	<update id="ctsUpdate">
 		update cts

@@ -16,10 +16,19 @@
 <script src="/resources/js/common/bootstrap.min.js"></script>
 <script src="/resources/js/common/script.js"></script>
 <script src="/resources/js/common/jquery-ui.min.js"></script>
+
+<!-- 로그인 모달 -->
+<script src="/resources/js/login/LoginModal.js"></script>
+<script src="/resources/js/login/hello.js"></script>
+<script src="/resources/js/login/google_oauth.js"></script>
 <script src="/resources/js/login/naverLogin_implicit-1.0.2.js" ></script>
 <script src="/resources/js/login/platform.js" async defer></script>
 <script src="/resources/js/login/kakao.min.js"></script>
 <script src="/resources/js/login/LoginSocial.js"></script>
+<<<<<<< HEAD
+<script src="/resources/js/map/jquery.bxslider.js"></script>
+=======
 <script src="/resources/js/map/jquery.bxslider.js"></script>
 <!-- 로그인 모달 -->
 <script src="/resources/js/login/LoginModal.js"></script>
+>>>>>>> 4c6c6d9613611bc37e1a444cb9b36af13c61c4cd

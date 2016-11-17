@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+#cateList{
+	position: relative;
+}
+#cateList img{
+	max-width: 100%;
+	height: auto;
+}
+#pageBtn-wrap span{
+	margin: 0 auto;
+}
+.btnColor{
+	color: blue;
+}
+#cateList .section{
+	min-height: 320px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/* 썸네일 호버 */
+.embed-responsive:hover{
+	
+}
+
+/* 제목 호버 */
+#cateList h3:hover{
+	
+}
+
+/* 타이틀 이미지 */
+.bgimage {
+    background-image: url('/resources/images/infoboard_bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 320px;
+}
+
+/* more */
+.more {
+    text-align: center;
+}
+
+/* button */
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 20px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;   
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;   
+}
+    
+    

@@ -34,15 +34,17 @@ public class MapController {
 	}
 	
 	@RequestMapping(value="/ctsInsert", method=RequestMethod.GET)
-	public void ctsInsert(CtsDto cDto, Model model) throws Exception{
+	public void ctsInsert(Model model) throws Exception{
 		logger.info("CtsInsert GET");
+		model.addAttribute("ctscateList", service.ctscateSelectAll());
 	}
 	
 	@RequestMapping(value="/ctsInsert", method=RequestMethod.POST)
-	public String ctsInsert(CtsDto cDto) throws Exception{
+	public String ctsInsert(CtsDto cDto,@RequestParam("tagnm") String tagnm) throws Exception{
 		logger.info("ctsInsert POST");
 		logger.info(cDto.toString());
-		service.ctsInsert(cDto);
+		logger.info(tagnm);
+		service.ctsInsert(cDto, tagnm);
 		
 		return "redirect:/map/map";
 	}
@@ -125,18 +127,6 @@ public class MapController {
 		ResponseEntity<List<MemViewDto>> entity = null;
 		try{
 			entity = new ResponseEntity<List<MemViewDto>>(service.hotclipPilot(), HttpStatus.OK);
-		}catch(Exception e){
-			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="/ctscateSelect", method=RequestMethod.POST)
-	public ResponseEntity<List<CtscateDto>> ctscateSelect(){
-		ResponseEntity<List<CtscateDto>> entity = null;
-		try{
-			entity = new ResponseEntity<List<CtscateDto>>(service.ctscateSelectAll(), HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

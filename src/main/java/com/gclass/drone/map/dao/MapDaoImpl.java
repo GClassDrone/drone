@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.CtscateDto;
+import com.gclass.drone.map.dto.CtstagDto;
 import com.gclass.drone.map.dto.LocDto;
 import com.gclass.drone.map.dto.MemViewDto;
 
@@ -69,6 +70,11 @@ public class MapDaoImpl implements MapDao {
 	public void ctsInsert(CtsDto cDto) throws Exception {
 		session.insert(namespace+".ctsInsert", cDto);
 	}
+	
+	@Override
+	public void ctstagInsert(Map<String, List<CtstagDto>> map) throws Exception {
+		session.insert(namespace+".ctstagInsert",map);
+	}
 
 	@Override
 	public List<CtscateDto> ctscateSelectAll() throws Exception {
@@ -83,5 +89,10 @@ public class MapDaoImpl implements MapDao {
 	@Override
 	public void ctsDelete(Map<String, Object> map) throws Exception {
 		session.update(namespace+".ctsDelete", map);
+	}
+
+	@Override
+	public int newCtsNo() throws Exception {
+		return session.selectOne(namespace+".newCtsno");
 	}
 }
