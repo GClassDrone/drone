@@ -60,10 +60,13 @@ public class BdatController {
 	public ResponseEntity<String> update(
 			@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno, @PathVariable("bdatno") Integer bdatno,
 			@RequestBody bdatDto dto) {
-		
+		System.out.println("============================================================"+bno+","+subjno+","+bdatno+","+dto);
 		ResponseEntity<String> entity = null;
 		try {
 			dto.setBdatno(bdatno);
+			dto.setBno(bno);
+			dto.setSubjno(subjno);
+			System.out.println("========asdasdsadsadsdadasads dtoget"+dto.getBdatno());
 			service.modifybdat(dto);
 			
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
@@ -74,6 +77,7 @@ public class BdatController {
 		}
 		return entity;
 	}
+	
 	
 	@RequestMapping(value="/{subjno}/{bno}/{bdatno}", method = {RequestMethod.DELETE})
 	public ResponseEntity<String> remove(

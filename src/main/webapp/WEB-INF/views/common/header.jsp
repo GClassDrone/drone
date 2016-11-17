@@ -71,7 +71,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/mem/ProfileList">파일럿  ${mno }</a>
+                        <a href="/mem/ProfileList">파일럿</a>
                     </li>
                 </ul>
                 <div class="pull-right">

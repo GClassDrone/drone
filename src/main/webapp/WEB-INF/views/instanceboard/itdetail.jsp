@@ -9,18 +9,18 @@
 	$(document).ready(function(){
 		var formObj = $("form[role='form']").eq(0);
 		console.log(formObj);
-		$(".btn-warning").on("click", function(){
+		$("#modi").on("click", function(){
 			formObj.attr("action", "/instanceboard/itupdate");
 			formObj.attr("method","get");
 			formObj.submit();
 		});
-		$(".btn-danger").on("click",function(){
+		$("#remv").on("click",function(){
 			formObj.attr("action", "/instanceboard/remove");
 			formObj.attr("method","post");
 			
 			formObj.submit();
 		});
-		$(".btn-primary").on("click",function(){
+		$("#goli").on("click",function(){
 			self.location = "/instanceboard/itlist?subjno=${subjno}";
 		});
 });
@@ -55,9 +55,9 @@
    
    	<div class="container">
         <div class="row pull-right">
-		  	<button type="submit" class="btn btn-warning">Modify</button>
- 			<button type="submit" class="btn btn-danger">REMOVE</button>
- 			<button type="submit" class="btn btn-primary">LIST ALL</button>
+		  	<button type="submit" class="btn btn-warning" id="modi">Modify</button>
+ 			<button type="submit" class="btn btn-danger" id="remv">REMOVE</button>
+ 			<button type="submit" class="btn btn-primary" id="goli">LIST ALL</button>
         </div>
     	<jsp:include page="../bdat/bdat.jsp"></jsp:include>
     </div>
