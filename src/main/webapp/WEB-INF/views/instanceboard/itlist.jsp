@@ -57,7 +57,6 @@ if(result=="success"){
    			<a href="../mem/ProfileDetail?mno=${listheader.mno }"><span style="color: #ff8f00">${listheader.niknm }</span></a></p>
    		</div>		
 	</div>
-    </div>  
 		<div class="well">
 		    <table class="table" style="color: #3e2723">
 		      <thead>
@@ -101,7 +100,6 @@ if(result=="success"){
                    <li><a href="#">»</a></li>
                </ul>
         </div>
-	</div>
 </div>
 <jsp:include page="../common/footer.jsp"/>
 </body>
