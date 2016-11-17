@@ -1,20 +1,16 @@
-    .bgimage {
-        background-image: url('/resources/images/infoboard_bg.jpg');
-        background-position: center center;
-        background-size: cover;
-        height: 320px;
-    }
-    
-    a {
-        color: white;
-    }
-  
-  .col-big{
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    width:20%;
+.bgimage {
+    background-image: url('/resources/images/infoboard_bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 320px;
+}
+
+.col-big{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  width:20%;
 }
 
 .hovereffect {
@@ -155,3 +151,10 @@ section {
     margin: 0 auto;
     border-radius: 100px;
 }
+
+/* pagination */
+.pagination>li>a,
+.pagination>li>span {
+    border-radius: 10% !important;
+}
+

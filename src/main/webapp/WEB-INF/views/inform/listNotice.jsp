@@ -5,7 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
- <script type="text/javascript">
+<jsp:include page="../common/include.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="/resources/css/inform/inform.css"/>
+<script type="text/javascript">
 var result='${msg}';
 if(result=="success"){
 	alert("처리되었습니다.");	
@@ -25,14 +27,12 @@ $(document).ready(function(){
 	});
 });
 </script>
-<link rel="stylesheet" type="text/css" href="/resources/css/inform/inform.css"/>
-<jsp:include page="../common/include.jsp"></jsp:include>
 </head>
 
 <body>
-    <jsp:include page="../common/header.jsp"></jsp:include>
-    <header class="bgimage hidden-xs">
-    </header>
+<jsp:include page="../common/header.jsp"></jsp:include>
+<header class="bgimage hidden-xs">
+</header>
 
 <div class="container">
         <div class="row">
@@ -64,7 +64,45 @@ $(document).ready(function(){
 				</div>
        </div><br />
        
-       <div class="row">
+       <div class="section">
+       	 <div class="well">
+       	 	<table class="table" style="color: #3e2723">
+		      <thead>
+		        <tr>
+		          <th width="10%">#</th>
+		          <th width="50%">Title</th>
+		          <th width="15%">Writer</th>
+		          <th width="15%">Date</th>
+		          <th width="10%">View</th>
+		          <th style="width: 36px;"></th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <c:forEach items="${list}" var="InformDto">
+					<tr>
+						<td>${InformDto.ino }</td>
+						<td><a style="color: #3e2723" href="noticeDetail${pageMake.makeSearch(pageMake.initPage.page)}&ino=${InformDto.ino}&igubun=g">${InformDto.ttl }</td>
+						<td><strong>${InformDto.mgid }</strong></td>
+						<td><fmt:formatDate pattern="yyyy-mm-dd HH:mm" value="${InformDto.regdt }"/>
+						<td><span class="badge bg-red">${InformDto.readcnt }</span></td>
+					</tr>
+				</c:forEach>
+		      </tbody>
+		    </table>
+       	 </div>
+       	 <div class="text-center">
+               <ul class="pagination">
+                   <li class="disabled"><a href="#">«</a></li>
+                   <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                   <li><a href="#">2</a></li>
+                   <li><a href="#">3</a></li>
+                   <li><a href="#">4</a></li>
+                   <li><a href="#">5</a></li>
+                   <li><a href="#">»</a></li>
+               </ul>
+        </div>
+       </div>
+<!--        <div class="row">
         	<div class="text-center">
  					<table class="table table-boradered">
 					<tr>
@@ -103,7 +141,7 @@ $(document).ready(function(){
 					</ul>
  					
  				</div>
-     </div>
+     </div>  -->
  </div>
  <br />
 

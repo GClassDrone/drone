@@ -14,8 +14,8 @@
 <header class="bgimage hidden-xs">
 </header>
 <div class="row">
-   <h1 style="text-align: center;"><strong>활용 분야별 영상</strong></h1>
-   <p style="text-align: center;">활용 분야별로 분류하여 멋진 드론영상을 감상하실 수 있습니다. 왼쪽의 관심영역을 선택하거나 해제해 주세요.</p>
+   <h1 style="text-align: center;"><strong>활용 영역별 영상</strong></h1>
+   <p style="text-align: center;">분야별로 구분된 멋진 드론영상을 감상하실 수 있습니다. 왼쪽의 관심영역을 선택하거나 해제해 주세요.</p>
 </div><br />
 <div class="container">
 	<div class="row">
