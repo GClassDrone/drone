@@ -105,7 +105,6 @@ $(document).ready(function(){
 			      </tbody>
 			    </table>
 	       	 </div>
-       	 </div>
        	 <div class="text-center">
                <ul class="pagination">
                    <li class="disabled"><a href="#">«</a></li>
@@ -117,7 +116,7 @@ $(document).ready(function(){
                    <li><a href="#">»</a></li>
                </ul>
          </div>
- 
+     </div>
 <!--        <div class="row">
         	<div class="text-center">
  					<table class="table table-boradered">
