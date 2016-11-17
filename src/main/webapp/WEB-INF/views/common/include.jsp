@@ -25,10 +25,6 @@
 <script src="/resources/js/login/platform.js" async defer></script>
 <script src="/resources/js/login/kakao.min.js"></script>
 <script src="/resources/js/login/LoginSocial.js"></script>
-<<<<<<< HEAD
-<script src="/resources/js/map/jquery.bxslider.js"></script>
-=======
 <script src="/resources/js/map/jquery.bxslider.js"></script>
 <!-- 로그인 모달 -->
 <script src="/resources/js/login/LoginModal.js"></script>
->>>>>>> 4c6c6d9613611bc37e1a444cb9b36af13c61c4cd
