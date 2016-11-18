@@ -29,11 +29,14 @@ public class MemDto {
 	private String mdrnm;
 	private String actnm;
 	private int rnum;
+	/*게시판 관련 dto들*/
 	private int bcateno;
 	private int subjno;
 	private String subjttl;
 	private String subjctt;
 	private Timestamp opendt;
+	/*콘텐츠 관련 dto들*/
+	
 	
 	
 	public int getBcateno() {

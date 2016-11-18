@@ -50,7 +50,7 @@ $(document).ready(function() {
 	        </div>
 	        <div class="card-info"> 
 	        	<span class="card-title" id="niknm">${memDto.niknm}</span><br>
-			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">정보완료</i></sup></a>
+			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">수정 완료</i></sup></a>
 	        <div class="col-sm-8 col-sm-offset-2">
 		        <div><p style="color: black;">${memDto.prmsg}</p></div>
 		        </div>
@@ -92,12 +92,9 @@ $(document).ready(function() {
 					    <dl class="dl-horizontal">
 					      <dt>개인 소개</dt>
 					      <dd>
-					      	<input type="text" id="ttl" name="ttl" class="form-control" value="${memDto.prmsg}"/>
+					      	<input type="text" id="prmsg" name="prmsg" class="form-control" value="${memDto.prmsg}"/>
 					      </dd>
 			              <br />		
-					      <dt>랭킹</dt>
-					      <dd>${memDto.levnm},${memDto.levnic }<br>(점수 : ${memDto.levpoint}) </dd>
-					      <br />		
 					      <dt>이메일</dt>
 					      <dd>${memDto.email}</dd>
 					      <br />	

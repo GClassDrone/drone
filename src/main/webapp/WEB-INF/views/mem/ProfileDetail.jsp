@@ -297,6 +297,15 @@ $(document).ready(function() {
  				<button type="submit" class="btn btn-primary">삭제</button>
             </div>
 	</c:forEach>   
+       <div class="col-xs-12 col-sm-6 col-md-3">
+           <div class="embed-responsive embed-responsive-16by9">
+               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+           </div>
+           <h3>Grooming</h3>
+           <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
+           <button type="submit" class="btn btn-danger">수정</button>
+			<button type="submit" class="btn btn-primary">삭제</button>
+       </div>
        </div>
     </div>
     	<p class="more">
