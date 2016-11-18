@@ -76,6 +76,7 @@
                 </ul>
                 <div class="pull-right">
 <!-- 	                 <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span> -->
+				
 				<c:choose>
 					<c:when test="${empty mno }">
 						<button type="button" id="login-user" class="btn btn-default navbar-btn pull-right">sign-in</button>

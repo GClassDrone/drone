@@ -83,9 +83,6 @@
         <p style="text-align: center;">공지사항 텍스트 요약 ~~~~~~~~</p>
     </div>
     <div class="container">
-        <div class="row">
-          
-          <div id ="infolist"></div>
 			<!-- <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
 				<div class="thumbnail">
 			  	  <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
@@ -100,17 +97,17 @@
 			    </div>
 			</div>
 			</section>  -->
-            
-        </div>
-        
-        
+            <div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="infolist">
+		</div>
         <br />
         <!-- row -->
-        <p class="more">
-            <button type="button" class="btn btn-default btn-sm center">
-                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
-            </button>
-        </p>
+        <div id="pageBtn-wrap">
+	        <p class="more">
+	            <button type="button" class="btn btn-default btn-sm center">
+	                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
+	            </button>
+	        </p>
+        </div>
     </div>
 
     <jsp:include page="../common/footer.jsp"></jsp:include>
