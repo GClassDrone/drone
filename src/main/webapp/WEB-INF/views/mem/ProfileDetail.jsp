@@ -256,7 +256,7 @@ $(document).ready(function() {
                     <tbody>
                     <c:forEach items="${mylist}" var="MemDto">
                         <tr class="active">
-                            <td class="active"><a href="#" style="color:black;">${MemDto.subjttl}</a></td>
+                            <td class="active"><a href="/instanceboard/itlist?subjno=${MemDto.subjno}" style="color:black;">${MemDto.subjttl}</a></td>
                             <td>${MemDto.subjctt}</td>
                             <th scope="row">${MemDto.opendt}</th>
                         </tr>
@@ -268,7 +268,7 @@ $(document).ready(function() {
                         </tr> -->
                     </tbody>
                 </table>
-                <a href="#" style="color:#616161"><i class="fa fa-3x fa-plus-square"></i></a>
+                <a href="/mem/subregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square">게시판추가</i></a>
 		        </div>
 		      </div>
 	    </div>
@@ -276,6 +276,9 @@ $(document).ready(function() {
   </div>          
 </div>
 
+
+
+<!-- ------------------------------------콘텐츠 목록 보는쪽 -->
 <div class="container">
         <div class="col-md-12">
             <h1 class="text-center">게시 컨텐츠 목록</h1>
