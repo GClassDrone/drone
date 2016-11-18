@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html>
@@ -21,28 +20,8 @@ $(document).ready(function() {
         function(){
             $(this).find('.caption').slideUp(250); //.fadeOut(205)
         }
-    ); 
-    
-    /* 콘텐츠 불러오는 부분 */
-    
-	var formObj = $("form[role='form']").eq(0);
-	console.log(formObj);
-	$(".btn-warning").on("click", function(){
-		formObj.attr("action", "/여기에 들어갈 경로를 적어주세요");
-		formObj.attr("method","get");
-		formObj.submit();
-	});
-	$(".btn-danger").on("click",function(){
-		formObj.attr("action", "/instanceboard/remove");
-		formObj.attr("method","post");
-		
-		formObj.submit();
-	});
-	$(".btn-primary").on("click",function(){
-		self.location = "instanceboard/itlist?subjno=${subjno}";
-	});
+    );
  });
- 
 </script>
 
 </head>
@@ -53,18 +32,13 @@ $(document).ready(function() {
 
 <form role="form" method="post">
 	<input type='hidden' name='mno' value="${memDto.mno}">
-</form>
 
+<div class="form-group">
 <div class="container">
-   <div class="row">
-       <br />
-       <a href="ProfileList"><i class="material-icons">arrow_back</i> 
-       <span style="font-size: 20px">Back</span></a>
-   </div><br />
-   <h1 id="pilot" style="text-align: center;"><strong>파일럿 정보</strong></h1>
+   
+   <h1 id="pilot" style="text-align: center;"><strong>정보 수정 페이지</strong></h1>
    <!-- <p style="text-align: center;">회원님의 상세한 소개를 위한~~~~~~~</p> -->
    
-<div class="form-group">
 	<div class="col-sm-10 col-sm-offset-1">
 	    <div class="card hovercard">
 	        <div class="card-background">
@@ -76,13 +50,9 @@ $(document).ready(function() {
 	        </div>
 	        <div class="card-info"> 
 	        	<span class="card-title" id="niknm">${memDto.niknm}</span><br>
-<!-- 			        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb">채팅하기</i></a>&nbsp; --> 
-			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">정보수정</i></sup></a>
+			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">정보완료</i></sup></a>
 	        <div class="col-sm-8 col-sm-offset-2">
-		        <div>
-		        	<p style="color: black;">${memDto.prmsg}</p>
-		        	
-		        </div>
+		        <div><p style="color: black;">${memDto.prmsg}</p></div>
 		        </div>
 	        </div>
 	    </div>
@@ -114,14 +84,16 @@ $(document).ready(function() {
 	            </button>
 	        </div>
 	    </div>
-	
+	<div id="form-group">
 	    <div class="well">
 		      <div class="tab-content">
 		        <div class="tab-pane fade in active" id="tab1">
-		              <h3 style="display:inline-block">프로필 정보</h3>
+		              <h3 style="display:inline-block">프로필 정보</h3> <a href="#tab1"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
 					    <dl class="dl-horizontal">
 					      <dt>개인 소개</dt>
-					      <dd>${memDto.prmsg}</dd>
+					      <dd>
+					      	<input type="text" id="ttl" name="ttl" class="form-control" value="${memDto.prmsg}"/>
+					      </dd>
 			              <br />		
 					      <dt>랭킹</dt>
 					      <dd>${memDto.levnm},${memDto.levnic }<br>(점수 : ${memDto.levpoint}) </dd>
@@ -244,7 +216,7 @@ $(document).ready(function() {
 		        
 		        <div class="tab-pane fade in" id="tab5">
 		          <h3>소모임 게시판 운영 목록</h3>
-		          	<table class="table table-hover">
+				<table class="table table-hover">
                     <thead>
                         <tr>
                             <th>제목</th>
@@ -274,37 +246,8 @@ $(document).ready(function() {
     </div>
   </div>          
 </div>
-
-<div class="container">
-        <div class="col-md-12">
-            <h1 class="text-center">게시 컨텐츠 목록</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="section">
-        <!-- 글등록 버튼 여기잇음 -->
-        <div>
-        	<button type="submit" class="btn btn-warning">글등록</button>
-        </div>
-	<c:forEach items="${conlist}" var="MemDto">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>Grooming</h3>
-                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-                <button type="submit" class="btn btn-danger">수정</button>
- 				<button type="submit" class="btn btn-primary">삭제</button>
-            </div>
-	</c:forEach>   
-       </div>
-    </div>
-    	<p class="more">
-            <button type="button" class="btn btn-default btn-sm center">
-                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
-            </button>
-        </p>
-
+</div>
+</form>
 	<!--     푸터부분 -->
 <%@include file="../common/footer.jsp" %>
 </body>

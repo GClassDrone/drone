@@ -1,5 +1,6 @@
 package com.gclass.drone.mem.dto;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class MemDto {
@@ -28,7 +29,43 @@ public class MemDto {
 	private String mdrnm;
 	private String actnm;
 	private int rnum;
+	private int bcateno;
+	private int subjno;
+	private String subjttl;
+	private String subjctt;
+	private Timestamp opendt;
 	
+	
+	public int getBcateno() {
+		return bcateno;
+	}
+	public void setBcateno(int bcateno) {
+		this.bcateno = bcateno;
+	}
+	public int getSubjno() {
+		return subjno;
+	}
+	public void setSubjno(int subjno) {
+		this.subjno = subjno;
+	}
+	public String getSubjttl() {
+		return subjttl;
+	}
+	public void setSubjttl(String subjttl) {
+		this.subjttl = subjttl;
+	}
+	public String getSubjctt() {
+		return subjctt;
+	}
+	public void setSubjctt(String subjctt) {
+		this.subjctt = subjctt;
+	}
+	public Timestamp getOpendt() {
+		return opendt;
+	}
+	public void setOpendt(Timestamp opendt) {
+		this.opendt = opendt;
+	}
 	public int getRnum() {
 		return rnum;
 	}
@@ -179,7 +216,6 @@ public class MemDto {
 	public void setActnm(String actnm) {
 		this.actnm = actnm;
 	}
-	
 	@Override
 	public String toString() {
 		return "MemDto [mno=" + mno + ", niknm=" + niknm + ", siteno=" + siteno + ", siteid=" + siteid + ", email="
@@ -187,7 +223,8 @@ public class MemDto {
 				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt
 				+ ", readcnt=" + readcnt + ", indt=" + indt + ", levno=" + levno + ", levpoint=" + levpoint + ", locno="
 				+ locno + ", ppose=" + ppose + ", levnm=" + levnm + ", levnic=" + levnic + ", locnm=" + locnm
-				+ ", mdrnm=" + mdrnm + ", actnm=" + actnm + ", rnum=" + rnum + "]";
+				+ ", mdrnm=" + mdrnm + ", actnm=" + actnm + ", rnum=" + rnum + ", bcateno=" + bcateno + ", subjno="
+				+ subjno + ", subjttl=" + subjttl + ", subjctt=" + subjctt + ", opendt=" + opendt + "]";
 	}
-
+	
 }

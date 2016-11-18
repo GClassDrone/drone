@@ -10,7 +10,6 @@
 			
 			success: function(){
 				alert("로그아웃");
-				history.go(0);
 		}
 		});
 	});

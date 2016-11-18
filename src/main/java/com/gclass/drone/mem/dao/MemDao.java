@@ -20,4 +20,9 @@ public interface MemDao {
 	public void insert(MemDto dto) throws Exception;
 	
 	public int dulogin(String niknm)throws Exception;
+	
+  //프로필에서 내가 개설한 게시판 리스트 뿌려주기
+	
+	public List<MemDto> mylist(Integer mno) throws Exception;
+
 }

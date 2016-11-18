@@ -44,7 +44,6 @@ public class BdatController {
 	@RequestMapping(value = "/all/{subjno}/{bno}", method = RequestMethod.GET)
 	public ResponseEntity<List<bdatDto>> list(@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno) {
 
-		logger.info(bno + " " + subjno);
 		ResponseEntity<List<bdatDto>> entity = null;
 		try {
 			entity = new ResponseEntity<List<bdatDto>>(service.bdatlist(subjno, bno), HttpStatus.OK);
@@ -52,7 +51,6 @@ public class BdatController {
 			e.printStackTrace();
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		logger.info(entity.toString());
 		return entity;
 	}
 	
@@ -60,13 +58,11 @@ public class BdatController {
 	public ResponseEntity<String> update(
 			@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno, @PathVariable("bdatno") Integer bdatno,
 			@RequestBody bdatDto dto) {
-		System.out.println("============================================================"+bno+","+subjno+","+bdatno+","+dto);
 		ResponseEntity<String> entity = null;
 		try {
 			dto.setBdatno(bdatno);
 			dto.setBno(bno);
 			dto.setSubjno(subjno);
-			System.out.println("========asdasdsadsadsdadasads dtoget"+dto.getBdatno());
 			service.modifybdat(dto);
 			
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
@@ -77,15 +73,13 @@ public class BdatController {
 		}
 		return entity;
 	}
-	
-	
-	@RequestMapping(value="/{subjno}/{bno}/{bdatno}", method = {RequestMethod.DELETE})
+
+	@RequestMapping(value="/{subjno}/{bno}/{bdatno}", method = RequestMethod.POST)
 	public ResponseEntity<String> remove(
 			@PathVariable("bno") Integer bno, @PathVariable("subjno") Integer subjno,@PathVariable("bdatno") Integer bdatno) {
-		
 		ResponseEntity<String> entity = null;
 		try {
-			service.removebdat(bno, subjno, bdatno);
+			service.removebdat(subjno, bno, bdatno);
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -94,5 +88,4 @@ public class BdatController {
 		}
 		return entity;
 	}
-
 }
