@@ -28,18 +28,18 @@ $(document).ready(function() {
 	var formObj = $("form[role='form']").eq(0);
 	console.log(formObj);
 	$(".btn-warning").on("click", function(){
-		formObj.attr("action", "/여기에 들어갈 경로를 적어주세요");
+		formObj.attr("action", "/map/ctsInsert?mno=${mno}");
 		formObj.attr("method","get");
 		formObj.submit();
 	});
 	$(".btn-danger").on("click",function(){
-		formObj.attr("action", "/instanceboard/remove");
+		formObj.attr("action", "/map/ctsmodify");
 		formObj.attr("method","post");
 		
 		formObj.submit();
 	});
 	$(".btn-primary").on("click",function(){
-		self.location = "instanceboard/itlist?subjno=${subjno}";
+		self.location = "/map/remove?mno=${mno}&ctscateno=${ctscateno}&ctsno=${ctsno}";
 	});
  });
  
@@ -80,13 +80,12 @@ $(document).ready(function() {
 			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">정보수정</i></sup></a>
 	        <div class="col-sm-8 col-sm-offset-2">
 		        <div>
-		        	<p style="color: black;">${memDto.prmsg}</p>
+		        	<p style="color: black;">상태메세지를 입력해주세요.</p>
 		        	
 		        </div>
 		        </div>
 	        </div>
 	    </div>
-	    
 	    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
 	        <div class="btn-group" role="group">
 	            <button type="button" id="info" class="btn btn-default" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -145,6 +144,7 @@ $(document).ready(function() {
 		            <div class="panel panel-warning">
            				<!--   panel-옵션 => default/ success / warning / info / danger / primary  -->
 	                    <div class="panel-heading">
+	                       <a href="#"><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd; float: right;"></i></a>
 	                        <h3 class="panel-title" style="color:#4e342e">제1회 하천측량·하상변동조사 드론 경진대회</h3>
 	                    </div>
 	                    <div class="panel-body" style="background-color:white">
@@ -160,6 +160,7 @@ $(document).ready(function() {
                 	<div class="panel panel-warning">
            				<!--   panel-옵션 => default/ success / warning / info / danger / primary  -->
 	                    <div class="panel-heading">
+	                        <a href="#"><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd; float: right;"></i></a>
 	                        <h3 class="panel-title" style="color:#4e342e">2016 대한민국 드론 영상제</h3>
 	                    </div>
 	                    <div class="panel-body" style="background-color:white">
@@ -289,7 +290,7 @@ $(document).ready(function() {
 	<c:forEach items="${conlist}" var="MemDto">
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+                    <iframe class="embed-responsive-item" src="" allowfullscreen=""></iframe>
                 </div>
                 <h3>Grooming</h3>
                 <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
@@ -308,6 +309,8 @@ $(document).ready(function() {
        </div>
        </div>
     </div>
+    
+    <!-- 페이지 이동버튼 -->
     	<p class="more">
             <button type="button" class="btn btn-default btn-sm center">
                 <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 

@@ -73,9 +73,12 @@
 	<!-- 프로필 디테일부분에서 자기가 올린 컨텐츠를 불러오는 쿼리 -->
 	
 	<select id="conlist" resultType="MemDto">
-	  select /*+ index_desc(cts idx_cts_regdt) */ *
-        FROM cts
-       WHERE mno = #{mno}
+		SELECT * 
+		  FROM CTS 
+		 WHERE mno=#{mno}
+    	   and delyn = 'n'
+    	 ORDER BY regdt desc
+    	 
 	</select>
 
 	<!-- 프로필에서 게시판 리스트 보는 쿼리 -->
@@ -102,14 +105,14 @@
 			     subjttl = #{subjttl}
 			   , subjctt = #{subjctt}
 			   , delyn = #{delyn}
-		 where mno= #{mno} and subjno= #{subjno}
+		 where subjno= #{subjno}
 	</update>
 
 	<!-- 게시판 지우는 쿼리-->	
 	<delete id="bdelete">
 		delete
 		  from bsubj
-		 where mno =#{mno} and subjno = #{subjno}
+		 where subjno = #{subjno}
 	</delete>
 	
 	<!-- 경력 관련된  쿼리들 -->
@@ -132,7 +135,7 @@
 	<delete id="actdelete">
 		delete
 		  from act
-		 where mno = #{mno} and actno = #{actno}
+		 where actno = #{actno}
 	</delete>
 
 	<select id="actlist" resultType="MemDto">
@@ -153,13 +156,13 @@
 		   set  model = #{model}
 			  , mdrnm = #{mdrnm}
 			  , pryn = #{pryn}
-		 where mno =#{mno} and mdrno =#{mdrno}
+		 where mdrno =#{mdrno}
 	</update>
 		
 	<delete id="dronedelete">
 		delete
 		  from drone
-		 where mno = #{mno} and mdrno = #{mdrno}
+		 where mdrno = #{mdrno}
 	</delete>
 
 	<select id="dronelist" resultType="MemDto">

@@ -35,7 +35,7 @@
 							+ this.niknm
 							+ ":"
 							+ this.ctt
-							+ "<button class='replyModBtn'>설정</button></li>";
+							+ "<button class='replyModBtn fa fa-2x fa-pencil-square-o' style='color:#bdbdbd'></button></li>";
 										});
 							$("#bdat").html(str);
 							});
@@ -85,7 +85,6 @@
 			var bdatno = bdat.attr("data-bdatno");
 			var ctt = bdat.text();
 
-			alert(ctt+":" +bdatno);
 
 			$(".modal-title").html(bdatno);
 			$("#cttmodal").val(ctt);
@@ -131,7 +130,6 @@
 
 		$("#replyDelBtn").on("click", function() {
 			var bdatno =$("#modDiv").children("div").eq(0).text();
-			alert(bdatno);
 			var ctt = $("#cttmodal").val();
 			
 			var subjno = $("#subjno").val();
@@ -196,7 +194,6 @@
 	</div>
 </div>
 <!-- 설정페이지 모달창 -->
-
 <div id='modDiv' style="display: none; color: black;">
 	<div class='modal-title'></div>
 	<div>
