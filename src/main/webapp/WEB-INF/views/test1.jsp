@@ -1,56 +1,76 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<!--
+/*
+ *
+ * Copyright 2015 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
-<script src="/resources/js/jquery-2.1.4.min.js"></script>
-<script src="/resources/js/jquery-ui.min.js"></script>
-<script src="/resources/js/login/LoginSocial.js"></script>
-<script src="/resources/js/login/naverLogin_implicit-1.0.2.js" ></script>
-<meta name="google-signin-client_id" content="454362485000-mvso1bhsstao8khbfvet4a5t3ibl7bfj.apps.googleusercontent.com">
-<script src="/resources/js/login/platform.js" async defer></script>
-<!-- 카카오 js -->
-<script src="/resources/js/login/kakao.min.js"></script>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
-
-<title>Insert title here</title>
+  <title>Google+ JavaScript Quickstart</title>
+  <!-- JavaScript specific to this application that is not related to API
+     calls -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+  <meta name="google-signin-client_id" content="454362485000-4c8v5kv4ruupsef6l6716i9ulmpqe3s8.apps.googleusercontent.com"></meta>
 </head>
 <body>
-<div id ="dialog-login">
-<form >
-<table align="center" ></table>
-<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-<!-- 구글 버튼 -->
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-<br>
-<br>
-<!-- 카카오톡 -->
-<a style="" id="kakao-login-btn"></a><br>
-<br>
-<!-- 네이버 -->
-<a id="naver_id_login"></a>
+ <div id="sns_google">
+	<button class="loginBtn" onclick="onSignIn">
+	<span class="icon"></span>
+	<span class="buttonText">구글 로그인</span>	
+	</button>
+<div>
+ 
 <script type="text/javascript">
-	var naver_id_login = new naver_id_login("CWr_84d1XvIQlD9amjdB", "http://192.168.0.23:8080/test1");
-	var state = naver_id_login.getUniqState();
-	naver_id_login.setButton("green", 3, 48);
-	naver_id_login.setDomain(".service.com");
-	naver_id_login.setState(state);
-	naver_id_login.setPopup();
-	naver_id_login.init_naver_id_login();
-	
-	function naverSignCallback(){
-		alert(naver_id_login.getProfileDate('email'));
-		alert(naver_id_login.getProfileDate('nickname'));
-		alert(naver_id_login.getProfileDate('age'));
-	}
-	naver_id_login.get_naver_userprofile("naverSignCallback()");
-</script>
-<!-- 페이스북 -->
-<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
-</form>
-</div>
 
-<input type ="button" id ="login-user" value = "로그인">
+var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '516768670649-csqp0komrhs8q8iocbtf9c2hmulfeqq8.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('sns_google'));
+    });
+  };
+
+function attachSignin(element) {
+	console.log(element.id);
+	auth2.attachClickHandler(element, {},
+	function(googleUser) {
+		document.getElementById('name').innerText = "Signed in: " +
+		googleUser.getBasicProfile().getName();
+		var frm = document.frm;
+		$("#mid").val("");
+		$("#mpw").val("");
+		$("#mnm").val(googleUser.getBasicProfile().getName());
+		$("#memail").val(googleUser.getBasicProfile().getEmail());
+		$("#muuid").val(googleUser.getBasicProfile().getId());
+		$("#mmanyn").val("4");
+		frm.submit();
+	}, function(error) {
+		alert(JSON.stringify(error, undefined, 2));
+	});
+}
+</script>
+<script src="https://apis.google.com/js/client:platform.js?onload=startApp"></script>
 </body>
 </html>

@@ -1,17 +1,26 @@
 package com.gclass.drone.inform.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.gclass.drone.category.dto.CateDto;
+import com.gclass.drone.category.dto.CatePageDto;
+import com.gclass.drone.category.service.CateService;
 import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.common.PageMake;
 import com.gclass.drone.inform.dto.InformDto;
@@ -23,6 +32,9 @@ public class InformController {
 	
 	@Inject
 	private InformServiceImpl service;
+	
+	@Inject
+	private CateService servic;
 	
 	private static final Logger logger = LoggerFactory.getLogger(InformController.class);
 	
@@ -77,21 +89,23 @@ public class InformController {
 		
 		return "redirect:/inform/listNotice";
 	}
-	
-	
-	//시장동향
 	@RequestMapping(value="/info", method=RequestMethod.GET)
-	public void lists(@ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
-		logger.info("info");
-		logger.info("info받은 후 : "+isp.toString());
-		
-		model.addAttribute("result", service.list(isp));
-		logger.info("info" +  service.list(isp) );
-		PageMake pm = new PageMake();
-		pm.setInitPage(isp);
-		pm.setTotalCount(service.totalRow(isp));
-	
-		logger.info("처리후"+isp.toString());
-		model.addAttribute("pageMake", pm);
+	public void lists(){
+		logger.info("info get......");
+	}
+
+	//시장동향
+	@RequestMapping(value="/info", method=RequestMethod.POST)
+	public ResponseEntity<List<InformDto>> lists(@RequestBody CatePageDto cpDto)throws Exception{
+		logger.info("info..........");
+		ResponseEntity<List<InformDto>> entity = null;
+		try{
+			cpDto.setStartEnd();
+			logger.info(cpDto.toString());
+//			entity = new ResponseEntity<List<CateDto>>(service.ctsCateList(cpDto), HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
 	}
 }

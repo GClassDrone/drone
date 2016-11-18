@@ -60,6 +60,10 @@ public class MainController {
 	public void teamMember() {
 		
 	}
+	@RequestMapping("/test1")
+	public void test1() {
+		
+	}
 	
 	
 /*	@RequestMapping(value="/map", method=RequestMethod.GET)
