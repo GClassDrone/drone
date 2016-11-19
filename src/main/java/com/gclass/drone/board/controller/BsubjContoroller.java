@@ -41,28 +41,27 @@ public class BsubjContoroller {
 	}
 	
 	@RequestMapping(value="/subremove", method = RequestMethod.POST)
-	public String remove(@RequestParam("subjno") int subjno, RedirectAttributes rttr) throws Exception {
+	public String remove(@RequestParam("mno") int mno, @RequestParam("subjno") int subjno, RedirectAttributes rttr) throws Exception {
 		
 		service.delete(subjno);
 		
-		rttr.addFlashAttribute("msg","SUCCESS");
-		return "redirect:/board/sublist";
+		return "redirect:/mem/ProfileDetail?mno="+mno;
 	}
 	
 	@RequestMapping(value="/submodify", method=RequestMethod.GET)
 	public void modify(@RequestParam("subjno") int subjno, Model model) throws Exception{
-
+		
 		logger.info("modifyGET....");
 		model.addAttribute(service.read(subjno));
 	}
 	
 	@RequestMapping(value="/submodify", method=RequestMethod.POST)
-	public String modify(BsubjDto bDto, RedirectAttributes rttr) throws Exception{
+	public String modify(@RequestParam("mno") int mno, @RequestParam("subjno") int subjno, BsubjDto bDto, Model model) throws Exception{
+		
 		logger.info("modifyPOST....");
 		service.update(bDto);
-		rttr.addFlashAttribute("msg","success");
 		
-		return "redirect:/board/sublist";
+		return "redirect:/mem/ProfileDetail?mno="+mno;
 	}
 	
 	@RequestMapping(value="/sublist", method=RequestMethod.GET)

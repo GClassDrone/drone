@@ -24,5 +24,7 @@ public interface MemDao {
   //프로필에서 내가 개설한 게시판 리스트 뿌려주기
 	
 	public List<MemDto> mylist(Integer mno) throws Exception;
+	
+	public void binsert(MemDto dto) throws Exception;
 
 }

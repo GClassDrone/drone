@@ -49,7 +49,10 @@
        		<li>|</li>
        		<li>
 		       <i class="fa fa-cog fa-spin fa-2x fa-fw" style="color: green" aria-hidden="false"></i>
-		       <span class="label label-warning arrowed-in">활동중${BsubjDto.opendt} +2주후 </span>
+		       
+		       <c:if test="">
+		       	<span class="label label-warning arrowed-in">활동중 ${BsubjDto.opendt}+2주후 </span>
+		       </c:if>
 			</li>
 			<!-- <li>|</li> -->
 		 </ul>

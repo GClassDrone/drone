@@ -21,16 +21,25 @@
 						</div>
 					<div class="box-body">
 						<div class="form-group">
-							<label for="ttl"></label> <input type="text"
-								id="ttl" name='ttl' class="form-control" placeholder="Enter Title">
+							<label for="bcateno">카테고리 설정 </label>
+							<select id="bcateno" name='bcateno' class="form-control">
+								<option value="1">친목모임</option>
+								<option value="2">드론정보</option>
+								<option value="3">엔지니어</option>
+								<option value="4">비행모임</option>
+								<option value="5">중고거래</option>
+								<option value="6">공동구매</option>
+								<option value="7" disabled="disabled">드론판매(레벨부족)</option>
+								<option value="8" disabled="disabled">항공촬영(레벨부족)</option>
+							</select>
 						</div>
 						<div class="form-group">
-							<label for="ttl">글제목</label> <input type="text"
-								id="ttl" name='ttl' class="form-control" placeholder="Enter Title">
+							<label for="subjttl">게시판명</label> 
+							<input type="text" id="sujbttl" name='subjttl' class="form-control" placeholder="게시판명을 적어주세요">
 						</div>
 						<div class="form-group">
-							<label for="ctt">글내용</label>
-							<textarea class="form-control" id="ctt" name="ctt" rows="3"
+							<label for="subjctt">게시판 설명</label>
+							<textarea class="form-control" id="subjctt" name="subjctt" rows="3"
 								placeholder="Enter ..."></textarea>
 						</div>
 					</div>

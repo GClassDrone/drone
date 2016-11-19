@@ -11,8 +11,10 @@ public interface MemService {
 	public void remove(Integer mno) throws Exception;
 	public List<MemDto> listAll() throws Exception;
 	
-	/*프로필에서 게시판 리스트 뽑는부분*/
+	/*프로필에서 게시판  뽑는부분 */
 	public List<MemDto> mylist(Integer mno) throws Exception;
+	public void binsert(MemDto bDto) throws Exception;
+	
 	
 	//로그인
 	public MemDto login(String siteid, String siteno)throws Exception;

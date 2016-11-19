@@ -56,4 +56,9 @@ public class MemServiceImpl implements MemService {
 	public List<MemDto> mylist(Integer mno) throws Exception {
 		return dao.mylist(mno);
 	}
+
+	@Override
+	public void binsert(MemDto dto) throws Exception {
+		dao.binsert(dto);
+	}
 }

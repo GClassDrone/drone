@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%@include file="../common/header.jsp" %>
+<%@include file="../common/include.jsp" %>
 
 <script>
 $(document).ready(function(){
@@ -11,7 +12,7 @@ $(document).ready(function(){
 	console.log(formObj);
 	
 	$(".btn-warning").on("click", function(){
-		self.location = "/board/sublist";
+		self.location = "/mem/ProfileDetail?mno=${memDto.mno}";
 	});
 	
 	$(".btn-primary").on("click", function(){
@@ -20,24 +21,22 @@ $(document).ready(function(){
 });
 
 </script>
-
 <form role="form" method="post">
+	<input type='text' name='subjno' value="${subjno}">
+	<input type='text' name='mno' value="${mno}">
+</form>
 	<div class="box-body">
 		<div class="form-group">
-			<label for="Inputsubjttl">주제명</label>
-			<textarea class="form-control" name="subjttl" rows="3"
-				placeholder="Enter ..."></textarea>
+			<label for="subjttl">주제명</label> <input type="text"
+				name="subjttl" class="form-control" placeholder="${subjttl }">
 		</div>
 		<div class="form-group">
-			<label for="Inputsubjctt">주제내용</label> <input type="text"
-				name="subjctt" class="form-control" placeholder="Enter Writer">
+			<label for="subjctt">주제내용</label>
+			<textarea class="form-control" name="subjttl" rows="3"
+				placeholder="${subjctt }"></textarea>
 		</div>
-				<div class="form-group">
-			<label for="Inputsubjctt">게시판 삭제여부</label> <input type="text"
-				name="delyn" class="form-control" placeholder="Enter Writer">
-		</div>
+
 	</div>
-</form>
 
 
 <div class="box-footer">

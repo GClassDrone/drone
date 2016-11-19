@@ -22,12 +22,12 @@ $(document).ready(function() {
             $(this).find('.caption').slideUp(250); //.fadeOut(205)
         }
     ); 
-    
+
     /* 콘텐츠 불러오는 부분 */
     
 	var formObj = $("form[role='form']").eq(0);
 	console.log(formObj);
-	$(".btn-warning").on("click", function(){
+	$("#reg").on("click", function(){
 		formObj.attr("action", "/map/ctsInsert?mno=${mno}");
 		formObj.attr("method","get");
 		formObj.submit();
@@ -38,11 +38,37 @@ $(document).ready(function() {
 		
 		formObj.submit();
 	});
-	$(".btn-primary").on("click",function(){
-		self.location = "/map/remove?mno=${mno}&ctscateno=${ctscateno}&ctsno=${ctsno}";
+	$("#maprmv").on("click",function(){
+		formObj.attr("action", "/map/remove");
+		formObj.attr("method","post");
+		
+		formObj.submit();
 	});
  });
- 
+ 	/* 프로필 ->게시판->게시판리스트에서 삭제, 업데이트하는버튼 */
+ 	
+var bdelete = function(subjno){
+	var formObj = $("form[role='form']").eq(0);
+	var mno = "${memDto.mno}";
+	
+	formObj.attr("action", "/bsubj/subremove?subjno="+subjno+"&mno="+mno);
+	formObj.attr("method","post");
+	
+	formObj.submit();
+};
+
+var bupdate = function(subjno) {
+	/* $(location).attr("href","/bsubj/submodify?subjno="+subjno); */
+	var formObj = $("form[role='form']").eq(0);
+	
+	alert(subjno);
+	
+	formObj.attr("action", "/bsubj/submodify?mno="+mno+"&subjno="+subjno);
+	formObj.attr("method","get");
+	alert(formObj.attr("action"));
+	formObj.submit();
+};
+
 </script>
 
 </head>
@@ -76,14 +102,20 @@ $(document).ready(function() {
 	        </div>
 	        <div class="card-info"> 
 	        	<span class="card-title" id="niknm">${memDto.niknm}</span><br>
-<!-- 			        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb">채팅하기</i></a>&nbsp; --> 
-			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">정보수정</i></sup></a>
+			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">정보 수정</i></sup></a>
 	        <div class="col-sm-8 col-sm-offset-2">
-		        <div>
-		        	<p style="color: black;">상태메세지를 입력해주세요.</p>
-		        	
+		        <div style="color: black;">
+				<c:set var="prmsg" value="${memDto.prmsg}" />
+				<c:choose>
+				    <c:when test="${prmsg eq null}">
+				   	상태메세지를 적어주세요.
+				    </c:when>
+				    <c:otherwise>
+				      ${memDto.prmsg}
+				    </c:otherwise>
+				</c:choose>
 		        </div>
-		        </div>
+		   </div>
 	        </div>
 	    </div>
 	    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
@@ -119,9 +151,6 @@ $(document).ready(function() {
 		        <div class="tab-pane fade in active" id="tab1">
 		              <h3 style="display:inline-block">프로필 정보</h3>
 					    <dl class="dl-horizontal">
-					      <dt>개인 소개</dt>
-					      <dd>${memDto.prmsg}</dd>
-			              <br />		
 					      <dt>랭킹</dt>
 					      <dd>${memDto.levnm},${memDto.levnic }<br>(점수 : ${memDto.levpoint}) </dd>
 					      <br />		
@@ -130,8 +159,7 @@ $(document).ready(function() {
 					      <br />	
 					      <dt>보유 라이센스 </dt>
 					      <dd><ul>
-					      	<li>${memDto.mdrnm}</li>
-					      	<li>자격증에서 긁어와서 뿌려주기</li>
+					      	<dd>${memDto.mdrnm}</dd>
 					      </ul></dd>
 					      <br />	
 					      <dt>주요 활동지역</dt>
@@ -251,6 +279,7 @@ $(document).ready(function() {
                             <th>제목</th>
                             <th>게시판 목적</th>
                             <th>개설일</th>
+                            <th>설정</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -258,14 +287,13 @@ $(document).ready(function() {
                         <tr class="active">
                             <td class="active"><a href="/instanceboard/itlist?subjno=${MemDto.subjno}" style="color:black;">${MemDto.subjttl}</a></td>
                             <td>${MemDto.subjctt}</td>
-                            <th scope="row">${MemDto.opendt}</th>
+                            <td scope="row">${MemDto.opendt}</td>
+                            <td>	
+                            	<button type="submit" class="btn btn-primary" id="bup" onclick="bupdate(${MemDto.subjno})">수정</button>
+								<button type="submit" class="btn btn-warning" id="bdel" onclick="bdelete(${MemDto.subjno})">삭제</button>
+							</td>
                         </tr>
                     </c:forEach>
-<!--                         <tr class="success">
-                            <th scope="row">2016.10.11</th>
-                            <td><a href="#" style="color:black">DJI 팬텀 최신 드론 공동구매</a></td>
-                            <td>2016년 12월 새로 출시되는 ㅇㅇㅇ 모델 중국 직구 공구 게시판입니다. 많이 참여 부탁합니다. 고고고곡고곡고고고고고고고^^~~~~~~~~~~ </td>
-                        </tr> -->
                     </tbody>
                 </table>
                 <a href="/mem/subregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square">게시판추가</i></a>
@@ -288,7 +316,7 @@ $(document).ready(function() {
         <div class="section">
         <!-- 글등록 버튼 여기잇음 -->
         <div>
-        	<button type="submit" class="btn btn-warning">글등록</button>
+        	<button type="submit" class="btn btn-warning" id="reg">글등록</button>
         </div>
 	<c:forEach items="${conlist}" var="MemDto">
             <div class="col-xs-12 col-sm-6 col-md-3">
@@ -297,7 +325,7 @@ $(document).ready(function() {
                 </div>
                 <h3>Grooming</h3>
                 <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-                <button type="submit" class="btn btn-danger">수정</button>
+                <button type="submit" class="btn btn-danger" id="maprmv">수정</button>
  				<button type="submit" class="btn btn-primary">삭제</button>
             </div>
 	</c:forEach>   
@@ -307,7 +335,7 @@ $(document).ready(function() {
            </div>
            <h3>Grooming</h3>
            <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-           <button type="submit" class="btn btn-danger">수정</button>
+           <button type="submit" class="btn btn-danger" id="maprmv">수정</button>
 			<button type="submit" class="btn btn-primary">삭제</button>
        </div>
        </div>

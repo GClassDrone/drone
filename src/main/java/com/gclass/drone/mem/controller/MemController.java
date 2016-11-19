@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.gclass.drone.board.dto.BsubjDto;
+import com.gclass.drone.loc.dto.LocDto;
 import com.gclass.drone.loc.service.LocService;
 import com.gclass.drone.login.dto.LoginDto;
 import com.gclass.drone.mem.dto.MemDto;
@@ -57,10 +59,27 @@ public class MemController {
 	}
 	
 	@RequestMapping(value="/Profilemodify", method = RequestMethod.POST)
-	public String modifyPOST(MemDto board, RedirectAttributes rttr) throws Exception {
+	public String modifyPOST(@RequestParam("mno") int mno, MemDto board, LocDto ldto, RedirectAttributes rttr) throws Exception {
 		
 		service.modify(board);
 		
-		return "redirect:/mem/ProfileDetail?mno=${MemDto.mno }";
+		return "redirect:/mem/ProfileDetail?mno="+mno;
+	}
+	
+	/*게시판 제작*/
+	
+	@RequestMapping(value="/subregi", method=RequestMethod.GET)
+	public void insertGET(MemDto dto, Model model) throws Exception{
+		logger.info("register Get ... ");
+	}
+	
+	@RequestMapping(value="/subregi", method=RequestMethod.POST)
+	public String insertPOST(@RequestParam("mno") int mno, MemDto dto, RedirectAttributes rttr) throws Exception{
+		logger.info("register POST ... ");
+		logger.info(dto.toString());
+		
+		service.binsert(dto);
+		
+		return "redirect:/mem/ProfileDetail?mno="+mno;
 	}
 }

@@ -65,4 +65,9 @@ public class MemDaoImpl implements MemDao{
 	public List<MemDto> mylist(Integer mno) throws Exception {
 		return session.selectList(namespace+".mylist", mno);
 	}
+
+	@Override
+	public void binsert(MemDto dto) throws Exception {
+		session.insert(namespace +".binsert", dto);
+	}
 }
