@@ -31,11 +31,13 @@
 			$.getJSON('/bdat/all/' + subjno + "/" + bno,
 			function(data) {var str = "";
 				$(data).each(function() {
-					str += "<li data-bdatno='"+this.bdatno+"' class='replyLi'>"
+					str += "<li data-bdatno='"+this.bdatno+"'class='replyLi'>"
 							+ this.niknm
 							+ ":"
 							+ this.ctt
+							 if ($("#himno").val() == $("#mno").val()) {
 							+ "<button class='replyModBtn fa fa-2x fa-pencil-square-o' style='color:#bdbdbd'></button></li>";
+							}
 										});
 							$("#bdat").html(str);
 							});
@@ -44,6 +46,7 @@
 		/* 리플 등록 버튼 */
 
 		$("#replyAddBtn").on("click", function() {
+			
 			var niknm = $("niknm").val();
 			var ctt = $("ctt").val();
 
@@ -67,10 +70,12 @@
 					ctt : $("#ctt").val()
 				}),
 				success : function(result) {
-					if (result == 'SUCCESS') {
+					if ($("#mno").val() != null) {
 						alert("등록되었습니다.")
 						getAllList();
 						location.reload();
+					}else {
+						alert("로그인부탁드립니다")
 					}
 				}
 			});
@@ -173,7 +178,7 @@
 	<form role="form" method="post">
 		<input type='hidden' id='bno' name='bno' value="${bno}">
 		<input type='hidden' id='subjno' name='subjno' value="${subjno}">
-		<input type='hidden' id='mno' name='mno' value="${mno}">
+		<input type='hidden' id='mno' name='mno' id='mymno' value="${mno}">
 	</form>
 	<div class="form-group">
 		<div class="col-sm-1 col-xs-12 center">

@@ -9,7 +9,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.mem.dto.MemDto;
+import com.gclass.drone.mem.dto.MnoCatePageDto;
 
 @Repository
 public class MemDaoImpl implements MemDao{
@@ -64,5 +66,15 @@ public class MemDaoImpl implements MemDao{
 	@Override
 	public List<MemDto> mylist(Integer mno) throws Exception {
 		return session.selectList(namespace+".mylist", mno);
+	}
+
+	@Override
+	public void binsert(MemDto dto) throws Exception {
+		session.insert(namespace +".binsert", dto);
+	}
+
+	@Override
+	public List<CateDto> conlist(MnoCatePageDto cpDto) throws Exception {
+		return session.selectList(namespace+".conlist", cpDto);
 	}
 }

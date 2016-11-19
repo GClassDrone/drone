@@ -13,21 +13,31 @@
 		update bsubj set
 			     subjttl = #{subjttl}
 			     subjctt = #{subjctt}
-			   , delyn = #{delyn}
 		 where subjno= #{subjno}
 	</update>
 	
-	<delete id="delete">
-		delete *
-		  from bsubj
-		 where subjno = #{subjno}
-	</delete>
-
-	<select id="sublistAll" resultType="BsubjDto">
+	<select id="read" resultType="BsubjDto">
 		select *
 		  from bsubj
+		 where subjno = #{subjno}
+	</select>
+	
+	<update id="delete">
+		update bsubj set
+			   delyn = 'y'
+		 where subjno = #{subjno}
+		 
+	</update>
+
+  <!--  , CASE WHEN to_char(SYSDATE, 'yyyymmdd') = to_char(regdt, 'yyyymmdd')
+          THEN to_char(ROUND((sysdate-regdt)*24))||'시간전'  ELSE to_char(regdt, 'yyyy-mm-dd') 
+          END regdtout -->
+           
+	<select id="sublistAll" resultType="BsubjDto">
+		select bcateno, subjno, subjttl, subjctt, mno, delyn, memcnt, opendt, regcnt, extenyn
+		  from bsubj
 		 where bcateno = #{bcateno}
-	  order by memcnt desc
+	  	   and delyn ='n'
 	</select>
 
 	<select id="cate" resultType="BsubjDto">
@@ -36,5 +46,7 @@
   		  FROM bsubj A JOIN bcate b ON A.bcateno=b.bcateno
  		 where a.subjno = #{subjno}
 	</select>
+
+
 
 </mapper>  

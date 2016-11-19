@@ -171,7 +171,6 @@ $(function(){
 				                                            	<option value="${LocDto.sido }">${LocDto.sido }</option>
 				                                            </c:forEach>
 			                                            </select>
-			                                            
 			                                        </div>
 			                                    </div>
 			                                    <div class="col-sm-5">

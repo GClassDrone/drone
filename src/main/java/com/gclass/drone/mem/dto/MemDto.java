@@ -35,10 +35,7 @@ public class MemDto {
 	private String subjttl;
 	private String subjctt;
 	private Timestamp opendt;
-	/*콘텐츠 관련 dto들*/
-	
-	
-	
+
 	public int getBcateno() {
 		return bcateno;
 	}
