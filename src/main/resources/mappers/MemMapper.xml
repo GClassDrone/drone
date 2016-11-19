@@ -72,14 +72,33 @@
 	
 	<!-- 프로필 디테일부분에서 자기가 올린 컨텐츠를 불러오는 쿼리 -->
 	
-	<select id="conlist" resultType="MemDto">
-		SELECT * 
-		  FROM CTS 
-		 WHERE mno=#{mno}
-    	   and delyn = 'n'
-    	 ORDER BY regdt desc
-    	 
+	<select id="conlist" resultType="CateDto">
+		SELECT *
+		  FROM (
+				SELECT ROWNUM AS rnum
+		        	 , a.*
+		          FROM (
+		        		SELECT /*+ index_desc(cts idx_cts_regdt) */ filelk
+		                	 , ttl
+		                     , ctt
+		                     , ctsno
+		                     , ctscateno
+		                     , regdt
+		                  FROM CTS
+		                 where mno = #{mno}
+		                   and delyn = 'n'
+		                ) a
+		        <![CDATA[
+		         WHERE ROWNUM <= #{endRowNum}
+		        ) b
+		 WHERE rnum >= #{startRowNum} 
+		        ]]>
 	</select>
+	<select id="ctsCateTotalRow" resultType="int">
+		SELECT /*+ index_desc(cts idx_cts_regdt) */ count(*)
+		  FROM CTS
+	</select>
+
 
 	<!-- 프로필에서 게시판 리스트 보는 쿼리 -->
 
@@ -165,7 +184,7 @@
 		 where mdrno = #{mdrno}
 	</delete>
 
-	<select id="dronelist" resultType="MemDto">
+	<select id="dronelist" resultType="droneDto">
 		select *
 		  from drone
 		 where mno = #{mno}

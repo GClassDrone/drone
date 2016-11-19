@@ -1,8 +1,8 @@
-package com.gclass.drone.category.dto;
+package com.gclass.drone.mem.dto;
 
 import java.util.Arrays;
 
-public class CatePageDto {
+public class MnoCatePageDto {
 	private int[] cateArray;
 	private int startRowNum;
 	private int endRowNum;
@@ -10,7 +10,14 @@ public class CatePageDto {
 	private int pagePerRow;
 	private int totalRow;
 	private int lastPage;
+	private int mno;
 	
+	public int getMno() {
+		return mno;
+	}
+	public void setMno(int mno) {
+		this.mno = mno;
+	}
 	public int[] getCateArray() {
 		return cateArray;
 	}
@@ -58,10 +65,12 @@ public class CatePageDto {
 	public void setLastPage(int lastPage) {
 		this.lastPage = lastPage;
 	}
+
 	@Override
 	public String toString() {
-		return "CatePageDto [cateArray=" + Arrays.toString(cateArray) + ", startRowNum=" + startRowNum + ", endRowNum="
-				+ endRowNum + ", nowPage=" + nowPage + ", pagePerRow=" + pagePerRow + ", totalRow=" + totalRow
-				+ ", lastPage=" + lastPage + "]";
+		return "MnoCatePageDto [cateArray=" + Arrays.toString(cateArray) + ", startRowNum=" + startRowNum
+				+ ", endRowNum=" + endRowNum + ", nowPage=" + nowPage + ", pagePerRow=" + pagePerRow + ", totalRow="
+				+ totalRow + ", lastPage=" + lastPage + ", mno=" + mno + "]";
 	}
+
 }

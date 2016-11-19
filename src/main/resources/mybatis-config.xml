@@ -12,6 +12,7 @@
 		<package name="com.gclass.drone.inform.dto" />
 		<package name="com.gclass.drone.common"/>
 		<package name="com.gclass.drone.category.dto"/>
+		<package name="com.gclass.drone.drone.dto" />
 	</typeAliases>
 	
 </configuration>

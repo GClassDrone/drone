@@ -23,6 +23,30 @@ $(document).ready(function() {
         }
     );
  });
+ 
+$(function(){
+	$("#sido").on("change",function(){
+		var sido =$("#sido").val();
+		$.ajax({
+			url : "/Profilemodify?mno="+mno,
+			headers: {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST"
+			},
+			type: "post",
+			data: JSON.stringify({sido:sido}),
+			dataType: 'json',
+			success : function(data){
+				$("#sigungu").empty();
+				
+				$(data).each(function(){
+					$("#sigungu").append("<option value='"+this.locno +"'>"+ this.sigungu +"</option>");
+				});
+			}
+		});
+	});
+});
+
 </script>
 
 </head>
@@ -94,9 +118,9 @@ $(document).ready(function() {
 					      <dt>주요 활동지역</dt>
 					      <dd>
 					      	<input type="text" id="locnm" name="locnm" class="form-control" value="${memDto.locnm}"/>
-       						<div class="col-sm-5">
+<%--        						<div class="col-sm-5">
 								<div class="form-group">
-								    <label>Country</label><br>
+								    <label>활동지역</label><br>
 								    <select id = "sido" name="sido" class="form-control">
 								        <option value="">선택하세요</option>
 								     <c:forEach items="${sido}" var="LocDto" >
@@ -105,14 +129,14 @@ $(document).ready(function() {
 								        </select>
 								</div>
 							</div>
-								<div class="col-sm-5">
-								    <div class="form-group">
-								        <label>Country</label><br>
-								       <select id="sigungu" name="locno" class="form-control">
-								            <option value="">선택하세요</option>
-								        </select>
+							<div class="col-sm-5">
+							    <div class="form-group">
+							        <label>Country</label><br>
+							       <select id="sigungu" name="locno" class="form-control">
+							            <option value="">선택하세요</option>
+							        </select>
 								</div>
-							</div>
+							</div> --%>
 					      </dd>
 					    </dl>
 		        </div>

@@ -9,7 +9,7 @@
 <link href="/resources/css/profile/profile.css" rel="stylesheet" type="text/css">
 <script src="/resources/js/profile/profile.js"></script>
 <jsp:include page="../common/include.jsp"></jsp:include>
-
+<script type="text/javascript" src="/resources/js/cate/cateList2.js"></script>
 <script>
 $(document).ready(function() {
     $("[rel='tooltip']").tooltip();    
@@ -78,7 +78,8 @@ var bupdate = function(subjno) {
  </header>  -->
 
 <form role="form" method="post">
-	<input type='hidden' name='mno' value="${memDto.mno}">
+	<input type='hidden' name='mno' id="mymno" value="${memDto.mno}">
+	<input type='hidden' name='mno' id="himno" value="${mno}">
 </form>
 
 <div class="container">
@@ -102,7 +103,9 @@ var bupdate = function(subjno) {
 	        </div>
 	        <div class="card-info"> 
 	        	<span class="card-title" id="niknm">${memDto.niknm}</span><br>
+	        	<c:if test="${mno eq memDto.mno}"> 
 			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">정보 수정</i></sup></a>
+			    </c:if>
 	        <div class="col-sm-8 col-sm-offset-2">
 		        <div style="color: black;">
 				<c:set var="prmsg" value="${memDto.prmsg}" />
@@ -206,17 +209,18 @@ var bupdate = function(subjno) {
 		        
 		        <div class="tab-pane fade in" id="tab3">
 		          <h3>드론 보유 이력</h3>
+		          <c:forEach items="${dronelist}" var="droneDto">
 				    <!-- TH1 -->
 			        <div class="col-sm-4">
 			            <div class="thumbnail">
 			                <div class="caption">
-		                     <h4 class="">DJI Mavic Pro</h4>
-			                    <p class="">휴대가 용이한 접이식 드론. 개인용 항공촬영 목적에 적합. 휴대성과 촬영성능이 높으면서도 조작이 간편하다.
-			                    2016년11월 구매</p>
+		                     <h4 class="">모델명 : ${droneDto.model}</h4>
+			                    <p class="">드론애칭 : ${droneDto.mdrnm} 이 드론은 9드론 으로써 해처리에서 나왔습니다.</p>
 			                </div>
 			                <img src="/resources/images/dji-mavic.jpg" alt="..." class="">
 			            </div>
 			        </div>
+			       </c:forEach>
 			        <!-- TH2 -->
 			        <div class="col-sm-4">
 			            <div class="thumbnail">
@@ -289,14 +293,16 @@ var bupdate = function(subjno) {
                             <td>${MemDto.subjctt}</td>
                             <td scope="row">${MemDto.opendt}</td>
                             <td>	
-                            	<button type="submit" class="btn btn-primary" id="bup" onclick="bupdate(${MemDto.subjno})">수정</button>
+                            	<%-- <button type="submit" class="btn btn-primary" id="bup" onclick="bupdate(${MemDto.subjno})">수정</button> --%>
 								<button type="submit" class="btn btn-warning" id="bdel" onclick="bdelete(${MemDto.subjno})">삭제</button>
 							</td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
+                <c:if test="${mno eq memDto.mno}"> 
                 <a href="/mem/subregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square">게시판추가</i></a>
+                </c:if>
 		        </div>
 		      </div>
 	    </div>
@@ -315,38 +321,24 @@ var bupdate = function(subjno) {
     <div class="container">
         <div class="section">
         <!-- 글등록 버튼 여기잇음 -->
+       <c:if test="${mno eq memDto.mno}"> 
         <div>
         	<button type="submit" class="btn btn-warning" id="reg">글등록</button>
         </div>
-	<c:forEach items="${conlist}" var="MemDto">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="" allowfullscreen=""></iframe>
-                </div>
-                <h3>Grooming</h3>
-                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-                <button type="submit" class="btn btn-danger" id="maprmv">수정</button>
- 				<button type="submit" class="btn btn-primary">삭제</button>
-            </div>
-	</c:forEach>   
-       <div class="col-xs-12 col-sm-6 col-md-3">
-           <div class="embed-responsive embed-responsive-16by9">
-               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-           </div>
-           <h3>Grooming</h3>
-           <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-           <button type="submit" class="btn btn-danger" id="maprmv">수정</button>
-			<button type="submit" class="btn btn-primary">삭제</button>
-       </div>
+        </c:if>
+		<div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="cateList">
+		</div>
        </div>
     </div>
-    
+
     <!-- 페이지 이동버튼 -->
+	<div id="pageBtn-wrap">
     	<p class="more">
             <button type="button" class="btn btn-default btn-sm center">
                 <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
             </button>
         </p>
+	</div>
 
 	<!--     푸터부분 -->
 <%@include file="../common/footer.jsp" %>

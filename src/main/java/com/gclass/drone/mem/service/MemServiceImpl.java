@@ -6,8 +6,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+
+import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.mem.dao.MemDao;
 import com.gclass.drone.mem.dto.MemDto;
+import com.gclass.drone.mem.dto.MnoCatePageDto;
 
 
 @Service
@@ -60,5 +63,10 @@ public class MemServiceImpl implements MemService {
 	@Override
 	public void binsert(MemDto dto) throws Exception {
 		dao.binsert(dto);
+	}
+
+	@Override
+	public List<CateDto> conlist(MnoCatePageDto cpDto) throws Exception {
+		return dao.conlist(cpDto);
 	}
 }
