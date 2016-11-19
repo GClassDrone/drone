@@ -151,4 +151,9 @@ public class MapDaoImpl implements MapDao {
 		session.delete(namespace+".ctsdatDelete", cdDto);
 	}
 
+	@Override
+	public int ctsdatcntSelectOne(CtsdatDto cdDto) throws Exception {
+		return session.selectOne(namespace+".ctsdatcntSelectOne", cdDto);
+	}
+
 }

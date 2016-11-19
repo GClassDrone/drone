@@ -42,4 +42,5 @@ public interface MapDao {
 	public void ctsdatInsert(CtsdatDto cdDto) throws Exception;
 	public void ctsdatUpdate(CtsdatDto cdDto) throws Exception;
 	public void ctsdatDelete(CtsdatDto cdDto) throws Exception;
+	public int ctsdatcntSelectOne(CtsdatDto cdDto) throws Exception;
 }

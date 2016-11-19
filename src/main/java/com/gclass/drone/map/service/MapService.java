@@ -30,7 +30,7 @@ public interface MapService {
 	public List<CtscateDto> ctscateSelectAll() throws Exception;
 	public Map<String, Object> favDelete(FavDto fDto) throws Exception;
 	
-	public List<CtsdatDto> ctsdatInsert(CtsdatDto cdDto) throws Exception;
-	public List<CtsdatDto> ctsdatUpdate(CtsdatDto cdDto) throws Exception;
-	public List<CtsdatDto> ctsdatDelete(CtsdatDto cdDto) throws Exception;
+	public Map<String, Object> ctsdatInsert(CtsdatDto cdDto) throws Exception;
+	public Map<String, Object> ctsdatUpdate(CtsdatDto cdDto) throws Exception;
+	public Map<String, Object> ctsdatDelete(CtsdatDto cdDto) throws Exception;
 }

@@ -122,7 +122,7 @@ $(function(){
 			}
 		}
 		$("#cateList").empty();
-		$("#cateList").html(cateMakeList(nowPage));
+		$("#cateList").html(cateMakeList(1));
 	});
 	$(document).on("click",".embed-responsive", function(){
 		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno"),mno:$("#session").data("mno")};

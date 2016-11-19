@@ -191,7 +191,8 @@ $(function(){
 			data:JSON.stringify(data),
 			jdataType:"json",
 			success: function(result){
-				datList(result);
+				datList(result.list);
+				$(".fa-comment-o").next().text(" "+result.cnt+" ");
 			}
 		});
 	});
@@ -223,7 +224,8 @@ $(function(){
 			data: JSON.stringify(data),
 			dataType: "json",
 			success: function(result){
-				datList(result);
+				datList(result.list);
+				$(".fa-comment-o").next().text(" "+result.cnt+" ");
 			}
 		});
 	});
@@ -246,7 +248,8 @@ $(function(){
 					type: "post",
 					dataType: "json",
 					success: function(result){
-						datList(result);
+						datList(result.list);
+						$(".fa-comment-o").next().text(" "+result.cnt+" ");
 					}
 				})
 			}
