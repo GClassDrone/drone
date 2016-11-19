@@ -18,6 +18,7 @@
 </script>
   
     <nav class="navbar navbar-default navbar-fixed-top">
+    <input type="hidden" id="session" data-mno="${mno}">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">

@@ -10,7 +10,7 @@ $(function() {
 	var map_init = { // 맵 생성 초기값
 		zoom : 7,
 		maxZoom : 13,
-		minZoom : 7,
+		minZoom : 3,
 		center : m_center
 	};
 /* 맵 생성 함수 */
@@ -116,50 +116,18 @@ $(function() {
 // 마커 모달오픈 이벤트 등록
 		for(var i=0;i<markers.length;i++){
 			google.maps.event.addListener(markers[i], 'click', function() {
-				var data = {ctscateno:this.ctscateno,ctsno:this.ctsno};
+				var data = {ctscateno:this.ctscateno,ctsno:this.ctsno,mno:$("#session").data("mno")};
 				ctsDetailAjax(data);
 			});
 		}
 	}
-/* 동영상 모달 오픈 함수 */
-	function modalOpen(result){
-		var date = new Date(result.regdt);
-		var dateString = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
-		$(".modal-header > h2").text(result.ttl);
-		$(".modal-header > h2").append("<small>&nbsp;"+dateString+"<a href='/mem/ProfileDetail?mno="+result.mno+"'>"+result.niknm+"</a></small>");
-		$("#modal-iframe").html("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/"+result.filelk+"?autoplay=0' allowfullscreen=''></iframe>");
-		$("#modalCtt").text(result.ctt);
-		$("body").css("overflow-y","hidden");
-		$("#myModal").show();
-	}
-	
-/* 모달 닫기 버튼 */
-	$("span[class='close']").on("click",function(){
-		$("#modal-iframe").empty();
-		$("body").css("overflow-y","auto");
-		$("#myModal").hide();
-	});
 	
 /* 슬라이더 썸네일 클릭이벤트 */
 	$(document).on("click","div[class='slide']",function(){
-		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno")};
+		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno"),mno:$("#session").data("mno")};
 		ctsDetailAjax(data);
 	});
-	function ctsDetailAjax(data){
-		$.ajax({
-			url: "/map/videoDetail",
-			type: "POST",
-			data: JSON.stringify(data),
-			headers: {
-				"Content-Type" : "application/json",
-				"X-HTTP-Method-Override" : "POST"
-			},
-			dataType: "json",
-			success: function(result){
-				modalOpen(result);
-			}
-		});
-	}
+	
 /* 슬라이더 초기화 및 생성 함수 */
 	var slider;
 	function makeSlider(){

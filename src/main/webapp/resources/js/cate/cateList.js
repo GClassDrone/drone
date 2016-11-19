@@ -33,7 +33,7 @@ $(function(){
 						str += "<div class='section'>";
 					}
 					str += "<div class='col-xs-12 col-sm-6 col-md-3'>";
-					str += "<div class='embed-responsive embed-responsive-4by3'>";
+					str += "<div data-ctscateno='"+this.ctscateno+"' data-ctsno='"+this.ctsno+"' class='embed-responsive embed-responsive-4by3'>";
 					str += "<img src='"+image+"'>";
 					str += "<span class='fa fa-2x fa-fw fa-play-circle'></span>";
 					str += "</div>";
@@ -52,88 +52,81 @@ $(function(){
 		});
 		return str;
 	}
-	$(".cateBtn").on("click", function(){
-		var val = $(this).val();
-		if(!($(this).hasClass("btnColor"))){
-			if(val=="도시"){
+	$(".btn-group").on("click", function(){
+		var checkId = $(this).prev().attr("id");
+		if(!($("#"+checkId).prop("checked"))){
+			if(checkId==="city"){
 				cateArray.push("1");
-				$(this).addClass("btnColor");
-			}else if(val=="자연"){
+			}else if(checkId==="nature"){
 				cateArray.push("2");
-				$(this).addClass("btnColor");
-			}else if(val=="시설"){
+			}else if(checkId==="facility"){
 				cateArray.push("3");
-				$(this).addClass("btnColor");
-			}else if(val=="스포츠"){
+			}else if(checkId==="sport"){
 				cateArray.push("4");
-				$(this).addClass("btnColor");
-			}else if(val=="레이싱"){
+			}else if(checkId==="race"){
 				cateArray.push("5");
-				$(this).addClass("btnColor");
-			}else if(val=="레저"){
+			}else if(checkId==="leisure"){
 				cateArray.push("6");
-				$(this).addClass("btnColor");
-			}else if(val=="공공"){
+			}else if(checkId==="public"){
 				cateArray.push("7");
-				$(this).addClass("btnColor");
 			}
 		}else{
-			if(val=="도시"){
+			if(checkId==="city"){
 				for(var i=0;i<cateArray.length;i++){
 					if(cateArray[i]=="1"){
 						cateArray.splice(i,1);
 					}
 				}
 				$(this).removeClass("btnColor");
-			}else if(val=="자연"){
+			}else if(checkId==="nature"){
 				for(var i=0;i<cateArray.length;i++){
 					if(cateArray[i]=="2"){
 						cateArray.splice(i,1);
 					}
 				}
 				$(this).removeClass("btnColor");
-			}else if(val=="시설"){
+			}else if(checkId==="facility"){
 				for(var i=0;i<cateArray.length;i++){
 					if(cateArray[i]=="3"){
 						cateArray.splice(i,1);
 					}
 				}
 				$(this).removeClass("btnColor");
-			}else if(val=="스포츠"){
+			}else if(checkId==="sport"){
 				for(var i=0;i<cateArray.length;i++){
 					if(cateArray[i]=="4"){
 						cateArray.splice(i,1);
 					}
 				}
 				$(this).removeClass("btnColor");
-			}else if(val=="레이싱"){
+			}else if(checkId==="race"){
 				for(var i=0;i<cateArray.length;i++){
 					if(cateArray[i]=="5"){
 						cateArray.splice(i,1);
 					}
 				}
 				$(this).removeClass("btnColor");
-			}else if(val=="레저"){
+			}else if(checkId==="leisure"){
 				for(var i=0;i<cateArray.length;i++){
 					if(cateArray[i]=="6"){
 						cateArray.splice(i,1);
 					}
 				}
 				$(this).removeClass("btnColor");
-			}else if(val=="공공"){
+			}else if(checkId==="public"){
 				for(var i=0;i<cateArray.length;i++){
 					if(cateArray[i]=="7"){
 						cateArray.splice(i,1);
 					}
 				}
-				$(this).removeClass("btnColor");
 			}
 		}
 		$("#cateList").empty();
 		$("#cateList").html(cateMakeList(nowPage));
 	});
-	$(".embed-responsive").on("click", function(){
-		
+	$(document).on("click",".embed-responsive", function(){
+		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno"),mno:$("#session").data("mno")};
+		ctsDetailAjax(data);
 	});
 	$("#pageBtn-wrap span").on("click", function(){
 		nowPage = nowPage + 1;

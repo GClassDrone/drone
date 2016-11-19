@@ -60,9 +60,6 @@ $(function(){
 		});
 	}
 	initMap();
-	$("#videoInsertForm").submit(function(e){
-		
-	});
 	$("input[type='submit']").on("click",function(e){
 		e.preventDefault();
 		var filelk = $("#filelkValid").val();

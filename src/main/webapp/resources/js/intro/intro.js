@@ -25,32 +25,8 @@ $(function(){
 	    });
 	}
 	$(document).on("click","div[class='slide']",function(){
-		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno")};
-		$.ajax({
-			url: "/map/videoDetail",
-			type: "POST",
-			data: JSON.stringify(data),
-			headers: {
-				"Content-Type" : "application/json",
-				"X-HTTP-Method-Override" : "POST"
-			},
-			dataType: "json",
-			success: function(result){
-				var date = new Date(result.regdt);
-				var dateString = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
-				$(".modal-header > h2").text(result.ttl);
-				$(".modal-header > h2").append("<small>&nbsp;"+dateString+"<a href='/mem/ProfileDetail?mno="+result.mno+"'>"+result.niknm+"</a></small>");
-				$("#modal-iframe").html("<iframe class='embed-responsive-item' src='https://www.youtube.com/embed/"+result.filelk+"?autoplay=0' allowfullscreen=''></iframe>");
-				$("#modalCtt").text(result.ctt);
-				$("body").css("overflowY","hidden");
-				$("#myModal").show();
-			}
-		});
-	});
-	$("span[class='close']").on("click",function(){
-		$("#modal-iframe").empty();
-		$("body").css("overflowY","auto");
-		$("#myModal").hide();
+		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno"),mno:$("#session").data("mno")};
+		ctsDetailAjax(data);
 	});
 	function hotclipPilot(){
 		$.ajax({

@@ -12,7 +12,9 @@ import org.springframework.stereotype.Repository;
 
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.CtscateDto;
+import com.gclass.drone.map.dto.CtsdatDto;
 import com.gclass.drone.map.dto.CtstagDto;
+import com.gclass.drone.map.dto.FavDto;
 import com.gclass.drone.map.dto.LocDto;
 import com.gclass.drone.map.dto.MemViewDto;
 
@@ -67,13 +69,14 @@ public class MapDaoImpl implements MapDao {
 	}
 
 	@Override
-	public void ctsInsert(CtsDto cDto) throws Exception {
+	public int ctsInsert(CtsDto cDto) throws Exception {
 		session.insert(namespace+".ctsInsert", cDto);
+		return cDto.getCtsno();
 	}
 	
 	@Override
-	public void ctstagInsert(Map<String, List<CtstagDto>> map) throws Exception {
-		session.insert(namespace+".ctstagInsert",map);
+	public void ctstagInsert(CtstagDto ctDto) throws Exception {
+		session.insert(namespace+".ctstagInsert",ctDto);
 	}
 
 	@Override
@@ -92,7 +95,60 @@ public class MapDaoImpl implements MapDao {
 	}
 
 	@Override
-	public int newCtsNo() throws Exception {
-		return session.selectOne(namespace+".newCtsno");
+	public void favInsert(FavDto fDto) throws Exception {
+		session.insert(namespace+".favInsert", fDto);
 	}
+
+	@Override
+	public List<FavDto> favCheck(CtsDto cDto) throws Exception {
+		logger.info(session.selectList(namespace+".favCheck", cDto).toString());
+		return session.selectList(namespace+".favCheck", cDto);
+	}
+	
+	@Override
+	public List<FavDto> favCheck(FavDto fDto) throws Exception {
+		logger.info(session.selectList(namespace+".favCheck", fDto).toString());
+		return session.selectList(namespace+".favCheck", fDto);
+	}
+
+	@Override
+	public void favDelete(FavDto fDto) throws Exception {
+		session.delete(namespace+".favDelete", fDto);
+	}
+
+	@Override
+	public List<FavDto> favSelectOne(FavDto fDto) throws Exception {
+		return session.selectList(namespace+".favSelectOne", fDto);
+	}
+
+	@Override
+	public FavDto ctsCntSelectOne(FavDto fDto) throws Exception {
+		return session.selectOne(namespace+".ctsCntSelectOne", fDto);
+	}
+	
+	@Override
+	public List<CtsdatDto> ctsdatSelectAll(CtsDto cDto) throws Exception {
+		return session.selectList(namespace+".ctsdatSelectAll", cDto);
+	}
+	
+	@Override
+	public List<CtsdatDto> ctsdatSelectAll(CtsdatDto cdDto) throws Exception {
+		return session.selectList(namespace+".ctsdatSelectAll", cdDto);
+	}
+
+	@Override
+	public void ctsdatInsert(CtsdatDto cdDto) throws Exception {
+		session.insert(namespace+".ctsdatInsert", cdDto);
+	}
+
+	@Override
+	public void ctsdatUpdate(CtsdatDto cdDto) throws Exception {
+		session.update(namespace+".ctsdatUpdate", cdDto);
+	}
+
+	@Override
+	public void ctsdatDelete(CtsdatDto cdDto) throws Exception {
+		session.delete(namespace+".ctsdatDelete", cdDto);
+	}
+
 }

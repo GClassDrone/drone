@@ -4,18 +4,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import com.gclass.drone.map.dao.MapDao;
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.CtscateDto;
+import com.gclass.drone.map.dto.CtsdatDto;
 import com.gclass.drone.map.dto.CtstagDto;
+import com.gclass.drone.map.dto.FavDto;
 import com.gclass.drone.map.dto.LocDto;
 import com.gclass.drone.map.dto.MemViewDto;
 
@@ -43,9 +49,13 @@ public class MapServiceImpl implements MapService {
 	}
 
 	@Override
-	public CtsDto ctsSelectOne(CtsDto cDto) throws Exception {
+	public Map<String, Object> modalInit(CtsDto cDto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		mDao.ctsUpdateReadcnt(cDto);
-		return mDao.ctsSelectOne(cDto);
+		returnMap.put("cDto",mDao.ctsSelectOne(cDto));
+		returnMap.put("cdList",mDao.ctsdatSelectAll(cDto));
+		returnMap.put("favCheck",mDao.favCheck(cDto));
+		return returnMap;
 	}
 
 	@Override
@@ -66,28 +76,27 @@ public class MapServiceImpl implements MapService {
 	@Transactional
 	@Override
 	public void ctsInsert(CtsDto cDto,String ctstagnm) throws Exception {
-		String[] replace = {"`","~","!","@","$","%","^","&","\\*","\\(","\\)","-","_","\\+","=","|","\\\\",",","<",".",">","/","?",";",":","'","\"","{","[","}","]"};
 		CtstagDto ctDto = new CtstagDto();
-		Map<String, List<CtstagDto>> map = new HashMap<String, List<CtstagDto>>();
-		List<CtstagDto> list = new ArrayList<CtstagDto>();
+		Pattern p = Pattern.compile("\\#([0-9a-zA-Z가-힁]*)");
+		Matcher m = p.matcher(ctstagnm);
+		String tag = null;
 		
-		mDao.ctsInsert(cDto);
-		
-		for(int i=0;i<replace.length;i++){
-			ctstagnm = ctstagnm.replaceAll(replace[i], "");
-		}
-		
-		String[] tagnmArray = ctstagnm.split("#");
-		logger.info(tagnmArray.toString());
 		ctDto.setCtscateno(cDto.getCtscateno());
-		ctDto.setCtsno(mDao.newCtsNo());
 		
-		for(String tagnm : tagnmArray){
-			ctDto.setTagnm(tagnm);
-			list.add(ctDto);
+		Map<String, Object> mapctsno = new HashMap<String, Object>();
+		mapctsno.put("ctscateno", cDto.getCtscateno());
+		mapctsno.put("mno", cDto.getMno());
+		ctDto.setCtsno(mDao.ctsInsert(cDto));
+		
+		while(m.find()){
+			tag = m.group();
+			tag = StringUtils.replace(tag,"-_+=!@#$%^&*()[]{}|\\;:'\"<>,.?/~`） ","");
+			logger.info(tag);
+			if(tag.length() > 1){
+				ctDto.setTagnm(tag);
+				mDao.ctstagInsert(ctDto);
+			}
 		}
-		map.put("list", list);
-		mDao.ctstagInsert(map);
 	}
 
 	@Override
@@ -107,5 +116,61 @@ public class MapServiceImpl implements MapService {
 		map.put("ctscateno", ctscateno);
 		
 		mDao.ctsDelete(map);
+	}
+
+	@Override
+	public Map<String, Object> favInsert(FavDto fDto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		if(mDao.favSelectOne(fDto).size() == 0 && fDto.getCheck().equals("n")){
+			mDao.favInsert(fDto);
+			returnMap.put("msg", returnStr(fDto.getFgubun(),"Insert"));
+			logger.info(fDto.toString());
+			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
+			logger.info(returnMap.get("cnt").toString());
+		}else{
+			returnMap.put("msg", returnStr(fDto.getFgubun(),"Failed"));
+		}
+		return returnMap;
+	}
+
+	@Override
+	public Map<String, Object> favDelete(FavDto fDto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		if(mDao.favSelectOne(fDto).size() == 1 && fDto.getCheck().equals("y")){
+			mDao.favDelete(fDto);
+			returnMap.put("msg", returnStr(fDto.getFgubun(),"Delete"));
+			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
+		}else{
+			returnMap.put("msg", returnStr(fDto.getFgubun(),"Failed"));
+		}
+		return returnMap;
+	}
+	
+	private String returnStr(String fgubun, String query){
+		String str="";
+		if(fgubun.equals("f") || fgubun=="f"){  
+			str = "fav"+query;
+		}else{
+			str = "joa"+query;
+		}
+		return str;
+	}
+
+	@Override
+	public List<CtsdatDto> ctsdatInsert(CtsdatDto cdDto) throws Exception {
+		mDao.ctsdatInsert(cdDto);
+		return mDao.ctsdatSelectAll(cdDto);
+	}
+
+	@Override
+	public List<CtsdatDto> ctsdatUpdate(CtsdatDto cdDto) throws Exception {
+		mDao.ctsdatUpdate(cdDto);
+		return mDao.ctsdatSelectAll(cdDto);
+	}
+
+	@Override
+	public List<CtsdatDto> ctsdatDelete(CtsdatDto cdDto) throws Exception {
+		mDao.ctsdatDelete(cdDto);
+		return mDao.ctsdatSelectAll(cdDto);
 	}
 }

@@ -1,6 +1,7 @@
 package com.gclass.drone.map.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -17,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gclass.drone.map.dto.CtsDto;
-import com.gclass.drone.map.dto.CtscateDto;
+import com.gclass.drone.map.dto.CtsdatDto;
+import com.gclass.drone.map.dto.FavDto;
 import com.gclass.drone.map.dto.MemViewDto;
 import com.gclass.drone.map.service.MapService;
 
@@ -43,10 +45,9 @@ public class MapController {
 	public String ctsInsert(CtsDto cDto,@RequestParam("tagnm") String tagnm) throws Exception{
 		logger.info("ctsInsert POST");
 		logger.info(cDto.toString());
-		logger.info(tagnm);
 		service.ctsInsert(cDto, tagnm);
 		
-		return "redirect:/map/map";
+		return "redirect:/map/ctsInsert";
 	}
 	
 	@RequestMapping(value="/ctsUpdate", method=RequestMethod.GET)
@@ -86,11 +87,10 @@ public class MapController {
 	
 	@ResponseBody
 	@RequestMapping(value="/videoDetail", method=RequestMethod.POST)
-	public ResponseEntity<CtsDto> videoDetail(@RequestBody CtsDto cDto){
-		ResponseEntity<CtsDto> entity = null;
+	public ResponseEntity<Map<String, Object>> videoDetail(@RequestBody CtsDto cDto){
+		ResponseEntity<Map<String, Object>> entity = null;
 		try{
-			entity = new ResponseEntity<CtsDto>(service.ctsSelectOne(cDto), HttpStatus.OK);
-			logger.info(entity.toString());
+			entity = new ResponseEntity<Map<String, Object>>(service.modalInit(cDto), HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -127,6 +127,65 @@ public class MapController {
 		ResponseEntity<List<MemViewDto>> entity = null;
 		try{
 			entity = new ResponseEntity<List<MemViewDto>>(service.hotclipPilot(), HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/favInsert", method=RequestMethod.POST)
+	public ResponseEntity<Map<String, Object>> favInsert(@RequestBody FavDto fDto){
+		ResponseEntity<Map<String, Object>> entity = null;
+		try{
+			entity = new ResponseEntity<Map<String, Object>>(service.favInsert(fDto),HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	@ResponseBody
+	@RequestMapping(value="/favDelete", method=RequestMethod.POST)
+	public ResponseEntity<Map<String, Object>> favDelete(@RequestBody FavDto fDto){
+		ResponseEntity<Map<String, Object>> entity = null;
+		try{
+			entity = new ResponseEntity<Map<String, Object>>(service.favDelete(fDto),HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/ctsdatInsert", method=RequestMethod.POST)
+	public ResponseEntity<List<CtsdatDto>> ctsdatInsert(@RequestBody CtsdatDto cdDto){
+		ResponseEntity<List<CtsdatDto>> entity = null;
+		try{
+			entity = new ResponseEntity<List<CtsdatDto>>(service.ctsdatInsert(cdDto),HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/ctsdatUpdate", method=RequestMethod.POST)
+	public ResponseEntity<List<CtsdatDto>> ctsdatUpdate(@RequestBody CtsdatDto cdDto){
+		ResponseEntity<List<CtsdatDto>> entity = null;
+		try{
+			entity = new ResponseEntity<List<CtsdatDto>>(service.ctsdatUpdate(cdDto),HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/ctsdatDelete", method=RequestMethod.POST)
+	public ResponseEntity<List<CtsdatDto>> ctsdatDelete(@RequestBody CtsdatDto cdDto){
+		ResponseEntity<List<CtsdatDto>> entity = null;
+		try{
+			entity = new ResponseEntity<List<CtsdatDto>>(service.ctsdatDelete(cdDto),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

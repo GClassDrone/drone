@@ -18,7 +18,7 @@
 	</select>
 	
 	<select id="ctsSelectOne" resultType="CtsDto">
-		select c.*, m.*
+		select c.*, out_regdt(c.regdt) as regtime, m.*
 		  from cts c
 		  join mem m
 		    on c.mno = m.mno
@@ -35,13 +35,6 @@
 	<update id="ctsUpdateReadcnt">
 		update cts
 		   set readcnt = readcnt + 1
-		 where ctscateno=#{ctscateno}
-		   and ctsno=#{ctsno}
-	</update>
-	
-	<update id="ctsUpdateJoa">
-		update cts
-		   set joacnt = joant + 1
 		 where ctscateno=#{ctscateno}
 		   and ctsno=#{ctsno}
 	</update>
@@ -83,12 +76,10 @@
 		 order by ctscateno
 	</select>
 	
-	<select id="newCtsNo" resultType="int">
-		select max(ctsno)
-		  from cts
-	</select>
-	
-	<insert id="ctsInsert">
+	<insert id="ctsInsert" useGeneratedKeys="true" keyProperty="ctsno" keyColumn="ctsno">
+		<selectKey keyProperty="ctsno" keyColumn="ctsno" resultType="CtsDto" order="BEFORE">
+			select cts_next(#{ctscateno}) as ctsno from dual
+		</selectKey>
 		insert into cts(
 						ctscateno
 					  , ctsno
@@ -120,9 +111,12 @@
 						  , tagnm
 							)
 					values
-						<foreach collection="list" item="ctDto">
-						(#{ctDto.ctscateno},#{ctDto.ctsno},ctstag_next(#{ctDto.ctscateno},#{ctDto.ctsno}),#{ctDto.tagnm)
-						</foreach>
+						(
+							#{ctscateno}
+						  , #{ctsno}
+						  , ctstag_next(#{ctscateno},#{ctsno})
+						  , #{tagnm}
+						  )
 	</insert>
 	<update id="ctsUpdate">
 		update cts
@@ -132,7 +126,6 @@
 		     , pt = #{pt}
 		     , lat = #{lat}
 		     , lng = #{lng}
-		     , makedt = #{makedt}
 		 where mno = #{mno}
 		 	 , ctscateno = #{ctscateno}
 		 	 , ctsno = #{ctsno}
@@ -142,5 +135,107 @@
 		   set delyn = 'y'
 		 where ctsno = #{ctsno}
 		   and ctscateno = #{ctscateno}
+		   and mno = #{mno}
 	</update>
+	
+	<select id="favCheck" resultType="FavDto">
+		select fgubun
+		  from favorit
+		 where mno=#{mno}
+		   and ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</select>
+	
+	<select id="ctsCntSelectOne" resultType="FavDto">
+		select joacnt
+			 , favcnt
+		  from cts
+		 where ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</select>
+	
+	<select id="favSelectOne" resultType="FavDto">
+		select *
+		  from favorit
+		 where mno=#{mno}
+		   and ctsno=#{ctsno}
+		   and ctscateno=#{ctscateno}
+		   and fgubun=#{fgubun}
+	</select>
+	
+	<insert id="favInsert">
+		insert into favorit(
+							fno
+						  , fgubun
+						  , ctscateno
+						  , ctsno
+						  , mno
+							)
+					values(
+							favorit_seq.nextval
+						  , #{fgubun}
+						  , #{ctscateno}
+						  , #{ctsno}
+						  , #{mno}
+							)
+	</insert>
+
+	<delete id="favDelete">
+		delete
+		  from favorit
+		 where mno=#{mno}
+		   and fgubun=#{fgubun}
+		   and ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</delete>
+	
+	<select id="ctsdatSelectAll" resultType="CtsdatDto">
+		select cd.ctsdatno
+			 , cd.ctsno
+			 , cd.mno
+			 , cd.ctt
+			 , cd.regdt
+			 , out_regdt(cd.regdt) as regtime
+			 , m.niknm
+		  from ctsdat cd
+		  join mem m
+		    on cd.mno = m.mno
+		 where ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</select>
+	
+	<insert id="ctsdatInsert">
+		insert into ctsdat(
+							ctscateno
+						  , ctsno
+						  , ctsdatno
+						  , mno
+						  , ctt
+							)
+					values(
+							#{ctscateno}
+						  , #{ctsno}
+						  , ctsdat_next(#{ctscateno},#{ctsno})
+						  , #{mno}
+						  , #{ctt}
+							)
+	</insert>
+	
+	<update id="ctsdatUpdate">
+		update ctsdat
+		   set ctt = #{ctt}
+		 where ctscateno = #{ctscateno}
+		   and ctsno = #{ctsno}
+		   and ctsdatno = #{ctsdatno}
+		   and mno = #{mno}
+	</update>
+	
+	<delete id="ctsdatDelete">
+		delete
+		  from ctsdat
+		 where ctscateno = #{ctscateno}
+		   and ctsno = #{ctsno}
+		   and ctsdatno = #{ctsdatno}
+		   and mno = #{mno}
+	</delete>
 </mapper>
