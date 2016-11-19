@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,141 +12,196 @@
 	background-color: white;
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 50%; /* 
 	margin-top: -50%;
-	margin-left: -150px;
+	margin-left: -150px; */
 	padding: 10px;
 	z-index: 1000;
 }
 </style>
 
 <script type="text/javascript">
+	/* 리스트 불러오는 부분 */
+	$(function() {
+		getAllList();
+		function getAllList() {
+			var subjno = $("#subjno").val();
+			var bno = $("#bno").val();
 
-function getAllList(){
-	
-	$.getJSON("/bdat/all/"+bno, function(data){
-		
-		var str ="";
-		console.log(data.length);
-		
-		$(data).each(function(){
-			str += "<li data-bdatno='"+this.bdatno+"' class='replyLi'>"
-					+ this.bdatno+":"+ this.ctt
-					+ "<button>설정</button></li>";
+			$.getJSON('/bdat/all/' + subjno + "/" + bno,
+			function(data) {var str = "";
+				$(data).each(function() {
+					str += "<li data-bdatno='"+this.bdatno+"' class='replyLi'>"
+							+ this.niknm
+							+ ":"
+							+ this.ctt
+							+ "<button class='replyModBtn fa fa-2x fa-pencil-square-o' style='color:#bdbdbd'></button></li>";
+										});
+							$("#bdat").html(str);
+							});
+
+		}
+		/* 리플 등록 버튼 */
+
+		$("#replyAddBtn").on("click", function() {
+			var niknm = $("niknm").val();
+			var ctt = $("ctt").val();
+
+			var subjno = $("#subjno").val();
+			var bno = $("#bno").val();
+
+			var url = '/bdat/' + subjno + "/" + bno;
+			$.ajax({
+				type : 'post',
+				url : url,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTp-Method-Override" : "POST"
+				},
+				dataType : 'text',
+				data : JSON.stringify({
+					subjno : subjno,
+					bno : bno,
+					mno : $("#mno").val(),
+					niknm : $("#niknm").val(),
+					ctt : $("#ctt").val()
+				}),
+				success : function(result) {
+					if (result == 'SUCCESS') {
+						alert("등록되었습니다.")
+						getAllList();
+						location.reload();
+					}
+				}
+			});
 		});
-		$("#bdat").html(str);
+
+		/* 값을 모달한테 전달해주는 부분 */
+
+		$("#bdat").on("click", ".replyLi button", function() {
+
+			var bdat = $(this).parent();
+
+			var bdatno = bdat.attr("data-bdatno");
+			var ctt = bdat.text();
+
+
+			$(".modal-title").html(bdatno);
+			$("#cttmodal").val(ctt);
+			$("#modDiv").show("slow");
+		});
+
+		/* 수정버튼 고치는 쪽 */
+
+		$("#replyModBtn").on("click", function() {
+
+			var data = $(".modal-title").html(bdatno);
+			var subjno = $("#subjno").val();
+			var bno = $("#bno").val();
+			var bdatno = $("#modDiv").children("div").eq(0).text();
+			var ctt = $("#cttmodal").val();
+			var mno = $("#mno").val();
+			
+			alert(subjno+"sadasd"+"asd"+bno+"asd"+bdatno);
+			var url = "/bdat/" + subjno + "/" + bno + "/" + bdatno;
+			
+			$.ajax({
+				type : 'put',
+				url : url,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "PUT"
+				},
+				data : JSON.stringify({
+					ctt : ctt
+				}),
+				dataType : 'text',
+				success : function(result) {
+
+					if (result == 'SUCCESS') {
+						alert("수정 되었습니다.");
+						$("#modDiv").hide("slow");
+						getAllList();
+					}
+				}
+			});
+		});
+		/* 리플 지우는 버튼 */
+
+		$("#replyDelBtn").on("click", function() {
+			var bdatno =$("#modDiv").children("div").eq(0).text();
+			var ctt = $("#cttmodal").val();
+			
+			var subjno = $("#subjno").val();
+			var bno = $("#bno").val();
+			var url = "/bdat/" + subjno + "/" + bno + "/" + bdatno;
+			
+			$.ajax({
+				type : "post",
+				url : url,
+				data: JSON.stringify({
+					subjno : subjno, 
+					bno : bno,
+					bdatno : bdatno
+				}),
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'text',
+				success : function(result) {
+					console.log("result :" + result);
+					if (result == 'SUCCESS') {
+						alert("삭제 되었습니다.");
+						$("#modDiv").hide("slow");
+						getAllList();
+						location.reload();
+					}
+				}
+			});
+			/* 댓글 닫는 기능  */
+		});
+			$("#closeBtn").on("click", function() {
+				$("#modDiv").hide("slow");
+			});
 	});
-
-}
-
-$(".replyAddBtn").on("click", function(){
-	var mno = $("newReplyWriter").val();
-	var ctt = $("newReplyText").val();
-	
-	$.ajax({
-		type : 'post',
-		url : '/bdat',
-		headers : {
-			"Content-Type" : "application/json",
-			"X-HTTp-Method-Override" :"POST"
-		},
-		dataType : 'text',
-		data : JSON.stringify({
-			bno : bno,
-			mno : mno,
-			ctt : ctt
-		}),
-		success: function(result) {
-			if(result =='SUCCESS') {
-				alert("등록되었습니다.")
-				getAllList();
-			}
-		}
-	});
-});
-
-$("#boarddat").on("click", ".replyLi button", function(){
-	var bdat = $(this).parent();
-	
-	var bdatno = bdat.attr("data-bdatno");
-	var ctt = bdat.text();
-
-	$(".modal-title").html(bdat);
-	$("#bdattext").val(bdattext);
-	$("#modDiv").show("slow");
-});
-
-$("#replyDelBtn").on("click", function(){
-	var bdatno=$(".modal-title").html();
-	var bdattext = $("#bdattext").val();
-	
-	$.ajax({
-		type :'delete',
-		url : '/'+$("#bno").val()+'/'+$("#subjno").val(),
-		headers : {
-			"Content-Type" : "application/json",
-			"X-HTTP-Method-Override" : "DELETE"
-		},
-		dataType : 'text',
-		success : function(result) {
-			console.log("result :" + result);
-			if(result == 'SUCCESS') {
-				alert("삭제 되었습니다.");
-				$("#modDiv").hid("slow");
-				getAllList();
-			}
-		}
-	});
-});
-
-$("#replyModBtn").on("click", function(){
-	var bdatno=$(".modal-title").html();
-	var bdattext = $("#bdattext").val();
-	
-	$.ajax({
-		type :'put',
-		url : '/bdat' + bdatno ,
-		headers : {
-			"Content-Type" : "application/json",
-			"X-HTTP-Method-Override" : "PUT"
-		},
-		dataType : 'text',
-		success : function(result) {
-			console.log("result :" + result);
-			if(result == 'SUCCESS') {
-				alert("수정 되었습니다.");
-				$("#modDiv").hid("slow");
-				getAllList();
-			}
-		}
-	});
-});
 </script>
+
+<div class='bdat' id='bdat'>
+</div>
 <div class="row">
-	<div class="col-sm-1 col-xs-12 center">
-		<i class="material-icons text-right" style="padding-top: 15px; padding-left: 20px; font-size: 36px; color: #2e7d32">tag_faces</i></a>
-		<h5 class="media-heading"><span>${niknm}</span></h5>
-	</div>
-	<div class="col-sm-6 col-xs-12 center">
-      <form role="form">
-      	<div class="form-group">
-           <label for="inputComments"><span style="color:#4e342e">Write reply</span></label>
-        <textarea rows="6" class="form-control" id="inputComments" placeholder="Enter reply"></textarea>
-    </div>
-	        <button type="submit" id="replyAddBtn" class="btn btn-block btn-warning">댓글올리기</button>
-	    </form>
+	<form role="form" method="post">
+		<input type='hidden' id='bno' name='bno' value="${bno}">
+		<input type='hidden' id='subjno' name='subjno' value="${subjno}">
+		<input type='hidden' id='mno' name='mno' value="${mno}">
+	</form>
+	<div class="form-group">
+		<div class="col-sm-1 col-xs-12 center">
+			<i class="material-icons text-right"
+				style="padding-top: 15px; padding-left: 20px; font-size: 36px; color: #2e7d32">tag_faces</i>
+			<h5 class="media-heading">
+				<span class="niknm" id="niknm">${niknm}</span>
+			</h5>
+		</div>
+		<div class="col-sm-6 col-xs-12 center">
+			<label for="inputComments"><span style="color: #4e342e">댓글을
+					써주세요</span></label>
+			<textarea rows="6" class="form-control" id="ctt" name="ctt"
+				placeholder="Enter reply"></textarea>
+			<button type="submit" id="replyAddBtn"
+				class="btn btn-block btn-warnings">댓글올리기</button>
+		</div>
 	</div>
 </div>
-	<!-- 설정페이지 모달창 -->
-	
-	<div id='modDiv'>
-		<div class='modal-title'></div>
-		<div>
-			<input type='text' id='bdattext'>
-		</div>
-		<div>
-			<button type="button" id="replyModBtn">수정</button>
-			<button type="button" id="replyDelBtn">삭제</button>
-			<button type="button" id="closeBtn">닫기</button>
-		</div>	
+<!-- 설정페이지 모달창 -->
+<div id='modDiv' style="display: none; color: black;">
+	<div class='modal-title'></div>
+	<div>
+		<input type='text' id='cttmodal' >
 	</div>
+	<div>
+		<button type="button" class="btn btn-info" id="replyModBtn">수정</button>
+		<button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
+		<button type="button" class="btn btn-defailt" id="closeBtn" data-dismiss="modal">닫기</button>
+	</div>
+</div>

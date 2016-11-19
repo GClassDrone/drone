@@ -43,7 +43,7 @@
 <c:forEach items="${listAll}" var="MemDto"> 
      <div class="row">
          <div class="col-md-1">
-	         <a href="/mem/ProfileDetail?mno=${MemDto.mno }">
+	         <a href="/mem/ProfileDetail?mno=${MemDto.mno}">
 	         <img src="../resources/images/castleMo2.png" class="center-block img-circle">
 	             <h6 class="text-center">${MemDto.niknm }<p>(${MemDto.levnm})</p></h6> 
 	         </a>

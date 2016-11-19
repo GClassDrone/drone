@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gclass.drone.loc.service.LocService;
 import com.gclass.drone.login.dto.LoginDto;
@@ -36,10 +37,11 @@ public class MemController {
 	}*/
 	
 	
-	@RequestMapping("/ProfileDetail")
+	@RequestMapping(value="/ProfileDetail", method = RequestMethod.GET)
 	public void read(@RequestParam("mno") int mno, Model model) throws Exception {
 		
 		model.addAttribute(service.read(mno));
+		model.addAttribute("mylist", service.mylist(mno));
 	}
 
 	@RequestMapping(value="/ProfileList", method = RequestMethod.GET)
@@ -48,8 +50,17 @@ public class MemController {
 		model.addAttribute("listAll", service.listAll());
 	}
 	
+	@RequestMapping(value="/Profilemodify", method = RequestMethod.GET)
+	public void modifyGET(int mno, Model model) throws Exception {
+		
+		model.addAttribute(service.read(mno));
+	}
 	
-	
-	
-	
+	@RequestMapping(value="/Profilemodify", method = RequestMethod.POST)
+	public String modifyPOST(MemDto board, RedirectAttributes rttr) throws Exception {
+		
+		service.modify(board);
+		
+		return "redirect:/mem/ProfileDetail?mno=${MemDto.mno }";
+	}
 }

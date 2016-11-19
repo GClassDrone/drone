@@ -9,7 +9,14 @@ public class bdatDto {
 	private int mno;
 	private String ctt;
 	private Timestamp regdt;
+	private String niknm;
 	
+	public String getNiknm() {
+		return niknm;
+	}
+	public void setNiknm(String niknm) {
+		this.niknm = niknm;
+	}
 	public int getSubjno() {
 		return subjno;
 	}
@@ -46,11 +53,9 @@ public class bdatDto {
 	public void setRegdt(Timestamp regdt) {
 		this.regdt = regdt;
 	}
-
 	@Override
 	public String toString() {
 		return "bdatDto [subjno=" + subjno + ", bno=" + bno + ", bdatno=" + bdatno + ", mno=" + mno + ", ctt=" + ctt
-				+ ", regdt=" + regdt + "]";
+				+ ", regdt=" + regdt + ", niknm=" + niknm + "]";
 	}
-	
 }

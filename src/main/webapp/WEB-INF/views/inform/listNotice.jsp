@@ -5,7 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
- <script type="text/javascript">
+<jsp:include page="../common/include.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="/resources/css/inform/inform.css"/>
+<script type="text/javascript">
 var result='${msg}';
 if(result=="success"){
 	alert("처리되었습니다.");	
@@ -25,14 +27,18 @@ $(document).ready(function(){
 	});
 });
 </script>
-<link rel="stylesheet" type="text/css" href="/resources/css/inform/inform.css"/>
-<jsp:include page="../common/include.jsp"></jsp:include>
+<style>
+.form-group {
+	float: left;
+	margin: 5px;
+}
+</style>
 </head>
 
 <body>
-    <jsp:include page="../common/header.jsp"></jsp:include>
-    <header class="bgimage hidden-xs">
-    </header>
+<jsp:include page="../common/header.jsp"></jsp:include>
+<header class="bgimage hidden-xs">
+</header>
 
 <div class="container">
         <div class="row">
@@ -47,24 +53,71 @@ $(document).ready(function(){
         </div>
 </div>  <br />
  <div class="container">
-       <div class="row">
-            <div class="col-md-12">
+      <div class="row">
+           <div class="col-md-12">
                     <h1 class="text-center"><strong>공지 사항</strong></h1>
-            </div>
-           <div class="box-body">
-					<select name="searchType">
+           </div>
+      </div>
+       <div class="section">
+	       <div style="padding-bottom: 5px">
+	          <div class="row">
+	            <div class="col-sm-2">
+					<select name="searchType" id="searchType" class="form-control form-group">
 						<option value="" <c:out value="${isp.searchType == null?'selected':''}" /> >선택</option>
 						<option value="name" <c:out value="${isp.searchType eq 'name' ? 'selected':''}" /> >이름</option>					
 						<option value="title" <c:out value="${isp.searchType eq 'title' ? 'selected':''}" /> >제목</option>
 						<option value="content" <c:out value="${isp.searchType eq 'content' ? 'selected':''}" /> >내용</option>
 					</select>
-					<input type="text" name="keyWord" id="keywordInput" value="${isp.keyWord}" />
-					<button id="searchBtn">검색</button>
-					<button id="newBtn">글작성</button>
 				</div>
-       </div><br />
-       
-       <div class="row">
+				<div class="col-sm-4">
+					<form class="form-search form-group">
+			            <div class="input-append">
+			                <input type="text" class="" name="keyword" id="keywordInput" value="${isp.keyWord}" />
+			                <button type="submit" id="searchBtn" class="btn btn-default">검색</button>
+			            </div>
+			        </form>
+			        <a href="#" id="newBtn" class="form-group" disabled><i class="fa fa-2x fa-pencil-square-o"></i></a>
+			    </div>
+			  </div>
+			</div>
+	       	 <div class="well">
+	       	 	<table class="table" style="color: #3e2723">
+			      <thead>
+			        <tr>
+			          <th width="10%">#</th>
+			          <th width="50%">Title</th>
+			          <th width="15%">Writer</th>
+			          <th width="15%">Date</th>
+			          <th width="10%">View</th>
+			          <th style="width: 36px;"></th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <c:forEach items="${list}" var="InformDto">
+						<tr>
+							<td>${InformDto.ino }</td>
+							<td><a style="color: #3e2723" href="noticeDetail${pageMake.makeSearch(pageMake.initPage.page)}&ino=${InformDto.ino}&igubun=g">${InformDto.ttl }</td>
+							<td><strong>${InformDto.mgid }</strong></td>
+							<td><fmt:formatDate pattern="yyyy-mm-dd HH:mm" value="${InformDto.regdt }"/>
+							<td><span class="badge bg-red">${InformDto.readcnt }</span></td>
+						</tr>
+					</c:forEach>
+			      </tbody>
+			    </table>
+	       	 </div>
+       	 <div class="text-center">
+               <ul class="pagination">
+                   <li class="disabled"><a href="#">«</a></li>
+                   <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                   <li><a href="#">2</a></li>
+                   <li><a href="#">3</a></li>
+                   <li><a href="#">4</a></li>
+                   <li><a href="#">5</a></li>
+                   <li><a href="#">»</a></li>
+               </ul>
+         </div>
+     </div>
+<!--        <div class="row">
         	<div class="text-center">
  					<table class="table table-boradered">
 					<tr>
@@ -103,7 +156,7 @@ $(document).ready(function(){
 					</ul>
  					
  				</div>
-     </div>
+     </div>  -->
  </div>
  <br />
 

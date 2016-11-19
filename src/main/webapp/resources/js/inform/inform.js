@@ -1,34 +1,55 @@
 $(function(){
-	
-	function infolist(){
+	var nowPage=1;
+	var lastPage;
+	function infolist(nowPage){
+		var pagePerRow = 8;
+		var data = {nowPage:nowPage, pagePerRow: pagePerRow};
+		var str = "";
 		$.ajax({
+			type: "POST",
 			url: "/inform/info",
-			type: "GET",
-			dataType: "json",
+			headers:{
+				"Content-Type":"application/json",
+				"X-HTTP-Method-Override":"POST"
+			},
+			data: JSON.stringify(data),
+			datatype: "json",
+			async: false,
 			success: function(result){
 				alert("aaa");
-				var str = "";
 				$(result).each(function(i){
 					if(i%4 == 0){
 						str+="<div class ='row'>";
 					}
 					str += "<section class='col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3'>";
 					str += "<div class='thumbnail'>";
-					str += "<img alt='Bootstrap Thumbnail First' src="+this.upfile+"";
+					str += "<img alt='Bootstrap Thumbnail First' src="+this.upfile+">";
 					str += "<div class='caption'>";
 					str += "<h3>"+this.ttl+"</h3>";
-					str += " <p>"+this.ctt+"</p>";
-					str += "<p><a class='btn btn-primary' href='/infoDetail?ino="+this.ino+"'>Go</a></p>";
-					if(i%4 == 3 || result.length){
+					if(this.ctt.length > 20){
+						str += "<p>"+this.ctt.substr(0,35)+".....</p>";
+					}else{
+						str += " <p>"+this.ctt+"</p>";
+					}
+					str += "<p><a class='btn btn-primary' href='/infoDetail'>Go</a><p>";
+					str +="</div>";
+					str += "</div>";
+					str += "</section>";
+					
+					if(i%4 == 3 || i == result.length){
 						str += "</div>";
 					}
 				});
-				$("#infolist").html(str);
-				
 			}
 		});
+		return str;
 	}
-	infolist();
+	$("#pageBtn-wrap span").on("click", function(){
+		nowPage = nowPage + 1;
+		$("#cateList").append(cateMakeList(nowPage));
+	});
+	
+	$("#infolist").html(infolist(nowPage));
 });
 
 //<div id ="infolist"></div>

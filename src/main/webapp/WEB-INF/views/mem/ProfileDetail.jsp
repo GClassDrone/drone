@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html>
@@ -21,21 +22,24 @@ $(document).ready(function() {
             $(this).find('.caption').slideUp(250); //.fadeOut(205)
         }
     ); 
+    
+    /* 콘텐츠 불러오는 부분 */
+    
 	var formObj = $("form[role='form']").eq(0);
 	console.log(formObj);
 	$(".btn-warning").on("click", function(){
-		formObj.attr("action", "/여기에 들어갈 경로를 적어주세요");
+		formObj.attr("action", "/map/ctsInsert?mno=${mno}");
 		formObj.attr("method","get");
 		formObj.submit();
 	});
 	$(".btn-danger").on("click",function(){
-		formObj.attr("action", "/instanceboard/remove");
+		formObj.attr("action", "/map/ctsmodify");
 		formObj.attr("method","post");
 		
 		formObj.submit();
 	});
 	$(".btn-primary").on("click",function(){
-		self.location = "instanceboard/itlist?subjno=${subjno}";
+		self.location = "/map/remove?mno=${mno}&ctscateno=${ctscateno}&ctsno=${ctsno}";
 	});
  });
  
@@ -48,7 +52,7 @@ $(document).ready(function() {
  </header>  -->
 
 <form role="form" method="post">
-	<input type='hidden' name='mno' value="${MemDto.mno}">
+	<input type='hidden' name='mno' value="${memDto.mno}">
 </form>
 
 <div class="container">
@@ -71,15 +75,17 @@ $(document).ready(function() {
 	            <img alt="" src="/resources/images/castleMo.png">
 	        </div>
 	        <div class="card-info"> 
-	        	<span class="card-title" id="niknm">${memDto.niknm}</span>
-			        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb"></i></a>&nbsp; 
-			        <a href="#pilot"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
+	        	<span class="card-title" id="niknm">${memDto.niknm}</span><br>
+<!-- 			        <a href="#"><i class="fa fa-2x fa-comments-o" style="color:#e040fb">채팅하기</i></a>&nbsp; --> 
+			        <a href="/mem/Profilemodify?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">정보수정</i></sup></a>
 	        <div class="col-sm-8 col-sm-offset-2">
-		        <div><p style="color: #4e342e">${memDto.prmsg}</p></div>
+		        <div>
+		        	<p style="color: black;">상태메세지를 입력해주세요.</p>
+		        	
+		        </div>
 		        </div>
 	        </div>
 	    </div>
-	    
 	    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
 	        <div class="btn-group" role="group">
 	            <button type="button" id="info" class="btn btn-default" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -111,7 +117,7 @@ $(document).ready(function() {
 	    <div class="well">
 		      <div class="tab-content">
 		        <div class="tab-pane fade in active" id="tab1">
-		              <h3 style="display:inline-block">프로필 정보</h3> <a href="#tab1"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
+		              <h3 style="display:inline-block">프로필 정보</h3>
 					    <dl class="dl-horizontal">
 					      <dt>개인 소개</dt>
 					      <dd>${memDto.prmsg}</dd>
@@ -138,6 +144,7 @@ $(document).ready(function() {
 		            <div class="panel panel-warning">
            				<!--   panel-옵션 => default/ success / warning / info / danger / primary  -->
 	                    <div class="panel-heading">
+	                       <a href="#"><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd; float: right;"></i></a>
 	                        <h3 class="panel-title" style="color:#4e342e">제1회 하천측량·하상변동조사 드론 경진대회</h3>
 	                    </div>
 	                    <div class="panel-body" style="background-color:white">
@@ -153,6 +160,7 @@ $(document).ready(function() {
                 	<div class="panel panel-warning">
            				<!--   panel-옵션 => default/ success / warning / info / danger / primary  -->
 	                    <div class="panel-heading">
+	                        <a href="#"><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd; float: right;"></i></a>
 	                        <h3 class="panel-title" style="color:#4e342e">2016 대한민국 드론 영상제</h3>
 	                    </div>
 	                    <div class="panel-body" style="background-color:white">
@@ -240,25 +248,27 @@ $(document).ready(function() {
 		          	<table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>개설일</th>
                             <th>제목</th>
                             <th>게시판 목적</th>
+                            <th>개설일</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <c:forEach items="${mylist}" var="MemDto">
                         <tr class="active">
-                            <th scope="row">2016.11.11</th>
-                            <td class="active"><a href="#" style="color:black">한강 고수부지 비행모임</a></td>
-                            <td>서울에 거주하는 드론 보유 회원님들 눈오기 전에 같이 날려요.....</td>
+                            <td class="active"><a href="/instanceboard/itlist?subjno=${MemDto.subjno}" style="color:black;">${MemDto.subjttl}</a></td>
+                            <td>${MemDto.subjctt}</td>
+                            <th scope="row">${MemDto.opendt}</th>
                         </tr>
-                        <tr class="success">
+                    </c:forEach>
+<!--                         <tr class="success">
                             <th scope="row">2016.10.11</th>
                             <td><a href="#" style="color:black">DJI 팬텀 최신 드론 공동구매</a></td>
                             <td>2016년 12월 새로 출시되는 ㅇㅇㅇ 모델 중국 직구 공구 게시판입니다. 많이 참여 부탁합니다. 고고고곡고곡고고고고고고고^^~~~~~~~~~~ </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
-                <a href="#" style="color:#616161"><i class="fa fa-3x fa-plus-square"></i></a>
+                <a href="/mem/subregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square">게시판추가</i></a>
 		        </div>
 		      </div>
 	    </div>
@@ -266,6 +276,9 @@ $(document).ready(function() {
   </div>          
 </div>
 
+
+
+<!-- ------------------------------------콘텐츠 목록 보는쪽 -->
 <div class="container">
         <div class="col-md-12">
             <h1 class="text-center">게시 컨텐츠 목록</h1>
@@ -277,39 +290,30 @@ $(document).ready(function() {
         <div>
         	<button type="submit" class="btn btn-warning">글등록</button>
         </div>
+	<c:forEach items="${conlist}" var="MemDto">
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+                    <iframe class="embed-responsive-item" src="" allowfullscreen=""></iframe>
                 </div>
                 <h3>Grooming</h3>
                 <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
                 <button type="submit" class="btn btn-danger">수정</button>
  				<button type="submit" class="btn btn-primary">삭제</button>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>Grooming</h3>
-                <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>General Health</h3>
-                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-                </div>
-                <h3>General Health</h3>
-                <p>Wellness and senior exams, ultrasound, x-ray, and dental cleanings are just a few of our general health services.</p>
-            </div>
-        </div>
-    </div><br />
+	</c:forEach>   
+       <div class="col-xs-12 col-sm-6 col-md-3">
+           <div class="embed-responsive embed-responsive-16by9">
+               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+           </div>
+           <h3>Grooming</h3>
+           <p>Our therapeutic grooming treatments help battle fleas, allergic dermatitis, and other challenging skin conditions.</p>
+           <button type="submit" class="btn btn-danger">수정</button>
+			<button type="submit" class="btn btn-primary">삭제</button>
+       </div>
+       </div>
+    </div>
     
+    <!-- 페이지 이동버튼 -->
     	<p class="more">
             <button type="button" class="btn btn-default btn-sm center">
                 <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 

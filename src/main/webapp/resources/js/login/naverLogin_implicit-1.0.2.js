@@ -161,12 +161,12 @@ var naver_id_login = function (client_id,redirect_uri)
 		{
 			this.state = this.oauthParams.state;
 		}
-		if ( ( this.client_id == undefined ) || ( this.client_id == "등록한 ClientID 값" ) || ( this.client_id.length < 5 ) )
+		if ( ( this.client_id == undefined ) || ( this.client_id == "CWr_84d1XvIQlD9amjdB" ) || ( this.client_id.length < 5 ) )
 		{
-			alert("등록한 ClientID 값을 입력해 주세요.");
+			alert("CWr_84d1XvIQlD9amjdB");
 			return false;
 		}
-		if ( ( this.redirect_uri == undefined ) || ( this.redirect_uri == "등록한 Callback URL 값" ) || ( this.redirect_uri.length < 5 ) )
+		if ( ( this.redirect_uri == undefined ) || ( this.redirect_uri == "http://gclass.mooo.com:8080" ) || ( this.redirect_uri.length < 5 ) )
 		{
 			alert("등록한 Callback URL 값을 입력해 주세요.");
 			return false;

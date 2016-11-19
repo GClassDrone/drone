@@ -1,4 +1,4 @@
-var naver_id_login = new naver_id_login("CWr_84d1XvIQID9amjdB","http://192.168.0.23:8080/intro");
+var naver_id_login = new naver_id_login("CWr_84d1XvIQID9amjdB","http://http://gclass.mooo.com:8080");
 var state = naver_id_login.getUniqState();
 naver_id_login.setButton("green", 3, 48);
 naver_id_login.setDomain(".service.com");

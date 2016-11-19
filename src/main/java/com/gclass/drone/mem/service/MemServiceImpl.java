@@ -51,4 +51,9 @@ public class MemServiceImpl implements MemService {
 	public int dulogin(String niknm) throws Exception {
 		return dao.dulogin(niknm);
 	}
+
+	@Override
+	public List<MemDto> mylist(Integer mno) throws Exception {
+		return dao.mylist(mno);
+	}
 }

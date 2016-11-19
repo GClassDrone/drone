@@ -10,7 +10,6 @@
 			
 			success: function(){
 				alert("로그아웃");
-				history.go(0);
 		}
 		});
 	});
@@ -72,11 +71,12 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/mem/ProfileList">파일럿  ${mno }</a>
+                        <a href="/mem/ProfileList">파일럿</a>
                     </li>
                 </ul>
                 <div class="pull-right">
 <!-- 	                 <span class="fa fa-fw fa-search" style="padding-top: 13px; font-size: 20px;"></span> -->
+				
 				<c:choose>
 					<c:when test="${empty mno }">
 						<button type="button" id="login-user" class="btn btn-default navbar-btn pull-right">sign-in</button>

@@ -59,4 +59,10 @@ public class MemDaoImpl implements MemDao{
 	public int dulogin(String niknm) throws Exception {
 		return session.selectOne(namespace +".dulogin", niknm);
 	}
+
+	/*프로필에서 자기가 개설한 프로필 리스트 뽑는거*/
+	@Override
+	public List<MemDto> mylist(Integer mno) throws Exception {
+		return session.selectList(namespace+".mylist", mno);
+	}
 }

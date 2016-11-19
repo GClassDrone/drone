@@ -73,9 +73,103 @@
 	<!-- 프로필 디테일부분에서 자기가 올린 컨텐츠를 불러오는 쿼리 -->
 	
 	<select id="conlist" resultType="MemDto">
-	  select /*+ index_desc(cts idx_cts_regdt) */ *
-        FROM cts
-       WHERE mno = #{mno}
+		SELECT * 
+		  FROM CTS 
+		 WHERE mno=#{mno}
+    	   and delyn = 'n'
+    	 ORDER BY regdt desc
+    	 
+	</select>
+
+	<!-- 프로필에서 게시판 리스트 보는 쿼리 -->
+
+	<select id="mylist" resultType="MemDto">
+		select m.mno , b.bcateno, b.subjno, b.subjttl, b.opendt, b.subjctt ,b.delyn
+		  from mem m
+		  join bsubj b
+		    on m.mno = b.mno
+		 where m.mno = #{mno}
+		   and delyn = 'n'
+	</select>
+<!-- 여기서부터 쿼리 만들것!!! -->
+	<!-- 게시판 만드는 쿼리 -->
+
+	<insert id="binsert">
+		insert into bsubj (bcateno, subjno, subjttl, subjctt, mno)
+		values(#{bcateno}, bsubj_next, #{subjttl}, #{subjctt}, #{mno})
+	</insert>
+	
+	<!-- 게시판 수정하는 쿼리 -->
+ 	<update id="bupdate">
+		update bsubj set
+			     subjttl = #{subjttl}
+			   , subjctt = #{subjctt}
+			   , delyn = #{delyn}
+		 where subjno= #{subjno}
+	</update>
+
+	<!-- 게시판 지우는 쿼리-->	
+	<delete id="bdelete">
+		delete
+		  from bsubj
+		 where subjno = #{subjno}
+	</delete>
+	
+	<!-- 경력 관련된  쿼리들 -->
+	<insert id="actinsert">
+		insert into act (actno, mno, actstdt, acteddt, actnm, actctt, actgb, pryn)
+		values (act_next, #{mno}, actstdt= #{actstdt}, acteddt=#{acteddt}, actnm=#{actnm}, actctt=#{actctt}, actgb=#{actgb}, pryn=#{pryn} )
+	</insert>
+	
+ 	<update id="actupdate">
+		update act set
+				 actstdt = #{actstdt}
+			   , acteddt = #{acteddt}
+			   , actnm = #{actnm}
+			   , actctt = #{actctt}
+			   , actgb = #{actgb}
+			   , pryn = #{pryn}
+		 where mno = #{mno} and actno = #{actno}
+	</update>
+		
+	<delete id="actdelete">
+		delete
+		  from act
+		 where actno = #{actno}
+	</delete>
+
+	<select id="actlist" resultType="MemDto">
+		select *
+		  from act
+		 where mno = #{mno}
 	</select>
 	
+	<!-- 보유 드론 관련된 것들 -->
+	
+	<insert id="droneinsert">
+		insert into drone (mdrno, model, mdrnm, pryn, mno)
+		values (drone_next, #{model},#{mdrnm},#{pryn}, #{mno} )
+	</insert>
+	
+ 	<update id="droneupdate">
+		update drone
+		   set  model = #{model}
+			  , mdrnm = #{mdrnm}
+			  , pryn = #{pryn}
+		 where mdrno =#{mdrno}
+	</update>
+		
+	<delete id="dronedelete">
+		delete
+		  from drone
+		 where mdrno = #{mdrno}
+	</delete>
+
+	<select id="dronelist" resultType="MemDto">
+		select *
+		  from drone
+		 where mno = #{mno}
+	</select>
+	
+	<!-- 즐겨찾기 관련 쿼리들 -->
 </mapper>
