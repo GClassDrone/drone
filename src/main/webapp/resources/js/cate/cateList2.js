@@ -46,7 +46,7 @@ $(function(){
 					}
 					if ($("#himno").val() == $("#mymno").val()) {
 					str += "<button type='submit' class='btn btn-danger' id='maprmv'>수정</button>";
-					str += "<button type='submit' class='btn btn-primary'>삭제</button>";
+					str += "<button type='submit' class='btn btn-primary' id='madel'>삭제</button>";
 						}
 					str += "</div>";
 					if(i%4 == 3 || i == result.length){
@@ -138,4 +138,5 @@ $(function(){
 		$("#cateList").append(cateMakeList(nowPage));
 	});
 	$("#cateList").html(cateMakeList(nowPage));
+	
 });
