@@ -157,20 +157,29 @@ public class MapServiceImpl implements MapService {
 	}
 
 	@Override
-	public List<CtsdatDto> ctsdatInsert(CtsdatDto cdDto) throws Exception {
+	public Map<String, Object> ctsdatInsert(CtsdatDto cdDto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		mDao.ctsdatInsert(cdDto);
-		return mDao.ctsdatSelectAll(cdDto);
+		returnMap.put("list", mDao.ctsdatSelectAll(cdDto));
+		returnMap.put("cnt", mDao.ctsdatcntSelectOne(cdDto));
+		return returnMap;
 	}
 
 	@Override
-	public List<CtsdatDto> ctsdatUpdate(CtsdatDto cdDto) throws Exception {
+	public Map<String, Object> ctsdatUpdate(CtsdatDto cdDto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		mDao.ctsdatUpdate(cdDto);
-		return mDao.ctsdatSelectAll(cdDto);
+		returnMap.put("list", mDao.ctsdatSelectAll(cdDto));
+		returnMap.put("cnt", mDao.ctsdatcntSelectOne(cdDto));
+		return returnMap;
 	}
 
 	@Override
-	public List<CtsdatDto> ctsdatDelete(CtsdatDto cdDto) throws Exception {
+	public Map<String, Object> ctsdatDelete(CtsdatDto cdDto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		mDao.ctsdatDelete(cdDto);
-		return mDao.ctsdatSelectAll(cdDto);
+		returnMap.put("list", mDao.ctsdatSelectAll(cdDto));
+		returnMap.put("cnt", mDao.ctsdatcntSelectOne(cdDto));
+		return returnMap;
 	}
 }

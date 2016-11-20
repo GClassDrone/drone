@@ -204,6 +204,13 @@
 		   and ctsno=#{ctsno}
 	</select>
 	
+	<select id="ctsdatcntSelectOne" resultType="int">
+		select datcnt
+		  from cts
+		 where ctscateno = #{ctscateno}
+		   and ctsno = #{ctsno}
+	</select>
+	
 	<insert id="ctsdatInsert">
 		insert into ctsdat(
 							ctscateno

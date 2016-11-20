@@ -158,10 +158,10 @@ public class MapController {
 	
 	@ResponseBody
 	@RequestMapping(value="/ctsdatInsert", method=RequestMethod.POST)
-	public ResponseEntity<List<CtsdatDto>> ctsdatInsert(@RequestBody CtsdatDto cdDto){
-		ResponseEntity<List<CtsdatDto>> entity = null;
+	public ResponseEntity<Map<String, Object>> ctsdatInsert(@RequestBody CtsdatDto cdDto){
+		ResponseEntity<Map<String, Object>> entity = null;
 		try{
-			entity = new ResponseEntity<List<CtsdatDto>>(service.ctsdatInsert(cdDto),HttpStatus.OK);
+			entity = new ResponseEntity<Map<String, Object>>(service.ctsdatInsert(cdDto),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -170,10 +170,10 @@ public class MapController {
 	
 	@ResponseBody
 	@RequestMapping(value="/ctsdatUpdate", method=RequestMethod.POST)
-	public ResponseEntity<List<CtsdatDto>> ctsdatUpdate(@RequestBody CtsdatDto cdDto){
-		ResponseEntity<List<CtsdatDto>> entity = null;
+	public ResponseEntity<Map<String, Object>> ctsdatUpdate(@RequestBody CtsdatDto cdDto){
+		ResponseEntity<Map<String, Object>> entity = null;
 		try{
-			entity = new ResponseEntity<List<CtsdatDto>>(service.ctsdatUpdate(cdDto),HttpStatus.OK);
+			entity = new ResponseEntity<Map<String, Object>>(service.ctsdatUpdate(cdDto),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -182,10 +182,10 @@ public class MapController {
 	
 	@ResponseBody
 	@RequestMapping(value="/ctsdatDelete", method=RequestMethod.POST)
-	public ResponseEntity<List<CtsdatDto>> ctsdatDelete(@RequestBody CtsdatDto cdDto){
-		ResponseEntity<List<CtsdatDto>> entity = null;
+	public ResponseEntity<Map<String, Object>> ctsdatDelete(@RequestBody CtsdatDto cdDto){
+		ResponseEntity<Map<String, Object>> entity = null;
 		try{
-			entity = new ResponseEntity<List<CtsdatDto>>(service.ctsdatDelete(cdDto),HttpStatus.OK);
+			entity = new ResponseEntity<Map<String, Object>>(service.ctsdatDelete(cdDto),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
