@@ -205,13 +205,13 @@ $(function() {
 				endNum=nowPage*pilotPageRow-data.length%pilotPageRow-1;
 			}
 		}
-		str += "<div class='container center'>";
+		str += "<div class='container'>";
 		if(nowPage>1){
 			str+="<div><input type='button' class='prevPage' value='prev'></div>";
 		}
 		for(var i=startNum;i<=endNum;i++){
-			if(i%2 == 0){
-				str+="<div class='row>";
+			if(i%3 == 0){
+				str+="<div class='row'>";
 			}
 			str += "<div class='col-md-1'>";
 			str += "<a href='/mem/ProfileDetail?mno="+data[i].mno+"'>";
@@ -230,7 +230,7 @@ $(function() {
 			str += "</ul>";
 			str += "</div>";
 			str += "</div>";
-			if(i%2 == 1 || i == data.length){
+			if(i%3 == 2 || i == data.length){
 				str+="</div>";
 			}
 		}
