@@ -207,11 +207,7 @@ $(function() {
 		}
 		str += "<div class='container center'>";
 		if(nowPage>1){
-			str+="<div class='section'>";
-			str+="<div class='col-md-1'>";
-			str+="<i class='fa fa-2x fa-chevron-circle-left'></i>";
-/*			str+="<div><input type='button' class='prevPage' value='prev'></div>";*/
-			str+="</div>";
+			str+="<div><input type='button' class='prevPage' value='prev'></div>";
 		}
 		for(var i=startNum;i<=endNum;i++){
 			if(i%2 == 0){
@@ -234,18 +230,14 @@ $(function() {
 			str += "</ul>";
 			str += "</div>";
 			str += "</div>";
-			str += "<div class='clearfix'></div>";
 			if(i%2 == 1 || i == data.length){
 				str+="</div>";
 			}
 		}
 		if(nowPage<Math.ceil(data.length/pilotPageRow)){
-			str += "<div class='col-md-1'>";
-			str+="<i class='fa fa-2x fa-chevron-circle-right' style='color: white'></i>";
-/*			str += "<div><input type='button' class='nextPage' value='next'></div>";*/
-			str += "</div>";
+			str += "<div><input type='button' class='nextPage' value='next'></div>";
 		}
-		str += "</div></div><br />";
+		str += "</div>";
 		$("#list-wrap").empty();
 		$("#list-wrap").css("position","relative");
 		$("#list-wrap").css("height","350px");
