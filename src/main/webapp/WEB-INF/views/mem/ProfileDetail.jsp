@@ -6,9 +6,9 @@
 <html>
 <head>
  
+<jsp:include page="../common/include.jsp"></jsp:include>
 <link href="/resources/css/profile/profile.css" rel="stylesheet" type="text/css">
 <script src="/resources/js/profile/profile.js"></script>
-<jsp:include page="../common/include.jsp"></jsp:include>
 <script type="text/javascript" src="/resources/js/cate/cateList2.js"></script>
 <script>
 $(document).ready(function() {
@@ -27,12 +27,12 @@ $(document).ready(function() {
     
 	var formObj = $("form[role='form']").eq(0);
 	console.log(formObj);
-	$("#reg").on("click", function(){
-		formObj.attr("action", "/map/ctsInsert?mno=${mno}");
+	/* $("#reg").on("click", function(){
+		formObj.attr("action", "/map/ctsInsert");
 		formObj.attr("method","get");
 		formObj.submit();
-	});
-	$(".btn-danger").on("click",function(){
+	}); */
+	/* $(".btn-danger").on("click",function(){
 		formObj.attr("action", "/map/ctsmodify");
 		formObj.attr("method","post");
 		
@@ -43,7 +43,7 @@ $(document).ready(function() {
 		formObj.attr("method","post");
 		
 		formObj.submit();
-	});
+	}); */
  });
  	/* 프로필 ->게시판->게시판리스트에서 삭제, 업데이트하는버튼 */
  	
@@ -323,7 +323,10 @@ var bupdate = function(subjno) {
         <!-- 글등록 버튼 여기잇음 -->
        <c:if test="${mno eq memDto.mno}"> 
         <div>
-        	<button type="submit" class="btn btn-warning" id="reg">글등록</button>
+        	<form action="/map/ctsInsert" method="get">
+        		<input type="submit"  class="btn btn-warning" value="글등록">
+        	</form>
+        	<!-- <button type="submit" class="btn btn-warning" id="reg">글등록</button> -->
         </div>
         </c:if>
 		<div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="cateList">

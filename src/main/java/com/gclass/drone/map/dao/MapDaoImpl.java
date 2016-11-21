@@ -1,7 +1,6 @@
 package com.gclass.drone.map.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -90,35 +89,33 @@ public class MapDaoImpl implements MapDao {
 	}
 
 	@Override
-	public void ctsDelete(Map<String, Object> map) throws Exception {
-		session.update(namespace+".ctsDelete", map);
+	public void ctsDelete(CtsDto cDto) throws Exception {
+		session.update(namespace+".ctsDelete", cDto);
 	}
 
 	@Override
-	public void favInsert(FavDto fDto) throws Exception {
-		session.insert(namespace+".favInsert", fDto);
+	public void favInsert(FavDto fDto, String id) throws Exception {
+		session.insert(namespace+id, fDto);
 	}
 
 	@Override
 	public List<FavDto> favCheck(CtsDto cDto) throws Exception {
-		logger.info(session.selectList(namespace+".favCheck", cDto).toString());
 		return session.selectList(namespace+".favCheck", cDto);
 	}
 	
 	@Override
 	public List<FavDto> favCheck(FavDto fDto) throws Exception {
-		logger.info(session.selectList(namespace+".favCheck", fDto).toString());
 		return session.selectList(namespace+".favCheck", fDto);
 	}
 
 	@Override
-	public void favDelete(FavDto fDto) throws Exception {
-		session.delete(namespace+".favDelete", fDto);
+	public void favDelete(FavDto fDto, String id) throws Exception {
+		session.update(namespace+id, fDto);
 	}
 
 	@Override
-	public List<FavDto> favSelectOne(FavDto fDto) throws Exception {
-		return session.selectList(namespace+".favSelectOne", fDto);
+	public List<FavDto> favSelectList(FavDto fDto) throws Exception {
+		return session.selectList(namespace+".favSelectList", fDto);
 	}
 
 	@Override

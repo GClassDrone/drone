@@ -9,9 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.category.dto.CatePageDto;
@@ -31,6 +34,7 @@ public class CateController {
 		logger.info("cateList GET.........");
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/cateList", method=RequestMethod.POST)
 	public ResponseEntity<List<CateDto>> cataList(@RequestBody CatePageDto cpDto){
 		logger.info("cateList POST.........");
@@ -43,5 +47,11 @@ public class CateController {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
+	}
+	
+	@RequestMapping(value="/cateList/{cateno}", method=RequestMethod.GET)
+	public String cataListPath(@PathVariable("cateno") int cateno, RedirectAttributes rttr){
+		rttr.addFlashAttribute("cateno", cateno);
+		return "redirect:/cate/cateList";
 	}
 }

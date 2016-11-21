@@ -103,6 +103,11 @@ public class MapServiceImpl implements MapService {
 	public List<CtscateDto> ctscateSelectAll() throws Exception {
 		return mDao.ctscateSelectAll();
 	}
+	
+	@Override
+	public CtsDto ctsSelectOne(CtsDto cDto) throws Exception {
+		return mDao.ctsSelectOne(cDto);
+	}
 
 	@Override
 	public void ctsUpdate(CtsDto cDto) throws Exception {
@@ -110,25 +115,24 @@ public class MapServiceImpl implements MapService {
 	}
 
 	@Override
-	public void ctsDelete(int ctsno, int ctscateno) throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("ctsno", ctsno);
-		map.put("ctscateno", ctscateno);
-		
-		mDao.ctsDelete(map);
+	public void ctsDelete(CtsDto cDto) throws Exception {
+		mDao.ctsDelete(cDto);
 	}
 
 	@Override
 	public Map<String, Object> favInsert(FavDto fDto) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-		if(mDao.favSelectOne(fDto).size() == 0 && fDto.getCheck().equals("n")){
-			mDao.favInsert(fDto);
+		if(mDao.favSelectList(fDto).size() == 0 && fDto.getCheck().equals("n")){
+			mDao.favInsert(fDto, ".favInsert");
 			returnMap.put("msg", returnStr(fDto.getFgubun(),"Insert"));
-			logger.info(fDto.toString());
 			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
-			logger.info(returnMap.get("cnt").toString());
+		}else if(mDao.favSelectList(fDto).size() > 0 && fDto.getCheck().equals("n")){
+			mDao.favInsert(fDto, ".favUpdate");
+			returnMap.put("msg", returnStr(fDto.getFgubun(),"Insert"));
+			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
 		}else{
 			returnMap.put("msg", returnStr(fDto.getFgubun(),"Failed"));
+			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
 		}
 		return returnMap;
 	}
@@ -136,12 +140,20 @@ public class MapServiceImpl implements MapService {
 	@Override
 	public Map<String, Object> favDelete(FavDto fDto) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-		if(mDao.favSelectOne(fDto).size() == 1 && fDto.getCheck().equals("y")){
-			mDao.favDelete(fDto);
+		logger.info("Delete : "+mDao.favSelectList(fDto).size());
+		if(mDao.favSelectList(fDto).size() > 0 && fDto.getCheck().equals("y") && fDto.getFgubun().equals("f")){
+			logger.info("favDelete");
+			mDao.favDelete(fDto,".favDelete");
+			returnMap.put("msg", returnStr(fDto.getFgubun(),"Delete"));
+			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
+		}else if(mDao.favSelectList(fDto).size() > 0 && fDto.getCheck().equals("y") && fDto.getFgubun().equals("j")){
+			logger.info("joaDelete");
+			mDao.favDelete(fDto,".joaDelete");
 			returnMap.put("msg", returnStr(fDto.getFgubun(),"Delete"));
 			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
 		}else{
 			returnMap.put("msg", returnStr(fDto.getFgubun(),"Failed"));
+			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
 		}
 		return returnMap;
 	}
