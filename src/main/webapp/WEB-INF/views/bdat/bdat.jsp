@@ -31,14 +31,14 @@
 			$.getJSON('/bdat/all/' + subjno + "/" + bno,
 			function(data) {var str = "";
 				$(data).each(function() {
-					str += "<li data-bdatno='"+this.bdatno+"'class='replyLi'>"
-							+ this.niknm
-							+ ":"
-							+ this.ctt
-							 if ($("#himno").val() == $("#mno").val()) {
-							+ "<button class='replyModBtn fa fa-2x fa-pencil-square-o' style='color:#bdbdbd'></button></li>";
+					str += "<div data-bdatno='"+this.bdatno+"'class='replyLi'>"
+					str += this.niknm
+					str += ":"
+					str += this.ctt
+						 if ($("#mno").val() == this.mno) {
+					str += "<button class='replyModBtn fa fa-2x fa-pencil-square-o' style='color:#bdbdbd'></button></div>";
 							}
-										});
+									});
 							$("#bdat").html(str);
 							});
 
@@ -178,7 +178,7 @@
 	<form role="form" method="post">
 		<input type='hidden' id='bno' name='bno' value="${bno}">
 		<input type='hidden' id='subjno' name='subjno' value="${subjno}">
-		<input type='hidden' id='mno' name='mno' id='mymno' value="${mno}">
+		<input type='hidden' id='mno' name='mno' value="${mno}">
 	</form>
 	<div class="form-group">
 		<div class="col-sm-1 col-xs-12 center">

@@ -7,7 +7,7 @@
 
 <!-- 가입시 받는 값 -->
 	<insert id="insert">
-		insert into mem(mno, niknm, email, pic,locno, ppose, siteno, siteid)
+		insert into mem(mno, niknm, email, pic, locno, ppose, siteno, siteid)
 		values(mem_next,#{niknm},#{email}, #{pic},#{locno},#{ppose},#{siteno},#{siteid})
 	</insert>
 	
@@ -191,4 +191,12 @@
 	</select>
 	
 	<!-- 즐겨찾기 관련 쿼리들 -->
+	
+	 <select id="falist" resultType="faDto">
+      SELECT f.*, c.ttl, c.ctt, c.filelk
+        FROM favorit f JOIN cts c
+          ON f.ctscateno = c.ctscateno AND f.ctsno = c.ctsno   
+       WHERE f.mno = #{mno}
+         and f.fgubun = 'f'
+	</select> 
 </mapper>

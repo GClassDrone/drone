@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.category.service.CateService;
 import com.gclass.drone.drone.service.droneservice;
+import com.gclass.drone.fa.service.faService;
 import com.gclass.drone.loc.service.LocService;
 import com.gclass.drone.login.dto.LoginDto;
 import com.gclass.drone.mem.dto.MemDto;
@@ -40,6 +41,9 @@ public class MemController {
 	@Inject
 	private droneservice servic;
 	
+	@Inject
+	private faService servi;
+	
 	private static final Logger logger= LoggerFactory.getLogger(MemController.class);
 	
 /*	@RequestMapping(value="/ProfileDetail", method=RequestMethod.GET)
@@ -55,6 +59,7 @@ public class MemController {
 		model.addAttribute(service.read(mno));
 		model.addAttribute("mylist", service.mylist(mno));
 		model.addAttribute("dronelist", servic.dronelist(mno));
+		model.addAttribute("falist", servi.falist(mno));
 	}
 	
 	@RequestMapping(value="/mnoctsList", method=RequestMethod.POST)
@@ -67,7 +72,6 @@ public class MemController {
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		logger.info("----------------------------------------"+entity.toString());
 		return entity;
 	}
 	@RequestMapping(value="/ProfileList", method = RequestMethod.GET)
@@ -103,6 +107,14 @@ public class MemController {
 		logger.info(dto.toString());
 		
 		service.binsert(dto);
+		
+		return "redirect:/mem/ProfileDetail?mno="+mno;
+	}
+	
+	@RequestMapping(value="/faremove", method = RequestMethod.POST)
+	public String remove(@RequestParam("mno") int mno, @RequestParam("fno") int fno, RedirectAttributes rttr) throws Exception {
+		
+		servi.remove(mno, fno);
 		
 		return "redirect:/mem/ProfileDetail?mno="+mno;
 	}

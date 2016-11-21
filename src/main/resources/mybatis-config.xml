@@ -13,6 +13,7 @@
 		<package name="com.gclass.drone.common"/>
 		<package name="com.gclass.drone.category.dto"/>
 		<package name="com.gclass.drone.drone.dto" />
+		<package name="com.gclass.drone.fa.dto" />
 	</typeAliases>
 	
 </configuration>

@@ -12,6 +12,11 @@
 <script type="text/javascript" src="/resources/js/cate/cateList2.js"></script>
 <script>
 $(document).ready(function() {
+	
+	var mno = "${memDto.mno}";
+	var ctscateno = "${cts.ctscateno}";
+	var ctsno = "${cts.ctsno}";
+	
     $("[rel='tooltip']").tooltip();    
  
     $('.thumbnail').hover(
@@ -32,21 +37,26 @@ $(document).ready(function() {
 		formObj.attr("method","get");
 		formObj.submit();
 	});
-	$(".btn-danger").on("click",function(){
-		formObj.attr("action", "/map/ctsmodify");
-		formObj.attr("method","post");
-		
-		formObj.submit();
-	});
+	
+	/* 프로필에서 콘텐츠의 수정 삭제 버튼 누르는 부분 */
+	
 	$("#maprmv").on("click",function(){
-		formObj.attr("action", "/map/remove");
+		formObj.attr("action", "/map/ctsUpdate?ctsno="+ctsno+"&ctscateno="+ctscateno);
 		formObj.attr("method","post");
 		
 		formObj.submit();
 	});
+	$("#madel").on("click",function(){
+		formObj.attr("action", "/map/ctsDelete?ctscateno="+ctscateno+"&ctsno="+ctsno);
+		formObj.attr("method","post");
+		
+		formObj.submit();
+	});
+
  });
  	/* 프로필 ->게시판->게시판리스트에서 삭제, 업데이트하는버튼 */
  	
+
 var bdelete = function(subjno){
 	var formObj = $("form[role='form']").eq(0);
 	var mno = "${memDto.mno}";
@@ -66,6 +76,19 @@ var bupdate = function(subjno) {
 	formObj.attr("action", "/bsubj/submodify?mno="+mno+"&subjno="+subjno);
 	formObj.attr("method","get");
 	alert(formObj.attr("action"));
+	formObj.submit();
+};
+
+/* 즐겨찾기 삭제하기 버튼 */
+
+var fdelete = function(fno){
+	var formObj = $("form[role='form']").eq(0);
+	var fno = "${faDto.fno}";
+	var mno = "${memDto.mno}";
+	
+	formObj.attr("action", "/mem/faremove?mno="+mno+"&fno="+fno);
+	formObj.attr("method","post");
+	
 	formObj.submit();
 };
 
@@ -215,65 +238,30 @@ var bupdate = function(subjno) {
 			            <div class="thumbnail">
 			                <div class="caption">
 		                     <h4 class="">모델명 : ${droneDto.model}</h4>
-			                    <p class="">드론애칭 : ${droneDto.mdrnm} 이 드론은 9드론 으로써 해처리에서 나왔습니다.</p>
+			                    <p class="">드론애칭 : ${droneDto.mdrnm}</p>
 			                </div>
 			                <img src="/resources/images/dji-mavic.jpg" alt="..." class="">
 			            </div>
 			        </div>
 			       </c:forEach>
-			        <!-- TH2 -->
-			        <div class="col-sm-4">
-			            <div class="thumbnail">
-			                <div class="caption">
-			                   <h4 class="">Parrot Disco</h4>
-			                    <p class="">시속 80Km, 비행시간 45분, 원버튼 자동귀환, 1인칭 비행 FPV. 2016년1월 구매</p>
-			                </div>
-			                <img src="/resources/images/parrot.jpg" alt="..." class="">
-			            </div>
-			        </div>
-			        <!-- TH3 -->
-			        <div class="col-sm-4">
-			            <div class="thumbnail">
-			                <div class="caption">
-			                     <h4 class="">시마 X5</h4>
-			                    <p class="">입문용 국민드론. 조립형으로 카메라 부품 장착. 구매 : 2015.05</p>
-			                </div>
-			                <img src="/resources/images/syma.jpg" alt="..." class="">
-			            </div>
-			        </div>
 			        <div class="clearfix"></div>
 			        <a href="#" style="color:#616161"><i class="fa fa-3x fa-plus-square"></i></a>
 		        </div>
 		        
 		        <div class="tab-pane fade in" id="tab4">
 		          <h3>즐겨찾기 저장 목록</h3>
-		                  <div class="section">
+		          	<c:forEach items="${falist}" var="faDto">
 					            <div class="col-xs-12 col-sm-6 col-md-3">
 					                <div class="embed-responsive embed-responsive-16by9">
-					                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
+					                     <iframe class="embed-responsive-item" src="http://img.youtube.com/vi/${faDto.filelk}/0.jpg" allowfullscreen=""></iframe>
 					                </div>
-					                <h3 class="text-center">Grooming</h3>
+					                <a href="https://www.youtube.com/watch?v=${faDto.filelk}" style="color: black;"><h3 class="text-center">${faDto.ttl}</h3></a>
+					                <h3 class="text-center">${faDto.ctt}</h3>
+					                <button type="submit" class="btn btn-warning" id="fdel" onclick="fdelete(${faDto.fno})">삭제</button>
 					            </div>
-					            <div class="col-xs-12 col-sm-6 col-md-3">
-					                <div class="embed-responsive embed-responsive-16by9">
-					                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-					                </div>
-					                <h3 class="text-center">Grooming</h3>
-					            </div>
-					            <div class="col-xs-12 col-sm-6 col-md-3">
-					                <div class="embed-responsive embed-responsive-16by9">
-					                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-					                </div>
-					                <h3 class="text-center">General Health</h3>
-					            </div>
-					            <div class="col-xs-12 col-sm-6 col-md-3">
-					                <div class="embed-responsive embed-responsive-16by9">
-					                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/w2H07DRv2_M?autoplay=0" allowfullscreen=""></iframe>
-					                </div>
-					                <h3 class="text-center">General Health</h3>
-					            </div>
-        					</div>
-		        </div>
+					</c:forEach>
+					</div>
+					<div class="clearfix"></div>
 		        
 		        <div class="tab-pane fade in" id="tab5">
 		          <h3>소모임 게시판 운영 목록</h3>
@@ -292,10 +280,12 @@ var bupdate = function(subjno) {
                             <td class="active"><a href="/instanceboard/itlist?subjno=${MemDto.subjno}" style="color:black;">${MemDto.subjttl}</a></td>
                             <td>${MemDto.subjctt}</td>
                             <td scope="row">${MemDto.opendt}</td>
+                            <c:if test="${mno eq memDto.mno}"> 
                             <td>	
                             	<%-- <button type="submit" class="btn btn-primary" id="bup" onclick="bupdate(${MemDto.subjno})">수정</button> --%>
 								<button type="submit" class="btn btn-warning" id="bdel" onclick="bdelete(${MemDto.subjno})">삭제</button>
 							</td>
+							</c:if>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -304,11 +294,11 @@ var bupdate = function(subjno) {
                 <a href="/mem/subregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square">게시판추가</i></a>
                 </c:if>
 		        </div>
+		        </div>
 		      </div>
 	    </div>
     </div>
   </div>          
-</div>
 
 
 
