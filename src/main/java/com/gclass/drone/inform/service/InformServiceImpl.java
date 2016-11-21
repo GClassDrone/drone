@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.inform.dao.InformDao;
+import com.gclass.drone.inform.dto.InfoPageDto;
 import com.gclass.drone.inform.dto.InformDto;
 
 @Service
@@ -54,8 +55,8 @@ public class InformServiceImpl implements InformSerivce {
 	}
 	
 	@Override
-	public List<InformDto> list(InitSearchPage isp) throws Exception {
-		return dao.list(isp);
+	public List<InformDto> infoList(InfoPageDto dto) throws Exception {
+		dto.setTotalRow(dao.infoTotalRow(dto));
+		return dao.infoList(dto);
 	}
-	
 }

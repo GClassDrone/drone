@@ -23,8 +23,9 @@ public interface MapService {
 	public List<MemViewDto> hotclipPilot() throws Exception;
 	
 	public void ctsInsert(CtsDto cDto, String ctstagnm) throws Exception;
+	public CtsDto ctsSelectOne(CtsDto cDto) throws Exception;
 	public void ctsUpdate(CtsDto cDto) throws Exception;
-	public void ctsDelete(int ctsno, int ctscateno) throws Exception;
+	public void ctsDelete(CtsDto cDto) throws Exception;
 	
 	public Map<String, Object> favInsert(FavDto fDto) throws Exception;
 	public List<CtscateDto> ctscateSelectAll() throws Exception;

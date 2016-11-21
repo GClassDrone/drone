@@ -27,11 +27,9 @@
 <script src="/resources/js/common/jquery-ui.min.js"></script>
 <script src="/resources/js/common/videoModal.js"></script>
 <!-- 로그인 모달 -->
-<script src="https://nid.naver.com/oauth2.0/authorize?client_id=CWr_84d1XvIQlD9amjdB&response_type=code&redirect_uri=http://gclass.mooo.com:8080&state=kcnwg5gNMU"></script>
-<script src="/resources/js/login/LoginModal.js"></script>
+<!-- <script src="https://nid.naver.com/oauth2.0/authorize?client_id=CWr_84d1XvIQlD9amjdB&response_type=code&redirect_uri=http://gclass.mooo.com:8080&state=kcnwg5gNMU"></script>--><script src="/resources/js/login/LoginModal.js"></script>
 <script src="/resources/js/login/hello.js"></script>
-<script src="/resources/js/login/naverLogin_implicit-1.0.2.js" charset="utf-8" ></script>
-<script src="/resources/js/login/google_oauth.js"></script>
+<!-- <script src="/resources/js/login/naverLogin_implicit-1.0.2.js" charset="utf-8" ></script>--><script src="/resources/js/login/google_oauth.js"></script>
 <script src="/resources/js/login/platform.js" async defer></script>
 <script src="/resources/js/login/kakao.min.js"></script>
 <script src="/resources/js/map/jquery.bxslider.js"></script>

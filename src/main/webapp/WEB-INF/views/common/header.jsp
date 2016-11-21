@@ -10,6 +10,7 @@
 			
 			success: function(){
 				alert("로그아웃");
+				history.go(0);
 		}
 		});
 	});
@@ -44,13 +45,13 @@
                     		<span class="toggle drop down"></span>
                     	</a>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="/#">도시전망</a></li>
-                            <li><a href="#">자연경관</a></li>
-                            <li><a href="#">시설조망</a></li>
-                            <li><a href="#">레져</a></li>
-                            <li><a href="#">스포츠</a></li>
-                            <li><a href="#">공공</a></li>
-                            <li><a href="#">레이싱</a></li>
+                            <li><a href="/cate/cateList/1">도시전망</a></li>
+                            <li><a href="/cate/cateList/2">자연경관</a></li>
+                            <li><a href="/cate/cateList/3">시설조망</a></li>
+                            <li><a href="/cate/cateList/4">레져</a></li>
+                            <li><a href="/cate/cateList/5">스포츠</a></li>
+                            <li><a href="/cate/cateList/6">공공</a></li>
+                            <li><a href="/cate/cateList/7">레이싱</a></li>
                         </ul>
                     </li>
                     <li class="dropdonw-split-left active">

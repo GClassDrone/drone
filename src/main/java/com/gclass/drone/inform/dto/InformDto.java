@@ -13,6 +13,14 @@ public class InformDto {
 	private String mgid;
 	private String delyn;
 	private String mno;
+	private String niknm;
+
+	public String getNiknm() {
+		return niknm;
+	}
+	public void setNiknm(String niknm) {
+		this.niknm = niknm;
+	}
 	
 	public String getMno() {
 		return mno;
@@ -20,9 +28,6 @@ public class InformDto {
 	public void setMno(String mno) {
 		this.mno = mno;
 	}
-
-	
-	
 	public String getIgubun() {
 		return igubun;
 	}
@@ -82,8 +87,9 @@ public class InformDto {
 	public String toString() {
 		return "InformDto [igubun=" + igubun + ", ino=" + ino + ", ttl=" + ttl + ", ctt=" + ctt + ", readcnt=" + readcnt
 				+ ", upfile=" + upfile + ", regdt=" + regdt + ", mgid=" + mgid + ", delyn=" + delyn + ", mno=" + mno
-				+ "]";
+				+ ", niknm=" + niknm + "]";
 	}
-
+	
+	
 	
 }
