@@ -8,8 +8,11 @@
  
 <jsp:include page="../common/include.jsp"></jsp:include>
 <link href="/resources/css/profile/profile.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/cate/cateList.css" rel="stylesheet" type="text/css">
+
 <script src="/resources/js/profile/profile.js"></script>
 <script type="text/javascript" src="/resources/js/cate/cateList2.js"></script>
+<script type="text/javascript" src="/resources/js/profile/falist.js"></script>
 <script>
 $(document).ready(function() {
 	
@@ -36,18 +39,15 @@ $(document).ready(function() {
 		formObj.attr("action", "/map/ctsInsert");
 		formObj.attr("method","get");
 		formObj.submit();
-<<<<<<< HEAD
 	});
 	
 	/* 프로필에서 콘텐츠의 수정 삭제 버튼 누르는 부분 */
 	
 	$("#maprmv").on("click",function(){
 		formObj.attr("action", "/map/ctsUpdate?ctsno="+ctsno+"&ctscateno="+ctscateno);
-=======
 	}); */
 	/* $(".btn-danger").on("click",function(){
 		formObj.attr("action", "/map/ctsmodify");
->>>>>>> c67442dbc7f289b644c148171542c44d47ad4f3d
 		formObj.attr("method","post");
 		
 		formObj.submit();
@@ -57,12 +57,9 @@ $(document).ready(function() {
 		formObj.attr("method","post");
 		
 		formObj.submit();
-<<<<<<< HEAD
 	});
 
-=======
 	}); */
->>>>>>> c67442dbc7f289b644c148171542c44d47ad4f3d
  });
  	/* 프로필 ->게시판->게시판리스트에서 삭제, 업데이트하는버튼 */
  	
@@ -260,16 +257,18 @@ var fdelete = function(fno){
 		        
 		        <div class="tab-pane fade in" id="tab4">
 		          <h3>즐겨찾기 저장 목록</h3>
-		          	<c:forEach items="${falist}" var="faDto">
-					            <div class="col-xs-12 col-sm-6 col-md-3">
-					                <div class="embed-responsive embed-responsive-16by9">
-					                     <iframe class="embed-responsive-item" src="http://img.youtube.com/vi/${faDto.filelk}/0.jpg" allowfullscreen=""></iframe>
+<%-- 		          	<c:forEach items="${falist}" var="faDto">
+					            <div class="col-xs-12 col-sm-6 col-md-3" style="max-width: 100%; height: auto;">
+					                <div class="embed-responsive embed-responsive-16by9" style="max-width: 100%; height: auto;">
+					                     <iframe class="embed-responsive-item" src="http://img.youtube.com/vi/${faDto.filelk}/0.jpg" allowfullscreen="" ></iframe>
 					                </div>
 					                <a href="https://www.youtube.com/watch?v=${faDto.filelk}" style="color: black;"><h3 class="text-center">${faDto.ttl}</h3></a>
 					                <h3 class="text-center">${faDto.ctt}</h3>
 					                <button type="submit" class="btn btn-warning" id="fdel" onclick="fdelete(${faDto.fno})">삭제</button>
 					            </div>
-					</c:forEach>
+					</c:forEach> --%>
+							<div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="falist">
+							</div>
 					</div>
 					<div class="clearfix"></div>
 		        
@@ -291,7 +290,11 @@ var fdelete = function(fno){
                             <td>${MemDto.subjctt}</td>
                             <td scope="row">${MemDto.opendt}</td>
                             <c:if test="${mno eq memDto.mno}"> 
-                            <td>	
+                            <td>
+                   			
+                   			<div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="faList">
+							</div>
+                            	
                             	<%-- <button type="submit" class="btn btn-primary" id="bup" onclick="bupdate(${MemDto.subjno})">수정</button> --%>
 								<button type="submit" class="btn btn-warning" id="bdel" onclick="bdelete(${MemDto.subjno})">삭제</button>
 							</td>

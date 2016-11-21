@@ -8,7 +8,7 @@ $(function(){
 		var data = {nowPage:nowPage, pagePerRow: pagePerRow, cateArray:cateArray, mno : mno};
 		var str = "";
 		$.ajax({
-			url: "/mem/mnoctsList",
+			url: "/mem/falist",
 			headers:{
 				"Content-Type":"application/json",
 				"X-HTTP-Method-Override":"POST"

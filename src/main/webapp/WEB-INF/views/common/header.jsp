@@ -87,7 +87,7 @@
 				</c:choose>
 				
 	                
-		         	<a href="#">
+		         	<a href="/mem/ProfileDetail?mno=${mno}">
 	                	<i class="material-icons pull-right" style="padding-top: 7px; font-size: 34px; color: #8BC34A">tag_faces</i></a>
                 </div>
             

@@ -9,10 +9,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.gclass.drone.board.dto.BsubjDto;
-import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.fa.dto.faDto;
-import com.gclass.drone.iboard.dto.IBoardDto;
+import com.gclass.drone.mem.dto.faCatePageDto;
 
 
 @Repository
@@ -40,7 +38,7 @@ public class faDaoImpl implements faDao{
 	}
 
 	@Override
-	public List<faDto> falist(Integer mno) throws Exception {
-		return  session.selectList(namespace+".falist", mno);
+	public List<faDto> falist(faCatePageDto cpDto) throws Exception {
+		return  session.selectList(namespace+".falist", cpDto);
 	}
 }
