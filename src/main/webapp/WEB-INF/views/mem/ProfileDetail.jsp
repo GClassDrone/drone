@@ -188,9 +188,7 @@ var fdelete = function(fno){
 					      <dd>${memDto.email}</dd>
 					      <br />	
 					      <dt>보유 라이센스 </dt>
-					      <dd><ul>
-					      	<dd>${memDto.mdrnm}</dd>
-					      </ul></dd>
+					      	<dd>${memDto.license}</dd>
 					      <br />	
 					      <dt>주요 활동지역</dt>
 					      <dd>${memDto.locnm} </dd>
@@ -249,12 +247,15 @@ var fdelete = function(fno){
 			        </div>
 			       </c:forEach>
 			        <div class="clearfix"></div>
+			        
+			        <c:if test="${mno eq memDto.mno}"> 
 			        <a href="/mem/conregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square">드론추가</i></a>
+			        </c:if>
 		        </div>
 		        
 		        <div class="tab-pane fade in" id="tab4">
 		          <h3>즐겨찾기 저장 목록</h3>
-<%-- 		          	<c:forEach items="${falist}" var="faDto">
+ 		          	<c:forEach items="${falist}" var="faDto">
 					            <div class="col-xs-12 col-sm-6 col-md-3" style="max-width: 100%; height: auto;">
 					                <div class="embed-responsive embed-responsive-16by9" style="max-width: 100%; height: auto;">
 					                     <iframe class="embed-responsive-item" src="http://img.youtube.com/vi/${faDto.filelk}/0.jpg" allowfullscreen="" ></iframe>
@@ -263,7 +264,7 @@ var fdelete = function(fno){
 					                <h3 class="text-center">${faDto.ctt}</h3>
 					                <button type="submit" class="btn btn-warning" id="fdel" onclick="fdelete(${faDto.fno})">삭제</button>
 					            </div>
-					</c:forEach> --%>
+					</c:forEach>
 							<div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="falist">
 							</div>
 					</div>
