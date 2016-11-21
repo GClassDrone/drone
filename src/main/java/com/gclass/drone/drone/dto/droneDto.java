@@ -6,6 +6,7 @@ public class droneDto {
 	private String mdrnm;
 	private char pryn;
 	private int mno;
+	
 	public int getMdrno() {
 		return mdrno;
 	}

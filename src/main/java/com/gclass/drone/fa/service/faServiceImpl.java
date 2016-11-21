@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.gclass.drone.fa.dao.faDao;
 import com.gclass.drone.fa.dto.faDto;
+import com.gclass.drone.mem.dto.faCatePageDto;
 
 @Service
 public class faServiceImpl implements faService {
@@ -26,8 +27,8 @@ public class faServiceImpl implements faService {
 	}
 
 	@Override
-	public List<faDto> falist(Integer mno) throws Exception {
+	public List<faDto> falist(faCatePageDto cpDto) throws Exception {
 		
-		return dao.falist(mno);
+		return dao.falist(cpDto);
 	}
 }

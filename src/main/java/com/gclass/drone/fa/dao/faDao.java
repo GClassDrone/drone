@@ -3,6 +3,7 @@ package com.gclass.drone.fa.dao;
 import java.util.List;
 
 import com.gclass.drone.fa.dto.faDto;
+import com.gclass.drone.mem.dto.faCatePageDto;
 
 public interface faDao {
 	
@@ -10,5 +11,5 @@ public interface faDao {
 	
 	public void delete(Integer mno, Integer fno) throws Exception;
 	
-	public List<faDto> falist(Integer mno) throws Exception;
+	public List<faDto> falist(faCatePageDto cpDto) throws Exception;
 }

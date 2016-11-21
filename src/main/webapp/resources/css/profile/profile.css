@@ -130,3 +130,12 @@
     color:#fff !important;
     z-index:2;
 }
+
+.picDrop {
+	width : 80%;
+	height : 100px;
+	border : 1px dotted gray;
+	background-color: black;
+	margin: auto;
+	background: black;
+}

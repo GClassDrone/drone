@@ -14,30 +14,29 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.gclass.drone.category.dto.CateDto;
-import com.gclass.drone.category.dto.CatePageDto;
 import com.gclass.drone.category.service.CateService;
 import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.common.PageMake;
+import com.gclass.drone.inform.dto.InfoPageDto;
 import com.gclass.drone.inform.dto.InformDto;
-import com.gclass.drone.inform.service.InformServiceImpl;
+import com.gclass.drone.inform.service.InformSerivce;
 
 @Controller
 @RequestMapping("/inform")
 public class InformController {
 	
 	@Inject
-	private InformServiceImpl service;
+	private InformSerivce service;
 	
 	@Inject
 	private CateService servic;
 	
 	private static final Logger logger = LoggerFactory.getLogger(InformController.class);
 	
+	//공지사항
 	@RequestMapping(value="/listNotice", method=RequestMethod.GET)
 	public void list(@ModelAttribute("isp") InitSearchPage isp, Model model) throws Exception{
 		logger.info("list ....");
@@ -75,12 +74,12 @@ public class InformController {
 		
 	}
 	
-	@RequestMapping(value="/modify", method=RequestMethod.GET)
+	@RequestMapping(value="/infoModify", method=RequestMethod.GET)
 	public void modifyGET(InformDto dto,Model model)throws Exception{
 		model.addAttribute(service.read(dto));
 	}
 	
-	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	@RequestMapping(value="/infoModify", method=RequestMethod.POST)
 	public String modifyPOST(InformDto dto,RedirectAttributes rttr)throws Exception{
 		logger.info("modify post");
 		
@@ -89,23 +88,42 @@ public class InformController {
 		
 		return "redirect:/inform/listNotice";
 	}
+	
+	//시장동향
 	@RequestMapping(value="/info", method=RequestMethod.GET)
 	public void lists(){
 		logger.info("info get......");
 	}
-
-	//시장동향
+	@ResponseBody
 	@RequestMapping(value="/info", method=RequestMethod.POST)
-	public ResponseEntity<List<InformDto>> lists(@RequestBody CatePageDto cpDto)throws Exception{
-		logger.info("info..........");
+	public ResponseEntity<List<InformDto>> lists(@RequestBody InfoPageDto dto){
+		logger.info("info Post.........");
 		ResponseEntity<List<InformDto>> entity = null;
 		try{
-			cpDto.setStartEnd();
-			logger.info(cpDto.toString());
-//			entity = new ResponseEntity<List<CateDto>>(service.ctsCateList(cpDto), HttpStatus.OK);
+			dto.setStartEnd();
+			logger.info("121controller"+dto.toString());
+			entity = new ResponseEntity<List<InformDto>>(service.infoList(dto),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
+	}
+	
+	@RequestMapping(value="/infoDetail", method=RequestMethod.GET)
+	public void infoDetail(InformDto dto,Model model)throws Exception{
+		logger.info("read...");
+		logger.info(service.read(dto)+"dsds");
+		model.addAttribute("InformDto",service.read(dto));
+	}
+	
+	@RequestMapping(value="/infoRemove", method =RequestMethod.POST)
+	public String inforemove(InformDto dto)throws Exception{
+		
+		service.remove(dto);
+		
+		logger.info(dto.toString()+"remove" );
+		
+		return "redirect:/inform/info";
+		
 	}
 }

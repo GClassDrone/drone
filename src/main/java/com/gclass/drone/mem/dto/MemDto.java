@@ -1,6 +1,7 @@
 package com.gclass.drone.mem.dto;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 
 public class MemDto {
@@ -35,7 +36,15 @@ public class MemDto {
 	private String subjttl;
 	private String subjctt;
 	private Timestamp opendt;
+	/*파일업로드 관련 dto*/
+	private String[] files;
 
+	public String[] getFiles() {
+		return files;
+	}
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
 	public int getBcateno() {
 		return bcateno;
 	}
@@ -224,7 +233,8 @@ public class MemDto {
 				+ ", readcnt=" + readcnt + ", indt=" + indt + ", levno=" + levno + ", levpoint=" + levpoint + ", locno="
 				+ locno + ", ppose=" + ppose + ", levnm=" + levnm + ", levnic=" + levnic + ", locnm=" + locnm
 				+ ", mdrnm=" + mdrnm + ", actnm=" + actnm + ", rnum=" + rnum + ", bcateno=" + bcateno + ", subjno="
-				+ subjno + ", subjttl=" + subjttl + ", subjctt=" + subjctt + ", opendt=" + opendt + "]";
+				+ subjno + ", subjttl=" + subjttl + ", subjctt=" + subjctt + ", opendt=" + opendt + ", files="
+				+ Arrays.toString(files) + "]";
 	}
 	
 }

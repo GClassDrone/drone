@@ -1,6 +1,7 @@
 $(function(){
 	var nowPage=1;
 	var lastPage;
+	var h =$('html').height();
 	function infolist(nowPage){
 		var pagePerRow = 8;
 		var data = {nowPage:nowPage, pagePerRow: pagePerRow};
@@ -16,14 +17,13 @@ $(function(){
 			datatype: "json",
 			async: false,
 			success: function(result){
-				alert("aaa");
 				$(result).each(function(i){
 					if(i%4 == 0){
 						str+="<div class ='row'>";
 					}
 					str += "<section class='col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3'>";
 					str += "<div class='thumbnail'>";
-					str += "<img alt='Bootstrap Thumbnail First' src="+this.upfile+">";
+					str += "<img alt='Bootstrap Thumbnail First' src='http://lorempixel.com/output/people-q-c-600-200-1.jpg'>";
 					str += "<div class='caption'>";
 					str += "<h3>"+this.ttl+"</h3>";
 					if(this.ctt.length > 20){
@@ -31,7 +31,7 @@ $(function(){
 					}else{
 						str += " <p>"+this.ctt+"</p>";
 					}
-					str += "<p><a class='btn btn-primary' href='/infoDetail'>Go</a><p>";
+					str += "<p><a class='btn btn-primary' href='/inform/infoDetail?ino="+ this.ino + "&igubun=s'>Go</a></p>";
 					str +="</div>";
 					str += "</div>";
 					str += "</section>";
@@ -46,25 +46,12 @@ $(function(){
 	}
 	$("#pageBtn-wrap span").on("click", function(){
 		nowPage = nowPage + 1;
-		$("#cateList").append(cateMakeList(nowPage));
+		$("#infolist").append(infolist(nowPage));
+		h += 800;
+		$('html , body').animate({scrollTop: h}, 1000);
 	});
 	
-	$("#infolist").html(infolist(nowPage));
+	$("#infolist").html(infolist(1));
 });
 
-//<div id ="infolist"></div>
-/*
-   <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-<div class="thumbnail">
-    <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
-    <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>
-            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-        </p>
-        <p>
-            <a class="btn btn-primary" href="/infoDetail">Go</a>
-        </p>
-    </div>
-</div>
-</section> */
+

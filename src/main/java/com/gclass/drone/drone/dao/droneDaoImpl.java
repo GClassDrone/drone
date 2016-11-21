@@ -33,4 +33,9 @@ public class droneDaoImpl implements droneDao {
 		
 	}
 
+	@Override
+	public void droneinsert(droneDto dto) throws Exception {
+		session.insert(namespace+".droneinsert", dto);
+	}
+
 }

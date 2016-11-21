@@ -12,10 +12,9 @@ var redirectUrl;
 if ( href.indexOf('127') !== -1 ){ // 개발서버이다.
 	clientId = 'dev (donnot care)';
 	redirectUrl = 'http://dev (donnot care)';
-}else if ( href.indexOf('mooo.com') !== -1) ){ // freedns에서 설정한 도메인 및 Google api 콘솔에서 등록한 도메인, 당연히 3개의 도메인 일치해야 한다. 
+}else if ( href.indexOf('mooo.com') !== -1){ // freedns에서 설정한 도메인 및 Google api 콘솔에서 등록한 도메인, 당연히 3개의 도메인 일치해야 한다. 
 	clientId = '851914250127-ijbrXXXXXXXXXXXXXX9r5.apps.googleusercontent.com';
 	redirectUrl = 'http://xxxxxxxxxx.mooo.com/Googleoauth.html';
-}
 }else{ // 그외
 	clientId = 'release';
 	redirectUrl = 'http://release';

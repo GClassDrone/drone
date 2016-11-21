@@ -70,26 +70,19 @@ $(function(){
 	            <img class="card-bkimg" alt="" src="/resources/images/castleMo.png">
 	            <!-- http://lorempixel.com/850/280/people/9/ -->
 	        </div>
-	        <div class="useravatar">
-	            <img alt="" src="/resources/images/castleMo.png">
-	        </div>
+	           <ul class="mailbox-attachments clearfix uploadedList" id="pichere">
+	           
+	           </ul>
+	           
+	           <div class="form-group">
+	           	<label for="pic">사진 놓는곳</label>
+	           			<div class="picDrop" style="background: black;">여기</div>
+	           </div>
+	           
 	        <div class="card-info"> 
 	        	<span class="card-title" id="niknm">${memDto.niknm}</span><br>
-			        <a href="/mem/ProfileDetail?mno=${memDto.mno}"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd">수정 완료</i></sup></a>
+			       <input  type="submit" class="btn btn-primary" value="수정" style="color:#bdbdbd">
 	        <div class="col-sm-8 col-sm-offset-2">
-		        <div style="color: black;">
-				<c:set var="prmsg" value="${memDto.prmsg}" />
-				<c:choose>
-				
-				    <c:when test="${prmsg eq null}">
-				   	상태메세지를 적어주세요.
-				    </c:when>
-				       
-				    <c:otherwise>
-				      ${memDto.prmsg}
-				    </c:otherwise>
-				</c:choose>
-		        </div>
 		   </div>
 	        </div>
 	    </div>
@@ -105,7 +98,7 @@ $(function(){
 	    <div class="well">
 		      <div class="tab-content">
 		        <div class="tab-pane fade in active" id="tab1">
-		              <h3 style="display:inline-block">프로필 정보</h3> <a href="#tab1"><sup><i class="fa fa-2x fa-pencil-square-o" style="color:#bdbdbd"></i></sup></a>
+		              <h3 style="display:inline-block">프로필 정보</h3>
 					    <dl class="dl-horizontal">
 					      <dt>개인 소개</dt>
 					      <dd>
@@ -114,7 +107,7 @@ $(function(){
 					      <dt>이메일</dt>
 					      <dd><input type="text" id="email" name="email" class="form-control" value="${memDto.email}"/></dd>
 					      <dt>보유 라이센스 </dt>
-					      <dd><input type="text" id="mdrnm" name="mdrnm" class="form-control" value="${memDto.mdrnm}"/></dd>
+					      <dd><input type="text" id="license" name="license" class="form-control" value="${memDto.license}"/></dd>
 					      <dt>주요 활동지역</dt>
 					      <dd>
 					      	<input type="text" id="locnm" name="locnm" class="form-control" value="${memDto.locnm}"/>

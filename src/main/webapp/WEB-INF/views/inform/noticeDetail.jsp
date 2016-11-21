@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 
 <head>
@@ -59,11 +61,13 @@
 		      </div>
 		        
 	    </div>
-	     <div class="box-footer">
- 					<button type="submit" class="btn btn-warning">Modify</button>
- 					<button type="submit" class="btn btn-danger">REMOVE</button>
- 					<button type="submit" class="btn btn-primary">LIST ALL</button>
- 		</div>
+	    <c:if test="${mgid != null }">
+		     <div class="box-footer">
+	 					<button type="submit" class="btn btn-warning">Modify</button>
+	 					<button type="submit" class="btn btn-danger">REMOVE</button>
+	 					<button type="submit" class="btn btn-primary">LIST ALL</button>
+	 		</div>
+	 	</c:if>
     </div>
   </div>          
 </div>

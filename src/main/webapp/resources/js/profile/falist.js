@@ -8,7 +8,7 @@ $(function(){
 		var data = {nowPage:nowPage, pagePerRow: pagePerRow, cateArray:cateArray, mno : mno};
 		var str = "";
 		$.ajax({
-			url: "/mem/mnoctsList",
+			url: "/mem/falist",
 			headers:{
 				"Content-Type":"application/json",
 				"X-HTTP-Method-Override":"POST"
@@ -49,7 +49,6 @@ $(function(){
 					str += "<input type='hidden' name='mno' value='"+$("#session").data("mno")+"'>";
 					str += "<input type='hidden' name='ctscateno' value='"+this.ctscateno+"'>";
 					str += "<input type='hidden' name='ctsno' value='"+this.ctsno+"'>";
-					str += "<input type='button' class='btn btn-danger update-btn' value='수정'>";
 					str += "<input type='button' class='btn btn-primary delete-btn' value='삭제'>";
 					str += "</form>";
 						}
@@ -62,28 +61,24 @@ $(function(){
 		});
 		return str;
 	}
-	$(document).on("click",".update-btn",function(e){
-		e.preventDefault();;
-		$(this).parent("form").attr("action","/map/ctsUpdate");
-		$(this).parent("form").submit();
-	});
-	$(document).on("click",".delete-btn",function(e){
-		e.preventDefault();
-		var data = {ctscateno:$(this).prev().prev().prev().val(),ctsno:$(this).prev().prev().val(),mno:$("#session").data("mno")};
-		$.ajax({
-			url: "/map/ctsDelete",
-			data: JSON.stringify(data),
-			headers: {
-				"Content-Type":"application/json",
-				"X-HTTP-Method-Override":"POST"
-			},
-			type: "post",
-			dataType: "text",
-			success: function(){
-				$("#cateList").html(cateMakeList(nowPage));
-			}
-		});
-	});
+
+//	$(document).on("click",".delete-btn",function(e){
+//		e.preventDefault();
+//		var data = {ctscateno:$(this).prev().prev().prev().val(),ctsno:$(this).prev().prev().val(),mno:$("#session").data("mno")};
+//		$.ajax({
+//			url: "/map/ctsDelete",
+//			data: JSON.stringify(data),
+//			headers: {
+//				"Content-Type":"application/json",
+//				"X-HTTP-Method-Override":"POST"
+//			},
+//			type: "post",
+//			dataType: "text",
+//			success: function(){
+//				$("#cateList").html(cateMakeList(nowPage));
+//			}
+//		});
+//	});
 	$(document).on("click",".embed-responsive", function(){
 		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno"),mno:$("#session").data("mno")};
 		ctsDetailAjax(data);
