@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.mem.dao.MemDao;
@@ -24,9 +25,14 @@ public class MemServiceImpl implements MemService {
 		return dao.read(mno);
 	}
 
+	@Transactional
 	@Override
 	public void modify(MemDto board) throws Exception {
 		dao.update(board);
+		
+		String[] files = board.getFiles();
+		
+		if(files == null) {return;}
 	}
 
 	@Override
