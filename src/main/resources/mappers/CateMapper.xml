@@ -16,6 +16,7 @@
 		                     , ctscateno
 		                     , regdt
 		                  FROM CTS
+		                 where delyn='n'
 		                 <include refid="Category"></include>
 		                ) a
 		        <![CDATA[
@@ -27,11 +28,12 @@
 	<select id="ctsCateTotalRow" resultType="int">
 		SELECT /*+ index_desc(cts idx_cts_regdt) */ count(*)
 		  FROM CTS
+		 where delyn='n'
 	  <include refid="Category"></include> 
 	</select>
 	<sql id="Category">
 		<if test="cateArray.length != 7 and cateArray.length != 0">
-		where ctscateno in
+		and ctscateno in
 			 <foreach collection="cateArray" item="ctscateno" open="(" close=")" separator=",">
         		#{ctscateno}
     		</foreach>

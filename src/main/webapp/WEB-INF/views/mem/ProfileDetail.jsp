@@ -6,9 +6,9 @@
 <html>
 <head>
  
+<jsp:include page="../common/include.jsp"></jsp:include>
 <link href="/resources/css/profile/profile.css" rel="stylesheet" type="text/css">
 <script src="/resources/js/profile/profile.js"></script>
-<jsp:include page="../common/include.jsp"></jsp:include>
 <script type="text/javascript" src="/resources/js/cate/cateList2.js"></script>
 <script>
 $(document).ready(function() {
@@ -32,16 +32,22 @@ $(document).ready(function() {
     
 	var formObj = $("form[role='form']").eq(0);
 	console.log(formObj);
-	$("#reg").on("click", function(){
-		formObj.attr("action", "/map/ctsInsert?mno=${mno}");
+	/* $("#reg").on("click", function(){
+		formObj.attr("action", "/map/ctsInsert");
 		formObj.attr("method","get");
 		formObj.submit();
+<<<<<<< HEAD
 	});
 	
 	/* 프로필에서 콘텐츠의 수정 삭제 버튼 누르는 부분 */
 	
 	$("#maprmv").on("click",function(){
 		formObj.attr("action", "/map/ctsUpdate?ctsno="+ctsno+"&ctscateno="+ctscateno);
+=======
+	}); */
+	/* $(".btn-danger").on("click",function(){
+		formObj.attr("action", "/map/ctsmodify");
+>>>>>>> c67442dbc7f289b644c148171542c44d47ad4f3d
 		formObj.attr("method","post");
 		
 		formObj.submit();
@@ -51,8 +57,12 @@ $(document).ready(function() {
 		formObj.attr("method","post");
 		
 		formObj.submit();
+<<<<<<< HEAD
 	});
 
+=======
+	}); */
+>>>>>>> c67442dbc7f289b644c148171542c44d47ad4f3d
  });
  	/* 프로필 ->게시판->게시판리스트에서 삭제, 업데이트하는버튼 */
  	
@@ -313,7 +323,10 @@ var fdelete = function(fno){
         <!-- 글등록 버튼 여기잇음 -->
        <c:if test="${mno eq memDto.mno}"> 
         <div>
-        	<button type="submit" class="btn btn-warning" id="reg">글등록</button>
+        	<form action="/map/ctsInsert" method="get">
+        		<input type="submit"  class="btn btn-warning" value="글등록">
+        	</form>
+        	<!-- <button type="submit" class="btn btn-warning" id="reg">글등록</button> -->
         </div>
         </c:if>
 		<div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="cateList">

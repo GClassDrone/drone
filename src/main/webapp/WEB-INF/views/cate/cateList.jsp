@@ -18,6 +18,7 @@
    <p style="text-align: center;">분야별로 구분된 멋진 드론영상을 감상하실 수 있습니다. 왼쪽의 관심영역을 선택하거나 해제해 주세요.</p>
 </div><br />
 <div class="container">
+<input type="hidden" name="cateno" id="cateno" value="${cateno}">
 	<div class="row">
 		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" id="cateBtn-wrap">
 		

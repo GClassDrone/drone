@@ -47,12 +47,13 @@ public class MapController {
 		logger.info(cDto.toString());
 		service.ctsInsert(cDto, tagnm);
 		
-		return "redirect:/map/ctsInsert";
+		return "redirect:/mem/ProfileDetail?mno="+cDto.getMno();
 	}
 	
 	@RequestMapping(value="/ctsUpdate", method=RequestMethod.GET)
-	public void ctsUpdate(CtsDto cDto, Model model){
-		logger.info("CtsUpdate GET");
+	public void ctsUpdate(CtsDto cDto, Model model) throws Exception{
+		model.addAttribute("cDto", service.ctsSelectOne(cDto));
+		model.addAttribute("ctscateList", service.ctscateSelectAll());
 	}
 	
 	@RequestMapping(value="/ctsUpdate", method=RequestMethod.POST)
@@ -61,16 +62,21 @@ public class MapController {
 		logger.info(cDto.toString());
 		service.ctsUpdate(cDto);
 		
-		return "redirect:/map/map";
+		return "redirect:/mem/ProfileDetail?mno="+cDto.getMno();
 	}
 	
-	@RequestMapping(value="/ctsDelete", method=RequestMethod.DELETE)
-	public String ctsDelete(@RequestParam int ctsno, @RequestParam int ctscateno) throws Exception{
+	@ResponseBody
+	@RequestMapping(value="/ctsDelete", method=RequestMethod.POST)
+	public ResponseEntity<HttpStatus> ctsDelete(@RequestBody CtsDto cDto){
+		ResponseEntity<HttpStatus> entity = null;
 		logger.info("ctsDelete Delete");
-		logger.info("ctsno : "+ctsno+", ctscateno : " + ctscateno);
-		service.ctsDelete(ctsno, ctscateno);
-		
-		return "redirect:/map/map";
+		try{
+			service.ctsDelete(cDto);
+			entity = new ResponseEntity<HttpStatus>(HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
 	}
 	
 	@ResponseBody
@@ -137,6 +143,7 @@ public class MapController {
 	@RequestMapping(value="/favInsert", method=RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> favInsert(@RequestBody FavDto fDto){
 		ResponseEntity<Map<String, Object>> entity = null;
+		logger.info("Insert : " + fDto.toString());
 		try{
 			entity = new ResponseEntity<Map<String, Object>>(service.favInsert(fDto),HttpStatus.OK);
 		}catch(Exception e){
@@ -147,6 +154,7 @@ public class MapController {
 	@ResponseBody
 	@RequestMapping(value="/favDelete", method=RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> favDelete(@RequestBody FavDto fDto){
+		logger.info("Delete : " + fDto.toString());
 		ResponseEntity<Map<String, Object>> entity = null;
 		try{
 			entity = new ResponseEntity<Map<String, Object>>(service.favDelete(fDto),HttpStatus.OK);

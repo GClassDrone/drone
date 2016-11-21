@@ -196,6 +196,7 @@ $(function(){
 			}
 		});
 	});
+	
 	var updateCtt;
 	$(document).on("click",".fa-pencil",function(){
 		$(this).removeClass("fa-pencil");

@@ -45,6 +45,13 @@ $(function(){
 						str += "<p>"+this.ctt+"</p>";
 					}
 					if ($("#himno").val() == $("#mymno").val()) {
+					str += "<form method='get'>";
+					str += "<input type='hidden' name='mno' value='"+$("#session").data("mno")+"'>";
+					str += "<input type='hidden' name='ctscateno' value='"+this.ctscateno+"'>";
+					str += "<input type='hidden' name='ctsno' value='"+this.ctsno+"'>";
+					str += "<input type='button' class='btn btn-danger update-btn' value='수정'>";
+					str += "<input type='button' class='btn btn-primary delete-btn' value='삭제'>";
+					str += "</form>";
 					str += "<button type='submit' class='btn btn-danger' id='maprmv'>수정</button>";
 					str += "<button type='submit' class='btn btn-primary' id='madel'>삭제</button>";
 						}
@@ -57,77 +64,27 @@ $(function(){
 		});
 		return str;
 	}
-	$(".btn-group").on("click", function(){
-		var checkId = $(this).prev().attr("id");
-		if(!($("#"+checkId).prop("checked"))){
-			if(checkId==="city"){
-				cateArray.push("1");
-			}else if(checkId==="nature"){
-				cateArray.push("2");
-			}else if(checkId==="facility"){
-				cateArray.push("3");
-			}else if(checkId==="sport"){
-				cateArray.push("4");
-			}else if(checkId==="race"){
-				cateArray.push("5");
-			}else if(checkId==="leisure"){
-				cateArray.push("6");
-			}else if(checkId==="public"){
-				cateArray.push("7");
+	$(document).on("click",".update-btn",function(e){
+		e.preventDefault();;
+		$(this).parent("form").attr("action","/map/ctsUpdate");
+		$(this).parent("form").submit();
+	});
+	$(document).on("click",".delete-btn",function(e){
+		e.preventDefault();
+		var data = {ctscateno:$(this).prev().prev().prev().val(),ctsno:$(this).prev().prev().val(),mno:$("#session").data("mno")};
+		$.ajax({
+			url: "/map/ctsDelete",
+			data: JSON.stringify(data),
+			headers: {
+				"Content-Type":"application/json",
+				"X-HTTP-Method-Override":"POST"
+			},
+			type: "post",
+			dataType: "text",
+			success: function(){
+				$("#cateList").html(cateMakeList(nowPage));
 			}
-		}else{
-			if(checkId==="city"){
-				for(var i=0;i<cateArray.length;i++){
-					if(cateArray[i]=="1"){
-						cateArray.splice(i,1);
-					}
-				}
-				$(this).removeClass("btnColor");
-			}else if(checkId==="nature"){
-				for(var i=0;i<cateArray.length;i++){
-					if(cateArray[i]=="2"){
-						cateArray.splice(i,1);
-					}
-				}
-				$(this).removeClass("btnColor");
-			}else if(checkId==="facility"){
-				for(var i=0;i<cateArray.length;i++){
-					if(cateArray[i]=="3"){
-						cateArray.splice(i,1);
-					}
-				}
-				$(this).removeClass("btnColor");
-			}else if(checkId==="sport"){
-				for(var i=0;i<cateArray.length;i++){
-					if(cateArray[i]=="4"){
-						cateArray.splice(i,1);
-					}
-				}
-				$(this).removeClass("btnColor");
-			}else if(checkId==="race"){
-				for(var i=0;i<cateArray.length;i++){
-					if(cateArray[i]=="5"){
-						cateArray.splice(i,1);
-					}
-				}
-				$(this).removeClass("btnColor");
-			}else if(checkId==="leisure"){
-				for(var i=0;i<cateArray.length;i++){
-					if(cateArray[i]=="6"){
-						cateArray.splice(i,1);
-					}
-				}
-				$(this).removeClass("btnColor");
-			}else if(checkId==="public"){
-				for(var i=0;i<cateArray.length;i++){
-					if(cateArray[i]=="7"){
-						cateArray.splice(i,1);
-					}
-				}
-			}
-		}
-		$("#cateList").empty();
-		$("#cateList").html(cateMakeList(nowPage));
+		});
 	});
 	$(document).on("click",".embed-responsive", function(){
 		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno"),mno:$("#session").data("mno")};

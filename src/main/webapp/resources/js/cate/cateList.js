@@ -132,5 +132,30 @@ $(function(){
 		nowPage = nowPage + 1;
 		$("#cateList").append(cateMakeList(nowPage));
 	});
-	$("#cateList").html(cateMakeList(nowPage));
+	if($("#cateno").val()==""){
+		$("#cateList").html(cateMakeList(nowPage));
+	}else{
+		if($("#cateno").val()==1){
+			$(".btn-group").eq(0).click();
+			$(".btn-group").eq(0).prev().prop("checked","checked");
+		}else if($("#cateno").val()==2){
+			$(".btn-group").eq(1).click();
+			$(".btn-group").eq(1).prev().prop("checked","checked");
+		}else if($("#cateno").val()==3){
+			$(".btn-group").eq(2).click();
+			$(".btn-group").eq(2).prev().prop("checked","checked");
+		}else if($("#cateno").val()==4){
+			$(".btn-group").eq(3).click();
+			$(".btn-group").eq(3).prev().prop("checked","checked");
+		}else if($("#cateno").val()==5){
+			$(".btn-group").eq(4).click();
+			$(".btn-group").eq(4).prev().prop("checked","checked");
+		}else if($("#cateno").val()==6){
+			$(".btn-group").eq(5).click();
+			$(".btn-group").eq(5).prev().prop("checked","checked");
+		}else if($("#cateno").val()==7){
+			$(".btn-group").eq(6).click();
+			$(".btn-group").eq(6).prev().prop("checked","checked");
+		}
+	}
 });

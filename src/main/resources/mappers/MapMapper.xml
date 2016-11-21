@@ -37,6 +37,7 @@
 		   set readcnt = readcnt + 1
 		 where ctscateno=#{ctscateno}
 		   and ctsno=#{ctsno}
+		   and delyn='n'
 	</update>
 	
 	<select id="hotclipVideo" resultType="CtsDto">
@@ -152,15 +153,21 @@
 		  from cts
 		 where ctscateno=#{ctscateno}
 		   and ctsno=#{ctsno}
+		   and delyn='n'
 	</select>
 	
-	<select id="favSelectOne" resultType="FavDto">
+	<select id="favSelectList" resultType="FavDto">
 		select *
 		  from favorit
 		 where mno=#{mno}
 		   and ctsno=#{ctsno}
 		   and ctscateno=#{ctscateno}
-		   and fgubun=#{fgubun}
+		<if test="fgubun == 'f'.toString()">
+		   and fgubun='f'
+		</if>
+		<if test="fgubun == 'j'.toString()">
+		   and fgubun in ('j','n')
+		</if>
 	</select>
 	
 	<insert id="favInsert">
@@ -179,16 +186,30 @@
 						  , #{mno}
 							)
 	</insert>
-
-	<delete id="favDelete">
-		delete
-		  from favorit
-		 where mno=#{mno}
-		   and fgubun=#{fgubun}
+	
+	<update id="favUpdate">
+		update favorit
+		<if test="fgubun == 'n'.toString()">
+		   set fgubun='j'
+		 where fgubun='n'
+		</if>
+		<if test="fgubun == 'j'.toString()">
+		   set fgubun='n'
+		 where fgubun='j'
+		</if>
+		<if test="fgubun == 'd'.toString()">
+		   set fgubun='f'
+		 where fgubun='d'
+		</if>
+		<if test="fgubun == 'f'.toString()">
+		   set fgubun='d'
+		 where fgubun='f'
+		</if>
 		   and ctscateno=#{ctscateno}
 		   and ctsno=#{ctsno}
-	</delete>
-	
+		   and mno=#{mno}
+	</update>
+
 	<select id="ctsdatSelectAll" resultType="CtsdatDto">
 		select cd.ctsdatno
 			 , cd.ctsno

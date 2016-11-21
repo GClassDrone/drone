@@ -1,7 +1,6 @@
 package com.gclass.drone.map.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.CtscateDto;
@@ -28,13 +27,13 @@ public interface MapDao {
 	public void ctstagInsert(CtstagDto ctDto) throws Exception;
 	public List<CtscateDto> ctscateSelectAll() throws Exception;
 	public void ctsUpdate(CtsDto cDto) throws Exception;
-	public void ctsDelete(Map<String, Object> map) throws Exception;
+	public void ctsDelete(CtsDto cDto) throws Exception;
 	
-	public void favInsert(FavDto fDto) throws Exception;
-	public void favDelete(FavDto fDto) throws Exception;
+	public void favInsert(FavDto fDto, String id) throws Exception;
+	public void favDelete(FavDto fDto, String id) throws Exception;
 	public List<FavDto> favCheck(CtsDto cDto) throws Exception;
 	public List<FavDto> favCheck(FavDto fDto) throws Exception;
-	public List<FavDto> favSelectOne(FavDto fDto) throws Exception;
+	public List<FavDto> favSelectList(FavDto fDto) throws Exception;
 	public FavDto ctsCntSelectOne(FavDto fDto) throws Exception;
 	
 	public List<CtsdatDto> ctsdatSelectAll(CtsDto cDto) throws Exception;
