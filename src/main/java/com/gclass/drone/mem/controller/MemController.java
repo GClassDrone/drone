@@ -57,11 +57,12 @@ public class MemController {
 	
 	
 	@RequestMapping(value="/ProfileDetail", method = RequestMethod.GET)
-	public void read(@RequestParam("mno") int mno, Model model) throws Exception {
+	public void read(@RequestParam("mno") int mno,faCatePageDto cpDto, Model model) throws Exception {
 		
 		model.addAttribute(service.read(mno));
 		model.addAttribute("mylist", service.mylist(mno));
 		model.addAttribute("dronelist", servic.dronelist(mno));
+		model.addAttribute("falist", servi.falist(cpDto));
 	}
 	
 	@RequestMapping(value="/mnoctsList", method=RequestMethod.POST)

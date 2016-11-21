@@ -13,7 +13,42 @@ public class faCatePageDto {
 	private int mno;
 	private int ctscateno;
 	private int ctsno;
+	private int fno;
+	private char fgubun;
+	private String ttl;
+	private String ctt;
+	private String filelk;
 	
+	public int getFno() {
+		return fno;
+	}
+	public void setFno(int fno) {
+		this.fno = fno;
+	}
+	public char getFgubun() {
+		return fgubun;
+	}
+	public void setFgubun(char fgubun) {
+		this.fgubun = fgubun;
+	}
+	public String getTtl() {
+		return ttl;
+	}
+	public void setTtl(String ttl) {
+		this.ttl = ttl;
+	}
+	public String getCtt() {
+		return ctt;
+	}
+	public void setCtt(String ctt) {
+		this.ctt = ctt;
+	}
+	public String getFilelk() {
+		return filelk;
+	}
+	public void setFilelk(String filelk) {
+		this.filelk = filelk;
+	}
 	public int getCtscateno() {
 		return ctscateno;
 	}
@@ -79,12 +114,12 @@ public class faCatePageDto {
 	public void setLastPage(int lastPage) {
 		this.lastPage = lastPage;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "faCatePageDto [cateArray=" + Arrays.toString(cateArray) + ", startRowNum=" + startRowNum
 				+ ", endRowNum=" + endRowNum + ", nowPage=" + nowPage + ", pagePerRow=" + pagePerRow + ", totalRow="
 				+ totalRow + ", lastPage=" + lastPage + ", mno=" + mno + ", ctscateno=" + ctscateno + ", ctsno=" + ctsno
-				+ "]";
+				+ ", fno=" + fno + ", fgubun=" + fgubun + ", ttl=" + ttl + ", ctt=" + ctt + ", filelk=" + filelk + "]";
 	}
 }

@@ -256,17 +256,14 @@ var fdelete = function(fno){
 		        <div class="tab-pane fade in" id="tab4">
 		          <h3>즐겨찾기 저장 목록</h3>
  		          	<c:forEach items="${falist}" var="faDto">
-					            <div class="col-xs-12 col-sm-6 col-md-3" style="max-width: 100%; height: auto;">
-					                <div class="embed-responsive embed-responsive-16by9" style="max-width: 100%; height: auto;">
-					                     <iframe class="embed-responsive-item" src="http://img.youtube.com/vi/${faDto.filelk}/0.jpg" allowfullscreen="" ></iframe>
+					            <div class="col-xs-12 col-sm-6 col-md-3">
+					                <div class="embed-responsive embed-responsive-16by9">
+					                		<img class="embed-responsive-item" style="max-width:100%; height: auto;" src="http://img.youtube.com/vi/${faDto.filelk}/0.jpg">
 					                </div>
 					                <a href="https://www.youtube.com/watch?v=${faDto.filelk}" style="color: black;"><h3 class="text-center">${faDto.ttl}</h3></a>
 					                <h3 class="text-center">${faDto.ctt}</h3>
-					                <button type="submit" class="btn btn-warning" id="fdel" onclick="fdelete(${faDto.fno})">삭제</button>
 					            </div>
 					</c:forEach>
-							<div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="falist">
-							</div>
 					</div>
 					<div class="clearfix"></div>
 		        

@@ -20,6 +20,7 @@
 	   	height: auto;
 	   }
 	</style>
+<script src="/resources/js/profile/profilelist.js"></script>
 <jsp:include page="../common/include.jsp"></jsp:include>
 <jsp:include page="../common/header.jsp"></jsp:include>
 </head>
@@ -40,8 +41,8 @@
 <!-- row -->
 
  <br />
-<c:forEach items="${listAll}" var="MemDto"> 
-     <div class="row">
+ <c:forEach items="${listAll}" var="MemDto"> 
+     <div class="row" >
          <div class="col-md-1">
 	         <a href="/mem/ProfileDetail?mno=${MemDto.mno}">
 	         <img src="../resources/images/castleMo2.png" class="center-block img-circle">
@@ -59,11 +60,13 @@
                  </ul>
              </div>
          </div>
-      </div>
+	</div>
       <div id="clearfix"></div>
       </br>
 </c:forEach>
-
+<div id="pilotPage"></div>
+<button id="prevPage" class="btn btn-primary" style="float: left;" >이전</button>
+<button id="nextPage" class="btn btn-primary" >다음</button>
 </div>
 
 <jsp:include page="../common/footer.jsp"></jsp:include>
