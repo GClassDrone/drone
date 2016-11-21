@@ -90,9 +90,11 @@ if(result=="success"){
 		    </table>
 		</div>
 	</div>
+	<c:if test="${mno != null}"> 
 	<div>
 		<button class="btn btn-success" id="newBtn"><i class="fa fa-pencil-square-o"></i>&nbsp;Write</button>
 	</div>
+	</c:if>
     <div class="text-center">
               <ul class="pagination">
                   <li class="disabled"><a href="#">«</a></li>

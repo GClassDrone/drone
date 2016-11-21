@@ -43,9 +43,6 @@ $(document).ready(function() {
 	
 	/* 프로필에서 콘텐츠의 수정 삭제 버튼 누르는 부분 */
 	
-	$("#maprmv").on("click",function(){
-		formObj.attr("action", "/map/ctsUpdate?ctsno="+ctsno+"&ctscateno="+ctscateno);
-	}); */
 	/* $(".btn-danger").on("click",function(){
 		formObj.attr("action", "/map/ctsmodify");
 		formObj.attr("method","post");
@@ -252,7 +249,7 @@ var fdelete = function(fno){
 			        </div>
 			       </c:forEach>
 			        <div class="clearfix"></div>
-			        <a href="#" style="color:#616161"><i class="fa fa-3x fa-plus-square"></i></a>
+			        <a href="/mem/conregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square">드론추가</i></a>
 		        </div>
 		        
 		        <div class="tab-pane fade in" id="tab4">
@@ -303,8 +300,8 @@ var fdelete = function(fno){
                     </c:forEach>
                     </tbody>
                 </table>
-                <c:if test="${mno eq memDto.mno}"> 
-                <a href="/mem/subregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square">게시판추가</i></a>
+                <c:if test="${mno eq memDto.mno && memDto.levno < 4}"> 
+                <a href="/mem/subregi?mno=${mno}" style="color:#616161"><i class="fa fa-3x fa-plus-square"></i></a>
                 </c:if>
 		        </div>
 		        </div>

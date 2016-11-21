@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.category.service.CateService;
+import com.gclass.drone.drone.dto.droneDto;
 import com.gclass.drone.drone.service.droneservice;
 import com.gclass.drone.fa.dto.faDto;
 import com.gclass.drone.fa.service.faService;
@@ -132,4 +133,20 @@ public class MemController {
 		}
 		return entity;
 	}
+	
+	@RequestMapping(value="/conregi", method=RequestMethod.GET)
+	public void conregiGET(droneDto dto, Model model) throws Exception{
+		logger.info("register Get ... ");
+	}
+	
+	@RequestMapping(value="/conregi", method=RequestMethod.POST)
+	public String conregiPOST(@RequestParam("mno") int mno, droneDto dto, RedirectAttributes rttr) throws Exception{
+		logger.info("register POST ... ");
+		logger.info(dto.toString());
+		
+		servic.droneinsert(dto);
+		
+		return "redirect:/mem/ProfileDetail?mno="+mno;
+	}
+	
 }

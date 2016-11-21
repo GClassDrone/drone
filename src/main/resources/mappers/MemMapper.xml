@@ -166,8 +166,8 @@
 	<!-- 보유 드론 관련된 것들 -->
 	
 	<insert id="droneinsert">
-		insert into drone (mdrno, model, mdrnm, pryn, mno)
-		values (drone_next, #{model},#{mdrnm},#{pryn}, #{mno} )
+		insert into drone (mdrno, model, mdrnm, mno)
+		values (drone_next, #{model},#{mdrnm}, #{mno} )
 	</insert>
 	
  	<update id="droneupdate">
