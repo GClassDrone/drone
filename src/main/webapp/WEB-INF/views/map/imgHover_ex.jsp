@@ -30,7 +30,7 @@
     
     figcaption {
         height: 35%;
-        width: 97%;
+        width: 100%;
         background-color: #ff8f00;
         text-align: center;
         position: absolute;

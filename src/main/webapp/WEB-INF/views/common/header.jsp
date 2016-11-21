@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style type="text/css">
+li a:hover {
+    background-color: #111;
+}
+</style>
+
 <script type="text/javascript">
-	$(function(){
+$(function(){
 		$("#logout-user").on("click", function(){
 		$.ajax({
 			url: "/sesout",
@@ -15,6 +21,14 @@
 		});
 	});
 });
+
+$(function() {
+$('li').on('click', function() {
+//	$('li').removeClass('active');
+	$(this).addClass('active');
+});
+});
+
 </script>
   
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -54,10 +68,10 @@
                             <li><a href="/cate/cateList/7">레이싱</a></li>
                         </ul>
                     </li>
-                    <li class="dropdonw-split-left active">
+                    <li class="dropdonw-split-left">
                         <a href="/inform/info">정보</a>
                     </li>
-                    <li class="dropdown dropdown-split-right hidden-xs active">
+                    <li class="dropdown dropdown-split-right hidden-xs">
                     	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     		<i class="fa fa-caret-down" aria-hidden="true" title="Toggle dropdown menu"></i>
                     		<span class="sr-only">Toggle dropdown menu</span>

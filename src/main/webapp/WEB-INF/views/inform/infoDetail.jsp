@@ -31,7 +31,7 @@
 
 <style type="text/css">
 .center {
-	marging : auto;
+	margin : auto;
 	padding : auto;
 	text-align : center;
 	vertical-align : center;
