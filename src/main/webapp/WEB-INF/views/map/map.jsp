@@ -13,9 +13,9 @@
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
  <br />
+ <input type="button" id="magnet" value="지자기정보">
    <h1 id="pilot" style="text-align: center;"><strong>드론 촬영 영상</strong></h1>
    <p style="text-align: center;">드론으로 촬영된 입체적인 항공 영상을 보시려면 해당지역을 선택하고 위치를 클릭해주세요.</p>
-	<!-- <div><input type="button" id="latlngbtn" value="등록"></div> -->
 	<div id="map">
 	</div><br />
  	<div id="list-wrap" class="slider">

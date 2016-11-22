@@ -372,5 +372,21 @@ $(function() {
 			}
 		});
 	}
+	$("#magnet").on("click",function(){
+		$.ajax({
+			url: "http://spaceweather.rra.go.kr/api/kindex",
+			headers: {
+				"Access-Control-Allow-Origin":"*"
+			},
+			type: "get",
+			success: function(result){
+				if(result.errorCode=='NOERR'){
+					alert("측정시간 : "+result.kindex.time);
+					alert("kp : "+result.kindex.currentP);
+					alert("kk : "+result.kindex.currentK);
+				}
+			}
+		});
+	});
 	initMap();
 });
