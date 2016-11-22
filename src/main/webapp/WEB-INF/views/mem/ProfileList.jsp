@@ -35,12 +35,11 @@
           <h1 class="text-center"><strong>파일럿 목록</strong></h1>
           <p class="text-center">전체 파일럿 목록 뿌려주기</p>
      </div>
-  </div><br />
+  </div>
 
 <br />
 <!-- row -->
 
- <br />
  <%-- <c:forEach items="${listAll}" var="MemDto"> 
      <div class="row" >
          <div class="col-md-1">
