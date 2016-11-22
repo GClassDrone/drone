@@ -12,9 +12,13 @@ values(#{igubun},inform_next(#{igubun}),#{ttl},#{ctt},#{upfile},#{regdt},#{mgid}
 </insert>
 	
 <select id ="read" resultType="InformDto">
-	select *
-	  from inform
-	 where igubun = #{igubun} AND ino = #{ino}
+	 select   i.*
+          , m.niknm
+          , g.mgnm 
+     from inform i left outer join mem m 
+       on i.mno = m.mno left outer join manager g
+       on i.mgid = g.mgid
+    where igubun=#{igubun} AND ino=#{ino}
 	 
 </select>
 
@@ -77,15 +81,18 @@ values(#{igubun},inform_next(#{igubun}),#{ttl},#{ctt},#{upfile},#{regdt},#{mgid}
                       , mno
                       , mgid
                  FROM inform 
-                WHERE igubun = 's'
-                <if test="searchType != '' and keyWord != null">
-                   where ${searchType} like '%'||#{keyWord}||'%'
-                </if>
-               ) a 
+                WHERE igubun = 's' ) a 
       <![CDATA[
              where rownum <= #{endRowNum}
             ) b
        where rnum >= #{startRowNum}
       ]]>
 </select>
+
+<select id="total" resultType="int">
+		select count(ino)
+		  from inform
+		 WHERE igubun = 's' 
+	</select>
+
 </mapper>

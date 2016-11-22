@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -79,28 +81,18 @@
                 <li><a href="http://spaceweather.rra.go.kr/models/kp" target="_blank">지자기수치</a></li>
             </ul>
         </div><br />
-        <h1 style="text-align: center;"><strong>드론 시장동향   1.${siteno } 2.${siteid} 3.${mno } 4.${niknm}</strong></h1>
-        <p style="text-align: center;">공지사항 텍스트 요약 ~~~~~~~~</p>
+        <h1 style="text-align: center;"><strong>드론 시장동향</strong></h1>
+        <p style="text-align: center;">시장 동향</p>
+        <c:if test="${levno < 3 }">
+        <p align="right"> 
+        	<input type="button" class="btn btn-danger" value="글 등록" />
+        </p>
+        </c:if>
     </div>
     <div class="container">
-			<!-- <section class="col-xs-offset-3 col-xs-6 col-sm-offset-0 col-sm-6 col-md-3">
-				<div class="thumbnail">
-			  	  <img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
-			 		   <div class="caption">
-			        <h3>Thumbnail label</h3>
-			        <p>
-			            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-			        </p>
-			        <p>
-			            <a class="btn btn-primary" href="/infoDetail">Go</a>
-			        </p>
-			    </div>
-			</div>
-			</section>  -->
-            <div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="infolist">
-		</div>
-        <br />
+            <div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="infolist"></div>
         <!-- row -->
+    </div>
         <div id="pageBtn-wrap">
 	        <p class="more">
 	            <button type="button" class="btn btn-default btn-sm center">
@@ -108,7 +100,6 @@
 	            </button>
 	        </p>
         </div>
-    </div>
 
     <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>

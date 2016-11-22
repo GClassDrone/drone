@@ -32,4 +32,5 @@ public interface MemDao {
 //  프로필에서 내가 만든 컨텐츠를 뿌려주는 리스트
 	
 	public List<CateDto> conlist(MnoCatePageDto cpDto) throws Exception;
+	
 }

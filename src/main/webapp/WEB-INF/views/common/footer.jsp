@@ -49,7 +49,8 @@ a {
 			<div id="kakao-login-btn"></div><br>
 		</div>
 		
-		<!-- 네이버 -->
+		<!-- 네이버
+		
 		<div align="center">
 			<a id="naver_id_login"></a>
 			<script type="text/javascript">
@@ -68,10 +69,10 @@ a {
 			naver_id_login.get_naver_userprofile("naverSignCallback()");
 
 			</script>
-			<!-- <script src="/resources/js/login/naverLogin.js"></script> -->
+			<script src="/resources/js/login/naverLogin.js"></script>
 			<br>
 			<br>
-		</div>
+		</div>  -->
 		<!-- 페이스북 -->
 		<div align="center">
 			<div id="sns_facebook">

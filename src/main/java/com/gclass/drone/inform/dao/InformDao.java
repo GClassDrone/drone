@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gclass.drone.common.InitSearchPage;
 import com.gclass.drone.inform.dto.InformDto;
+import com.gclass.drone.inform.dto.InfoPageDto;
 
 public interface InformDao {
 	
@@ -20,6 +21,8 @@ public interface InformDao {
 	public int totalRow(InitSearchPage isp) throws Exception;
 	
 	//시장동향
-	public List<InformDto> list(InitSearchPage isp)  throws Exception;
+	public List<InformDto> infoList(InfoPageDto dto)throws Exception;
+	
+	public int infoTotalRow(InfoPageDto dto)throws Exception;
 }
 

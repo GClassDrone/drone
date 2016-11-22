@@ -116,6 +116,11 @@ $(document).ready(function(){
                    <li><a href="#">»</a></li>
                </ul>
          </div>
+         <c:if test="${mgid != null }">
+	         <p align="right">
+	 			 <input type="button" class="btn btn-danger" value="글 등록" />
+			</p>
+		</c:if>
      </div>
 <!--        <div class="row">
         	<div class="text-center">

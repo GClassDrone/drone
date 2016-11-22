@@ -112,6 +112,7 @@ public class LoginController {
 				System.out.println(dto.getNiknm());
 				session.setAttribute("mno", dto.getMno());
 				session.setAttribute("niknm", dto.getNiknm());
+				session.setAttribute("levno", dto.getLevno());
 				response.sendRedirect("/intro");
 			}
 		}

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.gclass.drone.common.InitSearchPage;
+import com.gclass.drone.inform.dto.InfoPageDto;
 import com.gclass.drone.inform.dto.InformDto;
 
 @Repository
@@ -47,7 +48,11 @@ public class InformDaoImpl implements InformDao {
 	
 	//시장동향
 	@Override
-	public List<InformDto> list(InitSearchPage isp) throws Exception {
-		return session.selectList(namespace+".list", isp);
+	public List<InformDto> infoList(InfoPageDto dto) throws Exception {
+		return session.selectList(namespace +".list", dto);
+	}
+	@Override
+	public int infoTotalRow(InfoPageDto dto) throws Exception {
+		return session.selectOne(namespace +".total", dto);
 	}
 }

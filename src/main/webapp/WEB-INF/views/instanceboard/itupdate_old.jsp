@@ -1,27 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-
-<html>
-<head>
-<jsp:include page="../common/include.jsp"></jsp:include>
-<script type ="text/javascript">
-$(document).ready(function(){
-	var formObj = $("form[role='form']");
-	console.log(formObj);
-	
-	$(".btn-primary").on("click", function(){
-		formObj.submit();
-	});
-	
-	$(".btn-warning").on("click", function(){
-		self.location="/instanceboard/itdetail?subjno=${subjno}&bno=${bno}";
-	});
-});
-</script>
-
-<style type="text/css">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<style>
 .fileDrop {
   width: 80%;
   height: 100px;
@@ -50,22 +29,33 @@ $(document).ready(function(){
 	max-height: 800px;
 	overflow: auto;
 }
-
 </style>
-
-</head>
-
-<body>
-<jsp:include page="../common/header.jsp"></jsp:include>
+<jsp:include page="../common/include.jsp"/>
+<jsp:include page="../common/header.jsp"/>
 <div class="popup back" style="display:none;"></div>
 <div id="popup_front" class="popup front" style="display:none;"> 
 	<img id="popup_img" />
 </div>
+ 	
+<section class="content">
+<script type="text/javascript">
+	$(document).ready(function(){
+	var formObj = $("form[role='form']");
+	console.log(formObj);
+	
+	$(".btn-primary").on("click", function(){
+		formObj.submit();
+	});
+	
+	$(".btn-warning").on("click", function(){
+		self.location="/instanceboard/itdetail?subjno=${subjno}&bno=${bno}";
+	});
+});
+</script>
+</section>
 <div class="container">	
-       <h1 style="text-align: center;"><strong>글 수정 화면</strong></h1>
-        <p style="text-align: center;">원하는 항목을 선택, 수정하고 저장하세요.</p>
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-6 col-md-offset-3">
 			<form role="form" method="post">
 				<input type='hidden' id='bno' name='bno' value="${bno}">
 				<input type='hidden' id='subjno' name='subjno' value="${subjno}">
@@ -76,9 +66,7 @@ $(document).ready(function(){
 					</div>
 					<div class="form-group">
 						<label for="ctt">글내용</label>
-						<textarea rows="5" id="ctt" name="ctt" class="form-control" value="${IBoardDto.ctt}">
-						${IBoardDto.ctt}
-						</textarea>
+						<input type="text" id="ctt" name="ctt" class="form-control" value="${IBoardDto.ctt}" />
 					</div>
 					
 					<div class="form-group">
@@ -97,11 +85,8 @@ $(document).ready(function(){
 				<button type="submit" class="btn btn-primary">저장</button>
 				<button type="submit" class="btn btn-warning">취소</button>
 			</div>	
-			</form><br />
+			</form>
 		</div>
 	</div>
 </div>
-<jsp:include page="../common/footer.jsp"></jsp:include>
-</body>
-
-</html>
+<%@ include file="../common/footer.jsp" %>

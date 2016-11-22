@@ -30,4 +30,9 @@ public class droneserviceImpl implements droneservice {
 		dao.delete(mdrno);
 	}
 
+	@Override
+	public void droneinsert(droneDto dto) throws Exception {
+		dao.droneinsert(dto);
+	}
+
 }
