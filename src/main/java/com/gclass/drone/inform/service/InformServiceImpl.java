@@ -24,7 +24,9 @@ public class InformServiceImpl implements InformSerivce {
 	
 	@Override
 	public void regist(InformDto dto) throws Exception {
-
+		logger.info("service" + dto);
+		dao.insert(dto);
+		
 	}
 
 	@Override

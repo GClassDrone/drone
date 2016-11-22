@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.gclass.drone.common.InitSearchPage;
@@ -18,11 +20,13 @@ public class InformDaoImpl implements InformDao {
 	@Inject
 	private SqlSession session;
 	
+	private static final Logger logger = LoggerFactory.getLogger(InformDaoImpl.class);
 	private static String namespace ="com.gclass.drone.mapper.InformMapper";
 	
 	@Override
 	public void insert(InformDto dto) throws Exception {
-		session.insert(namespace +".insert", dto);
+		int a = session.insert(namespace +".insert", dto);
+		logger.info("daoim"+a);
 	}
 	@Override
 	public InformDto read(InformDto dto) throws Exception {

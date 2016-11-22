@@ -6,8 +6,10 @@
 <mapper namespace="com.gclass.drone.mapper.InformMapper">
 	
 <insert id="insert">
-insert into inform(igubun,ino,ttl,ctt,upfile,regdt,mgid,mno,delyn)
-values(#{igubun},inform_next(#{igubun}),#{ttl},#{ctt},#{upfile},#{regdt},#{mgid},#{mno},#{delyn});
+<!-- insert into inform(igubun,ino,ttl,ctt,upfile,regdt,mgid,mno)
+values(#{igubun},inform_next(#{igubun}),#{ttl},#{ctt},#{upfile},sysdate,#{mgid},#{mno}); -->
+insert into inform(igubun,ino,ttl,ctt,mgid,mno)
+values(#{igubun},inform_next(#{igubun}),#{ttl},#{ctt},#{mgid, jdbcType=INTEGER},#{mno, jdbcType=INTEGER})
 
 </insert>
 	

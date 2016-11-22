@@ -100,12 +100,8 @@ $(function(){
         </p>
         </c:if> 
     </div>
-<<<<<<< HEAD
     <div class="container" id="infolist">
-=======
-    <div class="container">
-            <div class="co-sm-12" id="infolist"></div>
->>>>>>> 19ebbae7e3dc9faa26794baac5b24afa7058acb5
+
         <!-- row -->
     </div>
     <div id="pageBtn-wrap">

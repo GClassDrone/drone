@@ -16,14 +16,17 @@ $(document).on("click",function(){
 
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
-
 <div class="container">
         <div class="section">
 
          </div>
             <!--  second form ================================================== -->
             <section class="col-xs-12">
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" action="infoInsert">
+                <input type="hidden" name="igubun" value="s">
+                <input type="hidden" name="mno" value="${mno }">
+                <input type="hidden" name="mgid" value="${mgid }">
+                
                     <fieldset>
                         <legend style="text-align: center; color: white ; font-size: 35px; font-weight: bold">시장동향 기사 작성</legend>
                         <div class="form-group form-group-md">
@@ -77,7 +80,7 @@ $(document).on("click",function(){
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-6 input-group ">
-                                <input type="file" class="form-control" placeholder="Upload media">
+                                <input type="file" class="form-control" placeholder="Upload media" name="upfile">
                                 <span class="input-group-btn">
                             <button class="btn btn-default" type="button">미디어 올리기</button>
                             </span>
@@ -90,7 +93,8 @@ $(document).on("click",function(){
                 </form>
             </section>
 
-        </div><br />
+        </div>
+        <br />
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <jsp:include page="../common/footer.jsp"></jsp:include>
