@@ -20,12 +20,12 @@
 	   	height: auto;
 	   }
 	</style>
-<script src="/resources/js/profile/profilelist.js"></script>
 <jsp:include page="../common/include.jsp"></jsp:include>
-<jsp:include page="../common/header.jsp"></jsp:include>
+<script src="/resources/js/profile/profilelist2.js"></script>
 </head>
 
 <body>
+<jsp:include page="../common/header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
     </header>
 
@@ -41,7 +41,7 @@
 <!-- row -->
 
  <br />
- <c:forEach items="${listAll}" var="MemDto"> 
+ <%-- <c:forEach items="${listAll}" var="MemDto"> 
      <div class="row" >
          <div class="col-md-1">
 	         <a href="/mem/ProfileDetail?mno=${MemDto.mno}">
@@ -63,10 +63,17 @@
 	</div>
       <div id="clearfix"></div>
       </br>
-</c:forEach>
-<div id="pilotPage"></div>
-<button id="prevPage" class="btn btn-primary" style="float: left;" >이전</button>
-<button id="nextPage" class="btn btn-primary" >다음</button>
+</c:forEach> --%>
+
+<div id="ProfileList"></div>
+
+	<div id="pageBtn-wrap">
+    	<p class="more">
+            <button type="button" class="btn btn-default btn-sm center">
+                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
+            </button>
+        </p>
+	</div>
 </div>
 
 <jsp:include page="../common/footer.jsp"></jsp:include>

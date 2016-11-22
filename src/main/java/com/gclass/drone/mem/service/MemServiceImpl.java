@@ -12,6 +12,7 @@ import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.mem.dao.MemDao;
 import com.gclass.drone.mem.dto.MemDto;
 import com.gclass.drone.mem.dto.MnoCatePageDto;
+import com.gclass.drone.mem.dto.MnoPageDto;
 
 
 @Service
@@ -74,5 +75,10 @@ public class MemServiceImpl implements MemService {
 	@Override
 	public List<CateDto> conlist(MnoCatePageDto cpDto) throws Exception {
 		return dao.conlist(cpDto);
+	}
+
+	@Override
+	public List<MemDto> memlist(MnoPageDto cpDto) throws Exception {
+		return dao.memlist(cpDto);
 	}
 }

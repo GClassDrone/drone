@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.mem.dto.MemDto;
 import com.gclass.drone.mem.dto.MnoCatePageDto;
+import com.gclass.drone.mem.dto.MnoPageDto;
 
 @Repository
 public class MemDaoImpl implements MemDao{
@@ -76,5 +77,10 @@ public class MemDaoImpl implements MemDao{
 	@Override
 	public List<CateDto> conlist(MnoCatePageDto cpDto) throws Exception {
 		return session.selectList(namespace+".conlist", cpDto);
+	}
+
+	@Override
+	public List<MemDto> memlist(MnoPageDto cpDto) throws Exception {
+		return session.selectList(namespace+".listAll", cpDto);
 	}
 }

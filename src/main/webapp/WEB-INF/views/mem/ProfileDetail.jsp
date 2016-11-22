@@ -12,7 +12,7 @@
 
 <script src="/resources/js/profile/profile.js"></script>
 <script type="text/javascript" src="/resources/js/cate/cateList2.js"></script>
-<script type="text/javascript" src="/resources/js/profile/falist.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/profile/falist.js"></script> -->
 <script>
 $(document).ready(function() {
 	
@@ -39,14 +39,11 @@ $(document).ready(function() {
 		formObj.attr("action", "/map/ctsInsert");
 		formObj.attr("method","get");
 		formObj.submit();
-<<<<<<< HEAD
 	}); */
-=======
 	});
 	
 	/* 프로필에서 콘텐츠의 수정 삭제 버튼 누르는 부분 */
 	
->>>>>>> 1cf20789af5e97c90bbb8242c69b3b8fd2a8fcd2
 	/* $(".btn-danger").on("click",function(){
 		formObj.attr("action", "/map/ctsmodify");
 		formObj.attr("method","post");
@@ -58,13 +55,9 @@ $(document).ready(function() {
 		formObj.attr("method","post");
 		
 		formObj.submit();
-<<<<<<< HEAD
-=======
 	});
 
->>>>>>> 1cf20789af5e97c90bbb8242c69b3b8fd2a8fcd2
 	}); */
- });
  	/* 프로필 ->게시판->게시판리스트에서 삭제, 업데이트하는버튼 */
  	
 
@@ -262,6 +255,7 @@ var fdelete = function(fno){
 		        
 		        <div class="tab-pane fade in" id="tab4">
 		          <h3>즐겨찾기 저장 목록</h3>
+		          <c:if test="${mno eq memDto.mno}"> 
  		          	<c:forEach items="${falist}" var="faDto">
 					            <div class="col-xs-12 col-sm-6 col-md-3">
 					                <div class="embed-responsive embed-responsive-16by9">
@@ -269,8 +263,10 @@ var fdelete = function(fno){
 					                </div>
 					                <a href="https://www.youtube.com/watch?v=${faDto.filelk}" style="color: black;"><h3 class="text-center">${faDto.ttl}</h3></a>
 					                <h3 class="text-center">${faDto.ctt}</h3>
+					                <input type='button' class='btn btn-primary delete-btn' value='삭제'>
 					            </div>
 					</c:forEach>
+					</c:if>
 					</div>
 					<div class="clearfix"></div>
 		        

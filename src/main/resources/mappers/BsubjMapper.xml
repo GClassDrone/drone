@@ -47,6 +47,10 @@
  		 where a.subjno = #{subjno}
 	</select>
 
-
+		
+	<select id="outdt">
+		SELECT TRUNC(MONTHS_BETWEEN(SYSDATE, TO_char(regdt, 'YYYY-MM-DD')))
+		  FROM bsubj;
+	</select>
 
 </mapper>  
