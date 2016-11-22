@@ -1,4 +1,4 @@
-//모달
+9//모달
 
 $(function(){
 	/*var form;
@@ -29,7 +29,7 @@ $(function(){
         	url: '/v1/user/me',
         	success: function(res){
         		siteid = res.id;
-        		location.href="http://localhost:8080/login?siteid="+siteid+"&siteno="+siteno;
+        		location.href="/login?siteid="+siteid+"&siteno="+siteno;
         	},
         	fail: function(error){
         		alert(JSON.stringify(error));
