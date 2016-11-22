@@ -5,8 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
-    @import url(http://fonts.googleapis.com/css?family=Exo+2:300);
-    @import url(http://fonts.googleapis.com/css?family=Zeyada);
     body {
         margin-top: 60px;
     }
@@ -20,6 +18,8 @@
         height: 100%;
     }
     
+    @import url(http://fonts.googleapis.com/css?family=Exo+2:300);
+    @import url(http://fonts.googleapis.com/css?family=Zeyada);
     figure {
         height: 250px;
         width: 250px;
@@ -40,15 +40,15 @@
         padding: 5px;
     }
     
-    a {
-        color: #fff;
-    }
     
     a:hover figcaption {
         opacity: 0.5;
         left: 0;
         color: #fff;
         transition: all 0.7s;
+    }
+    a {
+        color: #fff;
     }
     </style>
 </head>

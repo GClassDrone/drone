@@ -208,8 +208,8 @@ $(function(){
 	});
 	
 	var updateCtt;
-	$(document).on("click",".fa-pencil",function(){
-		$(this).removeClass("fa-pencil");
+	$(document).on("click",".fa-pencil-square-o",function(){
+		$(this).removeClass("fa-pencil-square-o");
 		$(this).addClass("fa-floppy-o");
 		updateCtt = $(this).parent().next().text();
 		$(this).parent("h2").next().remove();
@@ -224,7 +224,7 @@ $(function(){
 				, ctt:$(this).parent("h2").next().val()
 		};
 		$(this).removeClass("fa-floppy-o");
-		$(this).addClass("fa-pencil");
+		$(this).addClass("fa-pencil-square-o");
 		$.ajax({
 			url: "/map/ctsdatUpdate",
 			headers: {
@@ -241,7 +241,7 @@ $(function(){
 		});
 	});
 	$(document).on("click",".fa-times-circle-o",function(){
-		if($(this).prev().hasClass("fa-pencil")){
+		if($(this).prev().hasClass("fa-pencil-square-o")){
 			var data = {
 				ctscateno:$("#modalCtt").data("ctscateno")
 			  , ctsno:$("#modalCtt").data("ctsno")
@@ -266,7 +266,7 @@ $(function(){
 			}
 		}else if($(this).prev().hasClass("fa-floppy-o")){
 			$(this).prev().removeClass("fa-floppy-o");
-			$(this).prev().addClass("fa-pencil");
+			$(this).prev().addClass("fa-pencil-square-o");
 			$(this).parent("h2").next().remove();
 			$(this).parent("h2").parent().append("<p>"+updateCtt+"</p>");
 		}
