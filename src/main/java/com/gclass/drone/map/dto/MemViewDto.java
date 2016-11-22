@@ -27,7 +27,21 @@ public class MemViewDto {
 	private String locnm;
 	private double lat;
 	private double lng;
+	private String actnm;
+	private String mdrnm;
 	
+	public String getActnm() {
+		return actnm;
+	}
+	public void setActnm(String actnm) {
+		this.actnm = actnm;
+	}
+	public String getMdrnm() {
+		return mdrnm;
+	}
+	public void setMdrnm(String mdrnm) {
+		this.mdrnm = mdrnm;
+	}
 	public int getMno() {
 		return mno;
 	}
@@ -180,6 +194,6 @@ public class MemViewDto {
 				+ ", regcnt=" + regcnt + ", datcnt=" + datcnt + ", joacnt=" + joacnt + ", favcnt=" + favcnt
 				+ ", readcnt=" + readcnt + ", indt=" + indt + ", levno=" + levno + ", levpoint=" + levpoint + ", locno="
 				+ locno + ", ppose=" + ppose + ", sido=" + sido + ", sigungu=" + sigungu + ", locnm=" + locnm + ", lat="
-				+ lat + ", lng=" + lng + "]";
+				+ lat + ", lng=" + lng + ", actnm=" + actnm + ", mdrnm=" + mdrnm + "]";
 	}
 }

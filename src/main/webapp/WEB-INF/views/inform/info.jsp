@@ -123,8 +123,13 @@ $(function(){
         </p>
         </c:if> 
     </div>
+<<<<<<< HEAD
     <div class="container">
             <div class="co-sm-12" id="infolist"></div>
+=======
+    <div class="container" id="infolist">
+
+>>>>>>> b1f706c87db0e07f8cc7eff7c4ad0aba27c0fcf2
         <!-- row -->
     </div>
     <div id="pageBtn-wrap">
