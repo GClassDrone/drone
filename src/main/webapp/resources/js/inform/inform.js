@@ -52,6 +52,12 @@ $(function(){
 	});
 	
 	$("#infolist").html(infolist(1));
+	
+
+	$("#navbar-ex-collapse > ul > li").eq(3).addClass('active');
+	$("#navbar-ex-collapse > ul > li").eq(4).addClass('active');
+
+
 });
 
 

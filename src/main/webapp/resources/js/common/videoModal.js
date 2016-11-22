@@ -83,8 +83,8 @@ function datList(cdList){
 		str += "<div id='reply' class='well text-info'>";
 		str += "<h2>Reply<small>&nbsp; "+regdt+" <a href='/mem/Profiledetail?mno="+this.mno+"' style='color:blue'>"+this.niknm+"</a></small>"
 		if($("#session").data("mno")==this.mno){
-			str += "<i class='fa fa-pencil' data-ctsdatno='"+this.ctsdatno+"'></i><i class='fa fa-times-circle-o' data-ctsdatno='"+this.ctsdatno+"'></i>";
-		}
+			str += "<i class='fa fa-pencil-square-o' data-ctsdatno='"+this.ctsdatno+"'></i><i class='fa fa-times-circle-o' data-ctsdatno='"+this.ctsdatno+"'></i>";
+		} 
 		str += "</h2>";
 		str += "<p>"+this.ctt+"</p>";
 		str += "</div>";
