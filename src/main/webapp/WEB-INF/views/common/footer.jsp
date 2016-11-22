@@ -4,6 +4,9 @@
 a {
 	color: white;
 }
+.logi{
+	background-image: url("/resources/images/login/zzz.png");
+}
 </style>
 
     <footer class="section section-info">
@@ -31,12 +34,12 @@ a {
         </div>
     </footer>
 <jsp:include page="../map/videoModal.jsp"></jsp:include>
-<div id ="dialog-login">
-	<form >
+<div id ="dialog-login" class="logi" >
+	<form>
 	<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 	<input type="hidden" name="siteid" value=""> 
 		<!-- 구글 버튼 -->
-		<div align="center">
+		<div align="center" style="top: 150px;">
 			<div id="sns_google">
 				<button class="loginBtn">
 					<img src="/resources/images/login/google-sign-in.png" width="200px" height="40px">
@@ -45,7 +48,7 @@ a {
 		<br>
 		</div>
 		<!-- 카카오톡 -->
-		<div align="center">
+		<div align="center" style="top: 150px;">
 			<div id="kakao-login-btn"></div><br>
 		</div>
 		
@@ -74,12 +77,18 @@ a {
 			<br>
 		</div>  -->
 		<!-- 페이스북 -->
-		<div align="center">
+		<div align="center" style="top: 150px;">
 			<div id="sns_facebook">
 				<button class="loginBtn" onclick="faceLogin();">
 					<img src="/resources/images/login/sign-in-facebook.png" width="200px" height="40px">
 				</button>
 			</div>
+		</div>
+		<img url="resources/images/login/200.gif">
+		<div align ="center" style="top: 150px;">
+			<p>
+			<h3 style="color: black;"> 원하는 소셜로 로그인을 하세요</h3>
+			</p>
 		</div>
 	</form>
 </div>

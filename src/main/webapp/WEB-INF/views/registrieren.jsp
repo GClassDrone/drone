@@ -52,13 +52,11 @@ $(function(){
 			success: function(data){
 				var str = "";
 				if(data == "fail"){
-					$("#nexts").remove();
 					$("#spn").text("사용 불가능한 아이디 입니다.");
 					$("#niknm").val("");
 				}else{
-					$("#nexts").remove();
 					$("#spn").text("사용 가능한 아이디 입니다.");
-					$("#next").append("<input type='button' class='btn btn-next btn-fill btn-warning btn-wd' id='nexts' name='nexts' value='Next' />");
+					$("#nexts").attr("disabled",false);
 				}
 			}
 		});
@@ -233,6 +231,7 @@ $(function(){
 		                            	<%-- <c:if test="${data eq 'success'}">
 		                               	 <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
 		                                </c:if> --%>
+		                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' id='nexts' name='nexts' value='Next' disabled="disabled"/>
 		                                <button type='submit' class='btn btn-finish btn-fill btn-warning btn-wd'>submit</button>
 		                            </div>
 
