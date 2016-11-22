@@ -89,7 +89,7 @@ if(result=="success"){
 		      </tbody>
 		    </table>
 		</div>
-	</div>
+	
 	<c:if test="${mno != null}"> 
 	<div>
 		<button class="btn btn-success" id="newBtn"><i class="fa fa-pencil-square-o"></i>&nbsp;Write</button>
@@ -106,6 +106,7 @@ if(result=="success"){
                   <li><a href="#">»</a></li>
               </ul>
        </div>
+   </div>
 </div>
 <jsp:include page="../common/footer.jsp"/>
 </body>

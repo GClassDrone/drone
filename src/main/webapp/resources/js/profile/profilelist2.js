@@ -2,6 +2,7 @@ $(function(){
 	var nowPage=1;
 	var lastPage;
 	var cateArray = new Array;
+	var h=$('html').height();
 	function cateMakeList(nowPage){
 		var pagePerRow = 9;
 		var data = {nowPage:nowPage, pagePerRow: pagePerRow, cateArray:cateArray};
@@ -25,7 +26,7 @@ $(function(){
 					str += "<div class='col-md-1'>";
 					str += "<a href='/mem/ProfileDetail?mno="+this.mno+"'>";
 					str += "<img src='../resources/images/castleMo2.png' style='width:80px' class='center-block img-circle'>";
-					str += "<h6 class='text-center' style='padding-left:12px'>"+this.niknm+"<p>(<span class='glyphicon glyphicon-star'></span>)</p></h6>";
+					str += "<h6 class='text-center' style='padding-left:12px'>"+this.niknm+"<p>"+this.levnm+"<br>("+this.levpoint+")</p></h6>";
 					str += "</a>";
 					str += "</div>";
 					str += "<div class='col-md-3'>";
@@ -51,6 +52,8 @@ $(function(){
 	$("#pageBtn-wrap span").on("click", function(){
 		nowPage = nowPage + 1;
 		$("#ProfileList").append(cateMakeList(nowPage));
+		h+= 800;
+		$('html, body').animate({scrollTop: h}, 1000);
 	});
 	$("#ProfileList").html(cateMakeList(nowPage));
 	

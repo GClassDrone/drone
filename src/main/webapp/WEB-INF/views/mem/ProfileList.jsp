@@ -21,19 +21,11 @@
 	   }
 	</style>
 <jsp:include page="../common/include.jsp"></jsp:include>
-<<<<<<< HEAD
-<script src="/resources/js/profile/profilelist.js"></script>
-</head>
-
-<body>
-	<jsp:include page="../common/header.jsp"></jsp:include>
-=======
 <script src="/resources/js/profile/profilelist2.js"></script>
 </head>
 
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
->>>>>>> 575ed5024abc828276c23480eaa8b2a293359541
     <header class="bgimage hidden-xs">
     </header>
 

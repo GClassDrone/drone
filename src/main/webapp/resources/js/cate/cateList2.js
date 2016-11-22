@@ -15,7 +15,7 @@ $(function(){
 			},
 			type: "POST",
 			data: JSON.stringify(data),
-			datatype: "json",
+			dataType: "json",
 			async: false,
 			success: function(result){
 				$(result).each(function(i){
@@ -79,7 +79,12 @@ $(function(){
 			},
 			type: "post",
 			dataType: "text",
-			success: function(){
+			success: function(result){
+				if(result == 'y') {
+					alert('삭제되었습니다');
+				} else if(result == 'n') {
+					alert('삭제 실패하였습니다');
+				}
 				$("#cateList").html(cateMakeList(nowPage));
 			}
 		});
