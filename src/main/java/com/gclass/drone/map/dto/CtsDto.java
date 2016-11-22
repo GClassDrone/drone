@@ -20,6 +20,8 @@ public class CtsDto {
 	private String delyn;
 	private String niknm;
 	private String regtime;
+	private String tagnm;
+	private int cttleng;
 	
 	public int getCtscateno() {
 		return ctscateno;
@@ -123,11 +125,24 @@ public class CtsDto {
 	public void setRegtime(String regtime) {
 		this.regtime = regtime;
 	}
+	public String getTagnm() {
+		return tagnm;
+	}
+	public void setTagnm(String tagnm) {
+		this.tagnm = tagnm;
+	}
+	public int getCttleng() {
+		return cttleng;
+	}
+	public void setCttleng(int cttleng) {
+		this.cttleng = cttleng;
+	}
 	@Override
 	public String toString() {
 		return "CtsDto [ctscateno=" + ctscateno + ", ctsno=" + ctsno + ", ttl=" + ttl + ", ctt=" + ctt + ", regdt="
 				+ regdt + ", filelk=" + filelk + ", pt=" + pt + ", lat=" + lat + ", lng=" + lng + ", datcnt=" + datcnt
 				+ ", joacnt=" + joacnt + ", readcnt=" + readcnt + ", favcnt=" + favcnt + ", mno=" + mno + ", delyn="
-				+ delyn + ", niknm=" + niknm + ", regtime=" + regtime + "]";
+				+ delyn + ", niknm=" + niknm + ", regtime=" + regtime + ", tagnm=" + tagnm + ", cttleng=" + cttleng
+				+ "]";
 	}
 }

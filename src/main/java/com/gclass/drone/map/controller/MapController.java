@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gclass.drone.map.dto.CtsDto;
 import com.gclass.drone.map.dto.CtsdatDto;
@@ -42,39 +43,40 @@ public class MapController {
 	}
 	
 	@RequestMapping(value="/ctsInsert", method=RequestMethod.POST)
-	public String ctsInsert(CtsDto cDto,@RequestParam("tagnm") String tagnm) throws Exception{
+	public String ctsInsert(CtsDto cDto, RedirectAttributes rttr) throws Exception{
 		logger.info("ctsInsert POST");
 		logger.info(cDto.toString());
-		service.ctsInsert(cDto, tagnm);
-		
+		service.ctsInsert(cDto);
+		rttr.addFlashAttribute("msg", "컨텐츠가 등록되었습니다.");
 		return "redirect:/mem/ProfileDetail?mno="+cDto.getMno();
 	}
 	
 	@RequestMapping(value="/ctsUpdate", method=RequestMethod.GET)
 	public void ctsUpdate(CtsDto cDto, Model model) throws Exception{
-		model.addAttribute("cDto", service.ctsSelectOne(cDto));
+		model.addAttribute("cDto", service.ctstagSelectOne(cDto));
+		logger.info(service.ctstagSelectOne(cDto).toString());
 		model.addAttribute("ctscateList", service.ctscateSelectAll());
 	}
 	
 	@RequestMapping(value="/ctsUpdate", method=RequestMethod.POST)
-	public String ctsUpdate(CtsDto cDto) throws Exception{
+	public String ctsUpdate(CtsDto cDto, RedirectAttributes rttr) throws Exception{
 		logger.info("ctsUpdate POST");
 		logger.info(cDto.toString());
 		service.ctsUpdate(cDto);
-		
+		rttr.addFlashAttribute("msg", "컨텐츠가 수정되었습니다.");
 		return "redirect:/mem/ProfileDetail?mno="+cDto.getMno();
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/ctsDelete", method=RequestMethod.POST)
-	public ResponseEntity<HttpStatus> ctsDelete(@RequestBody CtsDto cDto){
-		ResponseEntity<HttpStatus> entity = null;
+	public ResponseEntity<String> ctsDelete(@RequestBody CtsDto cDto){
+		ResponseEntity<String> entity = null;
 		logger.info("ctsDelete Delete");
 		try{
 			service.ctsDelete(cDto);
-			entity = new ResponseEntity<HttpStatus>(HttpStatus.OK);
+			entity = new ResponseEntity<String>("y",HttpStatus.OK);
 		}catch(Exception e){
-			entity = new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<String>("n",HttpStatus.BAD_REQUEST);
 		}
 		return entity;
 	}
@@ -157,7 +159,7 @@ public class MapController {
 		logger.info("Delete : " + fDto.toString());
 		ResponseEntity<Map<String, Object>> entity = null;
 		try{
-			entity = new ResponseEntity<Map<String, Object>>(service.favDelete(fDto),HttpStatus.OK);
+			entity = new ResponseEntity<Map<String, Object>>(service.favUpdate(fDto),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

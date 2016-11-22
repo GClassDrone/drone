@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-					<select name="ctscateno" id="ctscateno" class="form-control">
+					<select name="ctscateno" id="ctscateno" class="form-control" disabled="disabled">
 					    <optgroup label="카테고리 분류">
 							<option value="">분류</option>
 							<c:forEach items="${ctscateList}" var="ccDto">
@@ -48,7 +48,7 @@
 				</div>
             </div>
 			<div class="form-group">
-                <label class="col-md-2 control-label" for="ctt">내용<br/><span id="wordCount">(0/200)</span></label>
+                <label class="col-md-2 control-label" for="ctt">내용<br/><span id="wordCount">(${cDto.cttleng}/200)</span></label>
                 <div class="col-md-10">
                     <textarea class="form-control" rows="3" id="ctt" name="ctt" maxlength="200">${cDto.ctt}</textarea>
                 </div>
@@ -97,7 +97,7 @@
                         <div class="input-group-addon">
                             <i class="fa fa-tags"></i>
                         </div>
-                        <input id="tagnm" name="tagnm" type="text" value="" class="form-control input-md">
+                        <input id="tagnm" name="tagnm" type="text" value="${cDto.tagnm}" class="form-control input-md">
                     </div>
                 </div>
             </div>
@@ -106,6 +106,7 @@
                 <div class="col-md-6">
                     <input type="submit" class="btn btn-success" value="Submit">
                     <input type="button" class="btn btn-info" value="Reset">
+                    <input type="button" class="btn btn-danger" value="Back">
                 </div>
             </div>
 		</fieldset>

@@ -106,6 +106,7 @@
                 <div class="col-md-6">
                     <input type="submit" class="btn btn-success" value="Submit">
                     <input type="reset" class="btn btn-info" value="Reset">
+                    <input type="button" class="btn btn-danger" value="Back">
                 </div>
             </div>
 		</fieldset>

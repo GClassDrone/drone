@@ -94,22 +94,27 @@ $(function(){
         </div><br />
         <h1 style="text-align: center;"><strong>드론 시장동향</strong></h1>
         <p style="text-align: center;">시장 동향</p>
-        <c:if test="${levno < 3 }">
+       <c:if test="${levno < 3 }">
         <p align="right"> 
         	<input type="button" class="btn btn-danger" value="글 등록" />
         </p>
-        </c:if>
+        </c:if> 
     </div>
+<<<<<<< HEAD
     <div class="container" id="infolist">
+=======
+    <div class="container">
+            <div class="co-sm-12" id="infolist"></div>
+>>>>>>> 19ebbae7e3dc9faa26794baac5b24afa7058acb5
         <!-- row -->
     </div>
-        <div id="pageBtn-wrap">
-	        <p class="more">
-	            <button type="button" class="btn btn-default btn-sm center">
-	                <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
-	            </button>
-	        </p>
-        </div>
+    <div id="pageBtn-wrap">
+     <p class="more">
+         <button type="button" class="btn btn-default btn-sm center">
+             <span class="fa fa-2x fa-fw fa-angle-double-down"></span> 
+         </button>
+     </p>
+    </div>
 
     <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>

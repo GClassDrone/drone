@@ -15,7 +15,7 @@ $(function(){
 			},
 			type: "POST",
 			data: JSON.stringify(data),
-			datatype: "json",
+			dataType: "json",
 			async: false,
 			success: function(result){
 				$(result).each(function(i){
@@ -45,14 +45,14 @@ $(function(){
 						str += "<p>"+this.ctt+"</p>";
 					}
 					if ($("#himno").val() == $("#mymno").val()) {
-					str += "<form method='get'>";
-					str += "<input type='hidden' name='mno' value='"+$("#session").data("mno")+"'>";
-					str += "<input type='hidden' name='ctscateno' value='"+this.ctscateno+"'>";
-					str += "<input type='hidden' name='ctsno' value='"+this.ctsno+"'>";
-					str += "<input type='button' class='btn btn-danger update-btn' value='수정'>";
-					str += "<input type='button' class='btn btn-primary delete-btn' value='삭제'>";
-					str += "</form>";
-						}
+						str += "<form method='get'>";
+						str += "<input type='hidden' name='mno' value='"+$("#session").data("mno")+"'>";
+						str += "<input type='hidden' name='ctscateno' value='"+this.ctscateno+"'>";
+						str += "<input type='hidden' name='ctsno' value='"+this.ctsno+"'>";
+						str += "<input type='button' class='btn btn-danger update-btn' value='수정'>";
+						str += "<input type='button' class='btn btn-primary delete-btn' value='삭제'>";
+						str += "</form>";
+					}
 					str += "</div>";
 					if(i%4 == 3 || i == result.length){
 						str += "</div>";
@@ -79,7 +79,12 @@ $(function(){
 			},
 			type: "post",
 			dataType: "text",
-			success: function(){
+			success: function(result){
+				if(result == 'y') {
+					alert('삭제되었습니다');
+				} else if(result == 'n') {
+					alert('삭제 실패하였습니다');
+				}
 				$("#cateList").html(cateMakeList(nowPage));
 			}
 		});
@@ -93,5 +98,4 @@ $(function(){
 		$("#cateList").append(cateMakeList(nowPage));
 	});
 	$("#cateList").html(cateMakeList(nowPage));
-	
 });

@@ -171,8 +171,9 @@
 			});
 	});
 </script>
-
-<div class='bdat' id='bdat'>
+<div class="row" style="padding-left: 1em">
+    <h4>[ 댓글 목록 ]</h4>
+	<div class='bdat' id='bdat'></div>
 </div>
 <div class="row">
 	<form role="form" method="post">
@@ -180,16 +181,16 @@
 		<input type='hidden' id='subjno' name='subjno' value="${subjno}">
 		<input type='hidden' id='mno' name='mno' value="${mno}">
 	</form>
-	<div class="form-group">
-		<div class="col-sm-1 col-xs-12 center">
+	<div class="form-group" style="padding-top: 5em">
+		<div class="col-sm-2 col-xs-12 center">
 			<i class="material-icons text-right"
 				style="padding-top: 15px; padding-left: 20px; font-size: 36px; color: #2e7d32">tag_faces</i>
 			<h5 class="media-heading">
 				<span class="niknm" id="niknm">${niknm}</span>
 			</h5>
 		</div>
-		<div class="col-sm-6 col-xs-12 center">
-			<label for="inputComments"><span style="color: #4e342e">댓글을
+		<div class="col-sm-10 col-xs-12 center">
+			<label for="inputComments"><span style="color: #ffc400">댓글을
 					써주세요</span></label>
 			<textarea rows="6" class="form-control" id="ctt" name="ctt"
 				placeholder="Enter reply"></textarea>

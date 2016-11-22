@@ -32,7 +32,8 @@
                             <button type="button" class="btn btn-warning btn-sm center">
                                 <span class="fa fa-2x fa-fw umbs-o-up -square fa-google-plus-square"></span></button>
                             <button type="button" class="btn btn-warning btn-sm center">
-                                <span class="fa fa-2x fa-fw umbs-o-up -square -plus-square fa-twitter-square"></span></button>
+                                <span class="fa fa-2x fa-fw umbs-o-up -square -plus-square fa-twitter-square" data-filelk=""></span>
+                            </button>
                             <!--                        <button type="button" class="btn btn-default btn-sm center"><span style="font-size: 16px">Share</span>
                             <span class="fa fa-2x fa-fw umbs-o-up -square -plus-square -square -o fa-share-square-o"></span></button> -->
                             <button type="button" class="btn btn-warning btn-sm center" style="width:50px; height:38px">
