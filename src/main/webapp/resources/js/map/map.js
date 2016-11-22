@@ -264,11 +264,13 @@ $(function() {
 // 이전 다음 버튼
 	$(document).on("click",".prevPage",function(){
 		nowPage=nowPage-1;
+		$("#list-wrap").hide();
 		pilotPage();
 		$("#list-wrap").show('slide', {direction: 'left'}, 500);
 	});
 	$(document).on("click",".nextPage",function(){
 		nowPage=nowPage+1;
+		$("#list-wrap").hide();
 		pilotPage();
 		$("#list-wrap").show('slide', {direction: 'right'}, 500);
 	});
@@ -371,6 +373,4 @@ $(function() {
 		});
 	}
 	initMap();
-	
-	$("#navbar-ex-collapse > ul > li").eq(0).addClass('active');
 });

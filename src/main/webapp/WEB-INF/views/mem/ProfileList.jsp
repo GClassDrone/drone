@@ -20,12 +20,12 @@
 	   	height: auto;
 	   }
 	</style>
-<script src="/resources/js/profile/profilelist.js"></script>
 <jsp:include page="../common/include.jsp"></jsp:include>
-<jsp:include page="../common/header.jsp"></jsp:include>
+<script src="/resources/js/profile/profilelist.js"></script>
 </head>
 
 <body>
+	<jsp:include page="../common/header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
     </header>
 
