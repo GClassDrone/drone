@@ -161,4 +161,8 @@ $(function(){
 			$(".btn-group").eq(6).prev().prop("checked","checked");
 		}
 	}
+	
+	$("#navbar-ex-collapse > ul > li").eq(1).addClass('active');
+	$("#navbar-ex-collapse > ul > li").eq(2).addClass('active');
+
 });
