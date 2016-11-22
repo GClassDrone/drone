@@ -9,9 +9,7 @@
 <script type ="text/javascript">
  $(function(){
 	 var formObj = $("form[role='form']").eq(0);
-	
 	 console.log(formObj);
-	 
 	 $(".btn-warning").on("click", function(){
 		 formObj.attr("action", "/inform/infoModify");
 		 formObj.attr("method", "get");

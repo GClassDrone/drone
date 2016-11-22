@@ -76,17 +76,20 @@ public class InformController {
 	
 	@RequestMapping(value="/infoModify", method=RequestMethod.GET)
 	public void modifyGET(InformDto dto,Model model)throws Exception{
-		model.addAttribute(service.read(dto));
+		logger.info("d" + dto);
+		model.addAttribute("InformDto",service.read(dto));
+		
 	}
 	
 	@RequestMapping(value="/infoModify", method=RequestMethod.POST)
 	public String modifyPOST(InformDto dto,RedirectAttributes rttr)throws Exception{
 		logger.info("modify post");
-		
+		int ino = 0;
 		service.modify(dto);
+		ino = dto.getIno();
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		return "redirect:/inform/listNotice";
+		return "redirect:/inform/infoDetail?ino="+ino+"&igubun=s";
 	}
 	
 	//시장동향
@@ -116,7 +119,7 @@ public class InformController {
 		model.addAttribute("InformDto",service.read(dto));
 	}
 	
-	@RequestMapping(value="/infoRemove", method =RequestMethod.POST)
+	@RequestMapping(value="/infoRemove", method =RequestMethod.GET)
 	public String inforemove(InformDto dto)throws Exception{
 		
 		service.remove(dto);
@@ -124,6 +127,18 @@ public class InformController {
 		logger.info(dto.toString()+"remove" );
 		
 		return "redirect:/inform/info";
+	}
+	
+	@RequestMapping(value="/infoInsert", method=RequestMethod.GET)
+	public void infoInsertGET()throws Exception{
+		logger.info("insert");
+	}
+	@RequestMapping(value="/infoInsert", method=RequestMethod.POST)
+	public String infoInsertPOST(InformDto dto, RedirectAttributes rttr)throws Exception{
+		logger.info("insert post");
 		
+		service.regist(dto);
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/inform/info";
 	}
 }

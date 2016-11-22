@@ -33,26 +33,26 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		HttpSession session = request.getSession();
-		String siteid = request.getParameter("siteid") ;
-		String siteno = request.getParameter("siteno");
-		System.out.println("siteid : "+siteid);
-		System.out.println("siteno : "+siteno);
-			if(siteid != null && siteno  != null){
-				
-				MemDto dto=memservice.login(siteid,siteno);
-				System.out.println(memservice.login(siteid,siteno));
-				session.setAttribute("siteid", request.getParameter("siteid"));
-				session.setAttribute("siteno", request.getParameter("siteno"));
-				if (memservice.login(siteid,siteno) == null) {
-					response.sendRedirect("/registrieren");
-				}else{
-					System.out.println(dto.getMno());	
-					System.out.println(dto.getNiknm());
-					session.setAttribute("mno", dto.getMno());
-					session.setAttribute("niknm", dto.getNiknm());
-				}
-			}
+//		HttpSession session = request.getSession();
+//		String siteid = request.getParameter("siteid") ;
+//		String siteno = request.getParameter("siteno");
+//		System.out.println("siteid : "+siteid);
+//		System.out.println("siteno : "+siteno);
+//			if(siteid != null && siteno  != null){
+//				
+//				MemDto dto=memservice.login(siteid,siteno);
+//				System.out.println(memservice.login(siteid,siteno));
+//				session.setAttribute("siteid", request.getParameter("siteid"));
+//				session.setAttribute("siteno", request.getParameter("siteno"));
+//				if (memservice.login(siteid,siteno) == null) {
+//					response.sendRedirect("/registrieren");
+//				}else{
+//					System.out.println(dto.getMno());	
+//					System.out.println(dto.getNiknm());
+//					session.setAttribute("mno", dto.getMno());
+//					session.setAttribute("niknm", dto.getNiknm());
+//				}
+//			}
 		return true;
 	}
 }

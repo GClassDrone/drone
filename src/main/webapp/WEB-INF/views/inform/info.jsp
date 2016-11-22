@@ -13,6 +13,17 @@
     <link href="/resources/css/intro.css" rel="stylesheet" type="text/css">  -->
 <jsp:include page="../common/include.jsp"></jsp:include>
 <script src="/resources/js/inform/inform.js"></script>
+<script type="text/javascript">
+$(function(){
+	var formObj = $("form[role='form']").eq(0);
+	console.log(formObj);
+	$(".btn-danger").on("click", function(){
+		formObj.attr("action", "/inform/infoInsert");
+		formObj.attr("method", "get");
+		formObj.submit();
+	});
+});
+</script>
 <style type="text/css">
     .bgimage {
         background-image: url('/resources/images/infoboard_bg.jpg');
@@ -89,8 +100,7 @@
         </p>
         </c:if>
     </div>
-    <div class="container">
-            <div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="infolist"></div>
+    <div class="container" id="infolist">
         <!-- row -->
     </div>
         <div id="pageBtn-wrap">
