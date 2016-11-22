@@ -18,7 +18,7 @@ import com.gclass.drone.mem.service.MemService;
 @Service
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 	
-	private static final String LOGIN = "login";
+/*	private static final String LOGIN = "login";
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 	
 	@Autowired
@@ -54,5 +54,5 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				}
 			}
 		return true;
-	}
+	}*/
 }

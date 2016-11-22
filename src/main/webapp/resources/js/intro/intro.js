@@ -8,7 +8,16 @@ $(function(){
 			success: function(result){
 				var str = "";
 				$(result).each(function(){
-					str += "<div data-ctsno='"+this.ctsno+"' data-ctscateno='"+this.ctscateno+"' class='slide'><img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'></div>";
+					str += "<div data-ctsno='"+this.ctsno+"' data-ctscateno='"+this.ctscateno+"' class='slide col-md-3 col-sm-3 col-xs-12 '>";
+					str += "<a href='#'>";
+					str += "<img src='http://img.youtube.com/vi/"+this.filelk+"/0.jpg'>";
+					str += "<figcaption>";
+					str += "<h1>";
+					str += "<i class='fa fa-play-circle'> PLAY</i>";
+					str += "</h1>";
+					str += "</figcaption>";
+					str += "</a>"
+					str += "</div>";
 				});
 				$("#hotVideo").html(str);
 				sliderMake();
@@ -24,7 +33,7 @@ $(function(){
 	        slideMargin: 10
 	    });
 	}
-	$(document).on("click","div[class='slide']",function(){
+	$(document).on("click",".slide",function(){
 		var data = {ctscateno:$(this).data("ctscateno"),ctsno:$(this).data("ctsno"),mno:$("#session").data("mno")};
 		ctsDetailAjax(data);
 	});

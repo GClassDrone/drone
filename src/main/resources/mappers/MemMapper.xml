@@ -47,28 +47,28 @@
 	
 	<!-- 프로필 리스트 불러오기 -->
 	
-<!-- 	<select id="listAll" resultType="MemDto">
+	<select id="listAll" resultType="MemDto">
 		select *
 		  from (
 				select rownum as rnum, a.* 
 				  from (
 						select /*+ index_desc(mem mem_mno_pk) */ *
-						  from mem
+						  from vw_mem
 					   ) a 
 		<![CDATA[
 				 where rownum <= #{endRowNum}
 			   ) b
 		 where rnum >= #{startRowNum}
 		]]>
-	</select> -->
+	</select>
 	
-	<select id="listAll" resultType="MemDto">
+<!-- 	<select id="listAll" resultType="MemDto">
 		select *
 		  from vw_mem
 		 where mno>0
 		 order by mno desc
 	</select>
-	
+	 -->
 	<!-- 프로필 디테일부분에서 자기가 올린 컨텐츠를 불러오는 쿼리 -->
 	
 	<select id="conlist" resultType="CateDto">
@@ -198,4 +198,5 @@
        WHERE f.mno = #{mno}
          and f.fgubun = 'f'
 	</select> 
+
 </mapper>

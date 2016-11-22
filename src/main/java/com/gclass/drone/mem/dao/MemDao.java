@@ -5,6 +5,7 @@ import java.util.List;
 import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.mem.dto.MemDto;
 import com.gclass.drone.mem.dto.MnoCatePageDto;
+import com.gclass.drone.mem.dto.MnoPageDto;
 
 public interface MemDao {
 	
@@ -33,4 +34,6 @@ public interface MemDao {
 	
 	public List<CateDto> conlist(MnoCatePageDto cpDto) throws Exception;
 	
+	public List<MemDto> memlist(MnoPageDto cpDto) throws Exception;
+
 }
