@@ -79,8 +79,9 @@ $(function(){
 			},
 			type: "post",
 			dataType: "text",
-			success: function(){
+			success: function(result){
 				$("#cateList").html(cateMakeList(nowPage));
+				alert(result);
 			}
 		});
 	});

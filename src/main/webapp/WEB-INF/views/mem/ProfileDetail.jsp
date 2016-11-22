@@ -15,7 +15,6 @@
 <!-- <script type="text/javascript" src="/resources/js/profile/falist.js"></script> -->
 <script>
 $(document).ready(function() {
-	
 	var mno = "${memDto.mno}";
 	var ctscateno = "${cts.ctscateno}";
 	var ctsno = "${cts.ctsno}";
@@ -31,6 +30,10 @@ $(document).ready(function() {
         }
     ); 
 
+    
+    if ($("#msg").val() != null) {
+    	alert($("#msg").val());
+    }
     /* 콘텐츠 불러오는 부분 */
     
 	var formObj = $("form[role='form']").eq(0);
@@ -107,6 +110,7 @@ var fdelete = function(fno){
 <form role="form" method="post">
 	<input type='hidden' name='mno' id="mymno" value="${memDto.mno}">
 	<input type='hidden' name='mno' id="himno" value="${mno}">
+	<input type='hidden' id="msg" value="${msg}">
 </form>
 
 <div class="container">
