@@ -5,6 +5,7 @@
 <head>
 <jsp:include page="common/include.jsp"></jsp:include>
 <script type="text/javascript" src="/resources/js/intro/intro.js"></script>
+<link href="/resources/css/common/intro2.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <jsp:include page="common/header.jsp"></jsp:include>
