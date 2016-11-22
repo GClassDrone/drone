@@ -74,9 +74,9 @@ public class MapController {
 		logger.info("ctsDelete Delete");
 		try{
 			service.ctsDelete(cDto);
-			entity = new ResponseEntity<String>("컨텐츠가 삭제되었습니다.",HttpStatus.OK);
+			entity = new ResponseEntity<String>("y",HttpStatus.OK);
 		}catch(Exception e){
-			entity = new ResponseEntity<String>("컨텐츠 삭제를 실패하였습니다.",HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<String>("n",HttpStatus.BAD_REQUEST);
 		}
 		return entity;
 	}

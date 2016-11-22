@@ -80,7 +80,11 @@ $(function(){
 			type: "post",
 			dataType: "text",
 			success: function(result){
-				alert(result);
+				if(result == 'y') {
+					alert('삭제되었습니다');
+				} else if(result == 'n') {
+					alert('삭제 실패하였습니다');
+				}
 				$("#cateList").html(cateMakeList(nowPage));
 			}
 		});
