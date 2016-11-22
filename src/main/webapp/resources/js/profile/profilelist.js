@@ -104,4 +104,6 @@ $(function() {
 			});
 		});
 	}
+	
+	$("#navbar-ex-collapse > ul > li").eq(5).addClass('active');
 });

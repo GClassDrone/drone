@@ -371,4 +371,6 @@ $(function() {
 		});
 	}
 	initMap();
+	
+	$("#navbar-ex-collapse > ul > li").eq(0).addClass('active');
 });
