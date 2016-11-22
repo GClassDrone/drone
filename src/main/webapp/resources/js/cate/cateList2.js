@@ -45,7 +45,6 @@ $(function(){
 						str += "<p>"+this.ctt+"</p>";
 					}
 					if ($("#himno").val() == $("#mymno").val()) {
-<<<<<<< HEAD
 						str += "<form method='get'>";
 						str += "<input type='hidden' name='mno' value='"+$("#session").data("mno")+"'>";
 						str += "<input type='hidden' name='ctscateno' value='"+this.ctscateno+"'>";
@@ -54,16 +53,6 @@ $(function(){
 						str += "<input type='button' class='btn btn-primary delete-btn' value='삭제'>";
 						str += "</form>";
 					}
-=======
-					str += "<form method='get'>";
-					str += "<input type='hidden' name='mno' value='"+$("#session").data("mno")+"'>";
-					str += "<input type='hidden' name='ctscateno' value='"+this.ctscateno+"'>";
-					str += "<input type='hidden' name='ctsno' value='"+this.ctsno+"'>";
-					str += "<input type='button' class='btn btn-danger update-btn' value='수정'>";
-					str += "<input type='button' class='btn btn-primary delete-btn' value='삭제'>";
-					str += "</form>";
-						}
->>>>>>> 1168d12a95d1a576cff8a2f967dd12ce77568374
 					str += "</div>";
 					if(i%4 == 3 || i == result.length){
 						str += "</div>";
