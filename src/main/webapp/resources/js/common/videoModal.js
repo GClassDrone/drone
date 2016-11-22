@@ -59,7 +59,7 @@ function ctsDetailAjax(data){
 					}
 				});
 			}
-			
+			$(".fa-twitter-square").data("filelk",cDto.filelk);
 			/* 댓글 리스트 */
 			datList(cdList);
 			
@@ -110,25 +110,34 @@ $(function(){
 		if(idx===1){
 			if(span.hasClass("fa-thumbs-up")){
 				url="/map/favDelete";
-				check = "y"
+				check = "y";
 			}
 			fav_joa_btn(url, "j", span, check);
 		}else if(idx===2){
 			if(span.hasClass("fa-heart")){
 				url="/map/favDelete";
-				check = "y"
+				check = "y";
 			}
 			fav_joa_btn(url, "f", span, check);
 		}else if(idx===3){
-			
+		    FB.init({
+		      appId      : '1957240491209977',
+		      xfbml      : true,
+		      version    : 'v2.8'
+		    });
+		    FB.ui(
+		    		 {
+		    		  method: 'share',
+		    		  href: $("#modal-iframe").find("iframe").attr("src")
+		    		}, function(response){});
 		}else if(idx===4){
-			
+			window.open("https://plus.google.com/share?url=https://youtu.be/"+$(".fa-twitter-square").data("filelk"), "_blank","height=580, width=550");
 		}else if(idx===5){
-			
+			window.open("http:\/\/twitter.com\/intent\/tweet?url=https://youtu.be/"+$(".fa-twitter-square").data("filelk"), "_blank","height=580, width=550");
 		}else if(idx===6){
-			
+			window.open("https://story.kakao.com/share?url=https://youtu.be/"+$(".fa-twitter-square").data("filelk"), "_blank","height=580, width=550");
 		}else if(idx===7){
-			
+			window.open("http://www.band.us/plugin/share?body='"+encodeURIComponent($("#modal-iframe").find("iframe").attr("src")), "_blank", "height=580, width=550");
 		}
 	});
 	/* 좋아요 즐겨찾기 버튼 이벤트 함수 */
@@ -193,6 +202,7 @@ $(function(){
 			success: function(result){
 				datList(result.list);
 				$(".fa-comment-o").next().text(" "+result.cnt+" ");
+				$("#ctsdatctt").val("");
 			}
 		});
 	});
@@ -261,4 +271,13 @@ $(function(){
 			$(this).parent("h2").parent().append("<p>"+updateCtt+"</p>");
 		}
 	});
+//	$('#ctsdatctt').keydown(function(){
+//        var rows = $('#ctsdatctt').val().split('\n').length;
+//        var maxRows = 3;
+//        if( rows > maxRows){
+//            alert('3줄 까지만 가능합니다');
+//            modifiedText = $('#ctsdatctt').val().split("\n").slice(0, maxRows);
+//            $('#ctsdatctt').val(modifiedText.join("\n"));
+//        }
+//    });
 });

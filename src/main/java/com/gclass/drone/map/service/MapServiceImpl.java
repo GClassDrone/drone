@@ -75,10 +75,10 @@ public class MapServiceImpl implements MapService {
 
 	@Transactional
 	@Override
-	public void ctsInsert(CtsDto cDto,String ctstagnm) throws Exception {
+	public void ctsInsert(CtsDto cDto) throws Exception {
 		CtstagDto ctDto = new CtstagDto();
 		Pattern p = Pattern.compile("\\#([0-9a-zA-Z가-힁]*)");
-		Matcher m = p.matcher(ctstagnm);
+		Matcher m = p.matcher(cDto.getTagnm());
 		String tag = null;
 		
 		ctDto.setCtscateno(cDto.getCtscateno());
@@ -87,7 +87,6 @@ public class MapServiceImpl implements MapService {
 		mapctsno.put("ctscateno", cDto.getCtscateno());
 		mapctsno.put("mno", cDto.getMno());
 		ctDto.setCtsno(mDao.ctsInsert(cDto));
-		
 		while(m.find()){
 			tag = m.group();
 			tag = StringUtils.replace(tag,"-_+=!@#$%^&*()[]{}|\\;:'\"<>,.?/~`） ","");
@@ -105,13 +104,34 @@ public class MapServiceImpl implements MapService {
 	}
 	
 	@Override
-	public CtsDto ctsSelectOne(CtsDto cDto) throws Exception {
-		return mDao.ctsSelectOne(cDto);
+	public CtsDto ctstagSelectOne(CtsDto cDto) throws Exception {
+		return mDao.ctstagSelectOne(cDto);
 	}
 
 	@Override
 	public void ctsUpdate(CtsDto cDto) throws Exception {
+		CtstagDto ctDto = new CtstagDto();
+		Pattern p = Pattern.compile("\\#([0-9a-zA-Z가-힁]*)");
+		Matcher m = p.matcher(cDto.getTagnm());
+		String tag = null;
+		
+		ctDto.setCtscateno(cDto.getCtscateno());
+		
+		Map<String, Object> mapctsno = new HashMap<String, Object>();
+		mapctsno.put("ctscateno", cDto.getCtscateno());
+		mapctsno.put("mno", cDto.getMno());
 		mDao.ctsUpdate(cDto);
+		ctDto.setCtsno(cDto.getCtsno());
+		mDao.ctstagDelete(ctDto);
+		while(m.find()){
+			tag = m.group();
+			tag = StringUtils.replace(tag,"-_+=!@#$%^&*()[]{}|\\;:'\"<>,.?/~`） ","");
+			logger.info(tag);
+			if(tag.length() > 1){
+				ctDto.setTagnm(tag);
+				mDao.ctstagInsert(ctDto);
+			}
+		}
 	}
 
 	@Override
@@ -123,11 +143,11 @@ public class MapServiceImpl implements MapService {
 	public Map<String, Object> favInsert(FavDto fDto) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		if(mDao.favSelectList(fDto).size() == 0 && fDto.getCheck().equals("n")){
-			mDao.favInsert(fDto, ".favInsert");
+			mDao.favInsert(fDto);
 			returnMap.put("msg", returnStr(fDto.getFgubun(),"Insert"));
 			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
 		}else if(mDao.favSelectList(fDto).size() > 0 && fDto.getCheck().equals("n")){
-			mDao.favInsert(fDto, ".favUpdate");
+			mDao.favUpdate(fDto);
 			returnMap.put("msg", returnStr(fDto.getFgubun(),"Insert"));
 			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
 		}else{
@@ -138,17 +158,12 @@ public class MapServiceImpl implements MapService {
 	}
 
 	@Override
-	public Map<String, Object> favDelete(FavDto fDto) throws Exception {
+	public Map<String, Object> favUpdate(FavDto fDto) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		logger.info("Delete : "+mDao.favSelectList(fDto).size());
-		if(mDao.favSelectList(fDto).size() > 0 && fDto.getCheck().equals("y") && fDto.getFgubun().equals("f")){
-			logger.info("favDelete");
-			mDao.favDelete(fDto,".favDelete");
-			returnMap.put("msg", returnStr(fDto.getFgubun(),"Delete"));
-			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
-		}else if(mDao.favSelectList(fDto).size() > 0 && fDto.getCheck().equals("y") && fDto.getFgubun().equals("j")){
-			logger.info("joaDelete");
-			mDao.favDelete(fDto,".joaDelete");
+		if(mDao.favSelectList(fDto).size() > 0 && fDto.getCheck().equals("y")){
+			logger.info("Delete(Update) : "+fDto.toString());
+			mDao.favUpdate(fDto);
 			returnMap.put("msg", returnStr(fDto.getFgubun(),"Delete"));
 			returnMap.put("cnt", mDao.ctsCntSelectOne(fDto));
 		}else{
@@ -160,9 +175,9 @@ public class MapServiceImpl implements MapService {
 	
 	private String returnStr(String fgubun, String query){
 		String str="";
-		if(fgubun.equals("f") || fgubun=="f"){  
+		if(fgubun.equals("f")){  
 			str = "fav"+query;
-		}else{
+		}else if(fgubun.equals("j")){
 			str = "joa"+query;
 		}
 		return str;

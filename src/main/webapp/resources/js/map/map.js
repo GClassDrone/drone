@@ -112,6 +112,7 @@ $(function() {
 			});
 			$("#list-wrap").html(str);
 			makeSlider();
+			$('html, body').animate({scrollTop: $('html').height()}, 1000);
 		});
 // 마커 모달오픈 이벤트 등록
 		for(var i=0;i<markers.length;i++){
@@ -183,6 +184,7 @@ $(function() {
 			startNum=0;
 			endNum=0;
 			pilotPage();
+			$('html, body').animate({scrollTop: $('html').height()}, 1000);
 		});
 /* 마커 파일럿 디테일 페이지 링크 이벤트 등록 */
 		for(var i=0;i<markers.length;i++){
@@ -205,10 +207,13 @@ $(function() {
 				endNum=nowPage*pilotPageRow-data.length%pilotPageRow-1;
 			}
 		}
-		str += "<div class='container'>";
-		if(nowPage>1){
-			str+="<div><input type='button' class='prevPage' value='prev'></div>";
+		str += "<div class='container' id='innerDiv'>";
+		str += "<div class='prev_btn'><input type='button' class='prevPage' value='prev'";
+		if(nowPage==1){
+			str += " disabled='disabled'";
 		}
+		str += "></div>";
+		str += "<div id='row-wrap'>";
 		for(var i=startNum;i<=endNum;i++){
 			if(i%3 == 0){
 				str+="<div class='row'>";
@@ -231,12 +236,15 @@ $(function() {
 			str += "</div>";
 			str += "</div>";
 			if(i%3 == 2 || i == data.length){
-				str+="</div>";
+				str += "</div>";
 			}
 		}
-		if(nowPage<Math.ceil(data.length/pilotPageRow)){
-			str += "<div><input type='button' class='nextPage' value='next'></div>";
+		str += "</div>";
+		str += "<div class='next_btn'><input type='button' class='nextPage' value='next'";
+		if(nowPage==Math.ceil(data.length/pilotPageRow)){
+			str += " disabled='disabled'";
 		}
+		str += "></div>";
 		str += "</div>";
 		$("#list-wrap").empty();
 		$("#list-wrap").css("position","relative");
@@ -247,13 +255,16 @@ $(function() {
 // 이전 다음 버튼
 	$(document).on("click",".prevPage",function(){
 		nowPage=nowPage-1;
+		$("#list-wrap").hide();
 		pilotPage();
+		$("#list-wrap").show('slide', {direction: 'left'}, 500);
 	});
 	$(document).on("click",".nextPage",function(){
 		nowPage=nowPage+1;
+		$("#list-wrap").hide();
 		pilotPage();
+		$("#list-wrap").show('slide', {direction: 'right'}, 500);
 	});
-	
 // 마커 정보 저장용 배열
 	var locations = new Array;
 	var filelks = new Array;

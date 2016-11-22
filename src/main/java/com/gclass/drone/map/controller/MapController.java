@@ -42,17 +42,18 @@ public class MapController {
 	}
 	
 	@RequestMapping(value="/ctsInsert", method=RequestMethod.POST)
-	public String ctsInsert(CtsDto cDto,@RequestParam("tagnm") String tagnm) throws Exception{
+	public String ctsInsert(CtsDto cDto) throws Exception{
 		logger.info("ctsInsert POST");
 		logger.info(cDto.toString());
-		service.ctsInsert(cDto, tagnm);
+		service.ctsInsert(cDto);
 		
 		return "redirect:/mem/ProfileDetail?mno="+cDto.getMno();
 	}
 	
 	@RequestMapping(value="/ctsUpdate", method=RequestMethod.GET)
 	public void ctsUpdate(CtsDto cDto, Model model) throws Exception{
-		model.addAttribute("cDto", service.ctsSelectOne(cDto));
+		model.addAttribute("cDto", service.ctstagSelectOne(cDto));
+		logger.info(service.ctstagSelectOne(cDto).toString());
 		model.addAttribute("ctscateList", service.ctscateSelectAll());
 	}
 	
@@ -157,7 +158,7 @@ public class MapController {
 		logger.info("Delete : " + fDto.toString());
 		ResponseEntity<Map<String, Object>> entity = null;
 		try{
-			entity = new ResponseEntity<Map<String, Object>>(service.favDelete(fDto),HttpStatus.OK);
+			entity = new ResponseEntity<Map<String, Object>>(service.favUpdate(fDto),HttpStatus.OK);
 		}catch(Exception e){
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

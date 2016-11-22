@@ -1040,7 +1040,6 @@ ClusterIcon.prototype.triggerClusterClick = function(event) {
 				event);
 		return;
 	}else if (this.map_.getZoom() < 14 || this.cluster_.getSize() > 4) {
-
 	// Trigger the clusterclick event.
 		if (markerClusterer.isZoomOnClick()) {
 			// Zoom into the cluster.

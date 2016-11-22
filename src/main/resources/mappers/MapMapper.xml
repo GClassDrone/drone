@@ -27,6 +27,23 @@
 		   and c.delyn='n'
 	</select>
 	
+	<select id="ctstagSelectOne" resultType="CtsDto">
+		SELECT c.*, t.tagnm, length(c.ctt) as cttleng
+		  FROM cts c
+		  LEFT OUTER JOIN
+				(
+				SELECT ctscateno
+					 , ctsno
+					 , LISTAGG(CAST(tagnm AS VARCHAR2(40)), ',') WITHIN GROUP (ORDER BY tagnm) tagnm
+				  FROM ctstag
+				 WHERE ctscateno=#{ctscateno}
+				   AND ctsno=#{ctsno}
+				 group by ctscateno, ctsno
+				) t
+		    ON c.ctscateno = t.ctscateno AND c.ctsno = t.ctsno
+		 WHERE c.ctscateno=#{ctscateno} AND c.ctsno=#{ctsno}
+	</select>
+	
 	<select id="memSelectAll" resultType="MemViewDto">
 		select *
 		  from vw_mem
@@ -119,6 +136,12 @@
 						  , #{tagnm}
 						  )
 	</insert>
+	<delete id="ctstagDelete">
+		delete
+		  from ctstag
+		 where ctscateno=#{ctscateno}
+		   and ctsno=#{ctsno}
+	</delete>
 	<update id="ctsUpdate">
 		update cts
 		   set ttl = #{ttl}
@@ -128,8 +151,8 @@
 		     , lat = #{lat}
 		     , lng = #{lng}
 		 where mno = #{mno}
-		 	 , ctscateno = #{ctscateno}
-		 	 , ctsno = #{ctsno}
+		   and ctscateno = #{ctscateno}
+		   and ctsno = #{ctsno}
 	</update>
 	<update id="ctsDelete">
 		update cts
@@ -162,11 +185,17 @@
 		 where mno=#{mno}
 		   and ctsno=#{ctsno}
 		   and ctscateno=#{ctscateno}
-		<if test="fgubun == 'f'.toString()">
-		   and fgubun='f'
+		<if test="fgubun == 'f'.toString() and check == 'n'.toString() ">
+		   and fgubun ='d'
 		</if>
-		<if test="fgubun == 'j'.toString()">
-		   and fgubun in ('j','n')
+		<if test="fgubun == 'f'.toString() and check == 'y'.toString() ">
+		   and fgubun ='f'
+		</if>
+		<if test="fgubun == 'j'.toString() and check == 'n'.toString() ">
+		   and fgubun='n'
+		</if>
+		<if test="fgubun == 'j'.toString() and check == 'y'.toString() ">
+		   and fgubun='j'
 		</if>
 	</select>
 	
@@ -189,19 +218,19 @@
 	
 	<update id="favUpdate">
 		update favorit
-		<if test="fgubun == 'n'.toString()">
+		<if test="fgubun == 'j'.toString() and check=='n'.toString()">
 		   set fgubun='j'
 		 where fgubun='n'
 		</if>
-		<if test="fgubun == 'j'.toString()">
+		<if test="fgubun == 'j'.toString() and check=='y'.toString()">
 		   set fgubun='n'
 		 where fgubun='j'
 		</if>
-		<if test="fgubun == 'd'.toString()">
+		<if test="fgubun == 'f'.toString() and check=='n'.toString()">
 		   set fgubun='f'
 		 where fgubun='d'
 		</if>
-		<if test="fgubun == 'f'.toString()">
+		<if test="fgubun == 'f'.toString() and check=='y'.toString()">
 		   set fgubun='d'
 		 where fgubun='f'
 		</if>
@@ -214,7 +243,9 @@
 		select cd.ctsdatno
 			 , cd.ctsno
 			 , cd.mno
-			 , cd.ctt
+			 <![CDATA[
+			 , replace(cd.ctt,chr(10),'<br />') as ctt
+			 ]]>
 			 , cd.regdt
 			 , out_regdt(cd.regdt) as regtime
 			 , m.niknm

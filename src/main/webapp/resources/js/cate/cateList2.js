@@ -45,19 +45,14 @@ $(function(){
 						str += "<p>"+this.ctt+"</p>";
 					}
 					if ($("#himno").val() == $("#mymno").val()) {
-<<<<<<< HEAD
-					str += "<form method='get'>";
-					str += "<input type='hidden' name='mno' value='"+$("#session").data("mno")+"'>";
-					str += "<input type='hidden' name='ctscateno' value='"+this.ctscateno+"'>";
-					str += "<input type='hidden' name='ctsno' value='"+this.ctsno+"'>";
-					str += "<input type='button' class='btn btn-danger update-btn' value='수정'>";
-					str += "<input type='button' class='btn btn-primary delete-btn' value='삭제'>";
-					str += "</form>";
-=======
-					str += "<button type='submit' class='btn btn-danger' id='maprmv'>수정</button>";
-					str += "<button type='submit' class='btn btn-primary' id='madel'>삭제</button>";
->>>>>>> 0f89b1b19bf2f9e5f6b0636da271dda62ac2a970
-						}
+						str += "<form method='get'>";
+						str += "<input type='hidden' name='mno' value='"+$("#session").data("mno")+"'>";
+						str += "<input type='hidden' name='ctscateno' value='"+this.ctscateno+"'>";
+						str += "<input type='hidden' name='ctsno' value='"+this.ctsno+"'>";
+						str += "<input type='button' class='btn btn-danger update-btn' value='수정'>";
+						str += "<input type='button' class='btn btn-primary delete-btn' value='삭제'>";
+						str += "</form>";
+					}
 					str += "</div>";
 					if(i%4 == 3 || i == result.length){
 						str += "</div>";

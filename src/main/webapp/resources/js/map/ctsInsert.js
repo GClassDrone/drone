@@ -115,4 +115,25 @@ $(function(){
 	$("#ctt").keyup(function(){
 		$("#wordCount").text("("+$(this).val().length+"/200)");
 	});
+	$("input[value='Back']").on("click",function(e){
+		e.preventDefault();
+		$(location).attr("href","/mem/ProfileDetail?mno="+$("#session").data("mno"));
+	});
+	var reset_ttl = $("#ttl").val();
+	var reset_ctt = $("#ctt").val();
+	var reset_pt = $("#pt").val();
+	var reset_lat = $("#lat").val();
+	var reset_lng = $("#lng").val();
+	var reset_filelk = $("#filelkValid").val();
+	var reset_tagnm = $("#tagnm").val();
+	$("input[value='Reset']").on("click",function(e){
+		e.preventDefault();
+		$("#ttl").val(reset_ttl);
+		$("#ctt").val(reset_ctt);
+		$("#pt").val(reset_pt);
+		$("#lat").val(reset_lat);
+		$("#lng").val(reset_lng);
+		$("#filelkValid").val(reset_filelk);
+		$("#tagnm").val(reset_tagnm);
+	});
 });
