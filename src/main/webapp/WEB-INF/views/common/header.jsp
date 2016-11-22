@@ -5,6 +5,7 @@
 .navbar-nav li:hover {
     background-color: #111;
 }
+
 </style>
 
 <script type="text/javascript">
@@ -20,13 +21,6 @@ $(function(){
 		}
 		});
 	});
-});
-
-$(function() {
-$('li').on('click', function() {
-	$('li').removeClass('active');
-	$(this).addClass('active');
-});
 });
 
 </script>

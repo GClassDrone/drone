@@ -94,5 +94,4 @@ $(function(){
 		$("#cateList").append(cateMakeList(nowPage));
 	});
 	$("#cateList").html(cateMakeList(nowPage));
-	
 });
