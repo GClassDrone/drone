@@ -77,10 +77,20 @@ public class MapDaoImpl implements MapDao {
 	public void ctstagInsert(CtstagDto ctDto) throws Exception {
 		session.insert(namespace+".ctstagInsert",ctDto);
 	}
+	
+	@Override
+	public void ctstagDelete(CtstagDto ctDto) throws Exception {
+		session.delete(namespace+".ctstagDelete", ctDto);
+	}
 
 	@Override
 	public List<CtscateDto> ctscateSelectAll() throws Exception {
 		return session.selectList(namespace+".ctscateSelectAll");
+	}
+	
+	@Override
+	public CtsDto ctstagSelectOne(CtsDto cDto) throws Exception {
+		return session.selectOne(namespace+".ctstagSelectOne", cDto);
 	}
 
 	@Override
@@ -94,8 +104,8 @@ public class MapDaoImpl implements MapDao {
 	}
 
 	@Override
-	public void favInsert(FavDto fDto, String id) throws Exception {
-		session.insert(namespace+id, fDto);
+	public void favInsert(FavDto fDto) throws Exception {
+		session.insert(namespace+".favInsert", fDto);
 	}
 
 	@Override
@@ -109,8 +119,8 @@ public class MapDaoImpl implements MapDao {
 	}
 
 	@Override
-	public void favDelete(FavDto fDto, String id) throws Exception {
-		session.update(namespace+id, fDto);
+	public void favUpdate(FavDto fDto) throws Exception {
+		session.update(namespace+".favUpdate", fDto);
 	}
 
 	@Override

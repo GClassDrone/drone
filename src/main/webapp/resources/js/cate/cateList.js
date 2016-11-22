@@ -2,6 +2,7 @@ $(function(){
 	var nowPage=1;
 	var lastPage;
 	var cateArray = new Array;
+	var h=$('html').height();
 	function cateMakeList(nowPage){
 		var pagePerRow = 8;
 		var data = {nowPage:nowPage, pagePerRow: pagePerRow, cateArray:cateArray};
@@ -131,6 +132,8 @@ $(function(){
 	$("#pageBtn-wrap span").on("click", function(){
 		nowPage = nowPage + 1;
 		$("#cateList").append(cateMakeList(nowPage));
+		h+= 800;
+		$('html, body').animate({scrollTop: h}, 1000);
 	});
 	if($("#cateno").val()==""){
 		$("#cateList").html(cateMakeList(nowPage));
@@ -158,4 +161,8 @@ $(function(){
 			$(".btn-group").eq(6).prev().prop("checked","checked");
 		}
 	}
+	
+	$("#navbar-ex-collapse > ul > li").eq(1).addClass('active');
+	$("#navbar-ex-collapse > ul > li").eq(2).addClass('active');
+
 });

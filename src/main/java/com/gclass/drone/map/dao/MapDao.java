@@ -25,12 +25,14 @@ public interface MapDao {
 	
 	public int ctsInsert(CtsDto cDto) throws Exception;
 	public void ctstagInsert(CtstagDto ctDto) throws Exception;
+	public void ctstagDelete(CtstagDto ctDto) throws Exception;
 	public List<CtscateDto> ctscateSelectAll() throws Exception;
+	public CtsDto ctstagSelectOne(CtsDto cDto) throws Exception;
 	public void ctsUpdate(CtsDto cDto) throws Exception;
 	public void ctsDelete(CtsDto cDto) throws Exception;
 	
-	public void favInsert(FavDto fDto, String id) throws Exception;
-	public void favDelete(FavDto fDto, String id) throws Exception;
+	public void favInsert(FavDto fDto) throws Exception;
+	public void favUpdate(FavDto fDto) throws Exception;
 	public List<FavDto> favCheck(CtsDto cDto) throws Exception;
 	public List<FavDto> favCheck(FavDto fDto) throws Exception;
 	public List<FavDto> favSelectList(FavDto fDto) throws Exception;

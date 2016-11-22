@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style type="text/css">
-li a:hover {
+.navbar-nav li:hover {
     background-color: #111;
 }
 </style>
@@ -24,7 +24,7 @@ $(function(){
 
 $(function() {
 $('li').on('click', function() {
-//	$('li').removeClass('active');
+	$('li').removeClass('active');
 	$(this).addClass('active');
 });
 });
