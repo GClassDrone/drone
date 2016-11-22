@@ -15,7 +15,7 @@ $(function(){
 			},
 			type: "POST",
 			data: JSON.stringify(data),
-			datatype: "json",
+			dataType: "json",
 			async: false,
 			success: function(result){
 				$(result).each(function(i){
@@ -80,8 +80,8 @@ $(function(){
 			type: "post",
 			dataType: "text",
 			success: function(result){
-				$("#cateList").html(cateMakeList(nowPage));
 				alert(result);
+				$("#cateList").html(cateMakeList(nowPage));
 			}
 		});
 	});

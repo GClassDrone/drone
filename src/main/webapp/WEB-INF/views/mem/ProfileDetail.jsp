@@ -31,7 +31,7 @@ $(document).ready(function() {
     ); 
 
     
-    if ($("#msg").val() != null) {
+    if ($("#msg").val() != '') {
     	alert($("#msg").val());
     }
     /* 콘텐츠 불러오는 부분 */
