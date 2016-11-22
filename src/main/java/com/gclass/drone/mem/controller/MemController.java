@@ -30,6 +30,7 @@ import com.gclass.drone.loc.service.LocService;
 import com.gclass.drone.login.dto.LoginDto;
 import com.gclass.drone.mem.dto.MemDto;
 import com.gclass.drone.mem.dto.MnoCatePageDto;
+import com.gclass.drone.mem.dto.MnoPageDto;
 import com.gclass.drone.mem.dto.faCatePageDto;
 import com.gclass.drone.mem.service.MemService;
 
@@ -77,11 +78,31 @@ public class MemController {
 		}
 		return entity;
 	}
+	
+//	@RequestMapping(value="/ProfileList", method = RequestMethod.GET)
+//	public void listAll(Model model) throws Exception {
+//		
+//		model.addAttribute("listAll", service.listAll());
+//	}
+	
 	@RequestMapping(value="/ProfileList", method = RequestMethod.GET)
-	public void listAll(Model model) throws Exception {
+	public void listtAll(){
 		
-		model.addAttribute("listAll", service.listAll());
 	}
+	
+	@RequestMapping(value="/ProfileList", method=RequestMethod.POST)
+	public ResponseEntity<List<MemDto>> MemList(@RequestBody MnoPageDto cpDto){
+		ResponseEntity<List<MemDto>> entity = null;
+		try{
+			cpDto.setStartEnd();
+			logger.info(cpDto.toString());
+			entity = new ResponseEntity<List<MemDto>>(service.memlist(cpDto), HttpStatus.OK);
+		}catch(Exception e){
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
 	
 	@RequestMapping(value="/Profilemodify", method = RequestMethod.GET)
 	public void modifyGET(int mno, Model model) throws Exception {

@@ -5,6 +5,7 @@ import java.util.List;
 import com.gclass.drone.category.dto.CateDto;
 import com.gclass.drone.mem.dto.MemDto;
 import com.gclass.drone.mem.dto.MnoCatePageDto;
+import com.gclass.drone.mem.dto.MnoPageDto;
 
 public interface MemService {
 	
@@ -26,4 +27,6 @@ public interface MemService {
 	//프로필에서 콘텐츠 불러오는 부분
 	public List<CateDto> conlist(MnoCatePageDto cpDto) throws Exception;
 	
+	//프로필에서 멤버 리스트 페이징하기
+	public List<MemDto> memlist(MnoPageDto cpDto) throws Exception;
 }
