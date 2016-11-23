@@ -120,16 +120,7 @@ $(function(){
 			}
 			fav_joa_btn(url, "f", span, check);
 		}else if(idx===3){
-		    FB.init({
-		      appId      : '1957240491209977',
-		      xfbml      : true,
-		      version    : 'v2.8'
-		    });
-		    FB.ui(
-		    		 {
-		    		  method: 'share',
-		    		  href: $("#modal-iframe").find("iframe").attr("src")
-		    		}, function(response){});
+			window.open("http://www.facebook.com/sharer/sharer.php?u=https://youtu.be/" + $(".fa-twitter-square").data("filelk"), "_blank","height=580, width=550");
 		}else if(idx===4){
 			window.open("https://plus.google.com/share?url=https://youtu.be/"+$(".fa-twitter-square").data("filelk"), "_blank","height=580, width=550");
 		}else if(idx===5){

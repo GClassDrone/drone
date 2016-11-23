@@ -28,6 +28,8 @@ $(function(){
     <jsp:include page="../common/header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
     </header>
+<<<<<<< HEAD
+=======
 <!-- <div class="wrapper" style="display:inline-block;float:left;margin-left:100px;">
   <section>
     <h1>Los Angeles, CA <a href="#" class="add">+</a></h1>
@@ -55,6 +57,7 @@ $(function(){
   </section>
 </div> -->
 
+>>>>>>> f1d59b46390dfe133ed27b837108c015b0aa7982
     <div class="container">
         <div class="row">
             <br />
@@ -79,6 +82,9 @@ $(function(){
         </p>
         </c:if> 
     </div>
+<<<<<<< HEAD
+    <div class="container" id="infolist">
+=======
     
     <div class="container-fluid">
         <div class="col-xs-12 col-md-9" id="infolist"></div>
@@ -133,6 +139,7 @@ $(function(){
                                     <span>25 km/h</span>
                                 </div>
                             </div>
+>>>>>>> f1d59b46390dfe133ed27b837108c015b0aa7982
 
                             <div class="icon">
                                 <svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
