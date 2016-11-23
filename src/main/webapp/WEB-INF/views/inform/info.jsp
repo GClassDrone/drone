@@ -270,8 +270,27 @@ $(function(){
                 </div>
             </div>
         </div>
-
-        
+		
+			<section>
+				<blockquote class="quote-box">
+			      <p class="quotation-mark">
+			        “
+			      </p>
+			      <p class="quote-text">
+			     	오늘은 비행하기 최적의 날씨 입니다. 안전한 드론 라이프^^ ❤  
+			      </p>
+			      <hr>
+			      <div class="blog-post-actions">
+			        <p class="blog-post-bottom pull-left">
+			        KP지수 &nbsp;  
+			        </p>
+			        <p class="blog-post-bottom">
+			          <span class="badge quote-badge">896</span>  
+			        </p>
+			      </div>
+		        </blockquote>
+	        </section>
+	        
         </div>
     </div>
     
