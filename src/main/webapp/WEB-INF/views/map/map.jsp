@@ -14,7 +14,7 @@
 <body>
 <jsp:include page="../common/header.jsp"></jsp:include>
  <br />
- <input type="button" id="magnet" value="지자기정보">
+<!--  <input type="button" id="magnet" value="지자기정보">
  <input type="button" id="weather" value="날씨정보">
  <div class="vis-weather">
         <h2 class="vh_hide">날씨정보</h2>
@@ -24,7 +24,7 @@
             <li id="RN1">시간당강수량 : ?</li>
             <li class="weather-state-text"></li>
         </ul>
-    </div>
+    </div> -->
    <h1 id="pilot" style="text-align: center;"><strong>드론 촬영 영상</strong></h1>
    <p style="text-align: center;">드론으로 촬영된 입체적인 항공 영상을 보시려면 해당지역을 선택하고 위치를 클릭해주세요.</p>
 	<div id="map">
