@@ -297,7 +297,7 @@ $(function(){
          </button>
      </p>
     </div>
-
+    수정 테스트를 위한 문구
     <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 
