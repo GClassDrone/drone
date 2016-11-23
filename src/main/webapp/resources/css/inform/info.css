@@ -1,0 +1,302 @@
+@CHARSET "UTF-8";
+
+/* body {
+    background: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0px 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+} 
+
+.row-no-gutter {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.row-no-gutter [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+} */
+
+
+#card {
+    background: #fff;
+    position: relative;
+
+    -webkit-box-shadow: 0px 1px 10px 0px rgba(207,207,207,1);
+    -moz-box-shadow: 0px 1px 10px 0px rgba(207,207,207,1);
+    box-shadow: 0px 1px 10px 0px rgba(207,207,207,1);
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;  
+}
+
+.city-selected {
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    background: #3D6AA2;
+}
+
+article {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 20px;
+
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.info .city,
+.night {
+    font-size: 24px;
+    font-weight: 200;
+    position: relative;
+
+
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+.info .city:after {
+    content: '';
+    width: 15px;
+    height: 2px;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.city span {
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+
+    text-transform: lowercase;
+    text-align: left;
+}
+
+.night {
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.icon {
+    width: 84px;
+    height: 84px;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+
+    overflow: visible;
+
+}
+
+
+.temp {
+    font-size: 73px;
+    display: block;
+    position: relative;
+    font-weight: bold;
+}
+
+svg {
+    color: #fff;
+    fill: currentColor;
+}
+
+
+.wind svg {
+    width: 18px;
+    height: 18px;
+    margin-top: 20px;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+
+.wind span {
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.city-selected:hover figure {
+    opacity: 0.4;
+}
+
+
+figure {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 1;
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.days .row [class*="col-"]:nth-child(2) .day  {
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: #eaeaea;
+}
+
+.days .row [class*="col-"] {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;  
+}
+
+.days .row [class*="col-"]:hover{
+    background: #eaeaea;
+}
+
+.day {
+    padding: 10px 0px;
+    text-align: center;
+
+}
+
+.day h1 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: black;
+}
+
+.day svg {
+    color: #000;
+    width: 32px;
+    height: 32px;
+} 
+
+/* 지자기 수치 */
+blockquote{
+    border-left:none
+}
+
+.quote-badge{
+    background-color: #ff8f00; 
+    font-size: 17px;  
+}
+
+.quote-box{
+    
+    overflow: hidden;
+    margin-top: -50px;
+    padding-top: -100px;
+    border-radius: 17px;
+    background-color: #1565c0;
+    margin-top: 25px;
+    color:white;
+    width: 325px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    
+}
+
+.quotation-mark{
+    
+    margin-top: -10px;
+    font-weight: bold;
+    font-size:80px;
+    color:white;
+    font-family: "Times New Roman", Georgia, Serif;
+    
+}
+
+.quote-text{
+    
+    font-size: 15px;
+    margin-top: -65px;
+}
+
+
+
+    .bgimage {
+        background-image: url('/resources/images/infoboard_bg.jpg');
+        background-position: center center;
+        background-size: cover;
+        height: 320px;
+    }
+    
+    a {
+        color: white;
+    }
+    
+    .more {
+        text-align: center;
+    }
+    
+.breadcrumb {
+        background-color: black;
+        border: 0px solid rgba(245, 245, 245, 1);
+        border-radius: 0px;
+        display: block;
+    }
+    
+    .breadcrumb li {
+        font-size: 14px;
+    }
+    
+    .breadcrumb a {
+        color: rgba(66, 139, 202, 1);
+    }
+    
+    .breadcrumb a:hover {
+        color: rgba(42, 100, 150, 1);
+    }
+    
+    .breadcrumb>.active {
+        color: rgba(153, 153, 153, 1);
+    }
+    
+    .breadcrumb>li+li:before {
+        color: rgba(204, 204, 204, 1);
+        content: "\002F\00a0";
+    }

@@ -320,24 +320,22 @@ var fdelete = function(fno){
 <!-- ------------------------------------콘텐츠 목록 보는쪽 -->
 <div class="container">
         <div class="col-md-12">
+        	<div class="section">
             <h1 class="text-center">게시 컨텐츠 목록</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="section">
-        <!-- 글등록 버튼 여기잇음 -->
-       <c:if test="${mno eq memDto.mno}"> 
-        <div>
-        	<form action="/map/ctsInsert" method="get">
-        		<input type="submit"  class="btn btn-warning" value="글등록">
-        	</form>
-        	<!-- <button type="submit" class="btn btn-warning" id="reg">글등록</button> -->
-        </div>
-        </c:if>
-		<div class="col-xs-12 col-sm-2 col-md-10 col-lg-10" id="cateList">
-		</div>
+	        <!-- 글등록 버튼 여기잇음 -->
+		       <c:if test="${mno eq memDto.mno}"> 
+		        <div>
+		        	<form action="/map/ctsInsert" method="get">
+		        		<input type="submit"  class="btn btn-warning" value="글등록">
+		        	</form>
+		        	<!-- <button type="submit" class="btn btn-warning" id="reg">글등록</button> -->
+		        </div>
+		        </c:if>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="cateList">
+				</div>
+	       </div>
        </div>
-    </div>
+</div>
 
     <!-- 페이지 이동버튼 -->
 	<div id="pageBtn-wrap">
