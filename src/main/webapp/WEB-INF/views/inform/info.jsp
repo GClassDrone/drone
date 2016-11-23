@@ -72,33 +72,6 @@ $(function(){
     <jsp:include page="../common/header.jsp"></jsp:include>
     <header class="bgimage hidden-xs">
     </header>
-<div class="wrapper" style="display:inline-block;float:left;margin-left:100px;">
-  <section>
-    <h1>Los Angeles, CA <a href="#" class="add">+</a></h1>
-    <div class="temperature entypo-light-up">
-      <h2>64<span class="degree-symbol">°</span>F<span class="celcius">| C</span></h2>
-    </div>
-    <ul>
-      <li class="fontawesome-leaf left">
-        <span>4 mph</span>
-      </li>
-      <li class="fontawesome-tint center">
-        <span>65%</span>
-      </li>
-      <li class="fontawesome-umbrella right">
-        <span>10%</span>
-      </li>
-    </ul> 
-    <div class="bullets">
-      <span class="entypo-record active"></span>
-      <span class="entypo-record"></span>
-      <span class="entypo-record"></span>
-    </div>
-    <a href="#">View on Wiki <span class="external-link fontawesome-external-link"></span></a>
-    <a href="#" class="share fontawesome-share"></a>
-  </section>
-</div>
-
     <div class="container">
         <div class="row">
             <br />
@@ -123,10 +96,6 @@ $(function(){
         </p>
         </c:if> 
     </div>
-<<<<<<< HEAD
-    <div class="container">
-            <div class="co-sm-12" id="infolist"></div>
-=======
     <div class="container" id="infolist">
 
 >>>>>>> b1f706c87db0e07f8cc7eff7c4ad0aba27c0fcf2
