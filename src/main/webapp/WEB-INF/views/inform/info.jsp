@@ -91,10 +91,10 @@ $(function(){
                     <div class="city-selected">
                         <article>
                             <div class="info">
-                                <div class="city"><span>City:</span> Skopje</div>
-                                <div class="night">Night - 22:07 PM</div>
+                                <div class="city"><span>City:</span> Seoul</div>
+                                <div class="night"></div>
 
-                                <div class="temp">3°</div>
+                                <div class="temp"></div>
 
                                 <div class="wind">
                                     <svg version="1.1" id="wind" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -130,11 +130,11 @@ $(function(){
                                         </g>
                                     </g>
 									</svg>
-                                    <span>25 km/h</span>
+                                    <span></span>
                                 </div>
                             </div>
 
-                            <div class="icon">
+                           <!--  <div class="icon">
                                 <svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                      viewBox="0 0 59.077 59.077" style="enable-background:new 0 0 59.077 59.077;" xml:space="preserve">
                                 <g>
@@ -161,7 +161,7 @@ $(function(){
                                         c0,0.552,0.447,1,1,1s1-0.448,1-1v-3.268l2.83,1.634c0.157,0.091,0.329,0.134,0.499,0.134c0.346,0,0.682-0.179,0.867-0.5
                                         c0.276-0.479,0.112-1.09-0.366-1.366l-2.83-1.634l2.83-1.634C22.749,51.167,22.913,50.556,22.637,50.077z"></path>
                                 </svg>
-                            </div>
+                            </div> -->
 
                         </article>
                         
